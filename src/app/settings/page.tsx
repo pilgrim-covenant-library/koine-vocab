@@ -29,10 +29,11 @@ import { cn } from '@/lib/utils';
 export default function SettingsPage() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const { dailyGoal, setDailyGoal, stats, progress } = useUserStore();
+  const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress } = useUserStore();
   const { user, signOut, linkToTeacher, unlinkFromTeacher, isLoading: authLoading } = useAuthStore();
   const [mounted, setMounted] = useState(false);
   const [localDailyGoal, setLocalDailyGoal] = useState(dailyGoal);
+  const [localSessionLength, setLocalSessionLength] = useState(sessionLength);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(true);
   const [teacherIdInput, setTeacherIdInput] = useState('');
@@ -86,6 +87,11 @@ export default function SettingsPage() {
   const handleDailyGoalChange = (value: number) => {
     setLocalDailyGoal(value);
     setDailyGoal(value);
+  };
+
+  const handleSessionLengthChange = (value: number) => {
+    setLocalSessionLength(value);
+    setSessionLength(value);
   };
 
   const handleAudioToggle = () => {
@@ -220,6 +226,32 @@ export default function SettingsPage() {
               </div>
               <p className="text-xs text-muted-foreground mt-2">
                 Complete {localDailyGoal} reviews daily to maintain your streak
+              </p>
+            </div>
+
+            {/* Session Length */}
+            <div>
+              <label className="text-sm font-medium text-muted-foreground mb-3 block">
+                Cards Per Session
+              </label>
+              <div className="grid grid-cols-5 gap-2">
+                {[5, 10, 20, 30, 50].map((length) => (
+                  <button
+                    key={length}
+                    onClick={() => handleSessionLengthChange(length)}
+                    className={cn(
+                      'py-3 px-2 rounded-xl border-2 transition-all font-medium text-sm',
+                      localSessionLength === length
+                        ? 'border-primary bg-primary/5 text-primary'
+                        : 'border-border hover:border-muted-foreground/50'
+                    )}
+                  >
+                    {length}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                Number of cards shown in each study session
               </p>
             </div>
 

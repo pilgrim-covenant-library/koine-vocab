@@ -14,14 +14,12 @@ import { cn, shuffle, checkTypingAnswer } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord } from '@/types';
 
-const MAX_SESSION_CARDS = 20;
-
 type AnswerStatus = 'idle' | 'correct' | 'incorrect' | 'close';
 
 export default function TypingPage() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
-  const { stats, progress, reviewWord, initializeWord, getDueWords } = useUserStore();
+  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength } = useUserStore();
   const {
     isActive,
     startSession,
@@ -71,7 +69,7 @@ export default function TypingPage() {
         sessionWords = newWords.sort((a, b) => a.tier - b.tier) as VocabularyWord[];
       }
 
-      sessionWords = shuffle(sessionWords.slice(0, MAX_SESSION_CARDS));
+      sessionWords = shuffle(sessionWords.slice(0, sessionLength));
 
       if (sessionWords.length > 0) {
         sessionWords.forEach((w) => initializeWord(w.id));
@@ -80,7 +78,7 @@ export default function TypingPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength]);
 
   // Focus input when moving to next word
   useEffect(() => {

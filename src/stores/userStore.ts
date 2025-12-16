@@ -11,6 +11,8 @@ interface UserState {
   progress: Record<string, WordProgress>;
   // Daily goal (number of reviews)
   dailyGoal: number;
+  // Session length (cards per session)
+  sessionLength: number;
   // Today's review count
   todayReviews: number;
   // Last review date (for resetting daily count)
@@ -24,8 +26,10 @@ interface UserState {
   getLearnedWordsCount: () => number;
   getInProgressWordsCount: () => number;
   setDailyGoal: (goal: number) => void;
+  setSessionLength: (length: number) => void;
   resetDailyCount: () => void;
   unlockAchievement: (achievementId: string) => void;
+  addXP: (amount: number) => { leveledUp: boolean };
 }
 
 export const useUserStore = create<UserState>()(
@@ -34,6 +38,7 @@ export const useUserStore = create<UserState>()(
       stats: createInitialStats(),
       progress: {},
       dailyGoal: 20,
+      sessionLength: 20,
       todayReviews: 0,
       lastReviewDate: null,
 
@@ -149,6 +154,10 @@ export const useUserStore = create<UserState>()(
         set({ dailyGoal: Math.max(5, Math.min(100, goal)) });
       },
 
+      setSessionLength: (length: number) => {
+        set({ sessionLength: Math.max(5, Math.min(50, length)) });
+      },
+
       resetDailyCount: () => {
         set({ todayReviews: 0 });
       },
@@ -163,6 +172,23 @@ export const useUserStore = create<UserState>()(
             },
           });
         }
+      },
+
+      addXP: (amount: number) => {
+        const { stats } = get();
+        const newXP = stats.xp + amount;
+        const newLevel = calculateLevel(newXP);
+        const leveledUp = newLevel > stats.level;
+
+        set({
+          stats: {
+            ...stats,
+            xp: newXP,
+            level: newLevel,
+          },
+        });
+
+        return { leveledUp };
       },
     }),
     {

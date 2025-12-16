@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 
 export default function Dashboard() {
-  const { stats, getDueWords, getLearnedWordsCount, dailyGoal, todayReviews } = useUserStore();
+  const { stats, getDueWords, getLearnedWordsCount, dailyGoal, todayReviews, progress } = useUserStore();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -29,6 +29,16 @@ export default function Dashboard() {
   const learnedCount = getLearnedWordsCount();
   const totalWords = vocabularyData.words.length;
   const dailyProgress = Math.min(100, Math.round((todayReviews / dailyGoal) * 100));
+
+  // Calculate per-tier progress (words with 5+ repetitions are "learned")
+  const getTierProgress = (tier: number) => {
+    const tierWords = vocabularyData.words.filter((w) => w.tier === tier);
+    const tierWordIds = new Set(tierWords.map((w) => w.id));
+    const learnedInTier = Object.values(progress).filter(
+      (p) => tierWordIds.has(p.wordId) && p.repetitions >= 5
+    ).length;
+    return { learned: learnedInTier, total: tierWords.length };
+  };
 
   return (
     <div className="min-h-screen">
@@ -147,6 +157,13 @@ export default function Dashboard() {
               description="Type the translation"
               color="bg-purple-500"
             />
+            <LearningModeCard
+              href="/learn/translation"
+              icon={<Languages className="w-6 h-6" />}
+              title="Passage Translation"
+              description="Translate verses from the Greek NT"
+              color="bg-amber-500"
+            />
           </div>
         </section>
 
@@ -166,15 +183,15 @@ export default function Dashboard() {
             <CardContent>
               <div className="space-y-3">
                 {[1, 2, 3, 4, 5].map((tier) => {
-                  const tierWords = vocabularyData.words.filter((w) => w.tier === tier);
-                  const tierProgress = Math.round((learnedCount / tierWords.length) * 100);
+                  const { learned, total } = getTierProgress(tier);
+                  const percentage = total > 0 ? Math.round((learned / total) * 100) : 0;
                   return (
                     <TierProgressBar
                       key={tier}
                       tier={tier}
-                      learned={Math.min(learnedCount, tierWords.length)}
-                      total={tierWords.length}
-                      progress={Math.min(100, tierProgress)}
+                      learned={learned}
+                      total={total}
+                      progress={percentage}
                     />
                   );
                 })}

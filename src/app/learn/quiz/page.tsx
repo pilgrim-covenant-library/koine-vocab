@@ -14,8 +14,6 @@ import { cn, shuffle, getRandomItems } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord, QuizQuestion } from '@/types';
 
-const MAX_SESSION_CARDS = 20;
-
 function generateQuizQuestion(
   word: VocabularyWord,
   allWords: VocabularyWord[]
@@ -44,7 +42,7 @@ function generateQuizQuestion(
 
 export default function QuizPage() {
   const router = useRouter();
-  const { stats, progress, reviewWord, initializeWord, getDueWords } = useUserStore();
+  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength } = useUserStore();
   const {
     isActive,
     startSession,
@@ -96,7 +94,7 @@ export default function QuizPage() {
       }
 
       // Limit and shuffle
-      sessionWords = shuffle(sessionWords.slice(0, MAX_SESSION_CARDS));
+      sessionWords = shuffle(sessionWords.slice(0, sessionLength));
 
       if (sessionWords.length > 0) {
         // Initialize progress for new words
@@ -114,7 +112,7 @@ export default function QuizPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength]);
 
   const currentQuestion = questions[currentIndex];
   const sessionProgress = getProgress();

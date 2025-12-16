@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { X, ArrowLeft, RotateCcw } from 'lucide-react';
+import { X, ArrowLeft, RotateCcw, Keyboard } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
 import { FlashCard } from '@/components/FlashCard';
@@ -15,11 +15,17 @@ import { shuffle } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord } from '@/types';
 
-const MAX_SESSION_CARDS = 20;
+// Keyboard shortcut mappings
+const KEYBOARD_SHORTCUTS = {
+  '1': 1, // Again
+  '2': 3, // Hard
+  '3': 4, // Good
+  '4': 5, // Easy
+} as const;
 
 export default function FlashcardsPage() {
   const router = useRouter();
-  const { stats, progress, reviewWord, initializeWord, getWordProgress, getDueWords } =
+  const { stats, progress, reviewWord, initializeWord, getWordProgress, getDueWords, sessionLength } =
     useUserStore();
   const {
     isActive,
@@ -39,6 +45,7 @@ export default function FlashcardsPage() {
   const [sessionComplete, setSessionComplete] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [sessionInitialized, setSessionInitialized] = useState(false);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   // Initialize session on mount
   useEffect(() => {
@@ -70,7 +77,7 @@ export default function FlashcardsPage() {
       }
 
       // Limit and shuffle
-      sessionWords = shuffle(sessionWords.slice(0, MAX_SESSION_CARDS));
+      sessionWords = shuffle(sessionWords.slice(0, sessionLength));
 
       if (sessionWords.length > 0) {
         // Initialize progress for new words
@@ -80,7 +87,7 @@ export default function FlashcardsPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength]);
 
   const currentWord = words[currentIndex] as VocabularyWord | undefined;
   const currentProgress = currentWord ? getWordProgress(currentWord.id) : null;
@@ -109,6 +116,33 @@ export default function FlashcardsPage() {
     },
     [currentWord, currentIndex, words.length, reviewWord, nextWord]
   );
+
+  // Keyboard shortcuts handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if typing in an input or if session is complete
+      if (sessionComplete || e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+
+      // Space or Enter to flip card
+      if ((e.key === ' ' || e.key === 'Enter') && !isFlipped) {
+        e.preventDefault();
+        flipCard();
+        return;
+      }
+
+      // Number keys 1-4 to rate (only when card is flipped)
+      if (isFlipped && e.key in KEYBOARD_SHORTCUTS) {
+        e.preventDefault();
+        const quality = KEYBOARD_SHORTCUTS[e.key as keyof typeof KEYBOARD_SHORTCUTS];
+        handleRate(quality);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFlipped, sessionComplete, flipCard, handleRate]);
 
   const handleEndSession = () => {
     const summary = endSession();
@@ -239,8 +273,33 @@ export default function FlashcardsPage() {
         {!isFlipped && (
           <p className="text-sm text-muted-foreground text-center">
             Tap the card to see the answer
+            <span className="hidden sm:inline text-xs ml-2 opacity-70">
+              (or press Space)
+            </span>
           </p>
         )}
+
+        {/* Keyboard shortcuts hint (desktop only) */}
+        <div className="hidden sm:block mt-4">
+          <button
+            onClick={() => setShowShortcuts(!showShortcuts)}
+            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors mx-auto"
+          >
+            <Keyboard className="w-3 h-3" />
+            Keyboard shortcuts
+          </button>
+          {showShortcuts && (
+            <div className="mt-2 p-3 rounded-lg bg-muted/50 text-xs text-muted-foreground max-w-xs mx-auto">
+              <div className="grid grid-cols-2 gap-2">
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">Space</kbd> Flip card</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">1</kbd> Again</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">2</kbd> Hard</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">3</kbd> Good</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">4</kbd> Easy</span>
+              </div>
+            </div>
+          )}
+        </div>
       </main>
 
       {/* Session stats footer */}

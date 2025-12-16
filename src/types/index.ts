@@ -50,7 +50,36 @@ export interface UserStats {
 }
 
 // Review Session Types
-export type LearningMode = 'flashcard' | 'quiz' | 'typing';
+export type LearningMode = 'flashcard' | 'quiz' | 'typing' | 'translation';
+
+// NT Verse Types
+export interface NTBook {
+  id: string;
+  name: string;
+  chapters: number;
+}
+
+export interface NTVerse {
+  id: string;
+  book: string;
+  chapter: number;
+  verse: number;
+  reference: string;
+  greek: string;
+  transliteration: string;
+  referenceTranslation: string;
+  keyTerms: string[];
+  difficulty: 1 | 2 | 3;
+  notes?: string;
+}
+
+export interface TranslationResult {
+  score: number; // 0-10
+  feedback: string;
+  keyTermsFound: string[];
+  keyTermsMissed: string[];
+  suggestions: string[];
+}
 
 export interface ReviewSession {
   id: string;
@@ -101,6 +130,7 @@ export const XP_REWARDS = {
   correctFlashcard: 10,
   correctQuiz: 15,
   correctTyping: 20,
+  translationBase: 30, // Base XP for translation, multiplied by score/10
   perfectSession: 50,
   dailyGoalMet: 100,
   newWordLearned: 25,
