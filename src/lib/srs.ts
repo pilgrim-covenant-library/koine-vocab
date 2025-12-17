@@ -12,13 +12,20 @@ const MIN_EASE_FACTOR = 1.3;
  * Calculate the next review date based on quality rating
  * @param card Current card state
  * @param quality Rating from 0-5 (0=blackout, 5=perfect)
+ * @param intervalModifier Multiplier for intervals (default 1.0)
  * @returns Updated card state with next review date
  */
 export function calculateNextReview(
   card: SRSCard,
-  quality: number
+  quality: number,
+  intervalModifier: number = 1.0
 ): SRSResult {
   let { easeFactor, interval, repetitions } = card;
+
+  // Handle NaN quality - treat as incorrect response (quality 1)
+  if (isNaN(quality) || quality === null || quality === undefined) {
+    quality = 1;
+  }
 
   // Clamp quality to 0-5
   quality = Math.max(0, Math.min(5, Math.round(quality)));
@@ -26,11 +33,11 @@ export function calculateNextReview(
   if (quality >= 3) {
     // Correct response
     if (repetitions === 0) {
-      interval = 1;
+      interval = Math.max(1, Math.round(1 * intervalModifier));
     } else if (repetitions === 1) {
-      interval = 6;
+      interval = Math.max(1, Math.round(6 * intervalModifier));
     } else {
-      interval = Math.round(interval * easeFactor);
+      interval = Math.max(1, Math.round(interval * easeFactor * intervalModifier));
     }
     repetitions += 1;
   } else {
@@ -64,6 +71,7 @@ export function createInitialProgress(wordId: string): WordProgress {
     easeFactor: DEFAULT_EASE_FACTOR,
     interval: 0,
     repetitions: 0,
+    maxRepetitions: 0,
     nextReview: now,
     lastReview: null,
     lastQuality: 0,
@@ -77,7 +85,8 @@ export function createInitialProgress(wordId: string): WordProgress {
  */
 export function updateWordProgress(
   progress: WordProgress,
-  quality: number
+  quality: number,
+  intervalModifier: number = 1.0
 ): WordProgress {
   const result = calculateNextReview(
     {
@@ -85,7 +94,8 @@ export function updateWordProgress(
       interval: progress.interval,
       repetitions: progress.repetitions,
     },
-    quality
+    quality,
+    intervalModifier
   );
 
   return {
@@ -93,6 +103,7 @@ export function updateWordProgress(
     easeFactor: result.easeFactor,
     interval: result.interval,
     repetitions: result.repetitions,
+    maxRepetitions: Math.max(progress.maxRepetitions || 0, result.repetitions),
     nextReview: result.nextReview,
     lastReview: new Date(),
     lastQuality: quality,
@@ -158,7 +169,10 @@ export function buttonToQuality(button: 'again' | 'hard' | 'good' | 'easy'): num
 /**
  * Get estimated next review interval for each button
  */
-export function getButtonIntervals(progress: WordProgress): Record<string, string> {
+export function getButtonIntervals(
+  progress: WordProgress,
+  intervalModifier: number = 1.0
+): Record<string, string> {
   const buttons = ['again', 'hard', 'good', 'easy'] as const;
   const intervals: Record<string, string> = {};
 
@@ -170,7 +184,8 @@ export function getButtonIntervals(progress: WordProgress): Record<string, strin
         interval: progress.interval,
         repetitions: progress.repetitions,
       },
-      quality
+      quality,
+      intervalModifier
     );
     intervals[button] = formatInterval(result.interval);
   }

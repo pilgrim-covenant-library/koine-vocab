@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, ListPlus } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
 import { StreakFire } from '@/components/StreakFire';
 import { ProgressRing } from '@/components/ProgressRing';
+import { Onboarding } from '@/components/Onboarding';
+import { DailyQuests } from '@/components/DailyQuests';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
@@ -16,10 +18,22 @@ import vocabularyData from '@/data/vocabulary.json';
 export default function Dashboard() {
   const { stats, getDueWords, getLearnedWordsCount, dailyGoal, todayReviews, progress } = useUserStore();
   const [mounted, setMounted] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    // Check if user is new and hasn't seen onboarding
+    const hasSeenOnboarding = localStorage.getItem('koine-onboarding-complete');
+    const isNewUser = Object.keys(progress).length === 0 && stats.totalReviews === 0;
+    if (isNewUser && !hasSeenOnboarding) {
+      setShowOnboarding(true);
+    }
+  }, [progress, stats.totalReviews]);
+
+  const handleOnboardingComplete = () => {
+    localStorage.setItem('koine-onboarding-complete', 'true');
+    setShowOnboarding(false);
+  };
 
   if (!mounted) {
     return <DashboardSkeleton />;
@@ -30,20 +44,29 @@ export default function Dashboard() {
   const totalWords = vocabularyData.words.length;
   const dailyProgress = Math.min(100, Math.round((todayReviews / dailyGoal) * 100));
 
-  // Calculate per-tier progress (words with 5+ repetitions are "learned")
+  // Calculate per-tier progress (words with 5+ max repetitions are "learned")
   const getTierProgress = (tier: number) => {
     const tierWords = vocabularyData.words.filter((w) => w.tier === tier);
     const tierWordIds = new Set(tierWords.map((w) => w.id));
     const learnedInTier = Object.values(progress).filter(
-      (p) => tierWordIds.has(p.wordId) && p.repetitions >= 5
+      (p) => tierWordIds.has(p.wordId) && (p.maxRepetitions || p.repetitions) >= 5
     ).length;
     return { learned: learnedInTier, total: tierWords.length };
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
+    <>
+      {/* Onboarding for new users */}
+      {showOnboarding && (
+        <Onboarding
+          onComplete={handleOnboardingComplete}
+          onSkip={handleOnboardingComplete}
+        />
+      )}
+
+      <div className="min-h-screen">
+        {/* Header */}
+        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <h1 className="text-xl font-bold text-primary">Koine Greek</h1>
@@ -51,8 +74,13 @@ export default function Dashboard() {
           <div className="flex items-center gap-2">
             <StreakFire streak={stats.streak} />
             <ThemeToggle />
+            <Link href="/progress">
+              <Button variant="ghost" size="icon" aria-label="View progress analytics">
+                <TrendingUp className="w-5 h-5" />
+              </Button>
+            </Link>
             <Link href="/settings">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Settings">
                 <Settings className="w-5 h-5" />
               </Button>
             </Link>
@@ -106,6 +134,11 @@ export default function Dashboard() {
               </div>
             </CardContent>
           </Card>
+        </section>
+
+        {/* Daily Quests */}
+        <section className="mb-8">
+          <DailyQuests />
         </section>
 
         {/* Start Review CTA */}
@@ -163,6 +196,13 @@ export default function Dashboard() {
               title="Passage Translation"
               description="Translate verses from the Greek NT"
               color="bg-amber-500"
+            />
+            <LearningModeCard
+              href="/lists"
+              icon={<ListPlus className="w-6 h-6" />}
+              title="My Word Lists"
+              description="Create and study custom word collections"
+              color="bg-pink-500"
             />
           </div>
         </section>
@@ -228,6 +268,7 @@ export default function Dashboard() {
         </section>
       </main>
     </div>
+    </>
   );
 }
 

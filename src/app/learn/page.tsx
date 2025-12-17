@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, BookOpen, Brain, Keyboard, ChevronRight, Check } from 'lucide-react';
+import { ArrowLeft, BookOpen, Brain, Keyboard, ChevronRight, Check, Zap } from 'lucide-react';
+import { useUserStore } from '@/stores/userStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
@@ -11,19 +11,44 @@ import vocabularyData from '@/data/vocabulary.json';
 
 export default function LearnPage() {
   const router = useRouter();
-  const [selectedTiers, setSelectedTiers] = useState<number[]>([1]);
+  const { selectedTiers, setSelectedTiers } = useUserStore();
 
   const toggleTier = (tier: number) => {
-    setSelectedTiers((prev) =>
-      prev.includes(tier) ? prev.filter((t) => t !== tier) : [...prev, tier]
-    );
+    if (selectedTiers.includes(tier)) {
+      setSelectedTiers(selectedTiers.filter((t) => t !== tier));
+    } else {
+      setSelectedTiers([...selectedTiers, tier]);
+    }
   };
 
+  // Static class mappings for each tier (Tailwind can't parse dynamic class names)
+  const tierStyles = {
+    1: {
+      selected: 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950',
+      icon: 'bg-emerald-500 text-white',
+    },
+    2: {
+      selected: 'border-blue-500 bg-blue-50 dark:bg-blue-950',
+      icon: 'bg-blue-500 text-white',
+    },
+    3: {
+      selected: 'border-amber-500 bg-amber-50 dark:bg-amber-950',
+      icon: 'bg-amber-500 text-white',
+    },
+    4: {
+      selected: 'border-orange-500 bg-orange-50 dark:bg-orange-950',
+      icon: 'bg-orange-500 text-white',
+    },
+    5: {
+      selected: 'border-red-500 bg-red-50 dark:bg-red-950',
+      icon: 'bg-red-500 text-white',
+    },
+  } as const;
+
   const tierData = [1, 2, 3, 4, 5].map((tier) => ({
-    tier,
+    tier: tier as 1 | 2 | 3 | 4 | 5,
     count: vocabularyData.words.filter((w) => w.tier === tier).length,
     label: ['Essential', 'High Frequency', 'Medium', 'Lower Frequency', 'Advanced'][tier - 1],
-    color: ['emerald', 'blue', 'amber', 'orange', 'red'][tier - 1],
   }));
 
   const selectedWordCount = vocabularyData.words.filter((w) =>
@@ -49,14 +74,14 @@ export default function LearnPage() {
             Select Vocabulary Tiers
           </h2>
           <div className="grid grid-cols-1 gap-2">
-            {tierData.map(({ tier, count, label, color }) => (
+            {tierData.map(({ tier, count, label }) => (
               <button
                 key={tier}
                 onClick={() => toggleTier(tier)}
                 className={cn(
                   'flex items-center justify-between p-4 rounded-xl border-2 transition-all',
                   selectedTiers.includes(tier)
-                    ? `border-${color}-500 bg-${color}-50 dark:bg-${color}-950`
+                    ? tierStyles[tier].selected
                     : 'border-border hover:border-muted-foreground/50'
                 )}
               >
@@ -65,7 +90,7 @@ export default function LearnPage() {
                     className={cn(
                       'w-6 h-6 rounded-full flex items-center justify-center',
                       selectedTiers.includes(tier)
-                        ? `bg-${color}-500 text-white`
+                        ? tierStyles[tier].icon
                         : 'bg-muted'
                     )}
                   >
@@ -111,6 +136,13 @@ export default function LearnPage() {
               title="Type Practice"
               description="Type the English translation. Great for active recall practice."
               color="bg-purple-500"
+            />
+            <LearningModeCard
+              href="/learn/cram"
+              icon={<Zap className="w-6 h-6" />}
+              title="Cram Mode"
+              description="Quick review without SRS. Perfect for cramming before a test!"
+              color="bg-amber-500"
             />
           </div>
         </section>

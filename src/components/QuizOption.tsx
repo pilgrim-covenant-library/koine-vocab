@@ -23,10 +23,26 @@ export function QuizOption({
   const letters = ['A', 'B', 'C', 'D'];
   const isRevealed = correct !== null && correct !== undefined;
 
+  // Build accessible label based on state
+  let ariaLabel = `Option ${letters[index]}: ${label}`;
+  if (isRevealed) {
+    if (correct) {
+      ariaLabel += ' - Correct answer';
+    } else if (selected) {
+      ariaLabel += ' - Incorrect, this was your choice';
+    }
+  } else if (selected) {
+    ariaLabel += ' - Selected';
+  }
+
   return (
     <button
       onClick={onSelect}
       disabled={disabled}
+      role="radio"
+      aria-checked={selected}
+      aria-label={ariaLabel}
+      aria-keyshortcuts={String(index + 1)}
       className={cn(
         'w-full p-4 rounded-xl border-2 transition-all text-left',
         'flex items-center gap-3',

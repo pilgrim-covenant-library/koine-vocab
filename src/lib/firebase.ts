@@ -269,6 +269,7 @@ export interface SyncedProgress {
     easeFactor: number;
     interval: number;
     repetitions: number;
+    maxRepetitions?: number; // Optional for backwards compatibility with existing data
     nextReview: string;
     lastReview: string | null;
     lastQuality: number;

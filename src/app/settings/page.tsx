@@ -12,15 +12,19 @@ import {
   Volume2,
   Trash2,
   Download,
+  Upload,
+  Check,
+  AlertCircle,
   Users,
   Link as LinkIcon,
   Unlink,
   LogOut,
   LogIn,
   GraduationCap,
+  Clock,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useUserStore } from '@/stores/userStore';
+import { useUserStore, SRS_PRESETS, type SRSMode } from '@/stores/userStore';
 import { useAuthStore, isFirebaseAvailable } from '@/stores/authStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -29,7 +33,7 @@ import { cn } from '@/lib/utils';
 export default function SettingsPage() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress } = useUserStore();
+  const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress, srsMode, setSrsMode } = useUserStore();
   const { user, signOut, linkToTeacher, unlinkFromTeacher, isLoading: authLoading } = useAuthStore();
   const [mounted, setMounted] = useState(false);
   const [localDailyGoal, setLocalDailyGoal] = useState(dailyGoal);
@@ -39,6 +43,9 @@ export default function SettingsPage() {
   const [teacherIdInput, setTeacherIdInput] = useState('');
   const [linkError, setLinkError] = useState<string | null>(null);
   const [isLinking, setIsLinking] = useState(false);
+  const [exportSuccess, setExportSuccess] = useState(false);
+  const [importStatus, setImportStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [importError, setImportError] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -116,6 +123,94 @@ export default function SettingsPage() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+
+    // Show success feedback
+    setExportSuccess(true);
+    setTimeout(() => setExportSuccess(false), 2000);
+  };
+
+  const handleImportData = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result as string;
+        const data = JSON.parse(content);
+
+        // Validate the imported data structure
+        if (!data.stats || !data.progress) {
+          throw new Error('Invalid backup file format. Missing required fields.');
+        }
+
+        // Validate stats structure
+        const requiredStatsFields = ['xp', 'level', 'streak', 'totalReviews'];
+        for (const field of requiredStatsFields) {
+          if (typeof data.stats[field] !== 'number') {
+            throw new Error(`Invalid stats format: missing or invalid '${field}'`);
+          }
+        }
+
+        // Get current localStorage data
+        const currentData = localStorage.getItem('koine-user-store');
+        const currentState = currentData ? JSON.parse(currentData) : {};
+
+        // Merge imported data with current state
+        const newState = {
+          ...currentState,
+          state: {
+            ...currentState.state,
+            stats: {
+              ...currentState.state?.stats,
+              ...data.stats,
+            },
+            progress: {
+              ...currentState.state?.progress,
+              ...data.progress,
+            },
+          },
+        };
+
+        // If dailyGoal is in the import, update it too
+        if (typeof data.dailyGoal === 'number') {
+          newState.state.dailyGoal = data.dailyGoal;
+        }
+
+        // Save to localStorage
+        localStorage.setItem('koine-user-store', JSON.stringify(newState));
+
+        setImportStatus('success');
+        setImportError(null);
+
+        // Reload after 1.5 seconds to apply changes
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+      } catch (error) {
+        setImportStatus('error');
+        setImportError(error instanceof Error ? error.message : 'Failed to import data');
+        // Reset status after 3 seconds
+        setTimeout(() => {
+          setImportStatus('idle');
+          setImportError(null);
+        }, 3000);
+      }
+    };
+
+    reader.onerror = () => {
+      setImportStatus('error');
+      setImportError('Failed to read file');
+      setTimeout(() => {
+        setImportStatus('idle');
+        setImportError(null);
+      }, 3000);
+    };
+
+    reader.readAsText(file);
+
+    // Reset file input so the same file can be selected again
+    event.target.value = '';
   };
 
   const handleResetProgress = () => {
@@ -255,6 +350,40 @@ export default function SettingsPage() {
               </p>
             </div>
 
+            {/* SRS Scheduling Mode */}
+            <div>
+              <label className="text-sm font-medium text-muted-foreground mb-3 block flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                Review Scheduling
+              </label>
+              <div className="space-y-2">
+                {(Object.entries(SRS_PRESETS) as [SRSMode, typeof SRS_PRESETS[SRSMode]][]).map(([mode, preset]) => (
+                  <button
+                    key={mode}
+                    onClick={() => setSrsMode(mode)}
+                    className={cn(
+                      'w-full py-3 px-4 rounded-xl border-2 transition-all text-left',
+                      srsMode === mode
+                        ? 'border-primary bg-primary/5'
+                        : 'border-border hover:border-muted-foreground/50'
+                    )}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className={cn('font-medium', srsMode === mode && 'text-primary')}>
+                        {preset.name}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {preset.intervalModifier < 1 ? 'More reviews' : preset.intervalModifier > 1 ? 'Fewer reviews' : 'Standard'}
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {preset.description}
+                    </p>
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Audio */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -358,7 +487,7 @@ export default function SettingsPage() {
                       </div>
                     ) : (
                       <div className="space-y-3">
-                        <label className="text-sm font-medium text-muted-foreground block">
+                        <label htmlFor="teacher-id-input" className="text-sm font-medium text-muted-foreground block">
                           Link to a Teacher
                         </label>
                         <p className="text-xs text-muted-foreground">
@@ -366,6 +495,7 @@ export default function SettingsPage() {
                         </p>
                         <div className="flex gap-2">
                           <input
+                            id="teacher-id-input"
                             type="text"
                             value={teacherIdInput}
                             onChange={(e) => setTeacherIdInput(e.target.value)}
@@ -436,16 +566,69 @@ export default function SettingsPage() {
             {/* Export */}
             <button
               onClick={handleExportData}
-              className="w-full flex items-center gap-3 p-4 rounded-xl border border-border hover:bg-muted/50 transition-colors text-left"
+              className={cn(
+                'w-full flex items-center gap-3 p-4 rounded-xl border transition-colors text-left',
+                exportSuccess
+                  ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950'
+                  : 'border-border hover:bg-muted/50'
+              )}
             >
-              <Download className="w-5 h-5 text-muted-foreground" />
+              {exportSuccess ? (
+                <Check className="w-5 h-5 text-emerald-500" />
+              ) : (
+                <Download className="w-5 h-5 text-muted-foreground" />
+              )}
               <div>
-                <p className="font-medium">Export Progress</p>
+                <p className="font-medium">
+                  {exportSuccess ? 'Exported!' : 'Export Progress'}
+                </p>
                 <p className="text-sm text-muted-foreground">
-                  Download your learning data as JSON
+                  {exportSuccess ? 'Data saved to your downloads' : 'Download your learning data as JSON'}
                 </p>
               </div>
             </button>
+
+            {/* Import */}
+            <label
+              className={cn(
+                'w-full flex items-center gap-3 p-4 rounded-xl border transition-colors text-left cursor-pointer',
+                importStatus === 'success'
+                  ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950'
+                  : importStatus === 'error'
+                  ? 'border-red-500 bg-red-50 dark:bg-red-950'
+                  : 'border-border hover:bg-muted/50'
+              )}
+            >
+              <input
+                type="file"
+                accept=".json"
+                onChange={handleImportData}
+                className="hidden"
+              />
+              {importStatus === 'success' ? (
+                <Check className="w-5 h-5 text-emerald-500" />
+              ) : importStatus === 'error' ? (
+                <AlertCircle className="w-5 h-5 text-red-500" />
+              ) : (
+                <Upload className="w-5 h-5 text-muted-foreground" />
+              )}
+              <div>
+                <p className="font-medium">
+                  {importStatus === 'success'
+                    ? 'Import Successful!'
+                    : importStatus === 'error'
+                    ? 'Import Failed'
+                    : 'Import Progress'}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {importStatus === 'success'
+                    ? 'Reloading to apply changes...'
+                    : importStatus === 'error'
+                    ? importError || 'Failed to import data'
+                    : 'Restore from a backup JSON file'}
+                </p>
+              </div>
+            </label>
 
             {/* Reset */}
             {!showResetConfirm ? (

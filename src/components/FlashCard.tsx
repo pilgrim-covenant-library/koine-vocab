@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { GreekWord } from './GreekWord';
+import { MorphologyDisplay } from './MorphologyDisplay';
 import type { VocabularyWord } from '@/types';
 
 interface FlashCardProps {
@@ -10,6 +11,7 @@ interface FlashCardProps {
   isFlipped?: boolean;
   onFlip?: () => void;
   className?: string;
+  blindMode?: boolean;
 }
 
 export function FlashCard({
@@ -17,6 +19,7 @@ export function FlashCard({
   isFlipped = false,
   onFlip,
   className,
+  blindMode = false,
 }: FlashCardProps) {
   const [localFlipped, setLocalFlipped] = useState(false);
   const flipped = isFlipped !== undefined ? isFlipped : localFlipped;
@@ -79,9 +82,20 @@ export function FlashCard({
                 {word.partOfSpeech}
               </span>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Tap to reveal
-            </p>
+            {blindMode ? (
+              <div className="mt-4 text-center">
+                <p className="text-sm font-medium text-primary">
+                  What does this word mean?
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Think of the answer, then tap to check
+                </p>
+              </div>
+            ) : (
+              <p className="mt-4 text-sm text-muted-foreground">
+                Tap to reveal
+              </p>
+            )}
           </div>
         </div>
 
@@ -90,25 +104,23 @@ export function FlashCard({
           <div
             className={cn(
               'h-full rounded-2xl border-2 bg-card shadow-lg',
-              'flex flex-col items-center justify-center p-8',
-              'transition-shadow hover:shadow-xl'
+              'flex flex-col items-center justify-center p-6',
+              'transition-shadow hover:shadow-xl overflow-y-auto'
             )}
           >
-            <div className="text-center space-y-4">
-              <p className="text-3xl font-bold text-primary">{word.gloss}</p>
-              <p className="text-base text-muted-foreground max-w-xs">
+            <div className="text-center space-y-3 w-full max-w-xs">
+              <p className="text-2xl font-bold text-primary">{word.gloss}</p>
+              <p className="text-sm text-muted-foreground">
                 {word.definition}
               </p>
-              <div className="pt-4 border-t border-border">
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-medium">Strong&apos;s:</span> {word.strongs}
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-medium">Frequency:</span> {word.frequency}x in NT
-                </p>
+              <div className="pt-3 border-t border-border">
+                <MorphologyDisplay word={word} compact />
+              </div>
+              <div className="text-xs text-muted-foreground">
+                <span className="font-medium">Frequency:</span> {word.frequency}x in NT
               </div>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="mt-3 text-xs text-muted-foreground">
               Tap to flip back
             </p>
           </div>

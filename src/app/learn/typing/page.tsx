@@ -2,24 +2,26 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { X, ArrowLeft, RotateCcw, ChevronRight, Eye } from 'lucide-react';
+import { X, RotateCcw, ChevronRight, Eye, Trophy, ThumbsUp, Zap, Keyboard } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
+import { useQuestStore } from '@/stores/questStore';
 import { GreekWord } from '@/components/GreekWord';
 import { TypingInput, TypingFeedback } from '@/components/TypingInput';
 import { XPBar, XPGain } from '@/components/XPBar';
+import { AchievementToast } from '@/components/AchievementToast';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { cn, shuffle, checkTypingAnswer } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
-import type { VocabularyWord } from '@/types';
+import type { VocabularyWord, Achievement } from '@/types';
 
 type AnswerStatus = 'idle' | 'correct' | 'incorrect' | 'close';
 
 export default function TypingPage() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
-  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength } = useUserStore();
+  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, checkAndUnlockAchievements, recordSession } = useUserStore();
   const {
     isActive,
     startSession,
@@ -31,6 +33,7 @@ export default function TypingPage() {
     setTypedAnswer,
     submitTypedAnswer,
     nextWord,
+    recordXP,
     getProgress,
     getSessionStats,
   } = useSessionStore();
@@ -42,6 +45,8 @@ export default function TypingPage() {
   const [sessionComplete, setSessionComplete] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [sessionInitialized, setSessionInitialized] = useState(false);
+  const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   // Initialize session on mount
   useEffect(() => {
@@ -52,19 +57,23 @@ export default function TypingPage() {
     if (!mounted) return;
 
     if (!isActive) {
-      // Get words for this session
+      // Get words for this session, filtered by selected tiers
       const dueWords = getDueWords();
       let sessionWords: VocabularyWord[] = [];
 
       if (dueWords.length > 0) {
+        // Review due words first, filtered by selected tiers
         const dueWordIds = dueWords.map((p) => p.wordId);
         sessionWords = vocabularyData.words.filter((w) =>
-          dueWordIds.includes(w.id)
+          dueWordIds.includes(w.id) && selectedTiers.includes(w.tier)
         ) as VocabularyWord[];
-      } else {
+      }
+
+      // If no due words in selected tiers, learn new words
+      if (sessionWords.length === 0) {
         const knownWordIds = Object.keys(progress);
         const newWords = vocabularyData.words.filter(
-          (w) => !knownWordIds.includes(w.id)
+          (w) => !knownWordIds.includes(w.id) && selectedTiers.includes(w.tier)
         );
         sessionWords = newWords.sort((a, b) => a.tier - b.tier) as VocabularyWord[];
       }
@@ -78,7 +87,7 @@ export default function TypingPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers]);
 
   // Focus input when moving to next word
   useEffect(() => {
@@ -116,15 +125,16 @@ export default function TypingPage() {
     submitTypedAnswer(isCorrect);
 
     // Update SRS and award XP
-    // exact = 5, correct = 5, close = 4, incorrect = 1
-    const quality = result === 'exact' ? 5 : result === 'correct' ? 5 : result === 'close' ? 4 : 1;
+    // exact = 5, correct = 5, close = 3 (hard - partial credit), incorrect = 1
+    const quality = result === 'exact' ? 5 : result === 'correct' ? 5 : result === 'close' ? 3 : 1;
     const { xpGained } = reviewWord(currentWord.id, quality);
 
     if (xpGained > 0) {
       setLastXP(xpGained);
       setShowXPGain(true);
+      recordXP(xpGained);
     }
-  }, [currentWord, showResult, typedAnswer, submitTypedAnswer, reviewWord]);
+  }, [currentWord, showResult, typedAnswer, submitTypedAnswer, reviewWord, recordXP]);
 
   const handleNext = useCallback(() => {
     setAnswerStatus('idle');
@@ -133,12 +143,44 @@ export default function TypingPage() {
     if (currentIndex < words.length - 1) {
       nextWord();
     } else {
+      // Session complete - check for achievements
+      const stats = getSessionStats();
+      const sessionData = {
+        reviews: stats.total,
+        duration: Date.now() - (useSessionStore.getState().startTime || Date.now()),
+        isPerfect: stats.accuracy === 100,
+      };
+      const newAchievements = checkAndUnlockAchievements(sessionData);
+      if (newAchievements.length > 0) {
+        setUnlockedAchievements(newAchievements);
+      }
       setSessionComplete(true);
     }
-  }, [currentIndex, words.length, nextWord]);
+  }, [currentIndex, words.length, nextWord, getSessionStats, checkAndUnlockAchievements]);
+
+  const { recordReviewCount, recordSessionAccuracy, recordPerfectSession } = useQuestStore();
 
   const handleEndSession = () => {
-    endSession();
+    const summary = endSession();
+    // Record session history
+    if (summary.wordsReviewed > 0) {
+      recordSession({
+        mode: summary.mode,
+        duration: summary.duration,
+        wordsReviewed: summary.wordsReviewed,
+        correctCount: summary.correctCount,
+        accuracy: summary.accuracy,
+        xpEarned: summary.xpEarned,
+        isPerfect: summary.isPerfect,
+      });
+
+      // Update quest progress
+      recordReviewCount(summary.wordsReviewed);
+      recordSessionAccuracy(summary.accuracy);
+      if (summary.isPerfect) {
+        recordPerfectSession();
+      }
+    }
     router.push('/');
   };
 
@@ -153,6 +195,26 @@ export default function TypingPage() {
   const handleShowHint = () => {
     setShowHint(true);
   };
+
+  // Keyboard shortcuts handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if session is complete
+      if (sessionComplete) {
+        return;
+      }
+
+      // Enter to go to next word when showing result
+      if (e.key === 'Enter' && showResult) {
+        e.preventDefault();
+        handleNext();
+        return;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [sessionComplete, showResult, handleNext]);
 
   if (!mounted || !sessionInitialized) {
     return <LoadingSkeleton />;
@@ -178,35 +240,49 @@ export default function TypingPage() {
   // Session complete
   if (sessionComplete) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <Card className="max-w-md w-full">
-          <CardContent className="py-8 text-center">
-            <div className="text-6xl mb-4">
-              {sessionStats.accuracy >= 80 ? '🎉' : sessionStats.accuracy >= 60 ? '👍' : '💪'}
-            </div>
-            <h2 className="text-2xl font-bold mb-2">Typing Practice Complete!</h2>
-            <div className="space-y-2 mb-6">
-              <p className="text-lg">
-                <span className="font-bold text-primary">{sessionStats.correct}</span>
-                <span className="text-muted-foreground">
-                  {' '}
-                  / {sessionStats.total} correct
-                </span>
-              </p>
-              <p className="text-3xl font-bold text-purple-500">{sessionStats.accuracy}%</p>
-            </div>
-            <div className="flex gap-3">
-              <Button variant="outline" onClick={handleRestart} className="flex-1">
-                <RotateCcw className="w-4 h-4 mr-2" />
-                Practice More
-              </Button>
-              <Button onClick={handleEndSession} className="flex-1">
-                Done
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <>
+        <div className="min-h-screen flex items-center justify-center p-4">
+          <Card className="max-w-md w-full">
+            <CardContent className="py-8 text-center">
+              <div className="flex justify-center mb-4">
+                {sessionStats.accuracy >= 80 ? (
+                  <Trophy className="w-16 h-16 text-amber-500" />
+                ) : sessionStats.accuracy >= 60 ? (
+                  <ThumbsUp className="w-16 h-16 text-blue-500" />
+                ) : (
+                  <Zap className="w-16 h-16 text-purple-500" />
+                )}
+              </div>
+              <h2 className="text-2xl font-bold mb-2">Typing Practice Complete!</h2>
+              <div className="space-y-2 mb-6">
+                <p className="text-lg">
+                  <span className="font-bold text-primary">{sessionStats.correct}</span>
+                  <span className="text-muted-foreground">
+                    {' '}
+                    / {sessionStats.total} correct
+                  </span>
+                </p>
+                <p className="text-3xl font-bold text-purple-500">{sessionStats.accuracy}%</p>
+              </div>
+              <div className="flex gap-3">
+                <Button variant="outline" onClick={handleRestart} className="flex-1">
+                  <RotateCcw className="w-4 h-4 mr-2" />
+                  Practice More
+                </Button>
+                <Button onClick={handleEndSession} className="flex-1">
+                  Done
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        {unlockedAchievements.length > 0 && (
+          <AchievementToast
+            achievements={unlockedAchievements}
+            onDismiss={() => setUnlockedAchievements([])}
+          />
+        )}
+      </>
     );
   }
 
@@ -216,13 +292,11 @@ export default function TypingPage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between mb-2">
-            <Button variant="ghost" size="icon" onClick={handleEndSession}>
-              <ArrowLeft className="w-5 h-5" />
-            </Button>
+            <div className="w-10" /> {/* Spacer for layout balance */}
             <span className="text-sm font-medium">
               {sessionProgress.current} / {sessionProgress.total}
             </span>
-            <Button variant="ghost" size="icon" onClick={handleEndSession}>
+            <Button variant="ghost" size="icon" onClick={handleEndSession} aria-label="Exit session">
               <X className="w-5 h-5" />
             </Button>
           </div>
@@ -312,27 +386,38 @@ export default function TypingPage() {
           </div>
         )}
 
-        {/* Hint button */}
+        {/* Hint section */}
         {!showResult && currentWord && (
           <div className="w-full max-w-md mb-4">
             {showHint ? (
-              <p className="text-sm text-muted-foreground text-center py-2">
-                First letter: <strong>{currentWord.gloss[0].toUpperCase()}</strong>
-                {currentWord.gloss.length > 3 && (
-                  <>, Length: <strong>{currentWord.gloss.length}</strong> characters</>
-                )}
-              </p>
+              <div className="text-sm text-center py-2 space-y-2">
+                <p className="text-muted-foreground">
+                  First letter: <strong className="text-foreground">{currentWord.gloss[0].toUpperCase()}</strong>
+                  {' '}&bull;{' '}
+                  Length: <strong className="text-foreground">{currentWord.gloss.length}</strong> letters
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Part of speech: <strong>{currentWord.partOfSpeech}</strong>
+                </p>
+                <p className="text-xs text-muted-foreground italic">
+                  Hint: &quot;{currentWord.gloss.slice(0, 2)}...{currentWord.gloss.slice(-1)}&quot;
+                </p>
+              </div>
             ) : (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleShowHint}
                 className="w-full text-muted-foreground"
+                aria-label="Show hint for the answer"
               >
                 <Eye className="w-4 h-4 mr-2" />
                 Show Hint
               </Button>
             )}
+            <p className="text-xs text-center text-muted-foreground/70 mt-2">
+              Case-insensitive &bull; Accepts synonyms &bull; Partial credit for close answers
+            </p>
           </div>
         )}
 
@@ -375,6 +460,25 @@ export default function TypingPage() {
                 'See Results'
               )}
             </Button>
+          )}
+        </div>
+
+        {/* Keyboard shortcuts hint (desktop only) */}
+        <div className="hidden sm:block mt-4">
+          <button
+            onClick={() => setShowShortcuts(!showShortcuts)}
+            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors mx-auto"
+          >
+            <Keyboard className="w-3 h-3" />
+            Keyboard shortcuts
+          </button>
+          {showShortcuts && (
+            <div className="mt-2 p-3 rounded-lg bg-muted/50 text-xs text-muted-foreground max-w-xs mx-auto">
+              <div className="grid grid-cols-2 gap-2">
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">Enter</kbd> Submit answer</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">Enter</kbd> Next word</span>
+              </div>
+            </div>
           )}
         </div>
       </main>

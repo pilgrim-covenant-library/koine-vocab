@@ -13,6 +13,8 @@ import {
   Clock,
   Target,
   BookOpen,
+  AlertCircle,
+  RefreshCw,
 } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { getTeacherStudents, getProgressFromCloud, type AppUser } from '@/lib/firebase';
@@ -37,6 +39,7 @@ export default function TeacherDashboard() {
   const { user, isLoading: authLoading } = useAuthStore();
   const [students, setStudents] = useState<StudentWithProgress[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -54,42 +57,48 @@ export default function TeacherDashboard() {
     if (!user) return;
 
     setIsLoading(true);
+    setError(null);
     try {
       const studentList = await getTeacherStudents(user.uid);
 
       // Load progress for each student
       const studentsWithProgress: StudentWithProgress[] = await Promise.all(
         studentList.map(async (student) => {
-          const progressData = await getProgressFromCloud(student.uid);
-          return {
-            ...student,
-            progress: progressData
-              ? {
-                  wordsLearned: progressData.stats.wordsLearned || 0,
-                  totalReviews: progressData.stats.totalReviews || 0,
-                  accuracy:
-                    progressData.stats.totalReviews > 0
-                      ? Math.round(
-                          (progressData.stats.correctReviews /
-                            progressData.stats.totalReviews) *
-                            100
-                        )
-                      : 0,
-                  streak: progressData.stats.streak || 0,
-                  level: progressData.stats.level || 1,
-                  xp: progressData.stats.xp || 0,
-                  lastActive: progressData.stats.lastStudyDate
-                    ? new Date(progressData.stats.lastStudyDate)
-                    : null,
-                }
-              : undefined,
-          };
+          try {
+            const progressData = await getProgressFromCloud(student.uid);
+            return {
+              ...student,
+              progress: progressData
+                ? {
+                    wordsLearned: progressData.stats.wordsLearned || 0,
+                    totalReviews: progressData.stats.totalReviews || 0,
+                    accuracy:
+                      progressData.stats.totalReviews > 0
+                        ? Math.round(
+                            (progressData.stats.correctReviews /
+                              progressData.stats.totalReviews) *
+                              100
+                          )
+                        : 0,
+                    streak: progressData.stats.streak || 0,
+                    level: progressData.stats.level || 1,
+                    xp: progressData.stats.xp || 0,
+                    lastActive: progressData.stats.lastStudyDate
+                      ? new Date(progressData.stats.lastStudyDate)
+                      : null,
+                  }
+                : undefined,
+            };
+          } catch {
+            // If individual student progress fails, return student without progress
+            return { ...student, progress: undefined };
+          }
         })
       );
 
       setStudents(studentsWithProgress);
-    } catch (error) {
-      console.error('Error loading students:', error);
+    } catch (err) {
+      setError('Failed to load students. Please check your connection and try again.');
     } finally {
       setIsLoading(false);
     }
@@ -121,6 +130,30 @@ export default function TeacherDashboard() {
 
   if (!user || user.role !== 'teacher') {
     return null;
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen">
+        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
+          <div className="container mx-auto px-4 py-3 flex items-center gap-3">
+            <Button variant="ghost" size="icon" onClick={() => router.push('/')}>
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+            <h1 className="text-lg font-semibold">Teacher Dashboard</h1>
+          </div>
+        </header>
+        <main className="container mx-auto px-4 py-12 max-w-md text-center">
+          <AlertCircle className="w-16 h-16 mx-auto mb-4 text-red-500" />
+          <h2 className="text-xl font-semibold mb-2">Error Loading Data</h2>
+          <p className="text-muted-foreground mb-6">{error}</p>
+          <Button onClick={loadStudents}>
+            <RefreshCw className="w-4 h-4 mr-2" />
+            Try Again
+          </Button>
+        </main>
+      </div>
+    );
   }
 
   // Calculate aggregate stats

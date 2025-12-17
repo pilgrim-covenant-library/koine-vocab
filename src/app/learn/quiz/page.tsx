@@ -2,23 +2,29 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { X, ArrowLeft, RotateCcw, ChevronRight } from 'lucide-react';
+import { X, RotateCcw, ChevronRight, Trophy, ThumbsUp, Zap, Keyboard } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
+import { useQuestStore } from '@/stores/questStore';
 import { GreekWord } from '@/components/GreekWord';
 import { QuizOption } from '@/components/QuizOption';
 import { XPBar, XPGain } from '@/components/XPBar';
+import { AchievementToast } from '@/components/AchievementToast';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { cn, shuffle, getRandomItems } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
-import type { VocabularyWord, QuizQuestion } from '@/types';
+import type { VocabularyWord, QuizQuestion, Achievement } from '@/types';
 
 function generateQuizQuestion(
   word: VocabularyWord,
   allWords: VocabularyWord[]
 ): QuizQuestion {
-  // Get distractors from same tier or adjacent tiers
+  // Get all unique glosses excluding the correct answer
+  const allGlosses = new Set(allWords.map((w) => w.gloss));
+  allGlosses.delete(word.gloss);
+
+  // Get distractors from same tier or adjacent tiers first
   const sameOrAdjacentTier = allWords.filter(
     (w) =>
       w.id !== word.id &&
@@ -26,8 +32,47 @@ function generateQuizQuestion(
       w.gloss !== word.gloss
   );
 
-  // Pick 3 random distractors
-  const distractors = getRandomItems(sameOrAdjacentTier, 3).map((w) => w.gloss);
+  // Pick 3 random distractors, using Set to ensure uniqueness
+  const usedGlosses = new Set<string>();
+  let distractors: string[] = [];
+
+  // First try same/adjacent tier
+  const shuffledSameTier = shuffle([...sameOrAdjacentTier]);
+  for (const w of shuffledSameTier) {
+    if (!usedGlosses.has(w.gloss) && distractors.length < 3) {
+      usedGlosses.add(w.gloss);
+      distractors.push(w.gloss);
+    }
+  }
+
+  // If we don't have enough distractors, get more from any tier
+  if (distractors.length < 3) {
+    const otherWords = allWords.filter(
+      (w) =>
+        w.id !== word.id &&
+        w.gloss !== word.gloss &&
+        !usedGlosses.has(w.gloss)
+    );
+    const shuffledOther = shuffle([...otherWords]);
+    for (const w of shuffledOther) {
+      if (!usedGlosses.has(w.gloss) && distractors.length < 3) {
+        usedGlosses.add(w.gloss);
+        distractors.push(w.gloss);
+      }
+    }
+  }
+
+  // Final fallback: if still not enough, create placeholder distractors
+  // This handles edge cases with very small vocabularies
+  const fallbackOptions = ['(unknown)', '(not listed)', '(other meaning)'];
+  let fallbackIndex = 0;
+  while (distractors.length < 3 && fallbackIndex < fallbackOptions.length) {
+    const fallback = fallbackOptions[fallbackIndex];
+    if (!usedGlosses.has(fallback)) {
+      distractors.push(fallback);
+    }
+    fallbackIndex++;
+  }
 
   // Create options array with correct answer and distractors
   const options = shuffle([word.gloss, ...distractors]);
@@ -42,7 +87,7 @@ function generateQuizQuestion(
 
 export default function QuizPage() {
   const router = useRouter();
-  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength } = useUserStore();
+  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, checkAndUnlockAchievements, recordSession } = useUserStore();
   const {
     isActive,
     startSession,
@@ -54,6 +99,7 @@ export default function QuizPage() {
     selectAnswer,
     submitQuizAnswer,
     nextWord,
+    recordXP,
     getProgress,
     getSessionStats,
   } = useSessionStore();
@@ -64,6 +110,8 @@ export default function QuizPage() {
   const [sessionComplete, setSessionComplete] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [sessionInitialized, setSessionInitialized] = useState(false);
+  const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   // Initialize session on mount
   useEffect(() => {
@@ -74,21 +122,24 @@ export default function QuizPage() {
     if (!mounted) return;
 
     if (!isActive) {
-      // Get words for this session
+      // Get words for this session, filtered by selected tiers
       const dueWords = getDueWords();
       let sessionWords: VocabularyWord[] = [];
 
       if (dueWords.length > 0) {
-        // Review due words first
+        // Review due words first, filtered by selected tiers
         const dueWordIds = dueWords.map((p) => p.wordId);
         sessionWords = vocabularyData.words.filter((w) =>
-          dueWordIds.includes(w.id)
+          dueWordIds.includes(w.id) && selectedTiers.includes(w.tier)
         ) as VocabularyWord[];
-      } else {
-        // Learn new words
+      }
+
+      // If no due words in selected tiers, learn new words
+      if (sessionWords.length === 0) {
+        // Learn new words, filtered by selected tiers
         const knownWordIds = Object.keys(progress);
         const newWords = vocabularyData.words.filter(
-          (w) => !knownWordIds.includes(w.id)
+          (w) => !knownWordIds.includes(w.id) && selectedTiers.includes(w.tier)
         );
         sessionWords = newWords.sort((a, b) => a.tier - b.tier) as VocabularyWord[];
       }
@@ -112,7 +163,7 @@ export default function QuizPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers]);
 
   const currentQuestion = questions[currentIndex];
   const sessionProgress = getProgress();
@@ -129,6 +180,12 @@ export default function QuizPage() {
   const handleSubmit = useCallback(() => {
     if (selectedAnswer === null || !currentQuestion) return;
 
+    // Validate answer index is within bounds
+    if (selectedAnswer < 0 || selectedAnswer >= currentQuestion.options.length) {
+      console.error('Invalid answer index:', selectedAnswer);
+      return;
+    }
+
     const isCorrect = selectedAnswer === currentQuestion.correctIndex;
     submitQuizAnswer(isCorrect);
 
@@ -139,19 +196,52 @@ export default function QuizPage() {
     if (xpGained > 0) {
       setLastXP(xpGained);
       setShowXPGain(true);
+      recordXP(xpGained);
     }
-  }, [selectedAnswer, currentQuestion, submitQuizAnswer, reviewWord]);
+  }, [selectedAnswer, currentQuestion, submitQuizAnswer, reviewWord, recordXP]);
 
   const handleNext = useCallback(() => {
     if (currentIndex < words.length - 1) {
       nextWord();
     } else {
+      // Session complete - check for achievements
+      const stats = getSessionStats();
+      const sessionData = {
+        reviews: stats.total,
+        duration: Date.now() - (useSessionStore.getState().startTime || Date.now()),
+        isPerfect: stats.accuracy === 100,
+      };
+      const newAchievements = checkAndUnlockAchievements(sessionData);
+      if (newAchievements.length > 0) {
+        setUnlockedAchievements(newAchievements);
+      }
       setSessionComplete(true);
     }
-  }, [currentIndex, words.length, nextWord]);
+  }, [currentIndex, words.length, nextWord, getSessionStats, checkAndUnlockAchievements]);
+
+  const { recordReviewCount, recordSessionAccuracy, recordPerfectSession } = useQuestStore();
 
   const handleEndSession = () => {
-    endSession();
+    const summary = endSession();
+    // Record session history
+    if (summary.wordsReviewed > 0) {
+      recordSession({
+        mode: summary.mode,
+        duration: summary.duration,
+        wordsReviewed: summary.wordsReviewed,
+        correctCount: summary.correctCount,
+        accuracy: summary.accuracy,
+        xpEarned: summary.xpEarned,
+        isPerfect: summary.isPerfect,
+      });
+
+      // Update quest progress
+      recordReviewCount(summary.wordsReviewed);
+      recordSessionAccuracy(summary.accuracy);
+      if (summary.isPerfect) {
+        recordPerfectSession();
+      }
+    }
     router.push('/');
   };
 
@@ -161,6 +251,43 @@ export default function QuizPage() {
     setSessionInitialized(false);
     endSession();
   };
+
+  // Keyboard shortcuts handler
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if typing in an input or if session is complete
+      if (sessionComplete || e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+
+      // Number keys 1-4 to select options (only when not showing result)
+      if (!showResult && ['1', '2', '3', '4'].includes(e.key)) {
+        e.preventDefault();
+        const index = parseInt(e.key) - 1;
+        if (index < (currentQuestion?.options.length || 0)) {
+          handleSelectAnswer(index);
+        }
+        return;
+      }
+
+      // Enter or Space to submit when answer selected but not yet submitted
+      if ((e.key === 'Enter' || e.key === ' ') && !showResult && selectedAnswer !== null) {
+        e.preventDefault();
+        handleSubmit();
+        return;
+      }
+
+      // Enter or Space to go to next question when showing result
+      if ((e.key === 'Enter' || e.key === ' ') && showResult) {
+        e.preventDefault();
+        handleNext();
+        return;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [sessionComplete, showResult, selectedAnswer, currentQuestion, handleSelectAnswer, handleSubmit, handleNext]);
 
   if (!mounted || !sessionInitialized) {
     return <LoadingSkeleton />;
@@ -186,35 +313,49 @@ export default function QuizPage() {
   // Session complete
   if (sessionComplete) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <Card className="max-w-md w-full">
-          <CardContent className="py-8 text-center">
-            <div className="text-6xl mb-4">
-              {sessionStats.accuracy >= 80 ? '🎉' : sessionStats.accuracy >= 60 ? '👍' : '💪'}
-            </div>
-            <h2 className="text-2xl font-bold mb-2">Quiz Complete!</h2>
-            <div className="space-y-2 mb-6">
-              <p className="text-lg">
-                <span className="font-bold text-primary">{sessionStats.correct}</span>
-                <span className="text-muted-foreground">
-                  {' '}
-                  / {sessionStats.total} correct
-                </span>
-              </p>
-              <p className="text-3xl font-bold text-blue-500">{sessionStats.accuracy}%</p>
-            </div>
-            <div className="flex gap-3">
-              <Button variant="outline" onClick={handleRestart} className="flex-1">
-                <RotateCcw className="w-4 h-4 mr-2" />
-                Try Again
-              </Button>
-              <Button onClick={handleEndSession} className="flex-1">
-                Done
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <>
+        <div className="min-h-screen flex items-center justify-center p-4">
+          <Card className="max-w-md w-full">
+            <CardContent className="py-8 text-center">
+              <div className="flex justify-center mb-4">
+                {sessionStats.accuracy >= 80 ? (
+                  <Trophy className="w-16 h-16 text-amber-500" />
+                ) : sessionStats.accuracy >= 60 ? (
+                  <ThumbsUp className="w-16 h-16 text-blue-500" />
+                ) : (
+                  <Zap className="w-16 h-16 text-purple-500" />
+                )}
+              </div>
+              <h2 className="text-2xl font-bold mb-2">Quiz Complete!</h2>
+              <div className="space-y-2 mb-6">
+                <p className="text-lg">
+                  <span className="font-bold text-primary">{sessionStats.correct}</span>
+                  <span className="text-muted-foreground">
+                    {' '}
+                    / {sessionStats.total} correct
+                  </span>
+                </p>
+                <p className="text-3xl font-bold text-blue-500">{sessionStats.accuracy}%</p>
+              </div>
+              <div className="flex gap-3">
+                <Button variant="outline" onClick={handleRestart} className="flex-1">
+                  <RotateCcw className="w-4 h-4 mr-2" />
+                  Try Again
+                </Button>
+                <Button onClick={handleEndSession} className="flex-1">
+                  Done
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        {unlockedAchievements.length > 0 && (
+          <AchievementToast
+            achievements={unlockedAchievements}
+            onDismiss={() => setUnlockedAchievements([])}
+          />
+        )}
+      </>
     );
   }
 
@@ -224,13 +365,11 @@ export default function QuizPage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between mb-2">
-            <Button variant="ghost" size="icon" onClick={handleEndSession}>
-              <ArrowLeft className="w-5 h-5" />
-            </Button>
+            <div className="w-10" /> {/* Spacer for layout balance */}
             <span className="text-sm font-medium">
               {sessionProgress.current} / {sessionProgress.total}
             </span>
-            <Button variant="ghost" size="icon" onClick={handleEndSession}>
+            <Button variant="ghost" size="icon" onClick={handleEndSession} aria-label="Exit session">
               <X className="w-5 h-5" />
             </Button>
           </div>
@@ -298,7 +437,11 @@ export default function QuizPage() {
 
         {/* Answer options */}
         {currentQuestion && (
-          <div className="w-full max-w-md space-y-3 mb-6">
+          <div
+            className="w-full max-w-md space-y-3 mb-6"
+            role="radiogroup"
+            aria-label="Answer options"
+          >
             {currentQuestion.options.map((option, index) => (
               <QuizOption
                 key={index}
@@ -318,6 +461,15 @@ export default function QuizPage() {
                 onSelect={() => handleSelectAnswer(index)}
               />
             ))}
+          </div>
+        )}
+
+        {/* Screen reader announcement for result */}
+        {showResult && currentQuestion && (
+          <div className="sr-only" role="status" aria-live="polite">
+            {selectedAnswer === currentQuestion.correctIndex
+              ? `Correct! The answer is ${currentQuestion.word.gloss}.`
+              : `Incorrect. The correct answer is ${currentQuestion.word.gloss}.`}
           </div>
         )}
 
@@ -371,6 +523,26 @@ export default function QuizPage() {
             </p>
           </div>
         )}
+
+        {/* Keyboard shortcuts hint (desktop only) */}
+        <div className="hidden sm:block mt-4">
+          <button
+            onClick={() => setShowShortcuts(!showShortcuts)}
+            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors mx-auto"
+          >
+            <Keyboard className="w-3 h-3" />
+            Keyboard shortcuts
+          </button>
+          {showShortcuts && (
+            <div className="mt-2 p-3 rounded-lg bg-muted/50 text-xs text-muted-foreground max-w-xs mx-auto">
+              <div className="grid grid-cols-2 gap-2">
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">1-4</kbd> Select option</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">Enter</kbd> Submit/Next</span>
+                <span><kbd className="px-1.5 py-0.5 rounded bg-background border text-[10px]">Space</kbd> Submit/Next</span>
+              </div>
+            </div>
+          )}
+        </div>
       </main>
 
       {/* Session stats footer */}

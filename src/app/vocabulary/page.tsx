@@ -2,20 +2,23 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Search, BookOpen, Check, Clock } from 'lucide-react';
+import { ArrowLeft, Search, BookOpen, Check, Clock, AlertTriangle } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { GreekWord } from '@/components/GreekWord';
+import { MorphologyDisplay } from '@/components/MorphologyDisplay';
+import { WordRelations } from '@/components/WordRelations';
+import { AddToListButton } from '@/components/AddToListButton';
 import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord } from '@/types';
 
-type FilterStatus = 'all' | 'learned' | 'learning' | 'new';
+type FilterStatus = 'all' | 'learned' | 'learning' | 'new' | 'leech';
 type FilterTier = 0 | 1 | 2 | 3 | 4 | 5;
 
 export default function VocabularyPage() {
-  const { progress } = useUserStore();
+  const { progress, isLeech, getLeeches } = useUserStore();
   const [mounted, setMounted] = useState(false);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<FilterStatus>('all');
@@ -31,7 +34,7 @@ export default function VocabularyPage() {
   const getWordStatus = (wordId: string): 'learned' | 'learning' | 'new' => {
     const wordProgress = progress[wordId];
     if (!wordProgress) return 'new';
-    if (wordProgress.repetitions >= 5) return 'learned';
+    if ((wordProgress.maxRepetitions || wordProgress.repetitions) >= 5) return 'learned';
     return 'learning';
   };
 
@@ -49,7 +52,9 @@ export default function VocabularyPage() {
       }
 
       // Status filter
-      if (statusFilter !== 'all') {
+      if (statusFilter === 'leech') {
+        if (!isLeech(word.id)) return false;
+      } else if (statusFilter !== 'all') {
         const status = getWordStatus(word.id);
         if (status !== statusFilter) return false;
       }
@@ -67,6 +72,7 @@ export default function VocabularyPage() {
     let learned = 0;
     let learning = 0;
     let newWords = 0;
+    const leechCount = getLeeches().length;
 
     for (const word of words) {
       const status = getWordStatus(word.id);
@@ -75,8 +81,8 @@ export default function VocabularyPage() {
       else newWords++;
     }
 
-    return { learned, learning, new: newWords, total: words.length };
-  }, [words, progress]);
+    return { learned, learning, new: newWords, leech: leechCount, total: words.length };
+  }, [words, progress, getLeeches]);
 
   if (!mounted) {
     return <VocabularySkeleton />;
@@ -140,6 +146,15 @@ export default function VocabularyPage() {
               <BookOpen className="w-3 h-3 mr-1" />
               New ({stats.new})
             </FilterButton>
+            {stats.leech > 0 && (
+              <FilterButton
+                active={statusFilter === 'leech'}
+                onClick={() => setStatusFilter('leech')}
+              >
+                <AlertTriangle className="w-3 h-3 mr-1" />
+                Leeches ({stats.leech})
+              </FilterButton>
+            )}
           </div>
 
           {/* Tier filter */}
@@ -199,25 +214,33 @@ export default function VocabularyPage() {
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
+                      {isLeech(word.id) && <LeechBadge />}
                       <StatusBadge status={status} />
                       <TierBadge tier={word.tier} />
                     </div>
                   </div>
 
                   {isExpanded && (
-                    <div className="mt-4 pt-4 border-t space-y-2">
+                    <div className="mt-4 pt-4 border-t space-y-3">
                       <p className="text-sm">{word.definition}</p>
-                      <div className="flex gap-2 text-xs text-muted-foreground">
-                        <span>{word.partOfSpeech}</span>
-                        <span>-</span>
-                        <span>Frequency: {word.frequency}</span>
-                      </div>
-                      {progress[word.id] && (
-                        <div className="text-xs text-muted-foreground">
-                          Reviews: {progress[word.id].repetitions} |
-                          Ease: {progress[word.id].easeFactor.toFixed(2)}
+                      <MorphologyDisplay word={word} />
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                          <span>Frequency: {word.frequency}x in NT</span>
+                          {progress[word.id] && (
+                            <span>
+                              Reviews: {progress[word.id].timesReviewed} |
+                              Ease: {progress[word.id].easeFactor.toFixed(2)}
+                            </span>
+                          )}
                         </div>
-                      )}
+                        <AddToListButton wordId={word.id} />
+                      </div>
+                      <WordRelations
+                        word={word}
+                        onWordClick={(w) => setExpandedWord(w.id)}
+                        compact
+                      />
                     </div>
                   )}
                 </CardContent>
@@ -294,6 +317,18 @@ function TierBadge({ tier }: { tier: number }) {
       )}
     >
       T{tier}
+    </span>
+  );
+}
+
+function LeechBadge() {
+  return (
+    <span
+      className="px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300 flex items-center gap-1"
+      title="This word has a low success rate - consider extra practice"
+    >
+      <AlertTriangle className="w-3 h-3" />
+      Leech
     </span>
   );
 }

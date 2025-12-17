@@ -8,11 +8,13 @@ interface SessionState {
   mode: LearningMode | null;
   sessionId: string | null;
   startTime: number | null;
+  lastWordTime: number | null; // Tracks when current word started
 
   // Session data
   words: VocabularyWord[];
   currentIndex: number;
   reviews: ReviewWord[];
+  xpEarned: number; // Total XP earned in this session
 
   // UI state
   isFlipped: boolean;
@@ -38,10 +40,20 @@ interface SessionState {
   setTypedAnswer: (answer: string) => void;
   submitTypedAnswer: (correct: boolean) => void;
 
+  // XP tracking
+  recordXP: (amount: number) => void;
+
+  // Undo support
+  undoLastReview: () => boolean;
+
+  // Streak tracking
+  currentStreak: number;
+  bestStreak: number;
+
   // Getters
   getCurrentWord: () => VocabularyWord | null;
   getProgress: () => { current: number; total: number; percentage: number };
-  getSessionStats: () => { correct: number; total: number; accuracy: number };
+  getSessionStats: () => { correct: number; total: number; accuracy: number; currentStreak: number; bestStreak: number };
 }
 
 export interface SessionSummary {
@@ -60,27 +72,36 @@ export const useSessionStore = create<SessionState>((set, get) => ({
   mode: null,
   sessionId: null,
   startTime: null,
+  lastWordTime: null,
   words: [],
   currentIndex: 0,
   reviews: [],
+  xpEarned: 0,
   isFlipped: false,
   showResult: false,
   selectedAnswer: null,
   typedAnswer: '',
+  currentStreak: 0,
+  bestStreak: 0,
 
   startSession: (mode: LearningMode, words: VocabularyWord[]) => {
+    const now = Date.now();
     set({
       isActive: true,
       mode,
       sessionId: generateId(),
-      startTime: Date.now(),
+      startTime: now,
+      lastWordTime: now,
       words,
       currentIndex: 0,
       reviews: [],
+      xpEarned: 0,
       isFlipped: false,
       showResult: false,
       selectedAnswer: null,
       typedAnswer: '',
+      currentStreak: 0,
+      bestStreak: 0,
     });
   },
 
@@ -98,7 +119,7 @@ export const useSessionStore = create<SessionState>((set, get) => ({
       wordsReviewed: state.reviews.length,
       correctCount,
       accuracy,
-      xpEarned: 0, // Will be calculated elsewhere
+      xpEarned: state.xpEarned,
       isPerfect: correctCount === state.reviews.length && state.reviews.length > 0,
       reviews: state.reviews,
     };
@@ -108,13 +129,17 @@ export const useSessionStore = create<SessionState>((set, get) => ({
       mode: null,
       sessionId: null,
       startTime: null,
+      lastWordTime: null,
       words: [],
       currentIndex: 0,
       reviews: [],
+      xpEarned: 0,
       isFlipped: false,
       showResult: false,
       selectedAnswer: null,
       typedAnswer: '',
+      currentStreak: 0,
+      bestStreak: 0,
     });
 
     return summary;
@@ -125,6 +150,7 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     if (currentIndex < words.length - 1) {
       set({
         currentIndex: currentIndex + 1,
+        lastWordTime: Date.now(),
         isFlipped: false,
         showResult: false,
         selectedAnswer: null,
@@ -155,15 +181,21 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     const currentWord = state.words[state.currentIndex];
     if (!currentWord) return;
 
+    const correct = quality >= 3;
     const review: ReviewWord = {
       wordId: currentWord.id,
       quality,
-      responseTime: state.startTime ? Date.now() - state.startTime : 0,
-      correct: quality >= 3,
+      responseTime: state.lastWordTime ? Date.now() - state.lastWordTime : 0,
+      correct,
     };
+
+    const newStreak = correct ? state.currentStreak + 1 : 0;
+    const newBest = Math.max(state.bestStreak, newStreak);
 
     set({
       reviews: [...state.reviews, review],
+      currentStreak: newStreak,
+      bestStreak: newBest,
     });
   },
 
@@ -179,13 +211,18 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     const review: ReviewWord = {
       wordId: currentWord.id,
       quality: correct ? 5 : 1,
-      responseTime: state.startTime ? Date.now() - state.startTime : 0,
+      responseTime: state.lastWordTime ? Date.now() - state.lastWordTime : 0,
       correct,
     };
+
+    const newStreak = correct ? state.currentStreak + 1 : 0;
+    const newBest = Math.max(state.bestStreak, newStreak);
 
     set({
       reviews: [...state.reviews, review],
       showResult: true,
+      currentStreak: newStreak,
+      bestStreak: newBest,
     });
   },
 
@@ -201,14 +238,46 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     const review: ReviewWord = {
       wordId: currentWord.id,
       quality: correct ? 5 : 1,
-      responseTime: state.startTime ? Date.now() - state.startTime : 0,
+      responseTime: state.lastWordTime ? Date.now() - state.lastWordTime : 0,
       correct,
     };
+
+    const newStreak = correct ? state.currentStreak + 1 : 0;
+    const newBest = Math.max(state.bestStreak, newStreak);
 
     set({
       reviews: [...state.reviews, review],
       showResult: true,
+      currentStreak: newStreak,
+      bestStreak: newBest,
     });
+  },
+
+  recordXP: (amount: number) => {
+    set((state) => ({ xpEarned: state.xpEarned + amount }));
+  },
+
+  undoLastReview: () => {
+    const state = get();
+    if (state.reviews.length === 0) return false;
+
+    // Remove the last review from the array
+    const newReviews = state.reviews.slice(0, -1);
+
+    // Go back to the previous card (if we moved forward)
+    // Check if we're not at the first card and if we've moved past the word we just undid
+    const shouldGoBack = state.currentIndex > 0 || state.currentIndex === state.words.length - 1;
+
+    set({
+      reviews: newReviews,
+      currentIndex: shouldGoBack ? Math.max(0, state.currentIndex - 1) : state.currentIndex,
+      isFlipped: false,
+      showResult: false,
+      selectedAnswer: null,
+      typedAnswer: '',
+    });
+
+    return true;
   },
 
   getCurrentWord: () => {
@@ -225,10 +294,10 @@ export const useSessionStore = create<SessionState>((set, get) => ({
   },
 
   getSessionStats: () => {
-    const { reviews } = get();
+    const { reviews, currentStreak, bestStreak } = get();
     const total = reviews.length;
     const correct = reviews.filter((r) => r.correct).length;
     const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-    return { correct, total, accuracy };
+    return { correct, total, accuracy, currentStreak, bestStreak };
   },
 }));

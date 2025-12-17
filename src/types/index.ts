@@ -10,6 +10,25 @@ export interface VocabularyWord {
   tier: 1 | 2 | 3 | 4 | 5;
   strongs: string;
   examples?: string[];
+  morphology?: WordMorphology;
+}
+
+// Morphology Types for Greek Words
+export interface WordMorphology {
+  // For nouns
+  gender?: 'masculine' | 'feminine' | 'neuter';
+  declension?: '1st' | '2nd' | '3rd';
+  // For verbs
+  conjugation?: '1st' | '2nd' | 'irregular';
+  principalParts?: string[]; // [present, future, aorist, perfect, perfect-mid/pass, aorist-pass]
+  deponent?: boolean;
+  // For adjectives
+  pattern?: '2-1-2' | '3-1-3' | '2-2' | '3-3';
+  // For pronouns
+  person?: 1 | 2 | 3;
+  // Common
+  case?: 'nominative' | 'genitive' | 'dative' | 'accusative' | 'vocative';
+  number?: 'singular' | 'plural';
 }
 
 // SRS Types
@@ -29,6 +48,7 @@ export interface WordProgress {
   easeFactor: number;
   interval: number;
   repetitions: number;
+  maxRepetitions: number; // Tracks highest repetition count ever reached (for stable "learned" status)
   nextReview: Date;
   lastReview: Date | null;
   lastQuality: number;

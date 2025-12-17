@@ -28,7 +28,14 @@ export function XPBar({ xp, level, className, showDetails = true }: XPBarProps) 
           </span>
         )}
       </div>
-      <div className="h-2 bg-muted rounded-full overflow-hidden">
+      <div
+        className="h-2 bg-muted rounded-full overflow-hidden"
+        role="progressbar"
+        aria-valuenow={progress}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={`Level ${level} progress: ${progress}% to next level`}
+      >
         <div
           className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
@@ -52,6 +59,9 @@ export function XPGain({ amount, show, onComplete }: XPGainProps) {
     <div
       className="absolute top-0 left-1/2 -translate-x-1/2 animate-xp-gain"
       onAnimationEnd={onComplete}
+      role="status"
+      aria-live="polite"
+      aria-label={`Earned ${amount} experience points`}
     >
       <span className="text-lg font-bold text-purple-500">+{amount} XP</span>
     </div>

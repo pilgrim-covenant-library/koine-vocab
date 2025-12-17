@@ -257,6 +257,9 @@ function calculateCompletenessScore(
   userText: string,
   referenceText: string
 ): number {
+  // Handle null/undefined inputs
+  if (!userText || !referenceText) return 0;
+
   const userLen = normalizeText(userText).length;
   const refLen = normalizeText(referenceText).length;
 
@@ -334,6 +337,7 @@ export function scoreTranslation(
 ): TranslationResult {
   const userTokens = tokenize(userTranslation);
   const referenceTokens = tokenize(verse.referenceTranslation);
+  const keyTerms = verse.keyTerms || [];
 
   // Handle empty submission
   if (userTranslation.trim().length === 0) {
@@ -341,13 +345,13 @@ export function scoreTranslation(
       score: 0,
       feedback: 'Please enter a translation.',
       keyTermsFound: [],
-      keyTermsMissed: verse.keyTerms,
+      keyTermsMissed: keyTerms,
       suggestions: ['Try translating the Greek text word by word first.'],
     };
   }
 
   // Calculate component scores
-  const keyTermsResult = calculateKeyTermsScore(userTokens, verse.keyTerms);
+  const keyTermsResult = calculateKeyTermsScore(userTokens, keyTerms);
   const semanticScore = calculateSemanticScore(userTokens, referenceTokens);
   const completenessScore = calculateCompletenessScore(userTranslation, verse.referenceTranslation);
 
@@ -358,7 +362,8 @@ export function scoreTranslation(
     completenessScore * 0.25;
 
   // Convert to 0-10 scale and round to 1 decimal
-  const score = Math.round(rawScore * 100) / 10;
+  // Also protect against NaN by defaulting to 0
+  const score = isNaN(rawScore) ? 0 : Math.round(rawScore * 100) / 10;
 
   // Generate feedback and suggestions
   const feedback = generateFeedback(score, keyTermsResult.missed);

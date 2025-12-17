@@ -11,9 +11,12 @@ import {
   Award,
   Flame,
   Clock,
+  AlertCircle,
+  RefreshCw,
 } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { getUserData, getProgressFromCloud, type AppUser, type SyncedProgress } from '@/lib/firebase';
+import { getAchievement } from '@/lib/achievements';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { ProgressRing } from '@/components/ProgressRing';
@@ -28,6 +31,7 @@ export default function StudentDetailPage() {
   const [student, setStudent] = useState<AppUser | null>(null);
   const [progress, setProgress] = useState<SyncedProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!authLoading && (!user || user.role !== 'teacher')) {
@@ -42,6 +46,7 @@ export default function StudentDetailPage() {
 
   const loadStudentData = async () => {
     setIsLoading(true);
+    setError(null);
     try {
       const [studentData, progressData] = await Promise.all([
         getUserData(studentId),
@@ -49,16 +54,20 @@ export default function StudentDetailPage() {
       ]);
 
       // Verify student is linked to this teacher
-      if (studentData?.teacherId !== user?.uid) {
-        router.push('/teacher');
+      if (!studentData) {
+        setError('Student not found. They may have deleted their account.');
+        return;
+      }
+
+      if (studentData.teacherId !== user?.uid) {
+        setError('This student is not linked to your account.');
         return;
       }
 
       setStudent(studentData);
       setProgress(progressData);
-    } catch (error) {
-      console.error('Error loading student data:', error);
-      router.push('/teacher');
+    } catch (err) {
+      setError('Failed to load student data. Please check your connection and try again.');
     } finally {
       setIsLoading(false);
     }
@@ -66,6 +75,36 @@ export default function StudentDetailPage() {
 
   if (authLoading || isLoading) {
     return <StudentDetailSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen">
+        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
+          <div className="container mx-auto px-4 py-3 flex items-center gap-3">
+            <Button variant="ghost" size="icon" onClick={() => router.push('/teacher')}>
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+            <h1 className="text-lg font-semibold">Student Progress</h1>
+          </div>
+        </header>
+        <main className="container mx-auto px-4 py-12 max-w-md text-center">
+          <AlertCircle className="w-16 h-16 mx-auto mb-4 text-red-500" />
+          <h2 className="text-xl font-semibold mb-2">Error Loading Data</h2>
+          <p className="text-muted-foreground mb-6">{error}</p>
+          <div className="flex gap-3 justify-center">
+            <Button variant="outline" onClick={() => router.push('/teacher')}>
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
+            <Button onClick={loadStudentData}>
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Try Again
+            </Button>
+          </div>
+        </main>
+      </div>
+    );
   }
 
   if (!student || !user || user.role !== 'teacher') {
@@ -97,7 +136,8 @@ export default function StudentDetailPage() {
     const tierWords = vocabularyData.words.filter((w) => w.tier === tier);
     const learnedInTier = Object.keys(progress?.words || {}).filter((wordId) => {
       const word = vocabularyData.words.find((w) => w.id === wordId);
-      return word?.tier === tier && (progress?.words[wordId]?.repetitions || 0) >= 5;
+      const wordProg = progress?.words[wordId];
+      return word?.tier === tier && (wordProg?.maxRepetitions || wordProg?.repetitions || 0) >= 5;
     }).length;
     return {
       tier,
@@ -280,14 +320,19 @@ export default function StudentDetailPage() {
               </p>
             ) : (
               <div className="flex flex-wrap gap-2">
-                {stats.achievements.map((achievementId) => (
-                  <span
-                    key={achievementId}
-                    className="px-3 py-1 bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 rounded-full text-sm"
-                  >
-                    {achievementId}
-                  </span>
-                ))}
+                {stats.achievements.map((achievementId) => {
+                  const achievement = getAchievement(achievementId);
+                  return (
+                    <span
+                      key={achievementId}
+                      className="px-3 py-1 bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 rounded-full text-sm flex items-center gap-1"
+                      title={achievement?.description}
+                    >
+                      <span>{achievement?.icon || '🏆'}</span>
+                      <span>{achievement?.name || achievementId}</span>
+                    </span>
+                  );
+                })}
               </div>
             )}
           </CardContent>

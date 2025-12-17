@@ -25,15 +25,22 @@ export const TypingInput = forwardRef<HTMLInputElement, TypingInputProps>(
       [onSubmit]
     );
 
+    const inputId = 'typing-answer-input';
+    const hintId = 'typing-hint';
+
     return (
       <div className="w-full">
         <div className="relative">
           <input
             ref={ref}
+            id={inputId}
             type="text"
             value={value}
             onChange={(e) => onChange(e.target.value)}
             onKeyDown={handleKeyDown}
+            aria-label="Type your answer"
+            aria-describedby={hint ? hintId : undefined}
+            aria-invalid={status === 'incorrect'}
             className={cn(
               'w-full px-4 py-4 text-lg rounded-xl border-2 transition-all',
               'focus:outline-none focus:ring-2 focus:ring-offset-2',
@@ -50,7 +57,7 @@ export const TypingInput = forwardRef<HTMLInputElement, TypingInputProps>(
             {...props}
           />
           {status !== 'idle' && (
-            <div className="absolute right-4 top-1/2 -translate-y-1/2">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2" aria-hidden="true">
               {status === 'correct' && <Check className="w-6 h-6 text-emerald-500" />}
               {status === 'incorrect' && <X className="w-6 h-6 text-red-500" />}
               {status === 'close' && <AlertCircle className="w-6 h-6 text-amber-500" />}
@@ -58,7 +65,7 @@ export const TypingInput = forwardRef<HTMLInputElement, TypingInputProps>(
           )}
         </div>
         {hint && status !== 'idle' && status !== 'correct' && (
-          <p className="mt-2 text-sm text-muted-foreground text-center">
+          <p id={hintId} className="mt-2 text-sm text-muted-foreground text-center">
             {hint}
           </p>
         )}
@@ -83,8 +90,18 @@ export function TypingFeedback({
   userAnswer,
   className,
 }: TypingFeedbackProps) {
+  // Build screen reader announcement
+  const announcement = status === 'correct'
+    ? 'Correct!'
+    : status === 'close'
+    ? `Almost! The correct answer is ${correctAnswer}.`
+    : `Incorrect. The correct answer is ${correctAnswer}.`;
+
   return (
     <div
+      role="status"
+      aria-live="polite"
+      aria-label={announcement}
       className={cn(
         'p-4 rounded-xl text-center',
         status === 'correct' &&
