@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useUserStore, SRS_PRESETS, type SRSMode } from '@/stores/userStore';
+import { SEMANTIC_CATEGORIES, PART_OF_SPEECH_INFO, type SemanticCategory, type PartOfSpeech } from '@/types';
 import { useAuthStore, isFirebaseAvailable } from '@/stores/authStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -33,7 +34,7 @@ import { cn } from '@/lib/utils';
 export default function SettingsPage() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress, srsMode, setSrsMode } = useUserStore();
+  const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress, srsMode, setSrsMode, selectedTiers, setSelectedTiers, selectedPOS, setSelectedPOS, selectedCategories, setSelectedCategories } = useUserStore();
   const { user, signOut, linkToTeacher, unlinkFromTeacher, isLoading: authLoading } = useAuthStore();
   const [mounted, setMounted] = useState(false);
   const [localDailyGoal, setLocalDailyGoal] = useState(dailyGoal);
@@ -419,6 +420,128 @@ export default function SettingsPage() {
                 />
               </button>
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Vocabulary Filters */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <Target className="w-5 h-5" />
+              Vocabulary Filters
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Tier Selection */}
+            <div>
+              <label className="text-sm font-medium text-muted-foreground mb-3 block">
+                Vocabulary Tiers
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {[1, 2, 3, 4, 5].map((tier) => (
+                  <button
+                    key={tier}
+                    onClick={() => {
+                      if (selectedTiers.includes(tier)) {
+                        setSelectedTiers(selectedTiers.filter(t => t !== tier));
+                      } else {
+                        setSelectedTiers([...selectedTiers, tier]);
+                      }
+                    }}
+                    className={cn(
+                      'px-4 py-2 rounded-lg border-2 transition-all font-medium text-sm',
+                      selectedTiers.includes(tier)
+                        ? 'border-primary bg-primary/10 text-primary'
+                        : 'border-border hover:border-muted-foreground/50'
+                    )}
+                  >
+                    Tier {tier}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                Select which frequency tiers to include in study sessions
+              </p>
+            </div>
+
+            {/* Part of Speech */}
+            <div>
+              <label className="text-sm font-medium text-muted-foreground mb-3 block">
+                Parts of Speech
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {(Object.entries(PART_OF_SPEECH_INFO) as [PartOfSpeech, typeof PART_OF_SPEECH_INFO[PartOfSpeech]][]).map(([pos, info]) => (
+                  <button
+                    key={pos}
+                    onClick={() => {
+                      if (selectedPOS.includes(pos)) {
+                        setSelectedPOS(selectedPOS.filter(p => p !== pos));
+                      } else {
+                        setSelectedPOS([...selectedPOS, pos]);
+                      }
+                    }}
+                    className={cn(
+                      'px-3 py-1.5 rounded-full border transition-all text-xs font-medium',
+                      selectedPOS.includes(pos)
+                        ? 'border-primary bg-primary/10 text-primary'
+                        : 'border-border hover:border-muted-foreground/50'
+                    )}
+                  >
+                    {info.label}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                {selectedPOS.length === 0 ? 'All parts of speech included' : `Filtering by ${selectedPOS.length} type${selectedPOS.length > 1 ? 's' : ''}`}
+              </p>
+            </div>
+
+            {/* Semantic Categories */}
+            <div>
+              <label className="text-sm font-medium text-muted-foreground mb-3 block">
+                Word Categories
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {(Object.entries(SEMANTIC_CATEGORIES) as [SemanticCategory, typeof SEMANTIC_CATEGORIES[SemanticCategory]][]).map(([cat, info]) => (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      if (selectedCategories.includes(cat)) {
+                        setSelectedCategories(selectedCategories.filter(c => c !== cat));
+                      } else {
+                        setSelectedCategories([...selectedCategories, cat]);
+                      }
+                    }}
+                    className={cn(
+                      'px-3 py-1.5 rounded-full border transition-all text-xs font-medium',
+                      selectedCategories.includes(cat)
+                        ? 'border-primary bg-primary/10 text-primary'
+                        : 'border-border hover:border-muted-foreground/50'
+                    )}
+                  >
+                    {info.label}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                {selectedCategories.length === 0 ? 'All categories included' : `Filtering by ${selectedCategories.length} categor${selectedCategories.length > 1 ? 'ies' : 'y'}`}
+              </p>
+            </div>
+
+            {/* Clear Filters */}
+            {(selectedPOS.length > 0 || selectedCategories.length > 0) && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setSelectedPOS([]);
+                  setSelectedCategories([]);
+                }}
+                className="w-full"
+              >
+                Clear All Filters
+              </Button>
+            )}
           </CardContent>
         </Card>
 

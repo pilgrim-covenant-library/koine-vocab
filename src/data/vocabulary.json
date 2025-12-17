@@ -18,7 +18,8 @@
         "Act 17:28",
         "1Co 7:7",
         "Gal 4:22"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5611",
@@ -38,7 +39,8 @@
         "Mat 23:27",
         "Act 3:2",
         "Rom 10:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2532",
@@ -58,7 +60,8 @@
         "Mat 2:18",
         "Mrk 2:15",
         "Luk 8:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G846",
@@ -78,7 +81,8 @@
         "Luk 5:37",
         "Jhn 2:25",
         "Jhn 3:28"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1161",
@@ -98,7 +102,8 @@
         "Mat 1:2",
         "2Co 6:15",
         "2Pe 1:5"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1722",
@@ -118,7 +123,8 @@
         "Luk 7:37",
         "Mat 7:3",
         "Mat 12:40"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1473",
@@ -138,7 +144,8 @@
         "Mat 3:11",
         "Mrk 1:8",
         "Luk 3:16"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1510",
@@ -158,7 +165,8 @@
         "Act 17:28",
         "Jhn 1:1",
         "Rev 1:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3004",
@@ -178,7 +186,8 @@
         "Act 13:15",
         "Mat 9:34",
         "Mrk 3:11"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G1519",
@@ -198,7 +207,8 @@
         "Mat 8:23",
         "Mrk 1:45",
         "Luk 2:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3756",
@@ -219,7 +229,8 @@
         "Act 2:7",
         "Mat 13:29",
         "Jhn 1:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5612",
@@ -237,7 +248,8 @@
       },
       "exampleRefs": [
         "1Pe 5:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5613",
@@ -257,7 +269,8 @@
         "Mrk 4:26",
         "1Co 3:15",
         "Eph 5:28"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3739",
@@ -277,7 +290,8 @@
         "Mrk 15:23",
         "Jhn 5:11",
         "Mat 21:35"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3778",
@@ -297,7 +311,8 @@
         "Mat 3:17",
         "Mrk 9:7",
         "Luk 7:44"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2316",
@@ -318,7 +333,8 @@
         "Act 19:37",
         "Mat 27:46",
         "Act 28:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3754",
@@ -338,7 +354,8 @@
         "Mat 3:9",
         "Mrk 3:28",
         "Luk 2:49"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G3956",
@@ -358,7 +375,8 @@
         "Mat 3:10",
         "Mrk 9:49",
         "Luk 4:37"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4771",
@@ -378,7 +396,8 @@
         "Mat 25:39",
         "Jhn 1:30",
         "Act 4:7"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G3361",
@@ -399,7 +418,8 @@
         "Jhn 3:18",
         "Tit 1:11",
         "2Pe 1:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1063",
@@ -419,7 +439,8 @@
         "Mat 4:18",
         "Mrk 1:16",
         "Luk 11:3"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G2424",
@@ -441,7 +462,8 @@
         "Mat 1:21",
         "Mat 3:13",
         "Mat 1:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G1537",
@@ -461,7 +483,8 @@
         "Jhn 6:31",
         "Act 9:3",
         "Gal 1:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5614",
@@ -481,7 +504,8 @@
         "Mat 21:9",
         "Mrk 11:9",
         "Jhn 12:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1909",
@@ -501,7 +525,8 @@
         "Mat 6:10",
         "1Co 11:10",
         "Mat 24:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2962",
@@ -522,7 +547,8 @@
         "Mat 9:38",
         "Mrk 12:9",
         "Luk 19:33"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G2192",
@@ -542,7 +568,8 @@
         "Rev 5:8",
         "Rev 1:16",
         "Mat 3:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4314",
@@ -562,7 +589,8 @@
         "Act 27:34",
         "Mrk 5:11",
         "Luk 19:37"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1096",
@@ -582,7 +610,8 @@
         "Jhn 1:15",
         "1Co 15:37",
         "Mrk 1:4"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5615",
@@ -602,7 +631,8 @@
         "Mat 20:5",
         "Mrk 14:31",
         "Luk 13:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5616",
@@ -622,7 +652,8 @@
         "Mat 3:16",
         "Act 2:3",
         "Rom 6:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5617",
@@ -642,7 +673,8 @@
       },
       "exampleRefs": [
         "Rom 9:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5618",
@@ -662,7 +694,8 @@
         "Mat 6:2",
         "Act 3:17",
         "1Co 8:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2064",
@@ -682,7 +715,8 @@
         "Mat 8:9",
         "Mrk 6:31",
         "Luk 7:8"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G4160",
@@ -702,7 +736,8 @@
         "Mat 17:4",
         "Mrk 9:5",
         "Jhn 9:11"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5619",
@@ -720,7 +755,8 @@
       },
       "exampleRefs": [
         "1Co 15:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G444",
@@ -741,7 +777,8 @@
         "Jhn 16:21",
         "Mat 4:4",
         "Mrk 2:27"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5547",
@@ -762,7 +799,8 @@
         "Mat 1:1",
         "Jhn 1:17",
         "Rom 1:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5620",
@@ -782,7 +820,8 @@
         "Mat 8:24",
         "Mrk 1:27",
         "Luk 5:7"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1487",
@@ -802,7 +841,8 @@
         "Mat 11:14",
         "Rom 8:25",
         "Mrk 4:23"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5621",
@@ -823,7 +863,8 @@
         "Mat 26:51",
         "Luk 22:51",
         "Jhn 18:26"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5622",
@@ -843,7 +884,8 @@
       "exampleRefs": [
         "Rom 3:1",
         "Jude 16:1"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5623",
@@ -863,7 +905,8 @@
         "Rom 2:25",
         "Mat 27:24",
         "Jhn 6:63"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5624",
@@ -883,7 +926,8 @@
         "Tit 3:8",
         "1Ti 4:8",
         "2Ti 3:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5625",
@@ -903,7 +947,8 @@
         "Mat 8:32",
         "Mrk 5:13",
         "Luk 8:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G191",
@@ -923,7 +968,8 @@
         "Mrk 4:3",
         "Jas 2:5",
         "Rev 2:7"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G1325",
@@ -943,7 +989,8 @@
         "Act 20:35",
         "Mat 4:9",
         "Jhn 1:12"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5626",
@@ -963,7 +1010,8 @@
         "Act 11:21",
         "Mrk 5:24",
         "Mat 9:37"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3962",
@@ -984,7 +1032,8 @@
         "Mat 2:22",
         "Luk 1:17",
         "Jhn 4:53"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G2250",
@@ -1005,7 +1054,8 @@
         "Rev 21:25",
         "Act 9:24",
         "1Th 2:9"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G4151",
@@ -1026,7 +1076,8 @@
         "Jhn 3:8",
         "Heb 1:7",
         "Rev 11:11"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5207",
@@ -1047,7 +1098,8 @@
         "Mat 10:37",
         "Mrk 9:17",
         "Luk 1:13"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5627",
@@ -1067,7 +1119,8 @@
         "Mat 5:17",
         "Mrk 6:56",
         "Luk 2:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5628",
@@ -1086,7 +1139,8 @@
       },
       "exampleRefs": [
         "Mat 1:2"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G5629",
@@ -1106,7 +1160,8 @@
         "Mat 8:23",
         "Mrk 1:45",
         "Luk 2:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5630",
@@ -1126,7 +1181,8 @@
         "Mat 27:42",
         "Mrk 15:31",
         "Luk 23:35"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5631",
@@ -1146,7 +1202,8 @@
         "Mat 2:8",
         "Mrk 1:44",
         "Luk 4:38"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5632",
@@ -1166,7 +1223,8 @@
         "Jhn 13:17",
         "1Co 7:36",
         "Mat 6:22"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3056",
@@ -1187,7 +1245,8 @@
         "Mat 8:8",
         "Luk 7:7",
         "1Co 14:9"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1492",
@@ -1207,7 +1266,8 @@
         "Mat 25:13",
         "Mrk 10:19",
         "Jhn 10:4"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G2980",
@@ -1227,7 +1287,8 @@
         "Rev 4:1",
         "Heb 11:4",
         "Mat 9:33"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G3772",
@@ -1248,7 +1309,8 @@
         "Heb 1:10",
         "2Pe 3:5",
         "Mat 5:18"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G3101",
@@ -1269,7 +1331,8 @@
         "Mat 10:24",
         "Luk 6:40",
         "Mat 9:14"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2983",
@@ -1289,7 +1352,8 @@
         "Mat 26:26",
         "Mrk 14:22",
         "Mat 5:40"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G1093",
@@ -1310,7 +1374,8 @@
         "Luk 21:35",
         "Act 1:8",
         "Heb 11:13"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G4102",
@@ -1331,7 +1396,8 @@
         "Mat 8:10",
         "Luk 5:20",
         "Act 14:9"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G3173",
@@ -1351,7 +1417,8 @@
         "Mat 2:60",
         "Rev 12:3",
         "Jhn 21:11"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5633",
@@ -1371,7 +1438,8 @@
         "Luk 18:14",
         "Jas 4:15",
         "Heb 12:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4100",
@@ -1391,7 +1459,8 @@
         "Rom 4:5",
         "1Ti 1:16",
         "Mat 24:23"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G40",
@@ -1411,7 +1480,8 @@
         "Luk 1:49",
         "Jhn 17:11",
         "Rev 4:8"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5634",
@@ -1431,7 +1501,8 @@
         "Mat 27:12",
         "Mrk 14:61",
         "Luk 3:16"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5635",
@@ -1451,7 +1522,8 @@
         "Luk 22:35",
         "Act 15:9",
         "1Co 13:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3686",
@@ -1472,7 +1544,8 @@
         "Mat 10:2",
         "Mrk 3:16",
         "Luk 1:63"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G1097",
@@ -1492,7 +1565,8 @@
         "Mat 22:18",
         "Mrk 5:43",
         "Col 4:8"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5636",
@@ -1512,7 +1586,8 @@
         "Mat 8:9",
         "Luk 7:8",
         "Rom 3:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5637",
@@ -1533,7 +1608,8 @@
         "Act 8:12",
         "1Ti 2:12",
         "Mat 1:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5638",
@@ -1553,7 +1629,8 @@
         "Mat 10:11",
         "Mrk 1:35",
         "Jhn 13:30"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5639",
@@ -1573,7 +1650,8 @@
         "Mat 28:12",
         "Jhn 4:42",
         "Act 2:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5640",
@@ -1594,7 +1672,8 @@
         "Mat 11:11",
         "Rom 7:2",
         "Luk 4:26"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G5641",
@@ -1614,7 +1693,8 @@
         "Mat 6:24",
         "Mrk 2:7",
         "Jhn 3:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5642",
@@ -1634,7 +1714,8 @@
         "Rom 9:16",
         "1Co 4:19",
         "Jas 4:15"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5643",
@@ -1654,7 +1735,8 @@
         "Mat 5:16",
         "Mrk 10:43",
         "Luk 1:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5644",
@@ -1674,7 +1756,8 @@
         "Mat 10:16",
         "Mrk 3:32",
         "Luk 2:48"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3551",
@@ -1695,7 +1778,8 @@
         "Rom 3:27",
         "Heb 8:10",
         "Gal 6:2"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5645",
@@ -1715,7 +1799,8 @@
         "Act 10:28",
         "Act 21:39",
         "Jhn 3:22"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5646",
@@ -1735,7 +1820,8 @@
         "Mrk 14:43",
         "Luk 8:49",
         "Jhn 15:26"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5647",
@@ -1755,7 +1841,8 @@
         "Mat 9:25",
         "Luk 7:45",
         "Mat 10:12"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5648",
@@ -1775,7 +1862,8 @@
         "Gal 6:11",
         "2Th 3:17",
         "Luk 1:63"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G2889",
@@ -1796,7 +1884,8 @@
         "Jhn 1:10",
         "Jhn 3:16",
         "Rom 1:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5649",
@@ -1816,7 +1905,8 @@
         "Luk 1:2",
         "Jhn 5:23",
         "Act 7:48"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5650",
@@ -1836,7 +1926,8 @@
         "Mat 3:11",
         "Luk 3:16",
         "Mat 21:35"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2147",
@@ -1856,7 +1947,8 @@
         "Mat 7:7",
         "Luk 11:9",
         "Mat 2:8"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5651",
@@ -1877,7 +1969,8 @@
         "1Pe 5:6",
         "Mat 3:12",
         "Mrk 3:1"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5652",
@@ -1898,7 +1991,8 @@
         "Mat 11:10",
         "Jas 22:25",
         "Luk 1:11"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5653",
@@ -1919,7 +2013,8 @@
         "Mat 9:23",
         "Mrk 2:4",
         "Luk 5:1"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G266",
@@ -1940,7 +2035,8 @@
         "Rom 5:12",
         "Rom 3:9",
         "Rom 6:1"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5654",
@@ -1960,7 +2056,8 @@
         "Luk 7:39",
         "Jhn 5:46",
         "Gal 1:10"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G2041",
@@ -1981,7 +2078,8 @@
         "Mrk 13:34",
         "Jhn 4:34",
         "Act 13:2"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5655",
@@ -2002,7 +2100,8 @@
         "Luk 14:10",
         "Jhn 12:43",
         "Heb 3:3"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G932",
@@ -2023,7 +2122,8 @@
         "Luk 1:33",
         "Jhn 18:36",
         "Act 1:6"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5656",
@@ -2044,7 +2144,8 @@
         "Mat 2:23",
         "Mrk 1:45",
         "Luk 4:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5657",
@@ -2065,7 +2166,8 @@
         "Mat 21:43",
         "Mrk 13:8",
         "Luk 22:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5658",
@@ -2085,7 +2187,8 @@
         "Mat 2:17",
         "Rom 6:21",
         "Mat 2:16"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G3972",
@@ -2107,7 +2210,8 @@
         "Act 13:7",
         "Act 13:9",
         "Rom 1:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5659",
@@ -2127,7 +2231,8 @@
         "Mat 14:20",
         "Mrk 6:31",
         "Jhn 4:31"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G2588",
@@ -2147,7 +2252,8 @@
       "exampleRefs": [
         "Act 14:17",
         "Jas 5:5"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G4074",
@@ -2169,7 +2275,8 @@
         "Mat 4:18",
         "Mrk 3:16",
         "Luk 5:8"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5485",
@@ -2190,7 +2297,8 @@
         "Act 24:27",
         "Jude 4:1",
         "Col 4:6"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G243",
@@ -2210,7 +2318,8 @@
         "Mat 20:3",
         "1Co 3:10",
         "Mrk 6:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2476",
@@ -2230,7 +2339,8 @@
         "Mrk 7:9",
         "Act 1:23",
         "Heb 10:9"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5660",
@@ -2250,7 +2360,8 @@
         "Luk 14:18",
         "Jhn 19:32",
         "1Co 14:30"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5661",
@@ -2270,7 +2381,8 @@
         "2Co 11:23",
         "Mat 5:44",
         "Act 8:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5662",
@@ -2290,7 +2402,8 @@
         "Act 8:39",
         "Mat 19:15",
         "Luk 13:31"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5663",
@@ -2310,7 +2423,8 @@
         "Mat 20:8",
         "Mrk 3:31",
         "Luk 19:13"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G4561",
@@ -2331,7 +2445,8 @@
         "1Co 15:39",
         "2Co 12:7",
         "Gal 6:13"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5664",
@@ -2351,7 +2466,8 @@
         "Jhn 4:18",
         "Act 7:52",
         "Rom 13:11"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5665",
@@ -2371,7 +2487,8 @@
         "Mat 2:9",
         "Mat 2:13",
         "Mrk 6:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4396",
@@ -2392,7 +2509,8 @@
         "Mat 5:12",
         "Mrk 6:15",
         "Luk 4:27"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1453",
@@ -2412,7 +2530,8 @@
         "Mat 9:5",
         "Mrk 2:11",
         "Mrk 4:38"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5666",
@@ -2432,7 +2551,8 @@
         "Mat 5:39",
         "Luk 14:27",
         "Gal 5:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G25",
@@ -2452,7 +2572,8 @@
         "Mat 5:43",
         "Jhn 8:42",
         "Mat 22:37"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5667",
@@ -2472,7 +2593,8 @@
         "1Co 7:11",
         "Mat 27:50",
         "Mrk 15:37"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G4983",
@@ -2493,7 +2615,8 @@
         "Mat 27:58",
         "Mrk 15:43",
         "Luk 11:34"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5668",
@@ -2514,7 +2637,8 @@
         "Mat 6:15",
         "Luk 16:31",
         "Rom 4:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5669",
@@ -2535,7 +2659,8 @@
         "Mat 27:25",
         "Luk 1:21",
         "Act 4:27"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2198",
@@ -2555,7 +2680,8 @@
         "Act 20:12",
         "Rom 7:1",
         "1Co 7:39"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5456",
@@ -2576,7 +2702,8 @@
         "Mat 2:18",
         "Luk 17:13",
         "Act 2:14"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5670",
@@ -2596,7 +2723,8 @@
         "Mat 4:8",
         "Mrk 2:13",
         "Luk 23:20"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5671",
@@ -2616,7 +2744,8 @@
         "Mat 13:30",
         "Mat 21:2",
         "Mrk 11:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2222",
@@ -2637,7 +2766,8 @@
         "Luk 16:25",
         "Act 8:33",
         "1Co 15:19"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5672",
@@ -2659,7 +2789,8 @@
         "Mat 11:4",
         "Luk 7:18",
         "Rev 1:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5673",
@@ -2680,7 +2811,8 @@
         "Mat 19:6",
         "Mrk 10:8",
         "Jhn 2:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5674",
@@ -2700,7 +2832,8 @@
         "Mat 12:22",
         "Jhn 9:7",
         "Act 9:9"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G649",
@@ -2720,7 +2853,8 @@
         "Mat 10:40",
         "Mrk 12:2",
         "Mat 21:3"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5675",
@@ -2740,7 +2874,8 @@
         "Jas 1:11",
         "2Pe 1:18",
         "Luk 2:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5676",
@@ -2760,7 +2895,8 @@
         "Mat 5:18",
         "Mat 6:13",
         "Rev 1:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5677",
@@ -2780,7 +2916,8 @@
         "Act 5:10",
         "Jas 2:26",
         "Rev 1:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5678",
@@ -2800,7 +2937,8 @@
         "Rom 6:19",
         "Luk 1:38",
         "Act 2:18"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5679",
@@ -2820,7 +2958,8 @@
         "Mat 6:2",
         "Mrk 14:7",
         "Luk 11:36"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G906",
@@ -2840,7 +2979,8 @@
         "Mat 4:18",
         "Mat 10:34",
         "Mat 4:6"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5680",
@@ -2861,7 +3001,8 @@
         "Mrk 2:26",
         "Heb 2:17",
         "Mat 2:4"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5681",
@@ -2882,7 +3023,8 @@
         "Luk 1:70",
         "Mat 21:19",
         "Jhn 4:14"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G2288",
@@ -2903,7 +3045,8 @@
         "Jhn 11:13",
         "Heb 7:23",
         "Rom 8:38"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1411",
@@ -2924,7 +3067,8 @@
         "Mat 25:15",
         "Act 3:12",
         "Heb 11:11"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5682",
@@ -2944,7 +3088,8 @@
         "Mat 11:27",
         "Luk 4:6",
         "Rom 6:17"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G3306",
@@ -2964,7 +3109,8 @@
         "Luk 8:27",
         "Jhn 1:40",
         "Luk 1:56"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5683",
@@ -2984,7 +3130,8 @@
         "Mat 7:7",
         "Luk 11:9",
         "Mrk 1:37"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5684",
@@ -3004,7 +3151,8 @@
         "Mat 13:25",
         "Mat 13:28",
         "Mat 14:15"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G26",
@@ -3025,7 +3173,8 @@
         "Jhn 13:35",
         "1Jn 2:5",
         "Rom 5:8"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5685",
@@ -3046,7 +3195,8 @@
         "Mat 1:6",
         "Mat 14:9",
         "1Pe 2:13"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G1577",
@@ -3067,7 +3217,8 @@
         "Act 19:32",
         "Act 7:38",
         "Heb 2:12"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G3624",
@@ -3088,7 +3239,8 @@
         "Act 2:2",
         "Mat 9:6",
         "Mrk 2:11"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G2919",
@@ -3108,7 +3260,8 @@
         "Rom 14:5",
         "Luk 7:43",
         "1Co 11:13"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G2398",
@@ -3128,7 +3281,8 @@
         "Luk 6:41",
         "Jhn 1:42",
         "Act 2:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5686",
@@ -3148,7 +3302,8 @@
         "Mat 14:36",
         "Mrk 3:10",
         "Rom 2:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5687",
@@ -3168,7 +3323,8 @@
         "Mrk 5:35",
         "Mat 26:35",
         "Jhn 12:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5688",
@@ -3188,7 +3344,8 @@
         "Mat 14:23",
         "Mrk 6:47",
         "Luk 9:36"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G225",
@@ -3209,7 +3366,8 @@
         "Rom 9:1",
         "Rom 1:25",
         "Gal 2:5"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5689",
@@ -3229,7 +3387,8 @@
         "Mat 2:13",
         "Luk 10:1",
         "Act 3:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5690",
@@ -3249,7 +3408,8 @@
         "Act 28:20",
         "Mat 26:53",
         "2Co 12:8"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5691",
@@ -3269,7 +3429,8 @@
         "Act 9:41",
         "Jhn 6:39",
         "Act 2:32"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5692",
@@ -3289,7 +3450,8 @@
         "Luk 5:5",
         "Act 11:26",
         "Tit 1:11"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5610",
@@ -3310,7 +3472,8 @@
         "Mat 24:36",
         "Mrk 13:32",
         "Act 10:3"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G4982",
@@ -3330,7 +3493,8 @@
         "Mat 8:25",
         "Mrk 13:20",
         "Luk 23:35"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5590",
@@ -3351,7 +3515,8 @@
         "Mat 6:25",
         "Mrk 3:4",
         "Luk 12:22"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5693",
@@ -3371,7 +3536,8 @@
         "1Co 9:27",
         "2Co 2:7",
         "1Co 8:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1849",
@@ -3390,7 +3556,8 @@
       },
       "exampleRefs": [
         "1Co 9:12"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G18",
@@ -3410,7 +3577,8 @@
         "Luk 8:8",
         "Mat 7:18",
         "Luk 8:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5694",
@@ -3430,7 +3598,8 @@
         "Mat 9:25",
         "Mrk 1:32",
         "Luk 4:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3598",
@@ -3451,7 +3620,8 @@
         "Mat 2:12",
         "Mrk 10:46",
         "Luk 3:5"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G142",
@@ -3471,7 +3641,8 @@
         "Jhn 8:59",
         "Act 27:17",
         "Mat 4:6"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G2570",
@@ -3491,7 +3662,8 @@
         "Luk 21:5",
         "Mat 13:48",
         "Mat 13:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5695",
@@ -3511,7 +3683,8 @@
         "Luk 6:48",
         "Rom 9:33",
         "Mrk 15:47"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5696",
@@ -3531,7 +3704,8 @@
         "Mat 25:32",
         "Mrk 4:41",
         "Jhn 13:22"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5697",
@@ -3552,7 +3726,8 @@
         "Mat 5:38",
         "Mrk 9:47",
         "Luk 6:41"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5698",
@@ -3573,7 +3748,8 @@
         "Mrk 13:12",
         "Luk 1:7",
         "Act 7:5"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G2087",
@@ -3593,7 +3769,8 @@
         "Luk 5:7",
         "Mat 21:30",
         "Mat 6:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5699",
@@ -3614,7 +3791,8 @@
         "Mrk 5:25",
         "Luk 8:43",
         "Jhn 19:34"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5700",
@@ -3634,7 +3812,8 @@
         "Mat 1:1",
         "Act 7:8",
         "Mat 1:3"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5701",
@@ -3655,7 +3834,8 @@
         "Mat 4:3",
         "Mrk 3:20",
         "Jhn 6:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5702",
@@ -3675,7 +3855,8 @@
         "Mat 5:2",
         "Mrk 1:22",
         "Mrk 8:31"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5703",
@@ -3696,7 +3877,8 @@
         "Mat 23:26",
         "Mat 9:11",
         "Mrk 2:18"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5704",
@@ -3716,7 +3898,8 @@
         "Mat 2:13",
         "Mat 26:71",
         "Mat 6:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5705",
@@ -3736,7 +3919,8 @@
         "Mat 10:31",
         "Mrk 5:33",
         "Luk 1:13"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5706",
@@ -3756,7 +3940,8 @@
         "Mat 9:5",
         "Mrk 5:42",
         "Luk 5:23"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5707",
@@ -3776,7 +3961,8 @@
         "Luk 1:19",
         "Luk 4:7",
         "Act 4:10"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5708",
@@ -3797,7 +3983,8 @@
         "Luk 4:37",
         "Jhn 5:13",
         "Act 12:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5709",
@@ -3818,7 +4005,8 @@
         "Mat 2:11",
         "Mrk 1:29",
         "Luk 8:27"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5710",
@@ -3838,7 +4026,8 @@
         "Mrk 5:35",
         "1Co 3:3",
         "Gal 1:10"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5711",
@@ -3859,7 +4048,8 @@
         "Mat 4:6",
         "Mrk 9:45",
         "Luk 1:79"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G1343",
@@ -3880,7 +4070,8 @@
         "Mat 5:6",
         "Jhn 16:8",
         "Act 13:10"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1515",
@@ -3901,7 +4092,8 @@
         "Luk 14:32",
         "Act 12:20",
         "Act 9:31"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5712",
@@ -3921,7 +4113,8 @@
         "Mat 11:16",
         "Mrk 2:6",
         "Jhn 6:3"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5713",
@@ -3941,7 +4134,8 @@
         "Mat 10:28",
         "Mat 10:42",
         "Jhn 6:39"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5714",
@@ -3961,7 +4155,8 @@
         "Act 27:33",
         "Mat 16:20",
         "Mrk 5:43"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5715",
@@ -3982,7 +4177,8 @@
         "Mat 23:15",
         "Mrk 11:23",
         "Luk 21:25"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5716",
@@ -4002,7 +4198,8 @@
         "Mat 10:29",
         "Mat 15:14",
         "Luk 8:7"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5717",
@@ -4022,7 +4219,8 @@
         "Mat 4:25",
         "Mat 9:9",
         "Mrk 9:38"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5718",
@@ -4043,7 +4241,8 @@
         "Mat 12:45",
         "Mrk 8:5",
         "Act 21:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5719",
@@ -4064,7 +4263,8 @@
         "Rev 5:4",
         "Gal 1:12",
         "Jhn 4:11"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5720",
@@ -4084,7 +4284,8 @@
         "Mrk 10:42",
         "Rom 15:12",
         "Mat 16:21"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5721",
@@ -4104,7 +4305,8 @@
         "Mat 4:11",
         "Luk 9:42",
         "Mat 24:1"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5722",
@@ -4124,7 +4326,8 @@
         "Mat 13:48",
         "Luk 3:5",
         "Mat 23:32"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4336",
@@ -4144,7 +4347,8 @@
         "Mat 6:5",
         "Mrk 1:35",
         "Mrk 14:32"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5723",
@@ -4165,7 +4369,8 @@
         "Mat 11:25",
         "Mrk 1:15",
         "Luk 21:8"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5724",
@@ -4185,7 +4390,8 @@
         "Mat 8:24",
         "Mrk 1:27",
         "Luk 5:7"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5725",
@@ -4206,7 +4412,8 @@
         "Mat 1:18",
         "Mat 12:49",
         "Mat 12:50"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G5726",
@@ -4226,7 +4433,8 @@
         "Mat 3:11",
         "Mrk 1:8",
         "Luk 3:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5727",
@@ -4246,7 +4454,8 @@
         "Mat 25:24",
         "Mrk 2:4",
         "Jhn 3:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5728",
@@ -4266,7 +4475,8 @@
         "Mat 16:27",
         "Luk 4:40",
         "1Co 3:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5729",
@@ -4286,7 +4496,8 @@
         "Mat 6:26",
         "Mrk 5:26",
         "Phi 1:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5730",
@@ -4306,7 +4517,8 @@
         "Luk 19:4",
         "Mrk 6:51",
         "Mat 20:17"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5731",
@@ -4326,7 +4538,8 @@
         "Act 27:38",
         "Mat 15:17",
         "Mat 21:12"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G652",
@@ -4347,7 +4560,8 @@
         "Jhn 13:16",
         "2Co 8:23",
         "Mat 10:2"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5732",
@@ -4367,7 +4581,8 @@
         "Mat 3:16",
         "Luk 2:51",
         "Jhn 4:47"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5733",
@@ -4389,7 +4604,8 @@
         "Luk 16:29",
         "Mat 8:4",
         "Luk 2:22"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5734",
@@ -4409,7 +4625,8 @@
         "Rom 3:26",
         "1Jn 2:29",
         "Jhn 3:7"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5735",
@@ -4429,7 +4646,8 @@
         "Mat 8:32",
         "Mrk 6:33",
         "Luk 8:42"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5736",
@@ -4449,7 +4667,8 @@
         "Mat 22:7",
         "Luk 7:19",
         "Jhn 1:22"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G4190",
@@ -4469,7 +4688,8 @@
         "Eph 5:16",
         "Rev 16:2",
         "Mat 7:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5737",
@@ -4490,7 +4710,8 @@
         "Mat 15:11",
         "Jhn 19:29",
         "Act 11:8"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G4592",
@@ -4511,7 +4732,8 @@
         "Mat 26:48",
         "Luk 2:12",
         "2Th 3:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5738",
@@ -4530,7 +4752,8 @@
       "exampleRefs": [
         "Mrk 10:38",
         "Luk 12:50"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5739",
@@ -4550,7 +4773,8 @@
         "Act 5:19",
         "Rev 4:1",
         "Act 12:10"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5740",
@@ -4568,7 +4792,8 @@
       },
       "exampleRefs": [
         "Jhn 15:27"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5741",
@@ -4588,7 +4813,8 @@
         "Mat 18:20",
         "Mrk 8:38",
         "Jhn 3:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5742",
@@ -4609,7 +4835,8 @@
         "Mat 2:3",
         "Mat 27:37",
         "Gal 1:17"
-      ]
+      ],
+      "semanticCategory": "place"
     },
     {
       "id": "G5743",
@@ -4630,7 +4857,8 @@
         "Mat 6:16",
         "Mrk 14:65",
         "Luk 9:29"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5744",
@@ -4651,7 +4879,8 @@
         "Mat 3:16",
         "Mrk 1:10",
         "Luk 7:44"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5745",
@@ -4672,7 +4901,8 @@
         "Mat 5:35",
         "Mrk 6:24",
         "Rev 1:14"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5746",
@@ -4693,7 +4923,8 @@
         "Mrk 1:15",
         "Act 15:7",
         "Rom 1:16"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5747",
@@ -4714,7 +4945,8 @@
         "Mat 9:20",
         "Mat 10:5",
         "Mrk 4:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5748",
@@ -4736,7 +4968,8 @@
         "Mat 17:25",
         "Mrk 1:29",
         "Mat 10:4"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5463",
@@ -4756,7 +4989,8 @@
         "Mat 5:12",
         "Luk 15:5",
         "Phi 4:4"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5749",
@@ -4776,7 +5010,8 @@
         "Mat 10:28",
         "Mrk 12:5",
         "Mat 14:5"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5750",
@@ -4796,7 +5031,8 @@
       },
       "exampleRefs": [
         "Mat 1:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5751",
@@ -4817,7 +5053,8 @@
         "Mat 17:2",
         "Jhn 11:9",
         "2Co 4:6"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5752",
@@ -4837,7 +5074,8 @@
         "Luk 2:19",
         "Jhn 4:7",
         "Mat 6:26"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5753",
@@ -4858,7 +5096,8 @@
         "Mrk 9:22",
         "Luk 3:9",
         "Jhn 15:6"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5083",
@@ -4878,7 +5117,8 @@
         "Mat 27:36",
         "Act 16:23",
         "2Co 11:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5754",
@@ -4898,7 +5138,8 @@
         "Mat 7:7",
         "Jas 1:6",
         "Mat 5:42"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5755",
@@ -4918,7 +5159,8 @@
         "2Th 2:16",
         "Heb 9:12",
         "Rom 16:26"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5756",
@@ -4939,7 +5181,8 @@
         "Mat 12:8",
         "Mrk 2:27",
         "Luk 6:5"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5757",
@@ -4960,7 +5203,8 @@
         "Act 7:42",
         "Act 4:10",
         "Act 5:21"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G1785",
@@ -4981,7 +5225,8 @@
         "Luk 15:29",
         "Jhn 10:18",
         "Act 17:15"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5758",
@@ -5001,7 +5246,8 @@
         "Mat 12:40",
         "Mrk 10:34",
         "Act 28:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5759",
@@ -5021,7 +5267,8 @@
         "Mat 24:45",
         "Luk 12:42",
         "Act 16:15"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5760",
@@ -5041,7 +5288,8 @@
         "Luk 13:12",
         "Jhn 19:10",
         "Mat 18:27"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5761",
@@ -5062,7 +5310,8 @@
         "Mat 4:21",
         "Jas 3:4",
         "Rev 8:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5762",
@@ -5083,7 +5332,8 @@
         "Mat 27:14",
         "2Co 12:4",
         "Luk 7:1"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5342",
@@ -5103,7 +5353,8 @@
         "Luk 23:26",
         "Jhn 19:39",
         "Heb 1:3"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5763",
@@ -5123,7 +5374,8 @@
         "Jhn 10:16",
         "Rom 2:4",
         "Heb 2:10"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5764",
@@ -5144,7 +5396,8 @@
         "Mat 12:33",
         "Mrk 11:14",
         "Luk 6:44"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5765",
@@ -5163,7 +5416,8 @@
       "exampleRefs": [
         "Luk 15:25",
         "Act 2:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5766",
@@ -5183,7 +5437,8 @@
         "Mat 13:29",
         "Luk 7:40",
         "Jhn 1:23"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5767",
@@ -5203,7 +5458,8 @@
         "Mat 11:14",
         "Rom 8:25",
         "Mrk 4:23"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5768",
@@ -5224,7 +5480,8 @@
         "Act 17:18",
         "1Co 10:20",
         "1Ti 4:1"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5769",
@@ -5245,7 +5502,8 @@
         "Mat 2:3",
         "Mat 27:37",
         "Gal 1:17"
-      ]
+      ],
+      "semanticCategory": "place"
     },
     {
       "id": "G2307",
@@ -5266,7 +5524,8 @@
         "Mat 18:14",
         "Luk 12:47",
         "Jhn 5:30"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5770",
@@ -5287,7 +5546,8 @@
         "Mat 5:34",
         "Act 7:49",
         "Rev 1:4"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5771",
@@ -5306,7 +5566,8 @@
       },
       "exampleRefs": [
         "Act 19:35"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5772",
@@ -5326,7 +5587,8 @@
         "Luk 19:31",
         "Jhn 8:7",
         "Jhn 9:21"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5773",
@@ -5346,7 +5608,8 @@
         "Mat 24:44",
         "Luk 12:40",
         "Heb 10:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5774",
@@ -5366,7 +5629,8 @@
         "Mat 12:46",
         "Mrk 3:31",
         "Luk 8:20"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5775",
@@ -5387,7 +5651,8 @@
         "Mat 4:8",
         "Mrk 9:2",
         "Jhn 4:20"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G2784",
@@ -5407,7 +5672,8 @@
         "Mrk 1:45",
         "Luk 4:18",
         "Luk 8:39"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5776",
@@ -5428,7 +5694,8 @@
         "Mat 12:40",
         "Mrk 6:48",
         "Jhn 13:30"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5777",
@@ -5448,7 +5715,8 @@
         "Mat 8:29",
         "Mrk 11:3",
         "Luk 9:41"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5778",
@@ -5468,7 +5736,8 @@
         "Mat 3:17",
         "Rom 1:7",
         "1Co 4:14"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5779",
@@ -5488,7 +5757,8 @@
         "Mat 5:16",
         "Mrk 2:12",
         "Jhn 8:54"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5780",
@@ -5510,7 +5780,8 @@
         "Mat 4:15",
         "Mat 15:29",
         "Jhn 6:1"
-      ]
+      ],
+      "semanticCategory": "place"
     },
     {
       "id": "G5781",
@@ -5531,7 +5802,8 @@
         "Mat 9:16",
         "Mrk 2:21",
         "Jhn 19:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5782",
@@ -5551,7 +5823,8 @@
         "Act 19:40",
         "Act 28:18",
         "Luk 8:41"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5783",
@@ -5571,7 +5844,8 @@
         "Jhn 4:20",
         "Act 8:27",
         "Heb 11:21"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5784",
@@ -5591,7 +5865,8 @@
         "Mat 3:10",
         "Mrk 4:37",
         "Luk 7:6"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5479",
@@ -5612,7 +5887,8 @@
         "Luk 1:14",
         "Jhn 15:11",
         "Act 8:8"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5785",
@@ -5632,7 +5908,8 @@
         "Jhn 6:12",
         "Mat 3:12",
         "Luk 12:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5786",
@@ -5654,7 +5931,8 @@
         "Mat 1:6",
         "Act 15:16",
         "Rev 3:7"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5787",
@@ -5674,7 +5952,8 @@
         "Mat 3:3",
         "Mrk 1:3",
         "Luk 3:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5788",
@@ -5692,7 +5971,8 @@
       },
       "exampleRefs": [
         "Mat 5:47"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3319",
@@ -5712,7 +5992,8 @@
         "Luk 23:45",
         "Jhn 19:18",
         "Act 1:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5789",
@@ -5733,7 +6014,8 @@
         "Jhn 1:39",
         "Luk 2:46",
         "Jhn 3:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5790",
@@ -5753,7 +6035,8 @@
         "Jhn 7:3",
         "Mat 28:1",
         "Luk 23:48"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5791",
@@ -5773,7 +6056,8 @@
       "exampleRefs": [
         "Mat 4:6",
         "Mat 3:9"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5792",
@@ -5794,7 +6078,8 @@
         "Mat 6:25",
         "Mrk 12:24",
         "Luk 14:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5793",
@@ -5814,7 +6099,8 @@
         "Mrk 12:34",
         "Luk 2:46",
         "Mrk 7:17"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5794",
@@ -5835,7 +6121,8 @@
         "Rev 2:9",
         "Luk 12:11",
         "Act 9:2"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5795",
@@ -5855,7 +6142,8 @@
         "Luk 16:6",
         "Act 28:21",
         "Luk 22:17"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5796",
@@ -5875,7 +6163,8 @@
         "Act 21:25",
         "Mat 9:8",
         "Mrk 4:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5797",
@@ -5895,7 +6184,8 @@
         "Mat 25:11",
         "Act 2:37",
         "Rom 1:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5798",
@@ -5915,7 +6205,8 @@
         "Mat 22:26",
         "Mrk 12:21",
         "Luk 24:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5799",
@@ -5936,7 +6227,8 @@
         "Rev 21:6",
         "Rev 22:13",
         "Rev 3:14"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5800",
@@ -5956,7 +6248,8 @@
         "Mrk 5:5",
         "Luk 9:39",
         "Jas 5:4"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5801",
@@ -5978,7 +6271,8 @@
         "Mat 27:2",
         "Mrk 15:1",
         "Luk 3:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5802",
@@ -5997,7 +6291,8 @@
       "exampleRefs": [
         "Rev 10:7",
         "Rev 14:6"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5803",
@@ -6017,7 +6312,8 @@
         "Mat 5:29",
         "Jhn 18:10",
         "2Co 6:7"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G1680",
@@ -6038,7 +6334,8 @@
         "Rom 8:20",
         "2Co 1:6",
         "Act 16:19"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5804",
@@ -6058,7 +6355,8 @@
         "Luk 24:20",
         "Mat 26:59",
         "Mat 6:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5805",
@@ -6079,7 +6377,8 @@
         "Mat 2:7",
         "Mrk 9:21",
         "Luk 1:57"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5806",
@@ -6099,7 +6398,8 @@
         "Mat 27:8",
         "Luk 7:7",
         "Act 15:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5807",
@@ -6120,7 +6420,8 @@
         "Luk 1:60",
         "Jhn 13:10",
         "Mat 5:46"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5808",
@@ -6140,7 +6441,8 @@
         "Luk 14:9",
         "Act 1:8",
         "Mat 20:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5809",
@@ -6160,7 +6462,8 @@
         "Mat 28:14",
         "Act 19:26",
         "Act 19:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5810",
@@ -6180,7 +6483,8 @@
         "Mat 6:26",
         "Mrk 4:3",
         "Luk 8:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5811",
@@ -6201,7 +6505,8 @@
         "Act 23:21",
         "Act 7:17",
         "Rom 4:14"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5812",
@@ -6222,7 +6527,8 @@
         "Mat 2:8",
         "Luk 1:59",
         "Jhn 16:21"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G4678",
@@ -6243,7 +6549,8 @@
         "1Co 2:1",
         "Jas 3:15",
         "Rev 13:18"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5813",
@@ -6263,7 +6570,8 @@
         "Mat 9:27",
         "Mrk 8:22",
         "Luk 4:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5814",
@@ -6283,7 +6591,8 @@
         "Mat 21:41",
         "Rev 2:2",
         "Mrk 7:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5815",
@@ -6304,7 +6613,8 @@
         "Mat 13:3",
         "Mrk 3:23",
         "Luk 8:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5816",
@@ -6324,7 +6634,8 @@
         "Heb 2:6",
         "Act 27:29",
         "Rom 4:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5817",
@@ -6345,7 +6656,8 @@
         "Mrk 7:33",
         "Luk 1:64",
         "Act 2:26"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5818",
@@ -6365,7 +6677,8 @@
         "1Ti 1:11",
         "Tit 2:13",
         "Mat 5:3"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5819",
@@ -6385,7 +6698,8 @@
         "Col 4:17",
         "Heb 12:28",
         "1Co 11:23"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5820",
@@ -6404,7 +6718,8 @@
       },
       "exampleRefs": [
         "Rom 3:14"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5821",
@@ -6425,7 +6740,8 @@
         "2Ti 3:16",
         "Rom 1:2",
         "Rom 16:26"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5822",
@@ -6446,7 +6762,8 @@
         "Luk 3:1",
         "Heb 1:12",
         "Rev 20:3"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5823",
@@ -6466,7 +6783,8 @@
       "exampleRefs": [
         "Act 28:10",
         "Tit 3:14"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5824",
@@ -6486,7 +6804,8 @@
         "Gal 4:27",
         "Mat 14:13",
         "Mrk 1:36"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5825",
@@ -6506,7 +6825,8 @@
         "Luk 19:28",
         "Luk 19:4",
         "Rev 4:6"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5826",
@@ -6526,7 +6846,8 @@
         "Mat 27:58",
         "Luk 4:20",
         "Mat 18:25"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5827",
@@ -6546,7 +6867,8 @@
         "Jhn 2:11",
         "Rom 1:19",
         "1Co 4:5"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G2920",
@@ -6567,7 +6889,8 @@
         "Jhn 8:16",
         "1Ti 5:24",
         "2Pe 2:11"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5828",
@@ -6588,7 +6911,8 @@
         "Mat 19:6",
         "Mrk 10:8",
         "Luk 15:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5829",
@@ -6608,7 +6932,8 @@
         "Act 12:6",
         "Jas 5:9",
         "Mat 11:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5830",
@@ -6629,7 +6954,8 @@
         "Luk 1:12",
         "Act 5:5",
         "1Ti 5:20"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5831",
@@ -6649,7 +6975,8 @@
         "1Ti 1:15",
         "1Ti 1:9",
         "1Pe 4:18"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5832",
@@ -6669,7 +6996,8 @@
         "Mat 4:24",
         "Mrk 2:4",
         "Mrk 10:13"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5833",
@@ -6689,7 +7017,8 @@
         "Rom 11:25",
         "Gal 3:19",
         "Heb 3:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5834",
@@ -6708,7 +7037,8 @@
       "exampleRefs": [
         "Act 27:13",
         "Mat 9:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5835",
@@ -6729,7 +7059,8 @@
         "Luk 2:8",
         "Act 12:10",
         "Mat 14:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3398",
@@ -6749,7 +7080,8 @@
         "Mrk 15:40",
         "Luk 19:3",
         "Mat 18:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5836",
@@ -6769,7 +7101,8 @@
         "Mat 20:19",
         "Mat 28:5",
         "Mrk 15:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5837",
@@ -6790,7 +7123,8 @@
         "Mrk 1:13",
         "Act 11:6",
         "Tit 1:12"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5838",
@@ -6811,7 +7145,8 @@
         "Act 7:25",
         "Heb 11:7",
         "Luk 1:71"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5839",
@@ -6831,7 +7166,8 @@
         "Mat 11:21",
         "Mrk 13:17",
         "Luk 6:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5840",
@@ -6851,7 +7187,8 @@
         "Jhn 9:9",
         "Rev 1:13",
         "Rev 1:15"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5841",
@@ -6871,7 +7208,8 @@
         "Act 4:23",
         "Mat 2:8",
         "Luk 18:37"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5842",
@@ -6891,7 +7229,8 @@
         "Act 2:30",
         "1Co 6:4",
         "Eph 1:20"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5843",
@@ -6912,7 +7251,8 @@
         "Mat 24:9",
         "Mrk 13:19",
         "Jhn 16:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5844",
@@ -6932,7 +7272,8 @@
         "Mat 23:34",
         "Luk 17:23",
         "Act 26:11"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5845",
@@ -6953,7 +7294,8 @@
         "Act 17:24",
         "Act 19:24",
         "Mat 23:16"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5846",
@@ -6973,7 +7315,8 @@
         "Luk 13:4",
         "Act 1:10",
         "Rev 17:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5847",
@@ -6993,7 +7336,8 @@
         "Mat 22:26",
         "Rev 2:11",
         "2Co 1:15"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5848",
@@ -7011,7 +7355,8 @@
       },
       "exampleRefs": [
         "2Ti 3:15"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5849",
@@ -7031,7 +7376,8 @@
         "Act 25:10",
         "1Co 13:12",
         "Luk 1:22"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5850",
@@ -7051,7 +7397,8 @@
       },
       "exampleRefs": [
         "Mat 2:1"
-      ]
+      ],
+      "semanticCategory": "place"
     },
     {
       "id": "G5851",
@@ -7073,7 +7420,8 @@
         "Mat 1:2",
         "Luk 3:33",
         "Rev 5:5"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5852",
@@ -7094,7 +7442,8 @@
         "Mat 13:24",
         "2Co 9:10",
         "Mat 13:32"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5853",
@@ -7114,7 +7463,8 @@
         "Luk 8:8",
         "Mrk 1:26",
         "Act 16:28"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5854",
@@ -7136,7 +7486,8 @@
         "Mat 2:1",
         "Act 23:35",
         "Mat 14:1"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5855",
@@ -7156,7 +7507,8 @@
         "Mat 8:10",
         "Mrk 5:20",
         "Luk 1:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5856",
@@ -7177,7 +7529,8 @@
         "Mat 1:17",
         "Mat 17:17",
         "Mrk 9:19"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5857",
@@ -7197,7 +7550,8 @@
         "Mat 4:6",
         "Jhn 8:13",
         "1Ti 4:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5858",
@@ -7217,7 +7571,8 @@
         "Act 17:25",
         "Mat 12:10",
         "Mrk 6:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G386",
@@ -7238,7 +7593,8 @@
         "Mat 22:23",
         "Act 1:22",
         "1Co 15:12"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G3089",
@@ -7258,7 +7614,8 @@
         "Mrk 1:7",
         "Luk 3:16",
         "Mat 21:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5859",
@@ -7280,7 +7637,8 @@
         "Mat 4:21",
         "Mrk 1:19",
         "Act 1:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5860",
@@ -7300,7 +7658,8 @@
         "Mat 9:17",
         "Mrk 2:21",
         "Luk 5:36"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5861",
@@ -7319,7 +7678,8 @@
       "exampleRefs": [
         "Luk 22:15",
         "Act 1:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5862",
@@ -7340,7 +7700,8 @@
         "Jhn 13:8",
         "Act 19:27",
         "Rev 20:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5863",
@@ -7360,7 +7721,8 @@
         "Mat 18:25",
         "Luk 17:3",
         "Jhn 5:14"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5864",
@@ -7380,7 +7742,8 @@
         "Jhn 20:7",
         "Mat 13:34",
         "Mrk 4:34"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5865",
@@ -7400,7 +7763,8 @@
         "Mat 26:46",
         "Mrk 14:42",
         "Luk 18:40"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5866",
@@ -7420,7 +7784,8 @@
         "Mat 6:11",
         "Luk 4:21",
         "Act 4:9"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5867",
@@ -7440,7 +7805,8 @@
         "Act 9:41",
         "2Co 4:14",
         "Col 1:28"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5868",
@@ -7461,7 +7827,8 @@
         "Mat 27:9",
         "Act 5:2",
         "Act 4:34"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5869",
@@ -7481,7 +7848,8 @@
         "Mat 26:11",
         "Mrk 14:7",
         "Luk 15:31"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5870",
@@ -7501,7 +7869,8 @@
         "Mat 21:28",
         "Luk 13:14",
         "Jhn 5:17"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5871",
@@ -7521,7 +7890,8 @@
         "Mat 19:24",
         "Mrk 10:25",
         "Luk 2:35"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5872",
@@ -7541,7 +7911,8 @@
         "Rom 8:18",
         "Mat 3:8",
         "Luk 3:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5873",
@@ -7561,7 +7932,8 @@
         "Mat 9:37",
         "Mrk 6:5",
         "Luk 10:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5874",
@@ -7581,7 +7953,8 @@
         "Luk 1:64",
         "Jas 3:9",
         "Mat 14:19"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5875",
@@ -7601,7 +7974,8 @@
         "Mat 5:43",
         "Luk 1:71",
         "Jhn 7:7"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5876",
@@ -7621,7 +7995,8 @@
         "Mat 3:11",
         "Mrk 1:7",
         "Luk 3:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5877",
@@ -7641,7 +8016,8 @@
         "Mrk 15:23",
         "Luk 22:37",
         "1Co 13:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5878",
@@ -7661,7 +8037,8 @@
         "Luk 11:48",
         "Mat 21:42",
         "Mrk 12:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5879",
@@ -7681,7 +8058,8 @@
       "exampleRefs": [
         "Luk 11:47",
         "Mat 23:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5880",
@@ -7701,7 +8079,8 @@
         "Mrk 14:15",
         "Luk 9:52",
         "Mat 26:17"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5881",
@@ -7721,7 +8100,8 @@
         "Mat 24:31",
         "Mrk 2:3",
         "Luk 2:37"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5882",
@@ -7742,7 +8122,8 @@
         "Luk 1:33",
         "1Co 10:11",
         "2Co 3:13"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5883",
@@ -7762,7 +8143,8 @@
         "Mrk 5:38",
         "Mrk 16:10",
         "Luk 7:13"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5884",
@@ -7782,7 +8164,8 @@
         "Rom 3:24",
         "Rom 5:1",
         "Gal 2:16"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5885",
@@ -7802,7 +8185,8 @@
         "Mrk 4:21",
         "Luk 8:16",
         "Mat 8:3"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5886",
@@ -7823,7 +8207,8 @@
         "Mat 6:6",
         "Luk 13:25",
         "Mat 25:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5887",
@@ -7843,7 +8228,8 @@
         "Mat 18:12",
         "Heb 11:38",
         "1Pe 2:25"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5888",
@@ -7863,7 +8249,8 @@
         "Mat 23:4",
         "Luk 15:5",
         "Jhn 9:6"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5889",
@@ -7884,7 +8271,8 @@
         "Mat 7:15",
         "Mrk 6:34",
         "Rom 8:36"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5890",
@@ -7904,7 +8292,8 @@
         "Mat 5:20",
         "Rom 5:15",
         "2Co 8:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5891",
@@ -7924,7 +8313,8 @@
         "Act 17:7",
         "Act 19:19",
         "1Co 9:17"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5892",
@@ -7943,7 +8333,8 @@
       },
       "exampleRefs": [
         "Mat 14:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5893",
@@ -7964,7 +8355,8 @@
         "Luk 22:15",
         "1Th 2:17",
         "Rev 18:14"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5894",
@@ -7984,7 +8376,8 @@
         "1Co 15:27",
         "Heb 2:5",
         "Rom 8:20"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5895",
@@ -8004,7 +8397,8 @@
         "Mat 15:36",
         "Luk 17:16",
         "1Co 11:24"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5896",
@@ -8025,7 +8419,8 @@
         "Rev 1:5",
         "Mat 20:25",
         "Act 4:26"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5897",
@@ -8045,7 +8440,8 @@
         "Mat 20:28",
         "Mrk 10:45",
         "Luk 10:40"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5898",
@@ -8065,7 +8461,8 @@
         "Act 9:26",
         "Jhn 6:6",
         "2Co 13:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5899",
@@ -8085,7 +8482,8 @@
         "Jas 1:18",
         "Mrk 15:15",
         "Act 5:28"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5900",
@@ -8105,7 +8503,8 @@
         "Luk 7:7",
         "Jhn 5:30",
         "Mat 8:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5901",
@@ -8126,7 +8525,8 @@
         "Jhn 1:19",
         "Jhn 3:11",
         "1Jn 5:9"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G4335",
@@ -8147,7 +8547,8 @@
         "Mat 17:21",
         "Mat 21:22",
         "Mrk 9:29"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5902",
@@ -8168,7 +8569,8 @@
         "Mat 4:10",
         "Mrk 1:13",
         "Luk 10:18"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5903",
@@ -8189,7 +8591,8 @@
         "Mat 13:16",
         "Mrk 7:33",
         "Luk 22:50"
-      ]
+      ],
+      "semanticCategory": "body"
     },
     {
       "id": "G5904",
@@ -8210,7 +8613,8 @@
         "Mrk 3:5",
         "Eph 4:31",
         "Col 3:8"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5905",
@@ -8230,7 +8634,8 @@
       "exampleRefs": [
         "Jhn 7:22",
         "Act 7:8"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5906",
@@ -8250,7 +8655,8 @@
         "Mat 3:15",
         "Jhn 13:7",
         "Gal 4:20"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5907",
@@ -8270,7 +8676,8 @@
         "Luk 1:16",
         "Jas 5:19",
         "Act 16:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5908",
@@ -8290,7 +8697,8 @@
         "Mat 6:2",
         "Act 3:17",
         "1Co 8:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5909",
@@ -8310,7 +8718,8 @@
         "Luk 6:48",
         "1Co 14:17",
         "Gal 4:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5910",
@@ -8330,7 +8739,8 @@
         "2Ti 4:16",
         "Luk 14:21",
         "Jhn 3:23"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5911",
@@ -8351,7 +8761,8 @@
         "Mat 6:28",
         "Mrk 15:21",
         "Mrk 5:14"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5912",
@@ -8373,7 +8784,8 @@
         "Mat 14:3",
         "Mrk 6:17",
         "Mat 16:13"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5913",
@@ -8393,7 +8805,8 @@
         "Jas 1:9",
         "1Co 1:31",
         "1Co 4:7"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5914",
@@ -8413,7 +8826,8 @@
         "Luk 2:20",
         "Act 8:28",
         "Luk 17:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5915",
@@ -8434,7 +8848,8 @@
         "Act 10:41",
         "1Ti 6:12",
         "2Ti 2:2"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5916",
@@ -8456,7 +8871,8 @@
         "Jhn 4:5",
         "Act 7:9",
         "Heb 11:21"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5917",
@@ -8475,7 +8891,8 @@
       "exampleRefs": [
         "Gal 1:16",
         "Jas 1:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5918",
@@ -8495,7 +8912,8 @@
         "Mat 24:18",
         "Luk 7:38",
         "Mrk 13:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5919",
@@ -8513,7 +8931,8 @@
       },
       "exampleRefs": [
         "Mat 18:28"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5920",
@@ -8533,7 +8952,8 @@
         "1Ti 3:6",
         "2Ti 3:3",
         "Tit 2:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5921",
@@ -8552,7 +8972,8 @@
       "exampleRefs": [
         "Mat 9:3",
         "Mrk 2:7"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5922",
@@ -8573,7 +8994,8 @@
         "Mat 11:18",
         "Luk 7:33",
         "Act 23:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5923",
@@ -8593,7 +9015,8 @@
         "Luk 17:3",
         "Act 8:22",
         "Rev 2:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5924",
@@ -8613,7 +9036,8 @@
         "Act 20:35",
         "Rom 8:3",
         "2Co 11:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5925",
@@ -8633,7 +9057,8 @@
       "exampleRefs": [
         "Luk 10:40",
         "Act 1:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5926",
@@ -8654,7 +9079,8 @@
         "Mat 19:7",
         "Mrk 10:4",
         "Luk 4:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5927",
@@ -8675,7 +9101,8 @@
         "Mat 9:17",
         "Luk 1:15",
         "Jhn 2:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5928",
@@ -8696,7 +9123,8 @@
         "1Co 12:14",
         "Eph 4:16",
         "Jas 3:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5929",
@@ -8716,7 +9144,8 @@
         "Luk 14:13",
         "Gal 4:9",
         "Mat 11:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5930",
@@ -8736,7 +9165,8 @@
         "Mat 9:28",
         "Jhn 11:27",
         "Act 5:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5931",
@@ -8754,7 +9184,8 @@
       },
       "exampleRefs": [
         "Mat 26:70"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5932",
@@ -8774,7 +9205,8 @@
         "Luk 3:7",
         "Act 25:4",
         "Mat 17:21"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5933",
@@ -8794,7 +9226,8 @@
         "Luk 24:19",
         "Mat 19:18",
         "Mrk 11:28"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5934",
@@ -8815,7 +9248,8 @@
         "Gal 3:15",
         "Heb 9:16",
         "Gal 3:15"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5935",
@@ -8835,7 +9269,8 @@
         "Mat 4:8",
         "Mrk 1:44",
         "Luk 4:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5936",
@@ -8855,7 +9290,8 @@
         "Mat 24:15",
         "Mrk 13:14",
         "Act 15:31"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5937",
@@ -8875,7 +9311,8 @@
         "Luk 3:21",
         "Mrk 16:15",
         "Luk 5:26"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5938",
@@ -8895,7 +9332,8 @@
         "Rom 9:16",
         "Jude 22:1",
         "Rom 9:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5939",
@@ -8915,7 +9353,8 @@
         "Rom 11:28",
         "Rom 5:10",
         "1Co 15:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5940",
@@ -8935,7 +9374,8 @@
         "Act 10:14",
         "1Co 7:14",
         "2Co 6:17"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5941",
@@ -8956,7 +9396,8 @@
         "Mat 5:45",
         "Mrk 1:32",
         "Luk 4:40"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5942",
@@ -8977,7 +9418,8 @@
         "Luk 8:15",
         "Rom 5:3",
         "2Co 6:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5943",
@@ -8997,7 +9439,8 @@
         "Act 15:5",
         "1Co 11:17",
         "2Th 3:4"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5944",
@@ -9017,7 +9460,8 @@
         "Luk 1:49",
         "Col 1:26",
         "Act 25:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5945",
@@ -9037,7 +9481,8 @@
       "exampleRefs": [
         "Act 4:13",
         "2Co 3:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5946",
@@ -9057,7 +9502,8 @@
         "Mat 8:3",
         "Mrk 1:42",
         "Mat 23:25"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5947",
@@ -9078,7 +9524,8 @@
         "Mat 19:28",
         "Luk 2:36",
         "Act 13:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5948",
@@ -9099,7 +9546,8 @@
         "Mat 11:7",
         "Mrk 4:37",
         "Luk 7:24"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G5949",
@@ -9119,7 +9567,8 @@
         "Mat 11:22",
         "Luk 6:24",
         "Luk 23:28"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5950",
@@ -9139,7 +9588,8 @@
         "Mrk 2:24",
         "Act 8:37",
         "1Co 10:23"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5951",
@@ -9159,7 +9609,8 @@
         "Luk 2:8",
         "Act 12:4",
         "Luk 8:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5952",
@@ -9179,7 +9630,8 @@
         "Rom 8:24",
         "1Co 13:7",
         "Heb 11:1"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5953",
@@ -9200,7 +9652,8 @@
         "Luk 5:6",
         "Jhn 21:6",
         "Act 28:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5954",
@@ -9221,7 +9674,8 @@
         "Mat 23:25",
         "Mrk 7:4",
         "Luk 11:39"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5955",
@@ -9241,7 +9695,8 @@
         "Jhn 1:5",
         "2Pe 1:19",
         "1Jn 2:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5956",
@@ -9262,7 +9717,8 @@
         "Act 14:13",
         "Mat 8:4",
         "Mrk 1:44"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G5957",
@@ -9282,7 +9738,8 @@
         "Mat 22:26",
         "Mrk 4:16",
         "Luk 10:37"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5958",
@@ -9302,7 +9759,8 @@
       "exampleRefs": [
         "Heb 10:2",
         "1Pe 2:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5959",
@@ -9322,7 +9780,8 @@
         "Mat 10:25",
         "Act 1:23",
         "Heb 11:16"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G5960",
@@ -9341,7 +9800,8 @@
       },
       "exampleRefs": [
         "Heb 12:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5961",
@@ -9361,7 +9821,8 @@
         "Jhn 19:20",
         "Luk 19:11",
         "Jhn 3:23"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5962",
@@ -9381,7 +9842,8 @@
         "Mat 21:12",
         "Mrk 11:15",
         "Mat 13:44"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5963",
@@ -9399,7 +9861,8 @@
       },
       "exampleRefs": [
         "Mat 5:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5964",
@@ -9419,7 +9882,8 @@
         "Mrk 3:20",
         "Act 1:6",
         "1Co 14:26"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5965",
@@ -9440,7 +9904,8 @@
         "Mrk 1:27",
         "Jhn 7:16",
         "Act 17:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5966",
@@ -9460,7 +9925,8 @@
         "Mat 25:20",
         "Mrk 2:24",
         "Jhn 1:29"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5967",
@@ -9480,7 +9946,8 @@
       "exampleRefs": [
         "Jhn 21:15",
         "Rev 2:7"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5968",
@@ -9501,7 +9968,8 @@
         "Luk 11:52",
         "Rom 2:20",
         "1Co 1:5"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G5969",
@@ -9520,7 +9988,8 @@
       },
       "exampleRefs": [
         "2Ti 3:15"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5970",
@@ -9541,7 +10010,8 @@
         "Luk 6:24",
         "Act 4:36",
         "2Co 1:3"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G5971",
@@ -9561,7 +10031,8 @@
         "Mat 8:33",
         "Mrk 5:14",
         "Luk 8:34"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5972",
@@ -9582,7 +10053,8 @@
         "Mat 26:47",
         "Mrk 14:43",
         "Luk 22:36"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5973",
@@ -9602,7 +10074,8 @@
         "Act 19:31",
         "Luk 7:6",
         "Act 27:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5974",
@@ -9622,7 +10095,8 @@
         "Mat 10:1",
         "Mrk 3:13",
         "Luk 7:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5975",
@@ -9642,7 +10116,8 @@
         "Mat 26:2",
         "Mrk 14:1",
         "Luk 22:1"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5976",
@@ -9662,7 +10137,8 @@
         "Mat 12:29",
         "Mrk 3:27",
         "Luk 11:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5977",
@@ -9680,7 +10156,8 @@
       },
       "exampleRefs": [
         "2Ti 4:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5978",
@@ -9702,7 +10179,8 @@
         "Luk 1:17",
         "Mat 11:14",
         "Mrk 6:15"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5979",
@@ -9722,7 +10200,8 @@
         "Luk 18:37",
         "Mrk 6:48",
         "Act 16:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5980",
@@ -9743,7 +10222,8 @@
         "Mat 22:17",
         "Luk 2:1",
         "Jhn 19:12"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5981",
@@ -9762,7 +10242,8 @@
       "exampleRefs": [
         "Mat 19:10",
         "Mrk 12:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5982",
@@ -9781,7 +10262,8 @@
       },
       "exampleRefs": [
         "Mat 20:26"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G5983",
@@ -9801,7 +10283,8 @@
         "Mat 15:33",
         "Luk 13:25",
         "Jhn 3:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5984",
@@ -9822,7 +10305,8 @@
         "Mat 20:8",
         "Luk 10:7",
         "Rom 4:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5985",
@@ -9842,7 +10326,8 @@
         "Jhn 9:13",
         "Rom 7:9",
         "Gal 1:13"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G5986",
@@ -9864,7 +10349,8 @@
         "Act 4:36",
         "Act 4:36",
         "1Co 9:6"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5987",
@@ -9884,7 +10370,8 @@
         "Mat 7:22",
         "Mrk 14:65",
         "Luk 1:67"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5988",
@@ -9905,7 +10392,8 @@
         "Mat 9:13",
         "Mrk 9:49",
         "Eph 5:2"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5989",
@@ -9927,7 +10415,8 @@
         "Mat 1:16",
         "Mat 2:11",
         "Mrk 6:3"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G5990",
@@ -9947,7 +10436,8 @@
         "Mat 2:6",
         "Luk 22:26",
         "Act 7:10"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5991",
@@ -9967,7 +10457,8 @@
         "Mat 27:57",
         "Luk 12:16",
         "Luk 16:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5992",
@@ -9987,7 +10478,8 @@
         "Mat 9:12",
         "Mrk 2:17",
         "Act 19:20"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5993",
@@ -10007,7 +10499,8 @@
         "Rev 3:21",
         "Rev 5:5",
         "Rev 2:7"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5994",
@@ -10028,7 +10521,8 @@
         "Mat 12:2",
         "Mrk 5:10",
         "Luk 2:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5995",
@@ -10048,7 +10542,8 @@
         "2Ti 4:7",
         "Mat 7:28",
         "Mat 13:53"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5996",
@@ -10068,7 +10563,8 @@
       "exampleRefs": [
         "Mat 9:18",
         "Mrk 5:35"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G5997",
@@ -10088,7 +10584,8 @@
         "2Ti 3:6",
         "Mat 27:28",
         "Mat 27:31"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G5998",
@@ -10108,7 +10605,8 @@
         "Act 25:11",
         "1Co 6:8",
         "2Co 7:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5999",
@@ -10128,7 +10626,8 @@
         "Mat 23:17",
         "2Ti 2:21",
         "Jhn 10:36"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G6000",
@@ -10146,7 +10645,8 @@
       },
       "exampleRefs": [
         "Jhn 4:51"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6001",
@@ -10165,7 +10665,8 @@
       },
       "exampleRefs": [
         "Mat 13:48"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6002",
@@ -10185,7 +10686,8 @@
       },
       "exampleRefs": [
         "Luk 3:33"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G6003",
@@ -10203,7 +10705,8 @@
       },
       "exampleRefs": [
         "Luk 24:33"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G6004",
@@ -10223,7 +10726,8 @@
         "Mat 9:13",
         "Luk 1:50",
         "Eph 2:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6005",
@@ -10241,7 +10745,8 @@
       },
       "exampleRefs": [
         "Luk 12:28"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G6006",
@@ -10259,7 +10764,8 @@
       },
       "exampleRefs": [
         "Mrk 1:16"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G6007",
@@ -10278,7 +10784,8 @@
       },
       "exampleRefs": [
         "Rev 18:13"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G6008",
@@ -10296,7 +10803,8 @@
       },
       "exampleRefs": [
         "Mrk 10:50"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6009",
@@ -10317,7 +10825,8 @@
         "Mat 14:15",
         "Mrk 6:6",
         "Mat 9:35"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6010",
@@ -10337,7 +10846,8 @@
         "Mat 6:23",
         "2Co 7:11",
         "Mrk 9:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6011",
@@ -10356,7 +10866,8 @@
       },
       "exampleRefs": [
         "Luk 18:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6012",
@@ -10376,7 +10887,8 @@
         "Mat 23:26",
         "Jhn 13:10",
         "Jhn 15:3"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G6013",
@@ -10397,7 +10909,8 @@
         "Mrk 12:40",
         "Luk 7:12",
         "1Ti 5:3"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G6014",
@@ -10415,7 +10928,8 @@
       },
       "exampleRefs": [
         "Luk 13:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6015",
@@ -10434,7 +10948,8 @@
       },
       "exampleRefs": [
         "Heb 12:28"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G6016",
@@ -10452,7 +10967,8 @@
       },
       "exampleRefs": [
         "Luk 3:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6017",
@@ -10470,7 +10986,8 @@
       },
       "exampleRefs": [
         "Act 2:13"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G6018",
@@ -10488,7 +11005,8 @@
       },
       "exampleRefs": [
         "Act 10:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6019",
@@ -10506,7 +11024,8 @@
       },
       "exampleRefs": [
         "Rev 9:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6020",
@@ -10525,7 +11044,8 @@
       },
       "exampleRefs": [
         "Heb 3:9"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G6021",
@@ -10545,7 +11065,8 @@
         "Luk 7:1",
         "Mat 18:32",
         "Mrk 15:42"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G6022",
@@ -10563,7 +11084,8 @@
       },
       "exampleRefs": [
         "1Co 4:13"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G6023",
@@ -10581,7 +11103,8 @@
       },
       "exampleRefs": [
         "Luk 18:1"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6024",
@@ -10601,7 +11124,8 @@
         "Rom 8:5",
         "Rom 12:16",
         "Phi 2:5"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G6025",
@@ -10621,7 +11145,8 @@
         "Mat 19:5",
         "Luk 6:22",
         "Act 19:32"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G6026",
@@ -10641,7 +11166,8 @@
         "1Co 1:27",
         "2Co 10:10",
         "Gal 4:9"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6027",
@@ -10660,7 +11186,8 @@
       },
       "exampleRefs": [
         "1Ti 1:4"
-      ]
+      ],
+      "semanticCategory": "speech"
     },
     {
       "id": "G6028",
@@ -10678,7 +11205,8 @@
       },
       "exampleRefs": [
         "Mrk 12:17"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6029",
@@ -10696,7 +11224,8 @@
       },
       "exampleRefs": [
         "Mrk 14:31"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6030",
@@ -10715,7 +11244,8 @@
       "exampleRefs": [
         "Jude 14:1",
         "Act 14:14"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6031",
@@ -10734,7 +11264,8 @@
       },
       "exampleRefs": [
         "2Ti 3:16"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G6032",
@@ -10753,7 +11284,8 @@
       },
       "exampleRefs": [
         "2Pe 3:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6033",
@@ -10773,7 +11305,8 @@
         "Rom 1:18",
         "Rom 2:8",
         "1Jn 5:17"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G6034",
@@ -10791,7 +11324,8 @@
       },
       "exampleRefs": [
         "1Th 5:27"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G6035",
@@ -10809,7 +11343,8 @@
       },
       "exampleRefs": [
         "Jhn 7:49"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6036",
@@ -10827,7 +11362,8 @@
       },
       "exampleRefs": [
         "Luk 21:35"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G6037",
@@ -10845,7 +11381,8 @@
       },
       "exampleRefs": [
         "Mat 13:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6038",
@@ -10866,7 +11403,8 @@
         "Mat 25:9",
         "Heb 9:17",
         "Mat 4:6"
-      ]
+      ],
+      "semanticCategory": "time"
     },
     {
       "id": "G6039",
@@ -10884,7 +11422,8 @@
       },
       "exampleRefs": [
         "Act 24:10"
-      ]
+      ],
+      "semanticCategory": "nature"
     },
     {
       "id": "G6040",
@@ -10905,7 +11444,8 @@
         "Act 2:7",
         "Mat 13:29",
         "Jhn 1:21"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6041",
@@ -10923,7 +11463,8 @@
       },
       "exampleRefs": [
         "Rev 3:19"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G6042",
@@ -10943,7 +11484,8 @@
         "Rev 17:8",
         "1Co 5:3",
         "2Co 10:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6043",
@@ -10963,7 +11505,8 @@
       },
       "exampleRefs": [
         "Luk 3:26"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6044",
@@ -10983,7 +11526,8 @@
       },
       "exampleRefs": [
         "Luk 3:26"
-      ]
+      ],
+      "semanticCategory": "place"
     },
     {
       "id": "G6045",
@@ -11002,7 +11546,8 @@
       "exampleRefs": [
         "2Co 3:8",
         "Heb 5:4"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6046",
@@ -11020,7 +11565,8 @@
       },
       "exampleRefs": [
         "Mrk 14:40"
-      ]
+      ],
+      "semanticCategory": "religious"
     },
     {
       "id": "G6047",
@@ -11040,7 +11586,8 @@
         "Mat 20:24",
         "Luk 17:17",
         "Rev 2:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6048",
@@ -11059,7 +11606,8 @@
       },
       "exampleRefs": [
         "Act 25:15"
-      ]
+      ],
+      "semanticCategory": "name"
     },
     {
       "id": "G6049",
@@ -11079,7 +11627,8 @@
         "Mat 8:6",
         "Mat 21:15",
         "Act 4:27"
-      ]
+      ],
+      "semanticCategory": "family"
     },
     {
       "id": "G6050",
@@ -11097,7 +11646,8 @@
       },
       "exampleRefs": [
         "Mrk 10:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G6100",
@@ -11108,7 +11658,8 @@
       "partOfSpeech": "noun",
       "frequency": 10,
       "tier": 5,
-      "strongs": "G86"
+      "strongs": "G86",
+      "semanticCategory": "general"
     },
     {
       "id": "G38",
@@ -11127,7 +11678,8 @@
       },
       "exampleRefs": [
         "Rom 6:19"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G629",
@@ -11147,7 +11699,8 @@
       "exampleRefs": [
         "Heb 11:35",
         "Luk 21:28"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2643",
@@ -11166,7 +11719,8 @@
       },
       "exampleRefs": [
         "Rom 5:11"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3341",
@@ -11182,7 +11736,8 @@
         "language": "G",
         "type": "noun",
         "gender": "feminine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G3875",
@@ -11202,7 +11757,8 @@
       "exampleRefs": [
         "1Jn 2:1",
         "Jhn 14:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5486",
@@ -11221,7 +11777,8 @@
       },
       "exampleRefs": [
         "Rom 1:11; 5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2817",
@@ -11242,7 +11799,8 @@
         "Mat 21:38",
         "Mrk 12:7",
         "Luk 12:13; 20"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3952",
@@ -11258,7 +11816,8 @@
         "language": "G",
         "type": "noun",
         "gender": "feminine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G4394",
@@ -11279,7 +11838,8 @@
         "Mat 13:14",
         "2Pe 1:20",
         "Rom 12:6"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G5215",
@@ -11300,7 +11860,8 @@
         "Eph 5:19",
         "Col 3:16",
         "Col 3:16"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3770",
@@ -11319,7 +11880,8 @@
       "exampleRefs": [
         "Mat 5:48; 6",
         "Luk 2:13"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4559",
@@ -11339,7 +11901,8 @@
         "Rom 15:27",
         "1Co 9:11",
         "1Co 3:3"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G874",
@@ -11355,7 +11918,8 @@
         "language": "G",
         "type": "noun",
         "gender": "feminine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G938",
@@ -11376,7 +11940,8 @@
         "Mat 12:42",
         "Luk 11:31",
         "Act 8:27"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G1650",
@@ -11395,7 +11960,8 @@
       },
       "exampleRefs": [
         "Heb 11:1"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2205",
@@ -11414,7 +11980,8 @@
       },
       "exampleRefs": [
         "2Co 9:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2372",
@@ -11435,7 +12002,8 @@
         "Heb 11:27",
         "Rom 2:8",
         "Col 3:8"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2479",
@@ -11455,7 +12023,8 @@
       "exampleRefs": [
         "Rev 5:12; 7",
         "2Pe 2:11"
-      ]
+      ],
+      "semanticCategory": "abstract"
     },
     {
       "id": "G3083",
@@ -11471,7 +12040,8 @@
         "language": "G",
         "type": "noun",
         "gender": "neuter"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G3108",
@@ -11491,7 +12061,8 @@
       "exampleRefs": [
         "Rom 4:6",
         "Gal 4:15"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G3581",
@@ -11511,7 +12082,8 @@
         "Act 17:18",
         "Heb 13:9",
         "Eph 2:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3619",
@@ -11527,7 +12099,8 @@
         "language": "G",
         "type": "noun",
         "gender": "feminine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G3804",
@@ -11548,7 +12121,8 @@
         "Rom 8:18",
         "2Co 1:6",
         "Col 1:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3966",
@@ -11564,7 +12138,8 @@
         "language": "G",
         "type": "noun",
         "gender": "masculine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G3986",
@@ -11585,7 +12160,8 @@
         "Jas 1:13",
         "Gal 4:14",
         "Jas 1:12"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4124",
@@ -11606,7 +12182,8 @@
         "Luk 12:15",
         "Rom 1:29",
         "2Co 9:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4175",
@@ -11622,7 +12199,8 @@
         "language": "G",
         "type": "noun",
         "gender": "neuter"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G4240",
@@ -11638,7 +12216,8 @@
         "language": "G",
         "type": "noun",
         "gender": "feminine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G4625",
@@ -11657,7 +12236,8 @@
       },
       "exampleRefs": [
         "Rom 9:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G4698",
@@ -11673,7 +12253,8 @@
         "language": "G",
         "type": "noun",
         "gender": "neuter"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G4736",
@@ -11692,7 +12273,8 @@
       },
       "exampleRefs": [
         "Act 6:5"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5012",
@@ -11712,7 +12294,8 @@
       "exampleRefs": [
         "Act 20:19",
         "Eph 4:2"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5059",
@@ -11731,7 +12314,8 @@
       },
       "exampleRefs": [
         "Mat 24:24"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5356",
@@ -11752,7 +12336,8 @@
         "Rom 8:21",
         "1Co 15:42",
         "Col 2:22"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5578",
@@ -11768,7 +12353,8 @@
         "language": "G",
         "type": "noun",
         "gender": "masculine"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G75",
@@ -11786,7 +12372,8 @@
       },
       "exampleRefs": [
         "1Co 9:25"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G390",
@@ -11806,7 +12393,8 @@
         "Jhn 2:15",
         "Act 5:22; 15",
         "Mat 17:22"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G936",
@@ -11825,7 +12413,8 @@
       "exampleRefs": [
         "1Ti 6:15",
         "Mat 2:22"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G1189",
@@ -11845,7 +12434,8 @@
         "Act 26:3",
         "Luk 5:12; 8",
         "Act 8:34; 21"
-      ]
+      ],
+      "semanticCategory": "theological"
     },
     {
       "id": "G1252",
@@ -11865,7 +12455,8 @@
         "Act 11:12",
         "Act 15:9",
         "1Co 4:7"
-      ]
+      ],
+      "semanticCategory": "authority"
     },
     {
       "id": "G1567",
@@ -11880,7 +12471,8 @@
       "morphology": {
         "language": "G",
         "type": "verb"
-      }
+      },
+      "semanticCategory": "action"
     },
     {
       "id": "G1937",
@@ -11900,7 +12492,8 @@
         "Jas 4:2",
         "Rom 7:7; 13",
         "1Co 10:6"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2165",
@@ -11920,7 +12513,8 @@
         "2Co 2:2",
         "Luk 15:32",
         "Act 2:26"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G2723",
@@ -11935,7 +12529,8 @@
       "morphology": {
         "language": "G",
         "type": "verb"
-      }
+      },
+      "semanticCategory": "general"
     },
     {
       "id": "G3000",
@@ -11953,7 +12548,8 @@
       },
       "exampleRefs": [
         "Mat 4:10"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3084",
@@ -11972,7 +12568,8 @@
       "exampleRefs": [
         "Tit 2:14",
         "1Pe 1:18"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3309",
@@ -11991,7 +12588,8 @@
       "exampleRefs": [
         "Mat 6:27",
         "Luk 12:25"
-      ]
+      ],
+      "semanticCategory": "emotion"
     },
     {
       "id": "G3522",
@@ -12011,7 +12609,8 @@
         "Mat 4:2; 6",
         "Mrk 2:18",
         "Luk 5:33"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G3908",
@@ -12031,7 +12630,8 @@
         "Mrk 6:41; 8",
         "Luk 9:16; 11",
         "Act 16:34"
-      ]
+      ],
+      "semanticCategory": "action"
     },
     {
       "id": "G4741",
@@ -12050,7 +12650,8 @@
       "exampleRefs": [
         "Luk 16:26",
         "Luk 9:51"
-      ]
+      ],
+      "semanticCategory": "general"
     },
     {
       "id": "G5219",
@@ -12069,7 +12670,8 @@
       "exampleRefs": [
         "Act 12:13",
         "Heb 11:8"
-      ]
+      ],
+      "semanticCategory": "general"
     }
   ]
 }

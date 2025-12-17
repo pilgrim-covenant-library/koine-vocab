@@ -9,7 +9,6 @@ import { Card, CardContent } from '@/components/ui/Card';
 import { GreekWord } from '@/components/GreekWord';
 import { MorphologyDisplay } from '@/components/MorphologyDisplay';
 import { WordRelations } from '@/components/WordRelations';
-import { AddToListButton } from '@/components/AddToListButton';
 import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord } from '@/types';
@@ -237,17 +236,14 @@ export default function VocabularyPage() {
                     <div className="mt-4 pt-4 border-t space-y-3">
                       <p className="text-sm">{word.definition}</p>
                       <MorphologyDisplay word={word} />
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                          <span>Frequency: {word.frequency}x in NT</span>
-                          {progress[word.id] && (
-                            <span>
-                              Reviews: {progress[word.id].timesReviewed} |
-                              Ease: {progress[word.id].easeFactor.toFixed(2)}
-                            </span>
-                          )}
-                        </div>
-                        <AddToListButton wordId={word.id} />
+                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <span>Frequency: {word.frequency}x in NT</span>
+                        {progress[word.id] && (
+                          <span>
+                            Reviews: {progress[word.id].timesReviewed} |
+                            Ease: {progress[word.id].easeFactor.toFixed(2)}
+                          </span>
+                        )}
                       </div>
                       <WordRelations
                         word={word}

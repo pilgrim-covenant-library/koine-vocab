@@ -1,0 +1,891 @@
+{
+  "nouns": {
+    "second_masculine": {
+      "name": "2nd Declension Masculine",
+      "example": "λόγος",
+      "meaning": "word",
+      "endings": {
+        "singular": {
+          "nominative": "-ος",
+          "genitive": "-ου",
+          "dative": "-ῳ",
+          "accusative": "-ον",
+          "vocative": "-ε"
+        },
+        "plural": {
+          "nominative": "-οι",
+          "genitive": "-ων",
+          "dative": "-οις",
+          "accusative": "-ους",
+          "vocative": "-οι"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "λόγος",
+          "genitive": "λόγου",
+          "dative": "λόγῳ",
+          "accusative": "λόγον",
+          "vocative": "λόγε"
+        },
+        "plural": {
+          "nominative": "λόγοι",
+          "genitive": "λόγων",
+          "dative": "λόγοις",
+          "accusative": "λόγους",
+          "vocative": "λόγοι"
+        }
+      }
+    },
+    "second_neuter": {
+      "name": "2nd Declension Neuter",
+      "example": "ἔργον",
+      "meaning": "work",
+      "endings": {
+        "singular": {
+          "nominative": "-ον",
+          "genitive": "-ου",
+          "dative": "-ῳ",
+          "accusative": "-ον",
+          "vocative": "-ον"
+        },
+        "plural": {
+          "nominative": "-α",
+          "genitive": "-ων",
+          "dative": "-οις",
+          "accusative": "-α",
+          "vocative": "-α"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "ἔργον",
+          "genitive": "ἔργου",
+          "dative": "ἔργῳ",
+          "accusative": "ἔργον",
+          "vocative": "ἔργον"
+        },
+        "plural": {
+          "nominative": "ἔργα",
+          "genitive": "ἔργων",
+          "dative": "ἔργοις",
+          "accusative": "ἔργα",
+          "vocative": "ἔργα"
+        }
+      }
+    },
+    "first_feminine_eta": {
+      "name": "1st Declension Feminine (η)",
+      "example": "ἀρχή",
+      "meaning": "beginning",
+      "endings": {
+        "singular": {
+          "nominative": "-η",
+          "genitive": "-ης",
+          "dative": "-ῃ",
+          "accusative": "-ην",
+          "vocative": "-η"
+        },
+        "plural": {
+          "nominative": "-αι",
+          "genitive": "-ων",
+          "dative": "-αις",
+          "accusative": "-ας",
+          "vocative": "-αι"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "ἀρχή",
+          "genitive": "ἀρχῆς",
+          "dative": "ἀρχῇ",
+          "accusative": "ἀρχήν",
+          "vocative": "ἀρχή"
+        },
+        "plural": {
+          "nominative": "ἀρχαί",
+          "genitive": "ἀρχῶν",
+          "dative": "ἀρχαῖς",
+          "accusative": "ἀρχάς",
+          "vocative": "ἀρχαί"
+        }
+      }
+    },
+    "first_feminine_alpha_pure": {
+      "name": "1st Declension Feminine (α pure)",
+      "example": "καρδία",
+      "meaning": "heart",
+      "endings": {
+        "singular": {
+          "nominative": "-α",
+          "genitive": "-ας",
+          "dative": "-ᾳ",
+          "accusative": "-αν",
+          "vocative": "-α"
+        },
+        "plural": {
+          "nominative": "-αι",
+          "genitive": "-ων",
+          "dative": "-αις",
+          "accusative": "-ας",
+          "vocative": "-αι"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "καρδία",
+          "genitive": "καρδίας",
+          "dative": "καρδίᾳ",
+          "accusative": "καρδίαν",
+          "vocative": "καρδία"
+        },
+        "plural": {
+          "nominative": "καρδίαι",
+          "genitive": "καρδιῶν",
+          "dative": "καρδίαις",
+          "accusative": "καρδίας",
+          "vocative": "καρδίαι"
+        }
+      }
+    },
+    "first_masculine": {
+      "name": "1st Declension Masculine",
+      "example": "μαθητής",
+      "meaning": "disciple",
+      "endings": {
+        "singular": {
+          "nominative": "-ης",
+          "genitive": "-ου",
+          "dative": "-ῃ",
+          "accusative": "-ην",
+          "vocative": "-α"
+        },
+        "plural": {
+          "nominative": "-αι",
+          "genitive": "-ων",
+          "dative": "-αις",
+          "accusative": "-ας",
+          "vocative": "-αι"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "μαθητής",
+          "genitive": "μαθητοῦ",
+          "dative": "μαθητῇ",
+          "accusative": "μαθητήν",
+          "vocative": "μαθητά"
+        },
+        "plural": {
+          "nominative": "μαθηταί",
+          "genitive": "μαθητῶν",
+          "dative": "μαθηταῖς",
+          "accusative": "μαθητάς",
+          "vocative": "μαθηταί"
+        }
+      }
+    },
+    "third_consonant_stem": {
+      "name": "3rd Declension (consonant stem)",
+      "example": "σάρξ",
+      "meaning": "flesh",
+      "endings": {
+        "singular": {
+          "nominative": "-",
+          "genitive": "-ος",
+          "dative": "-ι",
+          "accusative": "-α",
+          "vocative": "-"
+        },
+        "plural": {
+          "nominative": "-ες",
+          "genitive": "-ων",
+          "dative": "-σι(ν)",
+          "accusative": "-ας",
+          "vocative": "-ες"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "σάρξ",
+          "genitive": "σαρκός",
+          "dative": "σαρκί",
+          "accusative": "σάρκα",
+          "vocative": "σάρξ"
+        },
+        "plural": {
+          "nominative": "σάρκες",
+          "genitive": "σαρκῶν",
+          "dative": "σαρξί(ν)",
+          "accusative": "σάρκας",
+          "vocative": "σάρκες"
+        }
+      }
+    },
+    "third_neuter_mat": {
+      "name": "3rd Declension Neuter (-μα)",
+      "example": "ὄνομα",
+      "meaning": "name",
+      "endings": {
+        "singular": {
+          "nominative": "-μα",
+          "genitive": "-ματος",
+          "dative": "-ματι",
+          "accusative": "-μα",
+          "vocative": "-μα"
+        },
+        "plural": {
+          "nominative": "-ματα",
+          "genitive": "-μάτων",
+          "dative": "-μασι(ν)",
+          "accusative": "-ματα",
+          "vocative": "-ματα"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "ὄνομα",
+          "genitive": "ὀνόματος",
+          "dative": "ὀνόματι",
+          "accusative": "ὄνομα",
+          "vocative": "ὄνομα"
+        },
+        "plural": {
+          "nominative": "ὀνόματα",
+          "genitive": "ὀνομάτων",
+          "dative": "ὀνόμασι(ν)",
+          "accusative": "ὀνόματα",
+          "vocative": "ὀνόματα"
+        }
+      }
+    }
+  },
+  "article": {
+    "name": "The Definite Article",
+    "forms": {
+      "masculine": {
+        "singular": {
+          "nominative": "ὁ",
+          "genitive": "τοῦ",
+          "dative": "τῷ",
+          "accusative": "τόν"
+        },
+        "plural": {
+          "nominative": "οἱ",
+          "genitive": "τῶν",
+          "dative": "τοῖς",
+          "accusative": "τούς"
+        }
+      },
+      "feminine": {
+        "singular": {
+          "nominative": "ἡ",
+          "genitive": "τῆς",
+          "dative": "τῇ",
+          "accusative": "τήν"
+        },
+        "plural": {
+          "nominative": "αἱ",
+          "genitive": "τῶν",
+          "dative": "ταῖς",
+          "accusative": "τάς"
+        }
+      },
+      "neuter": {
+        "singular": {
+          "nominative": "τό",
+          "genitive": "τοῦ",
+          "dative": "τῷ",
+          "accusative": "τό"
+        },
+        "plural": {
+          "nominative": "τά",
+          "genitive": "τῶν",
+          "dative": "τοῖς",
+          "accusative": "τά"
+        }
+      }
+    }
+  },
+  "verbs": {
+    "present_active_indicative": {
+      "name": "Present Active Indicative",
+      "example": "λύω",
+      "meaning": "I loose",
+      "endings": {
+        "singular": {
+          "1st": "-ω",
+          "2nd": "-εις",
+          "3rd": "-ει"
+        },
+        "plural": {
+          "1st": "-ομεν",
+          "2nd": "-ετε",
+          "3rd": "-ουσι(ν)"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "λύω",
+          "2nd": "λύεις",
+          "3rd": "λύει"
+        },
+        "plural": {
+          "1st": "λύομεν",
+          "2nd": "λύετε",
+          "3rd": "λύουσι(ν)"
+        }
+      },
+      "translations": {
+        "singular": {
+          "1st": "I loose",
+          "2nd": "you loose",
+          "3rd": "he/she/it looses"
+        },
+        "plural": {
+          "1st": "we loose",
+          "2nd": "you (pl) loose",
+          "3rd": "they loose"
+        }
+      }
+    },
+    "present_middle_passive_indicative": {
+      "name": "Present Middle/Passive Indicative",
+      "example": "λύομαι",
+      "meaning": "I am loosed / I loose for myself",
+      "endings": {
+        "singular": {
+          "1st": "-ομαι",
+          "2nd": "-ῃ / -ει",
+          "3rd": "-εται"
+        },
+        "plural": {
+          "1st": "-ομεθα",
+          "2nd": "-εσθε",
+          "3rd": "-ονται"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "λύομαι",
+          "2nd": "λύῃ",
+          "3rd": "λύεται"
+        },
+        "plural": {
+          "1st": "λυόμεθα",
+          "2nd": "λύεσθε",
+          "3rd": "λύονται"
+        }
+      }
+    },
+    "imperfect_active_indicative": {
+      "name": "Imperfect Active Indicative",
+      "example": "ἔλυον",
+      "meaning": "I was loosing",
+      "endings": {
+        "singular": {
+          "1st": "-ον",
+          "2nd": "-ες",
+          "3rd": "-ε(ν)"
+        },
+        "plural": {
+          "1st": "-ομεν",
+          "2nd": "-ετε",
+          "3rd": "-ον"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "ἔλυον",
+          "2nd": "ἔλυες",
+          "3rd": "ἔλυε(ν)"
+        },
+        "plural": {
+          "1st": "ἐλύομεν",
+          "2nd": "ἐλύετε",
+          "3rd": "ἔλυον"
+        }
+      }
+    },
+    "future_active_indicative": {
+      "name": "Future Active Indicative",
+      "example": "λύσω",
+      "meaning": "I will loose",
+      "endings": {
+        "singular": {
+          "1st": "-σω",
+          "2nd": "-σεις",
+          "3rd": "-σει"
+        },
+        "plural": {
+          "1st": "-σομεν",
+          "2nd": "-σετε",
+          "3rd": "-σουσι(ν)"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "λύσω",
+          "2nd": "λύσεις",
+          "3rd": "λύσει"
+        },
+        "plural": {
+          "1st": "λύσομεν",
+          "2nd": "λύσετε",
+          "3rd": "λύσουσι(ν)"
+        }
+      }
+    },
+    "aorist_active_indicative": {
+      "name": "Aorist Active Indicative (1st/Weak)",
+      "example": "ἔλυσα",
+      "meaning": "I loosed",
+      "endings": {
+        "singular": {
+          "1st": "-σα",
+          "2nd": "-σας",
+          "3rd": "-σε(ν)"
+        },
+        "plural": {
+          "1st": "-σαμεν",
+          "2nd": "-σατε",
+          "3rd": "-σαν"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "ἔλυσα",
+          "2nd": "ἔλυσας",
+          "3rd": "ἔλυσε(ν)"
+        },
+        "plural": {
+          "1st": "ἐλύσαμεν",
+          "2nd": "ἐλύσατε",
+          "3rd": "ἔλυσαν"
+        }
+      }
+    },
+    "aorist_active_indicative_second": {
+      "name": "Aorist Active Indicative (2nd/Strong)",
+      "example": "ἔβαλον",
+      "meaning": "I threw",
+      "endings": {
+        "singular": {
+          "1st": "-ον",
+          "2nd": "-ες",
+          "3rd": "-ε(ν)"
+        },
+        "plural": {
+          "1st": "-ομεν",
+          "2nd": "-ετε",
+          "3rd": "-ον"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "ἔβαλον",
+          "2nd": "ἔβαλες",
+          "3rd": "ἔβαλε(ν)"
+        },
+        "plural": {
+          "1st": "ἐβάλομεν",
+          "2nd": "ἐβάλετε",
+          "3rd": "ἔβαλον"
+        }
+      }
+    },
+    "perfect_active_indicative": {
+      "name": "Perfect Active Indicative",
+      "example": "λέλυκα",
+      "meaning": "I have loosed",
+      "endings": {
+        "singular": {
+          "1st": "-κα",
+          "2nd": "-κας",
+          "3rd": "-κε(ν)"
+        },
+        "plural": {
+          "1st": "-καμεν",
+          "2nd": "-κατε",
+          "3rd": "-κασι(ν) / -καν"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "λέλυκα",
+          "2nd": "λέλυκας",
+          "3rd": "λέλυκε(ν)"
+        },
+        "plural": {
+          "1st": "λελύκαμεν",
+          "2nd": "λελύκατε",
+          "3rd": "λελύκασι(ν)"
+        }
+      }
+    },
+    "present_active_subjunctive": {
+      "name": "Present Active Subjunctive",
+      "example": "λύω (subj)",
+      "meaning": "that I might loose",
+      "endings": {
+        "singular": {
+          "1st": "-ω",
+          "2nd": "-ῃς",
+          "3rd": "-ῃ"
+        },
+        "plural": {
+          "1st": "-ωμεν",
+          "2nd": "-ητε",
+          "3rd": "-ωσι(ν)"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "λύω",
+          "2nd": "λύῃς",
+          "3rd": "λύῃ"
+        },
+        "plural": {
+          "1st": "λύωμεν",
+          "2nd": "λύητε",
+          "3rd": "λύωσι(ν)"
+        }
+      }
+    },
+    "aorist_active_subjunctive": {
+      "name": "Aorist Active Subjunctive",
+      "example": "λύσω (subj)",
+      "meaning": "that I might loose",
+      "endings": {
+        "singular": {
+          "1st": "-σω",
+          "2nd": "-σῃς",
+          "3rd": "-σῃ"
+        },
+        "plural": {
+          "1st": "-σωμεν",
+          "2nd": "-σητε",
+          "3rd": "-σωσι(ν)"
+        }
+      },
+      "forms": {
+        "singular": {
+          "1st": "λύσω",
+          "2nd": "λύσῃς",
+          "3rd": "λύσῃ"
+        },
+        "plural": {
+          "1st": "λύσωμεν",
+          "2nd": "λύσητε",
+          "3rd": "λύσωσι(ν)"
+        }
+      }
+    },
+    "present_active_imperative": {
+      "name": "Present Active Imperative",
+      "example": "λῦε",
+      "meaning": "loose! (keep loosing)",
+      "endings": {
+        "singular": {
+          "2nd": "-ε",
+          "3rd": "-έτω"
+        },
+        "plural": {
+          "2nd": "-ετε",
+          "3rd": "-έτωσαν / -όντων"
+        }
+      },
+      "forms": {
+        "singular": {
+          "2nd": "λῦε",
+          "3rd": "λυέτω"
+        },
+        "plural": {
+          "2nd": "λύετε",
+          "3rd": "λυέτωσαν"
+        }
+      }
+    },
+    "aorist_active_imperative": {
+      "name": "Aorist Active Imperative",
+      "example": "λῦσον",
+      "meaning": "loose! (just do it)",
+      "endings": {
+        "singular": {
+          "2nd": "-σον",
+          "3rd": "-σάτω"
+        },
+        "plural": {
+          "2nd": "-σατε",
+          "3rd": "-σάτωσαν"
+        }
+      },
+      "forms": {
+        "singular": {
+          "2nd": "λῦσον",
+          "3rd": "λυσάτω"
+        },
+        "plural": {
+          "2nd": "λύσατε",
+          "3rd": "λυσάτωσαν"
+        }
+      }
+    }
+  },
+  "pronouns": {
+    "personal_first": {
+      "name": "1st Person Personal Pronoun",
+      "meaning": "I / we",
+      "forms": {
+        "singular": {
+          "nominative": "ἐγώ",
+          "genitive": "ἐμοῦ / μου",
+          "dative": "ἐμοί / μοι",
+          "accusative": "ἐμέ / με"
+        },
+        "plural": {
+          "nominative": "ἡμεῖς",
+          "genitive": "ἡμῶν",
+          "dative": "ἡμῖν",
+          "accusative": "ἡμᾶς"
+        }
+      }
+    },
+    "personal_second": {
+      "name": "2nd Person Personal Pronoun",
+      "meaning": "you",
+      "forms": {
+        "singular": {
+          "nominative": "σύ",
+          "genitive": "σοῦ / σου",
+          "dative": "σοί / σοι",
+          "accusative": "σέ / σε"
+        },
+        "plural": {
+          "nominative": "ὑμεῖς",
+          "genitive": "ὑμῶν",
+          "dative": "ὑμῖν",
+          "accusative": "ὑμᾶς"
+        }
+      }
+    },
+    "personal_third": {
+      "name": "3rd Person Personal Pronoun",
+      "meaning": "he / she / it / they",
+      "forms": {
+        "masculine": {
+          "singular": {
+            "nominative": "αὐτός",
+            "genitive": "αὐτοῦ",
+            "dative": "αὐτῷ",
+            "accusative": "αὐτόν"
+          },
+          "plural": {
+            "nominative": "αὐτοί",
+            "genitive": "αὐτῶν",
+            "dative": "αὐτοῖς",
+            "accusative": "αὐτούς"
+          }
+        },
+        "feminine": {
+          "singular": {
+            "nominative": "αὐτή",
+            "genitive": "αὐτῆς",
+            "dative": "αὐτῇ",
+            "accusative": "αὐτήν"
+          },
+          "plural": {
+            "nominative": "αὐταί",
+            "genitive": "αὐτῶν",
+            "dative": "αὐταῖς",
+            "accusative": "αὐτάς"
+          }
+        },
+        "neuter": {
+          "singular": {
+            "nominative": "αὐτό",
+            "genitive": "αὐτοῦ",
+            "dative": "αὐτῷ",
+            "accusative": "αὐτό"
+          },
+          "plural": {
+            "nominative": "αὐτά",
+            "genitive": "αὐτῶν",
+            "dative": "αὐτοῖς",
+            "accusative": "αὐτά"
+          }
+        }
+      }
+    },
+    "demonstrative_this": {
+      "name": "Demonstrative Pronoun (this/these)",
+      "meaning": "this, these",
+      "forms": {
+        "masculine": {
+          "singular": {
+            "nominative": "οὗτος",
+            "genitive": "τούτου",
+            "dative": "τούτῳ",
+            "accusative": "τοῦτον"
+          },
+          "plural": {
+            "nominative": "οὗτοι",
+            "genitive": "τούτων",
+            "dative": "τούτοις",
+            "accusative": "τούτους"
+          }
+        },
+        "feminine": {
+          "singular": {
+            "nominative": "αὕτη",
+            "genitive": "ταύτης",
+            "dative": "ταύτῃ",
+            "accusative": "ταύτην"
+          },
+          "plural": {
+            "nominative": "αὗται",
+            "genitive": "τούτων",
+            "dative": "ταύταις",
+            "accusative": "ταύτας"
+          }
+        },
+        "neuter": {
+          "singular": {
+            "nominative": "τοῦτο",
+            "genitive": "τούτου",
+            "dative": "τούτῳ",
+            "accusative": "τοῦτο"
+          },
+          "plural": {
+            "nominative": "ταῦτα",
+            "genitive": "τούτων",
+            "dative": "τούτοις",
+            "accusative": "ταῦτα"
+          }
+        }
+      }
+    },
+    "demonstrative_that": {
+      "name": "Demonstrative Pronoun (that/those)",
+      "meaning": "that, those",
+      "forms": {
+        "masculine": {
+          "singular": {
+            "nominative": "ἐκεῖνος",
+            "genitive": "ἐκείνου",
+            "dative": "ἐκείνῳ",
+            "accusative": "ἐκεῖνον"
+          },
+          "plural": {
+            "nominative": "ἐκεῖνοι",
+            "genitive": "ἐκείνων",
+            "dative": "ἐκείνοις",
+            "accusative": "ἐκείνους"
+          }
+        },
+        "feminine": {
+          "singular": {
+            "nominative": "ἐκείνη",
+            "genitive": "ἐκείνης",
+            "dative": "ἐκείνῃ",
+            "accusative": "ἐκείνην"
+          },
+          "plural": {
+            "nominative": "ἐκεῖναι",
+            "genitive": "ἐκείνων",
+            "dative": "ἐκείναις",
+            "accusative": "ἐκείνας"
+          }
+        },
+        "neuter": {
+          "singular": {
+            "nominative": "ἐκεῖνο",
+            "genitive": "ἐκείνου",
+            "dative": "ἐκείνῳ",
+            "accusative": "ἐκεῖνο"
+          },
+          "plural": {
+            "nominative": "ἐκεῖνα",
+            "genitive": "ἐκείνων",
+            "dative": "ἐκείνοις",
+            "accusative": "ἐκεῖνα"
+          }
+        }
+      }
+    },
+    "relative": {
+      "name": "Relative Pronoun",
+      "meaning": "who, which, that",
+      "forms": {
+        "masculine": {
+          "singular": {
+            "nominative": "ὅς",
+            "genitive": "οὗ",
+            "dative": "ᾧ",
+            "accusative": "ὅν"
+          },
+          "plural": {
+            "nominative": "οἵ",
+            "genitive": "ὧν",
+            "dative": "οἷς",
+            "accusative": "οὕς"
+          }
+        },
+        "feminine": {
+          "singular": {
+            "nominative": "ἥ",
+            "genitive": "ἧς",
+            "dative": "ᾗ",
+            "accusative": "ἥν"
+          },
+          "plural": {
+            "nominative": "αἵ",
+            "genitive": "ὧν",
+            "dative": "αἷς",
+            "accusative": "ἅς"
+          }
+        },
+        "neuter": {
+          "singular": {
+            "nominative": "ὅ",
+            "genitive": "οὗ",
+            "dative": "ᾧ",
+            "accusative": "ὅ"
+          },
+          "plural": {
+            "nominative": "ἅ",
+            "genitive": "ὧν",
+            "dative": "οἷς",
+            "accusative": "ἅ"
+          }
+        }
+      }
+    }
+  },
+  "caseDescriptions": {
+    "nominative": "Subject of the verb; names the doer of the action",
+    "genitive": "Shows possession ('of'), source, separation, or description",
+    "dative": "Indirect object ('to/for'), location ('in/at'), or means ('by/with')",
+    "accusative": "Direct object; receives the action of the verb",
+    "vocative": "Direct address; used when speaking to someone"
+  },
+  "tenseDescriptions": {
+    "present": "Ongoing or repeated action (imperfective aspect)",
+    "imperfect": "Past continuous action ('was doing')",
+    "future": "Action yet to occur",
+    "aorist": "Simple occurrence; undefined aspect (often past)",
+    "perfect": "Completed action with ongoing results",
+    "pluperfect": "Past completed action with past results"
+  },
+  "voiceDescriptions": {
+    "active": "Subject performs the action",
+    "middle": "Subject acts on/for itself",
+    "passive": "Subject receives the action"
+  },
+  "moodDescriptions": {
+    "indicative": "Statement of fact or question",
+    "subjunctive": "Possibility, purpose, or uncertainty",
+    "optative": "Wish or remote possibility",
+    "imperative": "Command or request"
+  }
+}

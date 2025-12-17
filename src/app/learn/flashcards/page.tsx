@@ -28,7 +28,7 @@ const KEYBOARD_SHORTCUTS = {
 
 export default function FlashcardsPage() {
   const router = useRouter();
-  const { stats, progress, reviewWord, undoLastReview, canUndo, initializeWord, getWordProgress, getDueWords, sessionLength, selectedTiers, checkAndUnlockAchievements, recordSession, getIntervalModifier, blindMode, setBlindMode } =
+  const { stats, progress, reviewWord, undoLastReview, canUndo, initializeWord, getWordProgress, getDueWords, sessionLength, selectedTiers, selectedPOS, selectedCategories, checkAndUnlockAchievements, recordSession, getIntervalModifier, blindMode, setBlindMode } =
     useUserStore();
   const {
     isActive,
@@ -64,24 +64,41 @@ export default function FlashcardsPage() {
     if (!mounted) return;
 
     if (!isActive) {
-      // Get words for this session, filtered by selected tiers
+      // Filter function for tier, POS, and category
+      const matchesFilters = (w: VocabularyWord): boolean => {
+        // Tier filter (always applied)
+        if (!selectedTiers.includes(w.tier)) return false;
+
+        // POS filter (only if selections exist)
+        if (selectedPOS.length > 0 && !selectedPOS.includes(w.partOfSpeech)) return false;
+
+        // Category filter (only if selections exist)
+        if (selectedCategories.length > 0) {
+          const wordCategory = w.semanticCategory || 'general';
+          if (!selectedCategories.includes(wordCategory)) return false;
+        }
+
+        return true;
+      };
+
+      // Get words for this session, filtered by selected tiers/POS/categories
       const dueWords = getDueWords();
       let sessionWords: VocabularyWord[] = [];
 
       if (dueWords.length > 0) {
-        // Review due words first, filtered by selected tiers
+        // Review due words first, filtered by selected criteria
         const dueWordIds = dueWords.map((p) => p.wordId);
         sessionWords = vocabularyData.words.filter((w) =>
-          dueWordIds.includes(w.id) && selectedTiers.includes(w.tier)
+          dueWordIds.includes(w.id) && matchesFilters(w as VocabularyWord)
         ) as VocabularyWord[];
       }
 
-      // If no due words in selected tiers, learn new words
+      // If no due words matching filters, learn new words
       if (sessionWords.length === 0) {
-        // Learn new words - get words not yet in progress, filtered by selected tiers
+        // Learn new words - get words not yet in progress, filtered by selected criteria
         const knownWordIds = Object.keys(progress);
         const newWords = vocabularyData.words.filter(
-          (w) => !knownWordIds.includes(w.id) && selectedTiers.includes(w.tier)
+          (w) => !knownWordIds.includes(w.id) && matchesFilters(w as VocabularyWord)
         );
         // Sort by tier (learn easier words first)
         sessionWords = newWords.sort((a, b) => a.tier - b.tier) as VocabularyWord[];
@@ -98,7 +115,7 @@ export default function FlashcardsPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
 
   const currentWord = words[currentIndex] as VocabularyWord | undefined;
   const currentProgress = currentWord ? getWordProgress(currentWord.id) : null;

@@ -1,11 +1,10 @@
 'use client';
 
 import { Suspense, useEffect, useState, useCallback } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { X, RotateCcw, Shuffle, Settings2, ChevronRight, Check, XIcon, BookOpen } from 'lucide-react';
+import { X, RotateCcw, Shuffle, Settings2, ChevronRight, Check, XIcon } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
-import { useListStore } from '@/stores/listStore';
 import { FlashCard } from '@/components/FlashCard';
 import { GreekWord } from '@/components/GreekWord';
 import { Button } from '@/components/ui/Button';
@@ -26,11 +25,8 @@ export default function CramPage() {
 
 function CramPageContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const listId = searchParams.get('listId');
 
-  const { progress, selectedTiers, getLeeches, isLeech } = useUserStore();
-  const { getList } = useListStore();
+  const { progress, selectedTiers, selectedPOS, selectedCategories, getLeeches, isLeech } = useUserStore();
 
   const [mounted, setMounted] = useState(false);
   const [started, setStarted] = useState(false);
@@ -40,8 +36,6 @@ function CramPageContent() {
   const [isFlipped, setIsFlipped] = useState(false);
   const [stats, setStats] = useState({ correct: 0, incorrect: 0 });
   const [sessionComplete, setSessionComplete] = useState(false);
-
-  const list = listId ? getList(listId) : null;
 
   useEffect(() => {
     setMounted(true);
@@ -54,18 +48,22 @@ function CramPageContent() {
     return 'learning';
   }, [progress]);
 
+  // Helper function to match base filters (tier, POS, category)
+  const matchesBaseFilters = useCallback((w: VocabularyWord): boolean => {
+    if (!selectedTiers.includes(w.tier)) return false;
+    if (selectedPOS.length > 0 && !selectedPOS.includes(w.partOfSpeech)) return false;
+    if (selectedCategories.length > 0) {
+      const wordCategory = w.semanticCategory || 'general';
+      if (!selectedCategories.includes(wordCategory)) return false;
+    }
+    return true;
+  }, [selectedTiers, selectedPOS, selectedCategories]);
+
   const getFilteredWords = useCallback(() => {
     const allWords = vocabularyData.words as VocabularyWord[];
 
-    // If practicing from a list, get list words
-    let filtered: VocabularyWord[];
-    if (list) {
-      filtered = list.wordIds
-        .map(id => allWords.find(w => w.id === id))
-        .filter(Boolean) as VocabularyWord[];
-    } else {
-      filtered = allWords.filter(w => selectedTiers.includes(w.tier));
-    }
+    // Apply base filters (tier, POS, category)
+    let filtered = allWords.filter(matchesBaseFilters);
 
     switch (filter) {
       case 'learned':
@@ -83,7 +81,7 @@ function CramPageContent() {
     }
 
     return shuffle([...filtered]);
-  }, [selectedTiers, filter, getWordStatus, isLeech, list]);
+  }, [matchesBaseFilters, filter, getWordStatus, isLeech]);
 
   const startCram = () => {
     const cramWords = getFilteredWords();
@@ -135,31 +133,19 @@ function CramPageContent() {
       <div className="min-h-screen">
         <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
           <div className="container mx-auto px-4 py-3 flex items-center gap-3">
-            <Button variant="ghost" size="icon" onClick={() => list ? router.push(`/lists/${list.id}`) : router.back()}>
+            <Button variant="ghost" size="icon" onClick={() => router.back()} aria-label="Go back">
               <X className="w-5 h-5" />
             </Button>
-            <div>
-              <h1 className="text-lg font-semibold">Cram Mode</h1>
-              {list && (
-                <p className="text-xs text-muted-foreground flex items-center gap-1">
-                  <BookOpen className="w-3 h-3" />
-                  {list.name}
-                </p>
-              )}
-            </div>
+            <h1 className="text-lg font-semibold">Cram Mode</h1>
           </div>
         </header>
 
         <main className="container mx-auto px-4 py-6 max-w-lg">
           <div className="text-center mb-8">
-            <div className="text-5xl mb-4">{list ? '📚' : '🧠'}</div>
-            <h2 className="text-xl font-bold mb-2">
-              {list ? `Practice: ${list.name}` : 'Quick Review'}
-            </h2>
+            <div className="text-5xl mb-4">🧠</div>
+            <h2 className="text-xl font-bold mb-2">Quick Review</h2>
             <p className="text-muted-foreground text-sm">
-              {list
-                ? `Review ${list.wordIds.length} words from your custom list. SRS progress not affected.`
-                : 'Rapidly review words without affecting SRS progress. Perfect for cramming before a test!'}
+              Rapidly review words without affecting SRS progress. Perfect for cramming before a test!
             </p>
           </div>
 
@@ -173,15 +159,15 @@ function CramPageContent() {
                 <FilterButton
                   active={filter === 'all'}
                   onClick={() => setFilter('all')}
-                  count={vocabularyData.words.filter(w => selectedTiers.includes(w.tier)).length}
+                  count={(vocabularyData.words as VocabularyWord[]).filter(matchesBaseFilters).length}
                 >
                   All Words
                 </FilterButton>
                 <FilterButton
                   active={filter === 'learned'}
                   onClick={() => setFilter('learned')}
-                  count={vocabularyData.words.filter(w =>
-                    selectedTiers.includes(w.tier) && getWordStatus(w.id) === 'learned'
+                  count={(vocabularyData.words as VocabularyWord[]).filter(w =>
+                    matchesBaseFilters(w) && getWordStatus(w.id) === 'learned'
                   ).length}
                 >
                   Learned
@@ -189,8 +175,8 @@ function CramPageContent() {
                 <FilterButton
                   active={filter === 'learning'}
                   onClick={() => setFilter('learning')}
-                  count={vocabularyData.words.filter(w =>
-                    selectedTiers.includes(w.tier) && getWordStatus(w.id) === 'learning'
+                  count={(vocabularyData.words as VocabularyWord[]).filter(w =>
+                    matchesBaseFilters(w) && getWordStatus(w.id) === 'learning'
                   ).length}
                 >
                   Learning
@@ -198,8 +184,8 @@ function CramPageContent() {
                 <FilterButton
                   active={filter === 'new'}
                   onClick={() => setFilter('new')}
-                  count={vocabularyData.words.filter(w =>
-                    selectedTiers.includes(w.tier) && getWordStatus(w.id) === 'new'
+                  count={(vocabularyData.words as VocabularyWord[]).filter(w =>
+                    matchesBaseFilters(w) && getWordStatus(w.id) === 'new'
                   ).length}
                 >
                   New
@@ -208,7 +194,9 @@ function CramPageContent() {
                   <FilterButton
                     active={filter === 'leeches'}
                     onClick={() => setFilter('leeches')}
-                    count={leechCount}
+                    count={(vocabularyData.words as VocabularyWord[]).filter(w =>
+                      matchesBaseFilters(w) && isLeech(w.id)
+                    ).length}
                     className="col-span-2"
                   >
                     ⚠️ Leeches (difficult words)
@@ -268,7 +256,7 @@ function CramPageContent() {
                 <RotateCcw className="w-4 h-4 mr-2" />
                 Again
               </Button>
-              <Button onClick={() => router.push(list ? `/lists/${list.id}` : '/')} className="flex-1">
+              <Button onClick={() => router.push('/')} className="flex-1">
                 Done
               </Button>
             </div>
@@ -290,7 +278,7 @@ function CramPageContent() {
             <span className="text-sm font-medium">
               {currentIndex + 1} / {words.length}
             </span>
-            <Button variant="ghost" size="icon" onClick={() => router.push(list ? `/lists/${list.id}` : '/')} aria-label="Exit">
+            <Button variant="ghost" size="icon" onClick={() => router.push('/')} aria-label="Exit">
               <X className="w-5 h-5" />
             </Button>
           </div>

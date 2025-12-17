@@ -1,3 +1,23 @@
+// Semantic Categories for vocabulary organization
+export type SemanticCategory =
+  | 'name'        // Personal names (Παῦλος, Πέτρος)
+  | 'place'       // Geographic locations (Ἰερουσαλήμ, Γαλιλαία)
+  | 'theological' // Theological terms (ἁμαρτία, σωτηρία, χάρις)
+  | 'body'        // Body parts (χείρ, πούς, ὀφθαλμός)
+  | 'time'        // Time-related (ἡμέρα, ὥρα, καιρός)
+  | 'family'      // Family relations (πατήρ, μήτηρ, ἀδελφός)
+  | 'nature'      // Natural world (θάλασσα, οὐρανός, γῆ)
+  | 'abstract'    // Abstract concepts (ἀλήθεια, δόξα, δύναμις)
+  | 'emotion'     // Emotional terms (ἀγάπη, φόβος, χαρά)
+  | 'religious'   // Religious practice (προσεύχομαι, βαπτίζω, ἱερόν)
+  | 'authority'   // Authority/power (βασιλεύς, ἐξουσία, κύριος)
+  | 'action'      // Action verbs (λέγω, ποιέω, ἔρχομαι)
+  | 'speech'      // Speech/communication (λόγος, φωνή, λαλέω)
+  | 'general';    // Default/uncategorized
+
+// Part of Speech type
+export type PartOfSpeech = 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'particle' | 'pronoun' | 'article' | 'interjection';
+
 // Vocabulary Types
 export interface VocabularyWord {
   id: string;
@@ -5,12 +25,14 @@ export interface VocabularyWord {
   transliteration: string;
   gloss: string;
   definition: string;
-  partOfSpeech: 'noun' | 'verb' | 'adjective' | 'adverb' | 'preposition' | 'conjunction' | 'particle' | 'pronoun' | 'article' | 'interjection';
+  partOfSpeech: PartOfSpeech;
   frequency: number;
   tier: 1 | 2 | 3 | 4 | 5;
   strongs: string;
   examples?: string[];
   morphology?: WordMorphology;
+  semanticCategory?: SemanticCategory;
+  categories?: SemanticCategory[]; // Allow multiple categories
 }
 
 // Morphology Types for Greek Words
@@ -172,4 +194,36 @@ export const TIER_THRESHOLDS = {
   3: { min: 25, label: 'Medium Frequency', color: 'amber' },
   4: { min: 10, label: 'Lower Frequency', color: 'orange' },
   5: { min: 5, label: 'Advanced', color: 'red' },
+} as const;
+
+// Semantic category display info
+export const SEMANTIC_CATEGORIES: Record<SemanticCategory, { label: string; color: string; icon: string }> = {
+  name: { label: 'Names', color: 'rose', icon: 'User' },
+  place: { label: 'Places', color: 'cyan', icon: 'MapPin' },
+  theological: { label: 'Theological', color: 'purple', icon: 'Cross' },
+  body: { label: 'Body', color: 'orange', icon: 'Heart' },
+  time: { label: 'Time', color: 'sky', icon: 'Clock' },
+  family: { label: 'Family', color: 'pink', icon: 'Users' },
+  nature: { label: 'Nature', color: 'green', icon: 'Leaf' },
+  abstract: { label: 'Abstract', color: 'indigo', icon: 'Lightbulb' },
+  emotion: { label: 'Emotions', color: 'red', icon: 'Heart' },
+  religious: { label: 'Religious', color: 'violet', icon: 'Church' },
+  authority: { label: 'Authority', color: 'amber', icon: 'Crown' },
+  action: { label: 'Actions', color: 'blue', icon: 'Zap' },
+  speech: { label: 'Speech', color: 'teal', icon: 'MessageCircle' },
+  general: { label: 'General', color: 'gray', icon: 'Circle' },
+} as const;
+
+// Part of Speech display info
+export const PART_OF_SPEECH_INFO: Record<PartOfSpeech, { label: string; abbrev: string; color: string }> = {
+  noun: { label: 'Noun', abbrev: 'n.', color: 'blue' },
+  verb: { label: 'Verb', abbrev: 'v.', color: 'emerald' },
+  adjective: { label: 'Adjective', abbrev: 'adj.', color: 'purple' },
+  adverb: { label: 'Adverb', abbrev: 'adv.', color: 'amber' },
+  preposition: { label: 'Preposition', abbrev: 'prep.', color: 'rose' },
+  conjunction: { label: 'Conjunction', abbrev: 'conj.', color: 'cyan' },
+  particle: { label: 'Particle', abbrev: 'part.', color: 'orange' },
+  pronoun: { label: 'Pronoun', abbrev: 'pron.', color: 'pink' },
+  article: { label: 'Article', abbrev: 'art.', color: 'gray' },
+  interjection: { label: 'Interjection', abbrev: 'interj.', color: 'red' },
 } as const;

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, ListPlus } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
@@ -198,11 +198,11 @@ export default function Dashboard() {
               color="bg-amber-500"
             />
             <LearningModeCard
-              href="/lists"
-              icon={<ListPlus className="w-6 h-6" />}
-              title="My Word Lists"
-              description="Create and study custom word collections"
-              color="bg-pink-500"
+              href="/grammar"
+              icon={<BookType className="w-6 h-6" />}
+              title="Grammar"
+              description="Parse words, study paradigms, practice forms"
+              color="bg-rose-500"
             />
           </div>
         </section>

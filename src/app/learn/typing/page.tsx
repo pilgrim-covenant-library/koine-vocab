@@ -21,7 +21,7 @@ type AnswerStatus = 'idle' | 'correct' | 'incorrect' | 'close';
 export default function TypingPage() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
-  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, checkAndUnlockAchievements, recordSession } = useUserStore();
+  const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, selectedPOS, selectedCategories, checkAndUnlockAchievements, recordSession } = useUserStore();
   const {
     isActive,
     startSession,
@@ -61,19 +61,30 @@ export default function TypingPage() {
       const dueWords = getDueWords();
       let sessionWords: VocabularyWord[] = [];
 
+      // Filter function matching user's selected filters
+      const matchesFilters = (w: VocabularyWord): boolean => {
+        if (!selectedTiers.includes(w.tier)) return false;
+        if (selectedPOS.length > 0 && !selectedPOS.includes(w.partOfSpeech)) return false;
+        if (selectedCategories.length > 0) {
+          const wordCategory = w.semanticCategory || 'general';
+          if (!selectedCategories.includes(wordCategory)) return false;
+        }
+        return true;
+      };
+
       if (dueWords.length > 0) {
-        // Review due words first, filtered by selected tiers
+        // Review due words first, filtered by selected tiers, POS, and categories
         const dueWordIds = dueWords.map((p) => p.wordId);
         sessionWords = vocabularyData.words.filter((w) =>
-          dueWordIds.includes(w.id) && selectedTiers.includes(w.tier)
+          dueWordIds.includes(w.id) && matchesFilters(w as VocabularyWord)
         ) as VocabularyWord[];
       }
 
-      // If no due words in selected tiers, learn new words
+      // If no due words in selected filters, learn new words
       if (sessionWords.length === 0) {
         const knownWordIds = Object.keys(progress);
         const newWords = vocabularyData.words.filter(
-          (w) => !knownWordIds.includes(w.id) && selectedTiers.includes(w.tier)
+          (w) => !knownWordIds.includes(w.id) && matchesFilters(w as VocabularyWord)
         );
         sessionWords = newWords.sort((a, b) => a.tier - b.tier) as VocabularyWord[];
       }
@@ -87,7 +98,7 @@ export default function TypingPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers]);
+  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
 
   // Focus input when moving to next word
   useEffect(() => {

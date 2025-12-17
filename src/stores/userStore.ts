@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { UserStats, WordProgress, Achievement } from '@/types';
+import type { UserStats, WordProgress, Achievement, SemanticCategory, PartOfSpeech } from '@/types';
 import { createInitialStats, updateStreak, awardXP, calculateLevel } from '@/lib/xp';
 import { createInitialProgress, updateWordProgress, isDue } from '@/lib/srs';
 import { checkAchievements, ACHIEVEMENTS } from '@/lib/achievements';
@@ -74,6 +74,10 @@ interface UserState {
   dailyGoalAwardedToday: boolean;
   // Selected vocabulary tiers for learning sessions
   selectedTiers: number[];
+  // Selected parts of speech for filtering
+  selectedPOS: PartOfSpeech[];
+  // Selected semantic categories for filtering
+  selectedCategories: SemanticCategory[];
   // Last review snapshot for undo
   lastReviewSnapshot: ReviewSnapshot | null;
   // Study history for heatmap (keyed by YYYY-MM-DD)
@@ -97,6 +101,8 @@ interface UserState {
   setDailyGoal: (goal: number) => void;
   setSessionLength: (length: number) => void;
   setSelectedTiers: (tiers: number[]) => void;
+  setSelectedPOS: (pos: PartOfSpeech[]) => void;
+  setSelectedCategories: (categories: SemanticCategory[]) => void;
   resetDailyCount: () => void;
   unlockAchievement: (achievementId: string) => void;
   addXP: (amount: number) => { leveledUp: boolean };
@@ -124,6 +130,8 @@ export const useUserStore = create<UserState>()(
       lastReviewDate: null,
       dailyGoalAwardedToday: false,
       selectedTiers: [1, 2, 3, 4, 5], // All tiers selected by default
+      selectedPOS: [], // Empty means "all" - no filtering
+      selectedCategories: [], // Empty means "all" - no filtering
       lastReviewSnapshot: null,
       studyHistory: {},
       sessionHistory: [],
@@ -319,6 +327,16 @@ export const useUserStore = create<UserState>()(
         } else {
           set({ selectedTiers: tiers.filter(t => t >= 1 && t <= 5) });
         }
+      },
+
+      setSelectedPOS: (pos: PartOfSpeech[]) => {
+        // Empty array means "all" - no filtering
+        set({ selectedPOS: pos });
+      },
+
+      setSelectedCategories: (categories: SemanticCategory[]) => {
+        // Empty array means "all" - no filtering
+        set({ selectedCategories: categories });
       },
 
       resetDailyCount: () => {
