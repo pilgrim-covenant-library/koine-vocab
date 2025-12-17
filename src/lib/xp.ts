@@ -112,13 +112,14 @@ export function updateStreak(stats: UserStats): UserStats {
 
 /**
  * Calculate streak bonus multiplier
- * Higher streaks give bonus XP
+ * Higher streaks give bonus XP, capped at 2x
  */
 export function getStreakMultiplier(streak: number): number {
   if (streak <= 1) return 1;
   if (streak <= 7) return 1 + (streak - 1) * 0.05; // 5% per day up to 30% at 7 days
   if (streak <= 30) return 1.3 + (streak - 7) * 0.02; // 2% per day up to 76% at 30 days
-  return 1.76 + (streak - 30) * 0.01; // 1% per day thereafter, capped at 2x
+  // 1% per day thereafter, hard capped at 2x
+  return Math.min(2.0, 1.76 + (streak - 30) * 0.01);
 }
 
 /**

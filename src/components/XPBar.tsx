@@ -29,7 +29,7 @@ export function XPBar({ xp, level, className, showDetails = true }: XPBarProps) 
         )}
       </div>
       <div
-        className="h-2 bg-muted rounded-full overflow-hidden"
+        className="h-2 bg-muted/50 dark:bg-muted/30 rounded-full overflow-hidden"
         role="progressbar"
         aria-valuenow={progress}
         aria-valuemin={0}

@@ -88,7 +88,7 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6 max-w-2xl">
+      <main id="main-content" className="container mx-auto px-4 py-6 max-w-2xl">
         {/* XP and Level */}
         <section className="mb-8">
           <XPBar xp={stats.xp} level={stats.level} />
@@ -340,7 +340,7 @@ function TierProgressBar({
           {learned}/{total}
         </span>
       </div>
-      <div className="h-2 bg-muted rounded-full overflow-hidden">
+      <div className="h-2 bg-muted/50 dark:bg-muted/30 rounded-full overflow-hidden">
         <div
           className={cn('h-full transition-all duration-500', tierColors[tier as keyof typeof tierColors])}
           style={{ width: `${progress}%` }}

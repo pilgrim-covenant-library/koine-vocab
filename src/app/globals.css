@@ -204,10 +204,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Focus styles */
+/* Focus styles - improved visibility for dark mode */
 *:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
+  box-shadow: 0 0 0 4px hsl(var(--ring) / 0.2);
+}
+
+/* Progress bar backgrounds for better dark mode visibility */
+.progress-bar-bg {
+  background: hsl(var(--muted) / 0.5);
+}
+
+.dark .progress-bar-bg {
+  background: hsl(var(--muted) / 0.3);
 }
 
 /* Selection color */

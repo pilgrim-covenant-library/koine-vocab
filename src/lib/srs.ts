@@ -50,8 +50,9 @@ export function calculateNextReview(
   // EF' = EF + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
   easeFactor = easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
 
-  // Ensure ease factor doesn't go below minimum
-  easeFactor = Math.max(MIN_EASE_FACTOR, easeFactor);
+  // Ensure ease factor stays within bounds (1.3 to 3.0)
+  const MAX_EASE_FACTOR = 3.0;
+  easeFactor = Math.max(MIN_EASE_FACTOR, Math.min(MAX_EASE_FACTOR, easeFactor));
 
   // Calculate next review date
   const nextReview = new Date();

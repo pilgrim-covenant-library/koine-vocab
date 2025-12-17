@@ -103,8 +103,9 @@ export const QUEST_TEMPLATES: Quest[] = [
 
 // Generate daily quests based on date (deterministic)
 export function getDailyQuests(dateStr: string): Quest[] {
-  // Use date string as seed for consistent daily quests
-  const seed = dateStr.split('-').reduce((a, b) => a + parseInt(b), 0);
+  // Use date as seed for consistent daily quests
+  // Create a better hash from the date string to avoid collisions
+  const seed = new Date(dateStr).getTime() / 86400000; // Days since epoch
 
   // Always include a review quest, an accuracy quest, and one random quest
   const reviewQuests = QUEST_TEMPLATES.filter(q => q.type === 'reviews');

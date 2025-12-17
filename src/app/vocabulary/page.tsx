@@ -95,7 +95,7 @@ export default function VocabularyPage() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center gap-3 mb-3">
             <Link href="/">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" aria-label="Back to dashboard">
                 <ArrowLeft className="w-5 h-5" />
               </Button>
             </Link>
@@ -104,12 +104,15 @@ export default function VocabularyPage() {
 
           {/* Search */}
           <div className="relative mb-3">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <label htmlFor="word-search" className="sr-only">Search words</label>
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
             <input
+              id="word-search"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search words..."
+              aria-label="Search vocabulary words"
               className={cn(
                 'w-full pl-10 pr-4 py-2 rounded-lg border bg-background',
                 'focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary'
@@ -181,7 +184,7 @@ export default function VocabularyPage() {
       </header>
 
       {/* Word list */}
-      <main className="container mx-auto px-4 py-4 max-w-2xl">
+      <main id="main-content" className="container mx-auto px-4 py-4 max-w-2xl">
         <p className="text-sm text-muted-foreground mb-4">
           Showing {filteredWords.length} words
         </p>
@@ -199,6 +202,16 @@ export default function VocabularyPage() {
                   isExpanded && 'ring-2 ring-primary'
                 )}
                 onClick={() => setExpandedWord(isExpanded ? null : word.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setExpandedWord(isExpanded ? null : word.id);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-expanded={isExpanded}
+                aria-label={`${word.greek} - ${word.gloss}. ${isExpanded ? 'Press to collapse' : 'Press to expand details'}`}
               >
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between">
@@ -276,7 +289,7 @@ function FilterButton({
       onClick={onClick}
       className={cn(
         'flex items-center whitespace-nowrap rounded-full border transition-colors',
-        size === 'default' ? 'px-3 py-1.5 text-sm' : 'px-2 py-1 text-xs',
+        size === 'default' ? 'px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm' : 'px-2 py-1 text-xs',
         active
           ? 'bg-primary text-primary-foreground border-primary'
           : 'bg-background hover:bg-muted border-border'

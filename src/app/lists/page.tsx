@@ -7,6 +7,8 @@ import { ArrowLeft, Plus, Trash2, Edit2, BookOpen, ChevronRight, X } from 'lucid
 import { useListStore, VocabList } from '@/stores/listStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
+import { ConfirmationModal } from '@/components/ConfirmationModal';
+import { Toast, useToast } from '@/components/Toast';
 import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord } from '@/types';
@@ -29,6 +31,12 @@ export default function ListsPage() {
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [newListName, setNewListName] = useState('');
   const [newListDescription, setNewListDescription] = useState('');
+  const [deleteConfirm, setDeleteConfirm] = useState<{ isOpen: boolean; listId: string | null; listName: string }>({
+    isOpen: false,
+    listId: null,
+    listName: '',
+  });
+  const { toast, showToast } = useToast();
 
   useEffect(() => {
     setMounted(true);
@@ -40,7 +48,16 @@ export default function ListsPage() {
       setNewListName('');
       setNewListDescription('');
       setShowCreateModal(false);
+      showToast({ message: `List "${list.name}" created!`, type: 'success' });
       router.push(`/lists/${list.id}`);
+    }
+  };
+
+  const handleDeleteList = () => {
+    if (deleteConfirm.listId) {
+      deleteList(deleteConfirm.listId);
+      showToast({ message: 'List deleted', type: 'info' });
+      setDeleteConfirm({ isOpen: false, listId: null, listName: '' });
     }
   };
 
@@ -58,7 +75,7 @@ export default function ListsPage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon" onClick={() => router.back()}>
+            <Button variant="ghost" size="icon" onClick={() => router.back()} aria-label="Go back">
               <ArrowLeft className="w-5 h-5" />
             </Button>
             <h1 className="text-lg font-semibold">My Word Lists</h1>
@@ -70,7 +87,7 @@ export default function ListsPage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6 max-w-2xl">
+      <main id="main-content" className="container mx-auto px-4 py-6 max-w-2xl">
         {lists.length === 0 ? (
           <div className="text-center py-12">
             <BookOpen className="w-16 h-16 mx-auto mb-4 text-muted-foreground opacity-50" />
@@ -90,7 +107,7 @@ export default function ListsPage() {
                 key={list.id}
                 list={list}
                 wordPreview={getWordPreview(list.wordIds)}
-                onDelete={() => deleteList(list.id)}
+                onDelete={() => setDeleteConfirm({ isOpen: true, listId: list.id, listName: list.name })}
               />
             ))}
           </div>
@@ -99,35 +116,45 @@ export default function ListsPage() {
 
       {/* Create List Modal */}
       {showCreateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <Card className="w-full max-w-md">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="create-list-title"
+        >
+          <Card className="w-full max-w-md max-h-[90vh] overflow-y-auto">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-semibold">Create New List</h2>
-                <Button variant="ghost" size="icon" onClick={() => setShowCreateModal(false)}>
+                <h2 id="create-list-title" className="text-lg font-semibold">Create New List</h2>
+                <Button variant="ghost" size="icon" onClick={() => setShowCreateModal(false)} aria-label="Close dialog">
                   <X className="w-5 h-5" />
                 </Button>
               </div>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-1">Name</label>
+                  <label htmlFor="list-name" className="block text-sm font-medium mb-1">Name</label>
                   <input
+                    id="list-name"
                     type="text"
                     value={newListName}
                     onChange={(e) => setNewListName(e.target.value)}
                     placeholder="e.g., Verbs to Review"
                     className="w-full px-3 py-2 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                     autoFocus
+                    maxLength={50}
                   />
+                  <p className="text-xs text-muted-foreground mt-1 text-right">{newListName.length}/50</p>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-1">Description (optional)</label>
+                  <label htmlFor="list-description" className="block text-sm font-medium mb-1">Description (optional)</label>
                   <input
+                    id="list-description"
                     type="text"
                     value={newListDescription}
                     onChange={(e) => setNewListDescription(e.target.value)}
                     placeholder="e.g., Common verbs I keep forgetting"
                     className="w-full px-3 py-2 rounded-lg border bg-background focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    maxLength={100}
                   />
                 </div>
                 <div className="flex gap-3 pt-2">
@@ -143,6 +170,21 @@ export default function ListsPage() {
           </Card>
         </div>
       )}
+
+      {/* Delete Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={deleteConfirm.isOpen}
+        onClose={() => setDeleteConfirm({ isOpen: false, listId: null, listName: '' })}
+        onConfirm={handleDeleteList}
+        title="Delete List?"
+        message={`Are you sure you want to delete "${deleteConfirm.listName}"? This action cannot be undone.`}
+        confirmText="Delete"
+        cancelText="Cancel"
+        variant="danger"
+      />
+
+      {/* Toast notifications */}
+      {toast && <Toast {...toast} />}
     </div>
   );
 }
@@ -195,7 +237,7 @@ function ListCard({ list, wordPreview, onDelete }: ListCardProps) {
           </Link>
           <div className="flex items-center gap-1 ml-2">
             <Link href={`/lists/${list.id}`}>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
+              <Button variant="ghost" size="icon" className="h-8 w-8" aria-label={`Open ${list.name} list`}>
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </Link>
@@ -203,11 +245,10 @@ function ListCard({ list, wordPreview, onDelete }: ListCardProps) {
               variant="ghost"
               size="icon"
               className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950"
+              aria-label={`Delete ${list.name} list`}
               onClick={(e) => {
                 e.preventDefault();
-                if (confirm('Delete this list?')) {
-                  onDelete();
-                }
+                onDelete();
               }}
             >
               <Trash2 className="w-4 h-4" />

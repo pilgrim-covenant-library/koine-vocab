@@ -229,14 +229,14 @@ export default function SettingsPage() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3 flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => router.back()}>
+          <Button variant="ghost" size="icon" onClick={() => router.back()} aria-label="Go back">
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <h1 className="text-lg font-semibold">Settings</h1>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6 max-w-2xl space-y-6">
+      <main id="main-content" className="container mx-auto px-4 py-6 max-w-2xl space-y-6">
         {/* Appearance */}
         <Card>
           <CardHeader>
@@ -247,9 +247,11 @@ export default function SettingsPage() {
               <label className="text-sm font-medium text-muted-foreground mb-3 block">
                 Theme
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Theme selection">
                 <button
                   onClick={() => setTheme('light')}
+                  role="radio"
+                  aria-checked={theme === 'light'}
                   className={cn(
                     'flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all',
                     theme === 'light'
@@ -257,11 +259,13 @@ export default function SettingsPage() {
                       : 'border-border hover:border-muted-foreground/50'
                   )}
                 >
-                  <Sun className="w-6 h-6" />
+                  <Sun className="w-6 h-6" aria-hidden="true" />
                   <span className="text-sm font-medium">Light</span>
                 </button>
                 <button
                   onClick={() => setTheme('dark')}
+                  role="radio"
+                  aria-checked={theme === 'dark'}
                   className={cn(
                     'flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all',
                     theme === 'dark'
@@ -269,11 +273,13 @@ export default function SettingsPage() {
                       : 'border-border hover:border-muted-foreground/50'
                   )}
                 >
-                  <Moon className="w-6 h-6" />
+                  <Moon className="w-6 h-6" aria-hidden="true" />
                   <span className="text-sm font-medium">Dark</span>
                 </button>
                 <button
                   onClick={() => setTheme('system')}
+                  role="radio"
+                  aria-checked={theme === 'system'}
                   className={cn(
                     'flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all',
                     theme === 'system'
@@ -281,7 +287,7 @@ export default function SettingsPage() {
                       : 'border-border hover:border-muted-foreground/50'
                   )}
                 >
-                  <Monitor className="w-6 h-6" />
+                  <Monitor className="w-6 h-6" aria-hidden="true" />
                   <span className="text-sm font-medium">System</span>
                 </button>
               </div>
@@ -397,6 +403,9 @@ export default function SettingsPage() {
               </div>
               <button
                 onClick={handleAudioToggle}
+                role="switch"
+                aria-checked={audioEnabled}
+                aria-label="Toggle audio pronunciation"
                 className={cn(
                   'relative w-12 h-7 rounded-full transition-colors',
                   audioEnabled ? 'bg-primary' : 'bg-muted'

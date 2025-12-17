@@ -42,6 +42,7 @@ interface SessionState {
 
   // XP tracking
   recordXP: (amount: number) => void;
+  decrementXP: (amount: number) => void;
 
   // Undo support
   undoLastReview: () => boolean;
@@ -257,6 +258,10 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     set((state) => ({ xpEarned: state.xpEarned + amount }));
   },
 
+  decrementXP: (amount: number) => {
+    set((state) => ({ xpEarned: Math.max(0, state.xpEarned - amount) }));
+  },
+
   undoLastReview: () => {
     const state = get();
     if (state.reviews.length === 0) return false;
@@ -264,13 +269,24 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     // Remove the last review from the array
     const newReviews = state.reviews.slice(0, -1);
 
-    // Go back to the previous card (if we moved forward)
-    // Check if we're not at the first card and if we've moved past the word we just undid
-    const shouldGoBack = state.currentIndex > 0 || state.currentIndex === state.words.length - 1;
+    // Recalculate streak from remaining reviews
+    let newStreak = 0;
+    for (let i = newReviews.length - 1; i >= 0; i--) {
+      if (newReviews[i].correct) {
+        newStreak++;
+      } else {
+        break;
+      }
+    }
+
+    // Go back to the previous card if we've moved past it
+    // The number of reviews should match the number of cards we've seen
+    const shouldGoBack = state.currentIndex >= newReviews.length && state.currentIndex > 0;
 
     set({
       reviews: newReviews,
-      currentIndex: shouldGoBack ? Math.max(0, state.currentIndex - 1) : state.currentIndex,
+      currentIndex: shouldGoBack ? state.currentIndex - 1 : state.currentIndex,
+      currentStreak: newStreak,
       isFlipped: false,
       showResult: false,
       selectedAnswer: null,

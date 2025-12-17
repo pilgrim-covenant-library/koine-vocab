@@ -245,17 +245,41 @@ export default function FlashcardsPage() {
     return <LoadingSkeleton />;
   }
 
-  // No words available
+  // No words available - determine the reason
   if (!isActive && words.length === 0) {
+    const allDueWords = getDueWords();
+    const hasWordsInOtherTiers = allDueWords.length > 0;
+    const hasAnyProgress = Object.keys(progress).length > 0;
+
+    let title = "All caught up!";
+    let message = "You have no words due for review. Great job staying on top of your studies!";
+    let actionText = "Back to Dashboard";
+    let actionHref = "/";
+
+    if (hasWordsInOtherTiers) {
+      // User has due words but not in selected tiers
+      title = "No words in selected tiers";
+      message = `You have ${allDueWords.length} words due for review in other tiers. Adjust your tier selection in Settings to include them.`;
+      actionText = "Adjust Settings";
+      actionHref = "/settings";
+    } else if (!hasAnyProgress) {
+      // New user with no progress
+      title = "Ready to start learning?";
+      message = "Select your tier preferences in Settings and begin your Greek vocabulary journey!";
+      actionText = "Get Started";
+      actionHref = "/learn";
+    }
+
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <Card className="max-w-md w-full text-center">
           <CardContent className="py-12">
-            <h2 className="text-2xl font-bold mb-4">All caught up!</h2>
-            <p className="text-muted-foreground mb-6">
-              You have no words due for review. Great job staying on top of your studies!
-            </p>
-            <Button onClick={() => router.push('/')}>Back to Dashboard</Button>
+            <h2 className="text-2xl font-bold mb-4">{title}</h2>
+            <p className="text-muted-foreground mb-6">{message}</p>
+            <div className="flex gap-3 justify-center">
+              <Button variant="outline" onClick={() => router.push('/')}>Dashboard</Button>
+              <Button onClick={() => router.push(actionHref)}>{actionText}</Button>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -320,7 +344,7 @@ export default function FlashcardsPage() {
             </Button>
           </div>
           {/* Progress bar */}
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
+          <div className="h-2 bg-muted/50 dark:bg-muted/30 rounded-full overflow-hidden">
             <div
               className="h-full bg-primary transition-all duration-300"
               style={{ width: `${sessionProgress.percentage}%` }}
@@ -330,7 +354,7 @@ export default function FlashcardsPage() {
       </header>
 
       {/* Main content */}
-      <main className="flex-1 flex flex-col items-center justify-center p-4">
+      <main id="main-content" className="flex-1 flex flex-col items-center justify-center p-4" aria-live="polite">
         {/* XP indicator */}
         <div className="relative mb-4 w-full max-w-md">
           <XPBar xp={stats.xp} level={stats.level} showDetails={false} />
@@ -431,7 +455,7 @@ export default function FlashcardsPage() {
               currentStreak={sessionStats.currentStreak}
               bestStreak={sessionStats.bestStreak}
             />
-            <div className="flex gap-6 text-sm">
+            <div className="flex gap-4 sm:gap-6 text-sm">
               <div className="text-center">
                 <div className="font-bold text-emerald-500">{sessionStats.correct}</div>
                 <div className="text-xs text-muted-foreground">Correct</div>

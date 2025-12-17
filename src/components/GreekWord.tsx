@@ -15,10 +15,10 @@ interface GreekWordProps {
 }
 
 const sizeClasses = {
-  sm: 'text-lg',
-  md: 'text-2xl',
-  lg: 'text-4xl',
-  xl: 'text-5xl',
+  sm: 'text-base sm:text-lg',
+  md: 'text-xl sm:text-2xl',
+  lg: 'text-3xl sm:text-4xl',
+  xl: 'text-4xl sm:text-5xl',
 };
 
 export function GreekWord({
@@ -62,23 +62,33 @@ export function GreekWord({
         >
           {greek}
         </span>
-        {showAudio && audioAvailable && (
-          <button
-            onClick={handleSpeak}
-            disabled={isPlaying}
-            className={cn(
-              'p-2 rounded-full transition-colors',
-              'hover:bg-muted active:bg-muted/80',
-              'disabled:opacity-50 disabled:cursor-not-allowed'
-            )}
-            aria-label="Play pronunciation"
-          >
-            {isPlaying ? (
-              <VolumeX className="w-5 h-5 text-muted-foreground animate-pulse" />
-            ) : (
-              <Volume2 className="w-5 h-5 text-muted-foreground hover:text-foreground" />
-            )}
-          </button>
+        {showAudio && (
+          audioAvailable ? (
+            <button
+              onClick={handleSpeak}
+              disabled={isPlaying}
+              className={cn(
+                'p-2 rounded-full transition-colors',
+                'hover:bg-muted active:bg-muted/80',
+                'disabled:opacity-50 disabled:cursor-not-allowed'
+              )}
+              aria-label="Play pronunciation"
+            >
+              {isPlaying ? (
+                <VolumeX className="w-5 h-5 text-muted-foreground animate-pulse" />
+              ) : (
+                <Volume2 className="w-5 h-5 text-muted-foreground hover:text-foreground" />
+              )}
+            </button>
+          ) : (
+            <span
+              className="p-2 rounded-full text-muted-foreground/40"
+              title="Audio not available - check browser settings"
+              aria-label="Audio unavailable"
+            >
+              <VolumeX className="w-5 h-5" />
+            </span>
+          )
         )}
       </div>
       {showTransliteration && transliteration && (

@@ -4,6 +4,7 @@ import type { UserStats, WordProgress, Achievement } from '@/types';
 import { createInitialStats, updateStreak, awardXP, calculateLevel } from '@/lib/xp';
 import { createInitialProgress, updateWordProgress, isDue } from '@/lib/srs';
 import { checkAchievements, ACHIEVEMENTS } from '@/lib/achievements';
+import { sanitizeProgress, sanitizeUserStats, sanitizeStudyHistory, migrateLastReviewDate } from '@/lib/dataValidation';
 import vocabularyData from '@/data/vocabulary.json';
 
 // Snapshot of state before a review (for undo functionality)
@@ -156,7 +157,8 @@ export const useUserStore = create<UserState>()(
         };
 
         // Check if we need to reset daily count and daily goal award flag
-        const today = new Date().toDateString();
+        // Use ISO date format for consistent timezone handling (YYYY-MM-DD)
+        const today = new Date().toISOString().split('T')[0];
         let dailyGoalAwardedToday = state.dailyGoalAwardedToday;
         if (lastReviewDate !== today) {
           todayReviews = 0;
@@ -435,7 +437,9 @@ export const useUserStore = create<UserState>()(
         const { progress } = get();
         return Object.values(progress).filter((p) => {
           if (p.timesReviewed < 8) return false;
-          const accuracy = p.timesCorrect / p.timesReviewed;
+          // Ensure valid accuracy calculation (handle potential data corruption)
+          const timesCorrect = Math.min(p.timesCorrect, p.timesReviewed);
+          const accuracy = timesCorrect / p.timesReviewed;
           return accuracy < 0.5;
         });
       },
@@ -444,7 +448,9 @@ export const useUserStore = create<UserState>()(
         const { progress } = get();
         const p = progress[wordId];
         if (!p || p.timesReviewed < 8) return false;
-        const accuracy = p.timesCorrect / p.timesReviewed;
+        // Ensure valid accuracy calculation (handle potential data corruption)
+        const timesCorrect = Math.min(p.timesCorrect, p.timesReviewed);
+        const accuracy = timesCorrect / p.timesReviewed;
         return accuracy < 0.5;
       },
 
@@ -454,22 +460,41 @@ export const useUserStore = create<UserState>()(
     }),
     {
       name: 'koine-user-store',
-      // Custom serialization for Date objects
+      // Custom serialization for Date objects with data validation
       storage: {
         getItem: (name) => {
           const str = localStorage.getItem(name);
           if (!str) return null;
           const data = JSON.parse(str);
-          // Convert date strings back to Date objects
+
+          // Convert date strings back to Date objects and sanitize data
           if (data.state?.progress) {
             Object.values(data.state.progress as Record<string, WordProgress>).forEach((p) => {
               if (p.nextReview) p.nextReview = new Date(p.nextReview);
               if (p.lastReview) p.lastReview = new Date(p.lastReview);
             });
+            // Sanitize progress data to fix any corrupted values
+            data.state.progress = sanitizeProgress(data.state.progress);
           }
-          if (data.state?.stats?.lastStudyDate) {
-            data.state.stats.lastStudyDate = new Date(data.state.stats.lastStudyDate);
+
+          if (data.state?.stats) {
+            if (data.state.stats.lastStudyDate) {
+              data.state.stats.lastStudyDate = new Date(data.state.stats.lastStudyDate);
+            }
+            // Sanitize stats to fix any corrupted values
+            data.state.stats = sanitizeUserStats(data.state.stats);
           }
+
+          // Migrate old date format for lastReviewDate
+          if (data.state?.lastReviewDate) {
+            data.state.lastReviewDate = migrateLastReviewDate(data.state.lastReviewDate);
+          }
+
+          // Sanitize study history
+          if (data.state?.studyHistory) {
+            data.state.studyHistory = sanitizeStudyHistory(data.state.studyHistory);
+          }
+
           return data;
         },
         setItem: (name, value) => {
