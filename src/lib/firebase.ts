@@ -133,6 +133,9 @@ export async function signInWithEmail(
   return getUserData(userCredential.user.uid);
 }
 
+// Admin emails that automatically get teacher role
+const ADMIN_EMAILS = ['keratinqw@gmail.com'];
+
 export async function signInWithGoogle(role?: UserRole): Promise<AppUser | null> {
   if (!auth || !firestore || !googleProvider) throw new Error('Firebase not initialized');
 
@@ -142,13 +145,17 @@ export async function signInWithGoogle(role?: UserRole): Promise<AppUser | null>
   // Check if user already exists
   let userData = await getUserData(user.uid);
 
-  if (!userData && role) {
+  // Auto-assign teacher role for admin emails
+  const isAdmin = user.email && ADMIN_EMAILS.includes(user.email.toLowerCase());
+  const effectiveRole = isAdmin ? 'teacher' : role;
+
+  if (!userData && effectiveRole) {
     // New user - create document
     userData = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      role,
+      role: effectiveRole,
       createdAt: new Date(),
     };
 
@@ -157,7 +164,7 @@ export async function signInWithGoogle(role?: UserRole): Promise<AppUser | null>
       createdAt: serverTimestamp(),
     });
 
-    if (role === 'teacher') {
+    if (effectiveRole === 'teacher') {
       await setDoc(doc(firestore, 'teachers', user.uid), {
         studentIds: [],
         createdAt: serverTimestamp(),
