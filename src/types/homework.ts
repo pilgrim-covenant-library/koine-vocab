@@ -172,3 +172,21 @@ export const SECTION_META: Record<SectionId, SectionMeta> = {
     helpPage: '/homework/help/article-paradigm',
   },
 };
+// Homework submission for teacher dashboard
+export interface HomeworkSubmission {
+  studentUid: string;
+  homeworkId: string;
+  status: 'completed';
+  completedAt: Date;
+  score: number;
+  totalPossible: number;
+  percentage: number;
+  displayName: string | null;
+  email: string | null;
+  // Sections data for detailed view
+  sections?: Record<string, {
+    score: number;
+    totalQuestions: number;
+    status: string;
+  }>;
+}

@@ -60,18 +60,23 @@ export default function StudentDetailPage() {
         getStudentHomework(studentId),
       ]);
 
-      // Verify student is linked to this teacher
-      if (!studentData) {
-        setError('Student not found. They may have deleted their account.');
+      // Note: We don't require student to be linked - teachers can view any submission
+      // If user data not found, create a placeholder from homework data
+      if (studentData) {
+        setStudent(studentData);
+      } else if (homeworkData.hw1) {
+        // Create minimal student object from submission data
+        setStudent({
+          uid: studentId,
+          email: null,
+          displayName: 'Unknown Student',
+          role: 'student',
+          createdAt: new Date(),
+        });
+      } else {
+        setError('Student data not found.');
         return;
       }
-
-      if (studentData.teacherId !== user?.uid) {
-        setError('This student is not linked to your account.');
-        return;
-      }
-
-      setStudent(studentData);
       setProgress(progressData);
       setHomework(homeworkData);
     } catch (err) {

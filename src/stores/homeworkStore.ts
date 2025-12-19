@@ -10,6 +10,7 @@ import { createInitialHomework1Progress, createInitialSectionProgress } from '@/
 import {
   syncHomeworkToCloud,
   getHomeworkFromCloud,
+  submitHomeworkResult,
   isFirebaseAvailable,
 } from '@/lib/firebase';
 
@@ -40,6 +41,7 @@ interface HomeworkState {
   // Cloud sync actions
   syncToCloud: (uid: string) => Promise<void>;
   loadFromCloud: (uid: string) => Promise<boolean>; // returns true if cloud data was loaded
+  submitResult: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
 
   // Getters
   getCurrentSection: () => SectionProgress;
@@ -299,6 +301,37 @@ export const useHomeworkStore = create<HomeworkState>()(
         } catch (error) {
           console.error('Failed to load homework from cloud:', error);
           return false;
+        }
+      },
+
+      // Submit completed homework result to teacher dashboard
+      submitResult: async (uid: string, userInfo: { displayName: string | null; email: string | null }) => {
+        if (!isFirebaseAvailable()) return;
+
+        const { homework1 } = get();
+        if (homework1.status !== 'completed') return;
+
+        try {
+          // Build sections summary for teacher view
+          const sections: Record<string, { score: number; totalQuestions: number; status: string }> = {};
+          for (const [key, section] of Object.entries(homework1.sections)) {
+            sections[key] = {
+              score: section.score,
+              totalQuestions: section.totalQuestions,
+              status: section.status,
+            };
+          }
+
+          await submitHomeworkResult(
+            uid,
+            'hw1',
+            userInfo,
+            homework1.totalScore,
+            homework1.totalPossible,
+            sections
+          );
+        } catch (error) {
+          console.error('Failed to submit homework result:', error);
         }
       },
 

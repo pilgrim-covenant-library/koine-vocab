@@ -6,41 +6,27 @@ import { useRouter } from 'next/navigation';
 import {
   ArrowLeft,
   Users,
-  Copy,
-  Check,
   ChevronRight,
-  TrendingUp,
   Clock,
-  Target,
-  BookOpen,
+  Trophy,
   AlertCircle,
   RefreshCw,
+  GraduationCap,
+  CheckCircle2,
 } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
-import { getTeacherStudents, getProgressFromCloud, type AppUser } from '@/lib/firebase';
+import { getAllHomeworkSubmissions } from '@/lib/firebase';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
-
-interface StudentWithProgress extends AppUser {
-  progress?: {
-    wordsLearned: number;
-    totalReviews: number;
-    accuracy: number;
-    streak: number;
-    level: number;
-    xp: number;
-    lastActive: Date | null;
-  };
-}
+import type { HomeworkSubmission } from '@/types/homework';
 
 export default function TeacherDashboard() {
   const router = useRouter();
   const { user, isLoading: authLoading } = useAuthStore();
-  const [students, setStudents] = useState<StudentWithProgress[]>([]);
+  const [submissions, setSubmissions] = useState<HomeworkSubmission[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (!authLoading && (!user || user.role !== 'teacher')) {
@@ -49,79 +35,40 @@ export default function TeacherDashboard() {
     }
 
     if (user?.role === 'teacher') {
-      loadStudents();
+      loadSubmissions();
     }
   }, [user, authLoading, router]);
 
-  const loadStudents = async () => {
-    if (!user) return;
-
+  const loadSubmissions = async () => {
     setIsLoading(true);
     setError(null);
     try {
-      const studentList = await getTeacherStudents(user.uid);
-
-      // Load progress for each student
-      const studentsWithProgress: StudentWithProgress[] = await Promise.all(
-        studentList.map(async (student) => {
-          try {
-            const progressData = await getProgressFromCloud(student.uid);
-            return {
-              ...student,
-              progress: progressData
-                ? {
-                    wordsLearned: progressData.stats.wordsLearned || 0,
-                    totalReviews: progressData.stats.totalReviews || 0,
-                    accuracy:
-                      progressData.stats.totalReviews > 0
-                        ? Math.round(
-                            (progressData.stats.correctReviews /
-                              progressData.stats.totalReviews) *
-                              100
-                          )
-                        : 0,
-                    streak: progressData.stats.streak || 0,
-                    level: progressData.stats.level || 1,
-                    xp: progressData.stats.xp || 0,
-                    lastActive: progressData.stats.lastStudyDate
-                      ? new Date(progressData.stats.lastStudyDate)
-                      : null,
-                  }
-                : undefined,
-            };
-          } catch {
-            // If individual student progress fails, return student without progress
-            return { ...student, progress: undefined };
-          }
-        })
-      );
-
-      setStudents(studentsWithProgress);
+      const data = await getAllHomeworkSubmissions();
+      setSubmissions(data);
     } catch (err) {
-      setError('Failed to load students. Please check your connection and try again.');
+      console.error('Failed to load submissions:', err);
+      setError('Failed to load submissions. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const copyTeacherId = async () => {
-    if (!user) return;
-    await navigator.clipboard.writeText(user.uid);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const formatDate = (date: Date) => {
+    return new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+    }).format(date);
   };
 
-  const formatLastActive = (date: Date | null) => {
-    if (!date) return 'Never';
-    const now = new Date();
-    const diffMs = now.getTime() - date.getTime();
-    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-    if (diffDays === 0) return 'Today';
-    if (diffDays === 1) return 'Yesterday';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-    return `${Math.floor(diffDays / 30)} months ago`;
+  const getGrade = (percentage: number) => {
+    if (percentage >= 90) return { letter: 'A', color: 'text-green-500 bg-green-100 dark:bg-green-900/30' };
+    if (percentage >= 80) return { letter: 'B', color: 'text-blue-500 bg-blue-100 dark:bg-blue-900/30' };
+    if (percentage >= 70) return { letter: 'C', color: 'text-yellow-600 bg-yellow-100 dark:bg-yellow-900/30' };
+    if (percentage >= 60) return { letter: 'D', color: 'text-orange-500 bg-orange-100 dark:bg-orange-900/30' };
+    return { letter: 'F', color: 'text-red-500 bg-red-100 dark:bg-red-900/30' };
   };
 
   if (authLoading || isLoading) {
@@ -147,7 +94,7 @@ export default function TeacherDashboard() {
           <AlertCircle className="w-16 h-16 mx-auto mb-4 text-red-500" />
           <h2 className="text-xl font-semibold mb-2">Error Loading Data</h2>
           <p className="text-muted-foreground mb-6">{error}</p>
-          <Button onClick={loadStudents}>
+          <Button onClick={loadSubmissions}>
             <RefreshCw className="w-4 h-4 mr-2" />
             Try Again
           </Button>
@@ -156,185 +103,138 @@ export default function TeacherDashboard() {
     );
   }
 
-  // Calculate aggregate stats
-  const totalStudents = students.length;
-  const activeStudents = students.filter(
-    (s) => s.progress?.lastActive && new Date().getTime() - s.progress.lastActive.getTime() < 7 * 24 * 60 * 60 * 1000
-  ).length;
-  const avgAccuracy =
-    students.length > 0
-      ? Math.round(
-          students.reduce((sum, s) => sum + (s.progress?.accuracy || 0), 0) / students.length
-        )
-      : 0;
-  const totalWordsLearned = students.reduce((sum, s) => sum + (s.progress?.wordsLearned || 0), 0);
+  // Calculate stats
+  const totalSubmissions = submissions.length;
+  const avgScore = submissions.length > 0
+    ? Math.round(submissions.reduce((sum, s) => sum + s.percentage, 0) / submissions.length)
+    : 0;
+  const perfectScores = submissions.filter(s => s.percentage === 100).length;
 
   return (
     <div className="min-h-screen">
       {/* Header */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
-        <div className="container mx-auto px-4 py-3 flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => router.push('/')}>
-            <ArrowLeft className="w-5 h-5" />
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="icon" onClick={() => router.push('/')}>
+              <ArrowLeft className="w-5 h-5" />
+            </Button>
+            <h1 className="text-lg font-semibold">Teacher Dashboard</h1>
+          </div>
+          <Button variant="outline" size="sm" onClick={loadSubmissions}>
+            <RefreshCw className="w-4 h-4 mr-2" />
+            Refresh
           </Button>
-          <h1 className="text-lg font-semibold">Teacher Dashboard</h1>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6 max-w-2xl space-y-6">
-        {/* Teacher ID sharing */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Your Teacher ID</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground mb-3">
-              Share this ID with students so they can link their accounts to you.
-            </p>
-            <div className="flex gap-2">
-              <code className="flex-1 p-3 bg-muted rounded-lg font-mono text-sm truncate">
-                {user.uid}
-              </code>
-              <Button variant="outline" size="icon" onClick={copyTeacherId}>
-                {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Class stats */}
-        <div className="grid grid-cols-2 gap-4">
+      <main className="container mx-auto px-4 py-6 max-w-3xl space-y-6">
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-4">
           <Card className="p-4">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900">
                 <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{totalStudents}</p>
-                <p className="text-xs text-muted-foreground">Total Students</p>
+                <p className="text-2xl font-bold">{totalSubmissions}</p>
+                <p className="text-xs text-muted-foreground">Submissions</p>
               </div>
             </div>
           </Card>
           <Card className="p-4">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900">
-                <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{activeStudents}</p>
-                <p className="text-xs text-muted-foreground">Active This Week</p>
-              </div>
-            </div>
-          </Card>
-          <Card className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900">
-                <Target className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{avgAccuracy}%</p>
-                <p className="text-xs text-muted-foreground">Avg Accuracy</p>
+                <p className="text-2xl font-bold">{avgScore}%</p>
+                <p className="text-xs text-muted-foreground">Avg Score</p>
               </div>
             </div>
           </Card>
           <Card className="p-4">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-amber-100 dark:bg-amber-900">
-                <BookOpen className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                <Trophy className="w-5 h-5 text-amber-600 dark:text-amber-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{totalWordsLearned}</p>
-                <p className="text-xs text-muted-foreground">Words Learned</p>
+                <p className="text-2xl font-bold">{perfectScores}</p>
+                <p className="text-xs text-muted-foreground">Perfect Scores</p>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* Student list */}
+        {/* Submissions list */}
         <Card>
           <CardHeader>
             <CardTitle className="text-base flex items-center gap-2">
-              <Users className="w-5 h-5" />
-              Students ({students.length})
+              <CheckCircle2 className="w-5 h-5" />
+              Homework Submissions
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {students.length === 0 ? (
+            {submissions.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">
-                <Users className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                <p className="font-medium">No students yet</p>
+                <GraduationCap className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                <p className="font-medium">No submissions yet</p>
                 <p className="text-sm mt-1">
-                  Share your Teacher ID with students to get started
+                  Submissions will appear here when students complete homework
                 </p>
               </div>
             ) : (
               <div className="space-y-3">
-                {students.map((student) => (
-                  <Link
-                    key={student.uid}
-                    href={`/teacher/student/${student.uid}`}
-                    className="block"
-                  >
-                    <div
-                      className={cn(
-                        'p-4 rounded-xl border transition-all',
-                        'hover:border-primary/50 hover:bg-muted/50'
-                      )}
+                {submissions.map((submission) => {
+                  const grade = getGrade(submission.percentage);
+                  return (
+                    <Link
+                      key={submission.studentUid}
+                      href={`/teacher/student/${submission.studentUid}`}
+                      className="block"
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                            <span className="font-bold text-primary">
-                              {student.displayName?.[0]?.toUpperCase() || '?'}
-                            </span>
+                      <div
+                        className={cn(
+                          'p-4 rounded-xl border transition-all',
+                          'hover:border-primary/50 hover:bg-muted/50'
+                        )}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                              <span className="font-bold text-primary">
+                                {submission.displayName?.[0]?.toUpperCase() || '?'}
+                              </span>
+                            </div>
+                            <div>
+                              <p className="font-medium">{submission.displayName || 'Unknown'}</p>
+                              <p className="text-sm text-muted-foreground">{submission.email}</p>
+                            </div>
                           </div>
-                          <div>
-                            <p className="font-medium">{student.displayName || 'Unknown'}</p>
-                            <p className="text-sm text-muted-foreground">{student.email}</p>
-                          </div>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-muted-foreground" />
-                      </div>
-                      {student.progress && (
-                        <div className="mt-3 pt-3 border-t grid grid-cols-4 gap-2 text-center">
-                          <div>
-                            <p className="text-sm font-bold text-purple-500">
-                              Lv.{student.progress.level}
-                            </p>
-                            <p className="text-xs text-muted-foreground">Level</p>
-                          </div>
-                          <div>
-                            <p className="text-sm font-bold text-emerald-500">
-                              {student.progress.wordsLearned}
-                            </p>
-                            <p className="text-xs text-muted-foreground">Words</p>
-                          </div>
-                          <div>
-                            <p className="text-sm font-bold">
-                              {student.progress.accuracy}%
-                            </p>
-                            <p className="text-xs text-muted-foreground">Accuracy</p>
-                          </div>
-                          <div>
-                            <p className="text-sm font-bold text-orange-500">
-                              {student.progress.streak}
-                            </p>
-                            <p className="text-xs text-muted-foreground">Streak</p>
+                          <div className="flex items-center gap-3">
+                            <div className={cn('px-3 py-1 rounded-full font-bold text-sm', grade.color)}>
+                              {grade.letter}
+                            </div>
+                            <ChevronRight className="w-5 h-5 text-muted-foreground" />
                           </div>
                         </div>
-                      )}
-                      {!student.progress && (
-                        <p className="mt-3 pt-3 border-t text-sm text-muted-foreground text-center">
-                          No activity yet
-                        </p>
-                      )}
-                      <div className="mt-2 flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        Last active: {formatLastActive(student.progress?.lastActive ?? null)}
+                        <div className="mt-3 pt-3 border-t flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className="text-sm">
+                              <span className="font-semibold">{submission.score}</span>
+                              <span className="text-muted-foreground">/{submission.totalPossible}</span>
+                              <span className="text-muted-foreground ml-1">({submission.percentage}%)</span>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                            <Clock className="w-3 h-3" />
+                            {formatDate(submission.completedAt)}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </CardContent>
@@ -350,10 +250,9 @@ function TeacherSkeleton() {
       <header className="border-b p-4">
         <div className="h-8 w-48 bg-muted rounded" />
       </header>
-      <main className="container mx-auto px-4 py-6 max-w-2xl space-y-6">
-        <div className="h-32 bg-muted rounded-xl" />
-        <div className="grid grid-cols-2 gap-4">
-          {[1, 2, 3, 4].map((i) => (
+      <main className="container mx-auto px-4 py-6 max-w-3xl space-y-6">
+        <div className="grid grid-cols-3 gap-4">
+          {[1, 2, 3].map((i) => (
             <div key={i} className="h-24 bg-muted rounded-xl" />
           ))}
         </div>

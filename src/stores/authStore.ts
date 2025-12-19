@@ -10,8 +10,6 @@ import {
   signOut as firebaseSignOut,
   getUserData,
   onAuthChange,
-  linkStudentToTeacher,
-  unlinkStudentFromTeacher,
   isFirebaseAvailable,
 } from '@/lib/firebase';
 
@@ -35,8 +33,6 @@ interface AuthState {
   signIn: (email: string, password: string) => Promise<void>;
   signInGoogle: (role?: UserRole) => Promise<void>;
   signOut: () => Promise<void>;
-  linkToTeacher: (teacherId: string) => Promise<void>;
-  unlinkFromTeacher: () => Promise<void>;
   clearError: () => void;
 }
 
@@ -145,43 +141,6 @@ export const useAuthStore = create<AuthState>()(
           set({ user: null, firebaseUser: null, isLoading: false });
         } catch (error: unknown) {
           const message = error instanceof Error ? error.message : 'Sign out failed';
-          set({ error: message, isLoading: false });
-          throw error;
-        }
-      },
-
-      linkToTeacher: async (teacherId) => {
-        const { user } = get();
-        if (!user) throw new Error('Not authenticated');
-        if (user.role !== 'student') throw new Error('Only students can link to teachers');
-
-        set({ isLoading: true, error: null });
-        try {
-          await linkStudentToTeacher(user.uid, teacherId);
-          set({
-            user: { ...user, teacherId },
-            isLoading: false,
-          });
-        } catch (error: unknown) {
-          const message = error instanceof Error ? error.message : 'Failed to link to teacher';
-          set({ error: message, isLoading: false });
-          throw error;
-        }
-      },
-
-      unlinkFromTeacher: async () => {
-        const { user } = get();
-        if (!user) throw new Error('Not authenticated');
-
-        set({ isLoading: true, error: null });
-        try {
-          await unlinkStudentFromTeacher(user.uid);
-          set({
-            user: { ...user, teacherId: undefined },
-            isLoading: false,
-          });
-        } catch (error: unknown) {
-          const message = error instanceof Error ? error.message : 'Failed to unlink from teacher';
           set({ error: message, isLoading: false });
           throw error;
         }

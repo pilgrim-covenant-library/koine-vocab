@@ -15,11 +15,10 @@ import {
   doc,
   getDoc,
   setDoc,
-  updateDoc,
   collection,
   query,
-  where,
   getDocs,
+  orderBy,
   serverTimestamp,
   type Firestore,
 } from 'firebase/firestore';
@@ -201,75 +200,6 @@ export async function getUserData(uid: string): Promise<AppUser | null> {
   return null;
 }
 
-// Teacher-Student relationship functions
-export async function linkStudentToTeacher(
-  studentUid: string,
-  teacherId: string
-): Promise<boolean> {
-  if (!firestore) throw new Error('Firebase not initialized');
-
-  // Verify teacher exists
-  const teacherDoc = await getDoc(doc(firestore, 'users', teacherId));
-  if (!teacherDoc.exists() || teacherDoc.data().role !== 'teacher') {
-    throw new Error('Invalid teacher ID');
-  }
-
-  // Update student's teacherId
-  await updateDoc(doc(firestore, 'users', studentUid), {
-    teacherId,
-  });
-
-  // Add student to teacher's students collection
-  await setDoc(doc(firestore, 'teachers', teacherId, 'students', studentUid), {
-    linked: true,
-    linkedAt: serverTimestamp(),
-  });
-
-  return true;
-}
-
-export async function unlinkStudentFromTeacher(studentUid: string): Promise<boolean> {
-  if (!firestore) throw new Error('Firebase not initialized');
-
-  const studentDoc = await getDoc(doc(firestore, 'users', studentUid));
-  if (!studentDoc.exists()) return false;
-
-  const teacherId = studentDoc.data().teacherId;
-  if (!teacherId) return false;
-
-  // Remove teacherId from student
-  await updateDoc(doc(firestore, 'users', studentUid), {
-    teacherId: null,
-  });
-
-  // This would require a delete, but for simplicity we'll update
-  // In a real app, you'd delete the document
-  return true;
-}
-
-export async function getTeacherStudents(teacherId: string): Promise<AppUser[]> {
-  if (!firestore) throw new Error('Firebase not initialized');
-
-  const studentsQuery = query(
-    collection(firestore, 'users'),
-    where('teacherId', '==', teacherId),
-    where('role', '==', 'student')
-  );
-
-  const snapshot = await getDocs(studentsQuery);
-  return snapshot.docs.map((doc) => {
-    const data = doc.data();
-    return {
-      uid: data.uid,
-      email: data.email,
-      displayName: data.displayName,
-      role: data.role,
-      teacherId: data.teacherId,
-      createdAt: data.createdAt?.toDate() || new Date(),
-    };
-  });
-}
-
 // Progress syncing functions
 export interface SyncedProgress {
   words: Record<string, {
@@ -338,7 +268,7 @@ export function onAuthChange(callback: (user: User | null) => void): () => void 
 // Homework Progress Sync Functions
 // =============================================================================
 
-import type { Homework1Progress, SectionProgress, SectionId } from '@/types/homework';
+import type { Homework1Progress, SectionProgress, SectionId, HomeworkSubmission } from '@/types/homework';
 
 // Type for Firestore-serializable homework data
 interface FirestoreHomeworkProgress {
@@ -445,4 +375,69 @@ export async function getStudentHomework(
   }
 
   return result;
+}
+
+// =============================================================================
+// Homework Submissions (for Teacher Dashboard)
+// =============================================================================
+
+/**
+ * Submit homework result to the homeworkSubmissions collection
+ * Called when a student completes homework
+ */
+export async function submitHomeworkResult(
+  studentUid: string,
+  hwId: string,
+  userInfo: { displayName: string | null; email: string | null },
+  score: number,
+  totalPossible: number,
+  sections: Record<string, { score: number; totalQuestions: number; status: string }>
+): Promise<void> {
+  if (!firestore) throw new Error('Firebase not initialized');
+
+  const percentage = totalPossible > 0 ? Math.round((score / totalPossible) * 100) : 0;
+
+  await setDoc(doc(firestore, 'homeworkSubmissions', studentUid), {
+    studentUid,
+    homeworkId: hwId,
+    status: 'completed',
+    completedAt: serverTimestamp(),
+    score,
+    totalPossible,
+    percentage,
+    displayName: userInfo.displayName,
+    email: userInfo.email,
+    sections,
+  });
+}
+
+/**
+ * Get all homework submissions (for teacher dashboard)
+ * Returns all completed homework submissions sorted by completion date
+ */
+export async function getAllHomeworkSubmissions(): Promise<HomeworkSubmission[]> {
+  if (!firestore) throw new Error('Firebase not initialized');
+
+  const submissionsQuery = query(
+    collection(firestore, 'homeworkSubmissions'),
+    orderBy('completedAt', 'desc')
+  );
+
+  const snapshot = await getDocs(submissionsQuery);
+
+  return snapshot.docs.map((docSnap) => {
+    const data = docSnap.data();
+    return {
+      studentUid: docSnap.id,
+      homeworkId: data.homeworkId,
+      status: 'completed' as const,
+      completedAt: data.completedAt?.toDate() || new Date(),
+      score: data.score,
+      totalPossible: data.totalPossible,
+      percentage: data.percentage,
+      displayName: data.displayName,
+      email: data.email,
+      sections: data.sections,
+    };
+  });
 }

@@ -16,8 +16,6 @@ import {
   Check,
   AlertCircle,
   Users,
-  Link as LinkIcon,
-  Unlink,
   LogOut,
   LogIn,
   GraduationCap,
@@ -35,15 +33,12 @@ export default function SettingsPage() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress, srsMode, setSrsMode, selectedTiers, setSelectedTiers, selectedPOS, setSelectedPOS, selectedCategories, setSelectedCategories } = useUserStore();
-  const { user, signOut, linkToTeacher, unlinkFromTeacher, isLoading: authLoading } = useAuthStore();
+  const { user, signOut, isLoading: authLoading } = useAuthStore();
   const [mounted, setMounted] = useState(false);
   const [localDailyGoal, setLocalDailyGoal] = useState(dailyGoal);
   const [localSessionLength, setLocalSessionLength] = useState(sessionLength);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(true);
-  const [teacherIdInput, setTeacherIdInput] = useState('');
-  const [linkError, setLinkError] = useState<string | null>(null);
-  const [isLinking, setIsLinking] = useState(false);
   const [exportSuccess, setExportSuccess] = useState(false);
   const [importStatus, setImportStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [importError, setImportError] = useState<string | null>(null);
@@ -56,32 +51,6 @@ export default function SettingsPage() {
       setAudioEnabled(savedAudio === 'true');
     }
   }, []);
-
-  const handleLinkToTeacher = async () => {
-    if (!teacherIdInput.trim()) {
-      setLinkError('Please enter a teacher ID');
-      return;
-    }
-
-    setIsLinking(true);
-    setLinkError(null);
-    try {
-      await linkToTeacher(teacherIdInput.trim());
-      setTeacherIdInput('');
-    } catch (error) {
-      setLinkError(error instanceof Error ? error.message : 'Failed to link to teacher');
-    } finally {
-      setIsLinking(false);
-    }
-  };
-
-  const handleUnlinkFromTeacher = async () => {
-    try {
-      await unlinkFromTeacher();
-    } catch (error) {
-      console.error('Error unlinking:', error);
-    }
-  };
 
   const handleSignOut = async () => {
     try {
@@ -591,66 +560,6 @@ export default function SettingsPage() {
                       </div>
                     </button>
                   </Link>
-                )}
-
-                {/* Student teacher linking */}
-                {user.role === 'student' && (
-                  <div className="space-y-3">
-                    {user.teacherId ? (
-                      <div className="p-4 rounded-xl border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950">
-                        <div className="flex items-center gap-2 mb-2">
-                          <LinkIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                          <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
-                            Linked to a teacher
-                          </span>
-                        </div>
-                        <p className="text-xs text-muted-foreground mb-3">
-                          Your teacher can view your learning progress
-                        </p>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={handleUnlinkFromTeacher}
-                          className="w-full"
-                        >
-                          <Unlink className="w-4 h-4 mr-2" />
-                          Unlink from Teacher
-                        </Button>
-                      </div>
-                    ) : (
-                      <div className="space-y-3">
-                        <label htmlFor="teacher-id-input" className="text-sm font-medium text-muted-foreground block">
-                          Link to a Teacher
-                        </label>
-                        <p className="text-xs text-muted-foreground">
-                          Enter your teacher&apos;s ID to share your progress with them
-                        </p>
-                        <div className="flex gap-2">
-                          <input
-                            id="teacher-id-input"
-                            type="text"
-                            value={teacherIdInput}
-                            onChange={(e) => setTeacherIdInput(e.target.value)}
-                            placeholder="Enter teacher ID"
-                            className={cn(
-                              'flex-1 px-3 py-2 rounded-lg border bg-background text-sm',
-                              'focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary'
-                            )}
-                          />
-                          <Button
-                            onClick={handleLinkToTeacher}
-                            disabled={isLinking || !teacherIdInput.trim()}
-                            size="sm"
-                          >
-                            {isLinking ? 'Linking...' : 'Link'}
-                          </Button>
-                        </div>
-                        {linkError && (
-                          <p className="text-xs text-red-500">{linkError}</p>
-                        )}
-                      </div>
-                    )}
-                  </div>
                 )}
 
                 <Button

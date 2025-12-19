@@ -20,6 +20,7 @@ export default function CompletePage() {
     resetHomework,
     getOverallProgress,
     syncToCloud,
+    submitResult,
     isSyncing,
   } = useHomeworkStore();
 
@@ -34,15 +35,20 @@ export default function CompletePage() {
         completeHomework();
       }
 
-      // Final sync to cloud
+      // Final sync to cloud and submit result for teacher dashboard
       if (user && !hasSynced) {
         await syncToCloud(user.uid);
+        // Submit to teacher dashboard
+        await submitResult(user.uid, {
+          displayName: user.displayName,
+          email: user.email,
+        });
         setHasSynced(true);
       }
     };
 
     finalize();
-  }, [homework1.status, progress.completed, completeHomework, user, syncToCloud, hasSynced]);
+  }, [homework1.status, progress.completed, completeHomework, user, syncToCloud, submitResult, hasSynced]);
 
   // Calculate grade (guard against division by zero)
   const percentage = homework1.totalPossible > 0
