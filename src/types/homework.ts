@@ -123,31 +123,31 @@ export const createInitialHomework1Progress = (): Homework1Progress => ({
   id: 'hw1',
   status: 'not_started',
   sections: {
-    1: createInitialSectionProgress(1, 10),  // 10 word transliterations
-    2: createInitialSectionProgress(2, 5),   // 5 verse transliterations
+    1: createInitialSectionProgress(1, 25),  // 25 individual Greek letters
+    2: createInitialSectionProgress(2, 16),  // 16 Greek words (full alphabet coverage)
     3: createInitialSectionProgress(3, 10),  // 10 grammar term MCQs
     4: createInitialSectionProgress(4, 5),   // 5 case MCQs
     5: createInitialSectionProgress(5, 24),  // 24 article parsing MCQs
   },
   currentSection: 1,
   totalScore: 0,
-  totalPossible: 54,
+  totalPossible: 80,
 });
 
 // Section metadata
 export const SECTION_META: Record<SectionId, SectionMeta> = {
   1: {
     id: 1,
-    title: 'Common NT Words',
-    description: 'Transliterate the 10 most common New Testament Greek words',
-    questionCount: 10,
+    title: 'Greek Alphabet',
+    description: 'Transliterate each letter of the Greek alphabet',
+    questionCount: 25,
     helpPage: '/homework/help/transliteration',
   },
   2: {
     id: 2,
-    title: 'Verse Transliteration',
-    description: 'Transliterate complete verses from the New Testament',
-    questionCount: 5,
+    title: 'Word Transliteration',
+    description: 'Transliterate Greek words to reinforce all 24 letters',
+    questionCount: 16,
     helpPage: '/homework/help/transliteration',
   },
   3: {
