@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
@@ -203,6 +203,13 @@ export default function Dashboard() {
               title="Grammar"
               description="Parse words, study paradigms, practice forms"
               color="bg-rose-500"
+            />
+            <LearningModeCard
+              href="/homework"
+              icon={<ClipboardList className="w-6 h-6" />}
+              title="Homework"
+              description="Complete assignments to test your knowledge"
+              color="bg-cyan-500"
             />
           </div>
         </section>
