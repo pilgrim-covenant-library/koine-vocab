@@ -1,16 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Mail, Lock, Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get('redirect') || '/';
   const { signIn, signInGoogle, isLoading, error, clearError } = useAuthStore();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +31,7 @@ export default function LoginPage() {
 
     try {
       await signIn(email, password);
-      router.push('/');
+      router.push(redirectUrl);
     } catch (err) {
       // Error is handled by the store
     }
@@ -41,7 +43,7 @@ export default function LoginPage() {
 
     try {
       await signInGoogle();
-      router.push('/');
+      router.push(redirectUrl);
     } catch (err) {
       // Error is handled by the store
     }
@@ -165,12 +167,31 @@ export default function LoginPage() {
           {/* Sign up link */}
           <p className="text-center text-sm text-muted-foreground mt-6">
             Don&apos;t have an account?{' '}
-            <Link href="/signup" className="text-primary font-medium hover:underline">
+            <Link
+              href={redirectUrl !== '/' ? `/signup?redirect=${encodeURIComponent(redirectUrl)}` : '/signup'}
+              className="text-primary font-medium hover:underline"
+            >
               Sign up
             </Link>
           </p>
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+function LoginLoading() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+    </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<LoginLoading />}>
+      <LoginForm />
+    </Suspense>
   );
 }

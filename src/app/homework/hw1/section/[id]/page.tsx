@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Check, X, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
+import { useAuthStore } from '@/stores/authStore';
 import { FloatingHelpButton } from '@/components/homework/HelpButton';
 import { HomeworkProgressCompact } from '@/components/homework/HomeworkProgress';
 import { SectionNavigation, QuestionProgressBar } from '@/components/homework/SectionNavigation';
@@ -19,6 +20,7 @@ export default function SectionPage() {
   const params = useParams();
   const sectionId = parseInt(params.id as string, 10) as SectionId;
 
+  const { user } = useAuthStore();
   const {
     homework1,
     startSection,
@@ -30,7 +32,31 @@ export default function SectionPage() {
     getSectionProgress,
     getAnswer,
     canAccessSection,
+    syncToCloud,
   } = useHomeworkStore();
+
+  // Debounce sync to avoid too many requests
+  const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const debouncedSync = useCallback(() => {
+    if (!user) return;
+
+    if (syncTimeoutRef.current) {
+      clearTimeout(syncTimeoutRef.current);
+    }
+
+    syncTimeoutRef.current = setTimeout(() => {
+      syncToCloud(user.uid);
+    }, 2000); // Sync 2 seconds after last change
+  }, [user, syncToCloud]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (syncTimeoutRef.current) {
+        clearTimeout(syncTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const [userInput, setUserInput] = useState('');
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -122,7 +148,10 @@ export default function SectionPage() {
 
     setIsCorrect(correct);
     setShowFeedback(true);
-  }, [currentQuestion, selectedOption, userInput, sectionId, submitAnswer]);
+
+    // Sync to cloud after answer
+    debouncedSync();
+  }, [currentQuestion, selectedOption, userInput, sectionId, submitAnswer, debouncedSync]);
 
   // Handle next question
   const handleNext = () => {
@@ -137,8 +166,14 @@ export default function SectionPage() {
   };
 
   // Handle section completion
-  const handleComplete = () => {
+  const handleComplete = async () => {
     completeSection(sectionId);
+
+    // Immediate sync on section complete
+    if (user) {
+      await syncToCloud(user.uid);
+    }
+
     if (sectionId === 5) {
       completeHomework();
       router.push('/homework/hw1/complete');

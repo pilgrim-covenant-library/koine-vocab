@@ -1,17 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Mail, Lock, User, Eye, EyeOff, ArrowLeft, GraduationCap, Users } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Mail, Lock, User, Eye, EyeOff, ArrowLeft, GraduationCap, Users, Loader2 } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
 import type { UserRole } from '@/lib/firebase';
 
-export default function SignupPage() {
+function SignupForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get('redirect') || '/';
   const { signUp, signInGoogle, isLoading, error, clearError } = useAuthStore();
   const [step, setStep] = useState<'role' | 'details'>('role');
   const [role, setRole] = useState<UserRole | null>(null);
@@ -54,7 +56,7 @@ export default function SignupPage() {
 
     try {
       await signUp(email, password, displayName, role);
-      router.push('/');
+      router.push(redirectUrl);
     } catch (err) {
       // Error is handled by the store
     }
@@ -71,7 +73,7 @@ export default function SignupPage() {
 
     try {
       await signInGoogle(role);
-      router.push('/');
+      router.push(redirectUrl);
     } catch (err) {
       // Error is handled by the store
     }
@@ -137,7 +139,10 @@ export default function SignupPage() {
 
             <p className="text-center text-sm text-muted-foreground mt-6">
               Already have an account?{' '}
-              <Link href="/login" className="text-primary font-medium hover:underline">
+              <Link
+                href={redirectUrl !== '/' ? `/login?redirect=${encodeURIComponent(redirectUrl)}` : '/login'}
+                className="text-primary font-medium hover:underline"
+              >
                 Sign in
               </Link>
             </p>
@@ -310,12 +315,31 @@ export default function SignupPage() {
 
           <p className="text-center text-sm text-muted-foreground mt-6">
             Already have an account?{' '}
-            <Link href="/login" className="text-primary font-medium hover:underline">
+            <Link
+              href={redirectUrl !== '/' ? `/login?redirect=${encodeURIComponent(redirectUrl)}` : '/login'}
+              className="text-primary font-medium hover:underline"
+            >
               Sign in
             </Link>
           </p>
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+function SignupLoading() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-primary" />
+    </div>
+  );
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={<SignupLoading />}>
+      <SignupForm />
+    </Suspense>
   );
 }

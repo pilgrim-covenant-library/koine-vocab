@@ -13,10 +13,15 @@ import {
   Clock,
   AlertCircle,
   RefreshCw,
+  ClipboardList,
+  CheckCircle,
+  Circle,
+  Loader2,
 } from 'lucide-react';
 import { useAuthStore } from '@/stores/authStore';
-import { getUserData, getProgressFromCloud, type AppUser, type SyncedProgress } from '@/lib/firebase';
+import { getUserData, getProgressFromCloud, getStudentHomework, type AppUser, type SyncedProgress } from '@/lib/firebase';
 import { getAchievement } from '@/lib/achievements';
+import { SECTION_META, type Homework1Progress, type SectionId } from '@/types/homework';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { ProgressRing } from '@/components/ProgressRing';
@@ -30,6 +35,7 @@ export default function StudentDetailPage() {
   const { user, isLoading: authLoading } = useAuthStore();
   const [student, setStudent] = useState<AppUser | null>(null);
   const [progress, setProgress] = useState<SyncedProgress | null>(null);
+  const [homework, setHomework] = useState<{ hw1?: Homework1Progress }>({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -48,9 +54,10 @@ export default function StudentDetailPage() {
     setIsLoading(true);
     setError(null);
     try {
-      const [studentData, progressData] = await Promise.all([
+      const [studentData, progressData, homeworkData] = await Promise.all([
         getUserData(studentId),
         getProgressFromCloud(studentId),
+        getStudentHomework(studentId),
       ]);
 
       // Verify student is linked to this teacher
@@ -66,6 +73,7 @@ export default function StudentDetailPage() {
 
       setStudent(studentData);
       setProgress(progressData);
+      setHomework(homeworkData);
     } catch (err) {
       setError('Failed to load student data. Please check your connection and try again.');
     } finally {
@@ -154,6 +162,16 @@ export default function StudentDetailPage() {
       day: 'numeric',
       year: 'numeric',
     });
+  };
+
+  // Get homework grade
+  const getHomeworkGrade = (score: number, total: number) => {
+    const percentage = Math.round((score / total) * 100);
+    if (percentage >= 90) return { letter: 'A', color: 'text-green-500', bg: 'bg-green-100 dark:bg-green-900/30' };
+    if (percentage >= 80) return { letter: 'B', color: 'text-blue-500', bg: 'bg-blue-100 dark:bg-blue-900/30' };
+    if (percentage >= 70) return { letter: 'C', color: 'text-yellow-500', bg: 'bg-yellow-100 dark:bg-yellow-900/30' };
+    if (percentage >= 60) return { letter: 'D', color: 'text-orange-500', bg: 'bg-orange-100 dark:bg-orange-900/30' };
+    return { letter: 'F', color: 'text-red-500', bg: 'bg-red-100 dark:bg-red-900/30' };
   };
 
   return (
@@ -303,6 +321,138 @@ export default function StudentDetailPage() {
                 </div>
               </div>
             ))}
+          </CardContent>
+        </Card>
+
+        {/* Homework Progress */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base flex items-center gap-2">
+              <ClipboardList className="w-5 h-5" />
+              Homework Progress
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {homework.hw1 ? (
+              <div className="space-y-4">
+                {/* Homework 1 Summary */}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-medium">Homework 1: Greek Alphabet</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {homework.hw1.status === 'completed'
+                        ? `Completed ${formatDate(homework.hw1.completedAt ? new Date(homework.hw1.completedAt).toISOString() : null)}`
+                        : homework.hw1.status === 'in_progress'
+                        ? 'In Progress'
+                        : 'Not Started'}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    {homework.hw1.status === 'completed' ? (
+                      <>
+                        <div className={cn(
+                          'px-3 py-1 rounded-full font-bold text-lg',
+                          getHomeworkGrade(homework.hw1.totalScore, homework.hw1.totalPossible).bg,
+                          getHomeworkGrade(homework.hw1.totalScore, homework.hw1.totalPossible).color
+                        )}>
+                          {getHomeworkGrade(homework.hw1.totalScore, homework.hw1.totalPossible).letter}
+                        </div>
+                        <CheckCircle className="w-6 h-6 text-green-500" />
+                      </>
+                    ) : homework.hw1.status === 'in_progress' ? (
+                      <Loader2 className="w-6 h-6 text-blue-500 animate-spin" />
+                    ) : (
+                      <Circle className="w-6 h-6 text-muted-foreground" />
+                    )}
+                  </div>
+                </div>
+
+                {/* Score display for completed homework */}
+                {homework.hw1.status === 'completed' && (
+                  <div className="flex items-center justify-center gap-4 py-3 bg-muted/50 rounded-lg">
+                    <div className="text-center">
+                      <p className="text-2xl font-bold">{homework.hw1.totalScore}</p>
+                      <p className="text-xs text-muted-foreground">Correct</p>
+                    </div>
+                    <div className="text-2xl text-muted-foreground">/</div>
+                    <div className="text-center">
+                      <p className="text-2xl font-bold">{homework.hw1.totalPossible}</p>
+                      <p className="text-xs text-muted-foreground">Total</p>
+                    </div>
+                    <div className="text-2xl text-muted-foreground">=</div>
+                    <div className="text-center">
+                      <p className="text-2xl font-bold text-primary">
+                        {Math.round((homework.hw1.totalScore / homework.hw1.totalPossible) * 100)}%
+                      </p>
+                      <p className="text-xs text-muted-foreground">Score</p>
+                    </div>
+                  </div>
+                )}
+
+                {/* Section breakdown */}
+                {(homework.hw1.status === 'completed' || homework.hw1.status === 'in_progress') && (
+                  <div className="space-y-3">
+                    <p className="text-sm font-medium text-muted-foreground">Section Breakdown</p>
+                    {([1, 2, 3, 4, 5] as SectionId[]).map((sectionId) => {
+                      const section = homework.hw1!.sections[sectionId];
+                      const meta = SECTION_META[sectionId];
+                      const sectionPercentage = section.totalQuestions > 0
+                        ? Math.round((section.score / section.totalQuestions) * 100)
+                        : 0;
+
+                      return (
+                        <div key={sectionId} className="space-y-1">
+                          <div className="flex items-center justify-between text-sm">
+                            <div className="flex items-center gap-2">
+                              {section.status === 'completed' ? (
+                                <CheckCircle className="w-4 h-4 text-green-500" />
+                              ) : section.status === 'in_progress' ? (
+                                <Loader2 className="w-4 h-4 text-blue-500 animate-spin" />
+                              ) : (
+                                <Circle className="w-4 h-4 text-muted-foreground" />
+                              )}
+                              <span>{meta.title}</span>
+                            </div>
+                            <span className="text-muted-foreground">
+                              {section.status === 'completed'
+                                ? `${section.score}/${section.totalQuestions} (${sectionPercentage}%)`
+                                : section.status === 'in_progress'
+                                ? `${section.answers.length}/${section.totalQuestions} answered`
+                                : 'Not started'}
+                            </span>
+                          </div>
+                          {section.status !== 'not_started' && (
+                            <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                              <div
+                                className={cn(
+                                  'h-full transition-all',
+                                  section.status === 'completed'
+                                    ? sectionPercentage >= 80
+                                      ? 'bg-green-500'
+                                      : sectionPercentage >= 60
+                                      ? 'bg-yellow-500'
+                                      : 'bg-red-500'
+                                    : 'bg-blue-500'
+                                )}
+                                style={{
+                                  width: section.status === 'completed'
+                                    ? `${sectionPercentage}%`
+                                    : `${(section.answers.length / section.totalQuestions) * 100}%`
+                                }}
+                              />
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground text-center py-4">
+                No homework assigned yet
+              </p>
+            )}
           </CardContent>
         </Card>
 

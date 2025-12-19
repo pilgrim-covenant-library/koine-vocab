@@ -1,28 +1,48 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Trophy, CheckCircle, RotateCcw, Home, ArrowRight } from 'lucide-react';
+import { Trophy, CheckCircle, RotateCcw, Home, ArrowRight, Loader2, CloudCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
+import { useAuthStore } from '@/stores/authStore';
 import { SECTION_META, type SectionId } from '@/types/homework';
 import { cn } from '@/lib/utils';
 
 export default function CompletePage() {
   const router = useRouter();
-  const { homework1, completeHomework, resetHomework, getOverallProgress } = useHomeworkStore();
+  const { user } = useAuthStore();
+  const {
+    homework1,
+    completeHomework,
+    resetHomework,
+    getOverallProgress,
+    syncToCloud,
+    isSyncing,
+  } = useHomeworkStore();
 
+  const [hasSynced, setHasSynced] = useState(false);
   const progress = getOverallProgress();
   const sections: SectionId[] = [1, 2, 3, 4, 5];
 
-  // Complete homework if not already
+  // Complete homework and sync to cloud
   useEffect(() => {
-    if (homework1.status !== 'completed' && progress.completed === 5) {
-      completeHomework();
-    }
-  }, [homework1.status, progress.completed, completeHomework]);
+    const finalize = async () => {
+      if (homework1.status !== 'completed' && progress.completed === 5) {
+        completeHomework();
+      }
+
+      // Final sync to cloud
+      if (user && !hasSynced) {
+        await syncToCloud(user.uid);
+        setHasSynced(true);
+      }
+    };
+
+    finalize();
+  }, [homework1.status, progress.completed, completeHomework, user, syncToCloud, hasSynced]);
 
   // Calculate grade
   const percentage = Math.round((homework1.totalScore / homework1.totalPossible) * 100);
@@ -35,8 +55,12 @@ export default function CompletePage() {
   };
   const grade = getGrade();
 
-  const handleRetry = () => {
+  const handleRetry = async () => {
     resetHomework();
+    // Sync reset state to cloud
+    if (user) {
+      await syncToCloud(user.uid);
+    }
     router.push('/homework/hw1');
   };
 
@@ -54,6 +78,22 @@ export default function CompletePage() {
             <p className="text-muted-foreground">
               Great job completing Homework 1: Greek Alphabet Foundations
             </p>
+            {/* Sync indicator */}
+            {user && (
+              <div className="flex items-center justify-center gap-2 text-sm">
+                {isSyncing ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                    <span className="text-muted-foreground">Saving results...</span>
+                  </>
+                ) : hasSynced ? (
+                  <>
+                    <CloudCheck className="w-4 h-4 text-green-500" />
+                    <span className="text-muted-foreground">Results saved to cloud</span>
+                  </>
+                ) : null}
+              </div>
+            )}
           </div>
 
           {/* Score card */}

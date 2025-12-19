@@ -1,34 +1,68 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle, Clock, HelpCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, Clock, HelpCircle, Loader2 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
+import { useAuthStore } from '@/stores/authStore';
+import { AuthGate } from '@/components/AuthGate';
 import { HomeworkProgress } from '@/components/homework/HomeworkProgress';
 import { SECTION_META, type SectionId } from '@/types/homework';
 import { cn } from '@/lib/utils';
 
-export default function Homework1Page() {
+function Homework1Content() {
   const router = useRouter();
+  const { user } = useAuthStore();
   const {
     homework1,
     startHomework,
     canAccessSection,
     getOverallProgress,
+    loadFromCloud,
+    syncToCloud,
   } = useHomeworkStore();
 
+  const [isLoading, setIsLoading] = useState(true);
   const progress = getOverallProgress();
   const sections: SectionId[] = [1, 2, 3, 4, 5];
 
-  // Start homework if not started
+  // Load from cloud and start homework on mount
   useEffect(() => {
-    if (homework1.status === 'not_started') {
-      startHomework();
-    }
-  }, [homework1.status, startHomework]);
+    const initializeHomework = async () => {
+      if (user) {
+        // Try to load progress from cloud first
+        await loadFromCloud(user.uid);
+      }
+
+      // Start homework if not started
+      if (homework1.status === 'not_started') {
+        startHomework();
+      }
+
+      // Sync initial state to cloud
+      if (user) {
+        await syncToCloud(user.uid);
+      }
+
+      setIsLoading(false);
+    };
+
+    initializeHomework();
+  }, [user, homework1.status, startHomework, loadFromCloud, syncToCloud]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <p className="text-muted-foreground">Loading homework...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleSectionClick = (sectionId: SectionId) => {
     if (canAccessSection(sectionId)) {
@@ -211,5 +245,17 @@ export default function Homework1Page() {
         </div>
       </main>
     </div>
+  );
+}
+
+// Wrap with AuthGate to require login
+export default function Homework1Page() {
+  return (
+    <AuthGate
+      title="Login Required"
+      message="Please log in to start the homework. Your progress will be saved and shared with your teacher."
+    >
+      <Homework1Content />
+    </AuthGate>
   );
 }

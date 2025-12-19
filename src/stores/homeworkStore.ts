@@ -7,10 +7,19 @@ import type {
   QuestionAnswer,
 } from '@/types/homework';
 import { createInitialHomework1Progress, createInitialSectionProgress } from '@/types/homework';
+import {
+  syncHomeworkToCloud,
+  getHomeworkFromCloud,
+  isFirebaseAvailable,
+} from '@/lib/firebase';
 
 interface HomeworkState {
   // Homework 1 progress
   homework1: Homework1Progress;
+
+  // Sync state
+  isSyncing: boolean;
+  lastSyncedAt: number | null;
 
   // Actions
   startHomework: () => void;
@@ -28,6 +37,10 @@ interface HomeworkState {
   resetHomework: () => void;
   resetSection: (sectionId: SectionId) => void;
 
+  // Cloud sync actions
+  syncToCloud: (uid: string) => Promise<void>;
+  loadFromCloud: (uid: string) => Promise<boolean>; // returns true if cloud data was loaded
+
   // Getters
   getCurrentSection: () => SectionProgress;
   getSectionProgress: (sectionId: SectionId) => SectionProgress;
@@ -41,6 +54,8 @@ export const useHomeworkStore = create<HomeworkState>()(
   persist(
     (set, get) => ({
       homework1: createInitialHomework1Progress(),
+      isSyncing: false,
+      lastSyncedAt: null,
 
       startHomework: () => {
         const { homework1 } = get();
@@ -239,6 +254,54 @@ export const useHomeworkStore = create<HomeworkState>()(
         });
       },
 
+      // Cloud sync actions
+      syncToCloud: async (uid: string) => {
+        if (!isFirebaseAvailable()) return;
+
+        const { homework1, isSyncing } = get();
+        if (isSyncing) return; // Prevent concurrent syncs
+
+        set({ isSyncing: true });
+
+        try {
+          await syncHomeworkToCloud(uid, 'hw1', homework1);
+          set({ lastSyncedAt: Date.now(), isSyncing: false });
+        } catch (error) {
+          console.error('Failed to sync homework to cloud:', error);
+          set({ isSyncing: false });
+        }
+      },
+
+      loadFromCloud: async (uid: string) => {
+        if (!isFirebaseAvailable()) return false;
+
+        try {
+          const cloudData = await getHomeworkFromCloud(uid, 'hw1');
+          if (cloudData) {
+            const { homework1 } = get();
+
+            // Cloud data takes priority for completed sections
+            // Merge strategy: use cloud data if it has more progress
+            const shouldUseCloudData =
+              cloudData.status === 'completed' ||
+              (cloudData.status === 'in_progress' && homework1.status === 'not_started') ||
+              cloudData.totalScore > homework1.totalScore;
+
+            if (shouldUseCloudData) {
+              set({
+                homework1: cloudData,
+                lastSyncedAt: Date.now(),
+              });
+              return true;
+            }
+          }
+          return false;
+        } catch (error) {
+          console.error('Failed to load homework from cloud:', error);
+          return false;
+        }
+      },
+
       getCurrentSection: () => {
         const { homework1 } = get();
         return homework1.sections[homework1.currentSection];
@@ -282,6 +345,11 @@ export const useHomeworkStore = create<HomeworkState>()(
     {
       name: 'koine-homework-store',
       version: 1,
+      partialize: (state) => ({
+        homework1: state.homework1,
+        lastSyncedAt: state.lastSyncedAt,
+        // Exclude isSyncing - always starts as false
+      }),
     }
   )
 );
