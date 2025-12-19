@@ -353,3 +353,21 @@ export const useHomeworkStore = create<HomeworkState>()(
     }
   )
 );
+
+// Subscribe to auth changes to reset homework on sign out
+// This prevents one user's homework from persisting to another user
+if (typeof window !== 'undefined') {
+  // Dynamically import to avoid circular dependency
+  import('./authStore').then(({ useAuthStore }) => {
+    let previousUser = useAuthStore.getState().user;
+
+    useAuthStore.subscribe((state) => {
+      const currentUser = state.user;
+      // If user just signed out (was logged in, now null), reset homework
+      if (previousUser && !currentUser) {
+        useHomeworkStore.getState().resetHomework();
+      }
+      previousUser = currentUser;
+    });
+  });
+}

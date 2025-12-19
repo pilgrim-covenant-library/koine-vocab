@@ -44,8 +44,10 @@ export default function CompletePage() {
     finalize();
   }, [homework1.status, progress.completed, completeHomework, user, syncToCloud, hasSynced]);
 
-  // Calculate grade
-  const percentage = Math.round((homework1.totalScore / homework1.totalPossible) * 100);
+  // Calculate grade (guard against division by zero)
+  const percentage = homework1.totalPossible > 0
+    ? Math.round((homework1.totalScore / homework1.totalPossible) * 100)
+    : 0;
   const getGrade = () => {
     if (percentage >= 90) return { letter: 'A', color: 'text-green-500' };
     if (percentage >= 80) return { letter: 'B', color: 'text-blue-500' };
@@ -142,9 +144,9 @@ export default function CompletePage() {
                 {sections.map((sectionId) => {
                   const section = homework1.sections[sectionId];
                   const meta = SECTION_META[sectionId];
-                  const sectionPercentage = Math.round(
-                    (section.score / section.totalQuestions) * 100
-                  );
+                  const sectionPercentage = section.totalQuestions > 0
+                    ? Math.round((section.score / section.totalQuestions) * 100)
+                    : 0;
 
                   return (
                     <div key={sectionId} className="space-y-2">

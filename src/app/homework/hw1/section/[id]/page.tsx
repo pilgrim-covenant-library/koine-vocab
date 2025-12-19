@@ -18,7 +18,11 @@ import { cn } from '@/lib/utils';
 export default function SectionPage() {
   const router = useRouter();
   const params = useParams();
-  const sectionId = parseInt(params.id as string, 10) as SectionId;
+  const parsedId = parseInt(params.id as string, 10);
+
+  // Validate section ID is 1-5
+  const isValidSectionId = !isNaN(parsedId) && parsedId >= 1 && parsedId <= 5;
+  const sectionId = (isValidSectionId ? parsedId : 1) as SectionId;
 
   const { user } = useAuthStore();
   const {
@@ -72,14 +76,36 @@ export default function SectionPage() {
     ? getAnswer(sectionId, currentQuestion.id)
     : undefined;
 
-  // Check access
+  // Check access and validate section ID
   useEffect(() => {
+    if (!isValidSectionId) {
+      console.warn(`Invalid section ID: ${params.id}`);
+      router.replace('/homework/hw1');
+      return;
+    }
     if (!canAccessSection(sectionId)) {
       router.replace('/homework/hw1');
     } else {
       startSection(sectionId);
     }
-  }, [sectionId, canAccessSection, startSection, router]);
+  }, [sectionId, isValidSectionId, params.id, canAccessSection, startSection, router]);
+
+  // Sync immediately on tab close/navigation to prevent data loss
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (user) {
+        // Clear any pending debounced sync
+        if (syncTimeoutRef.current) {
+          clearTimeout(syncTimeoutRef.current);
+        }
+        // Attempt immediate sync (best effort - may not complete)
+        syncToCloud(user.uid);
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [user, syncToCloud]);
 
   // Reset input when question changes
   useEffect(() => {

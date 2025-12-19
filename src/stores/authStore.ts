@@ -18,6 +18,9 @@ import {
 // Re-export for use in components
 export { isFirebaseAvailable };
 
+// Track the auth listener unsubscribe function to prevent memory leaks
+let currentUnsubscribe: (() => void) | null = null;
+
 interface AuthState {
   // Auth state
   user: AppUser | null;
@@ -47,6 +50,12 @@ export const useAuthStore = create<AuthState>()(
       error: null,
 
       initialize: () => {
+        // Clean up previous listener to prevent memory leaks
+        if (currentUnsubscribe) {
+          currentUnsubscribe();
+          currentUnsubscribe = null;
+        }
+
         // If Firebase is not available, just mark as initialized
         if (!isFirebaseAvailable()) {
           set({
@@ -86,6 +95,9 @@ export const useAuthStore = create<AuthState>()(
             });
           }
         });
+
+        // Store the unsubscribe function for cleanup
+        currentUnsubscribe = unsubscribe;
 
         return unsubscribe;
       },

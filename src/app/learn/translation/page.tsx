@@ -40,6 +40,7 @@ export default function TranslationPage() {
   const [mode, setMode] = useState<TranslationMode | null>(null);
   const [selectedBook, setSelectedBook] = useState<string | null>(null);
   const [showBookSelector, setShowBookSelector] = useState(false);
+  const [bookWarning, setBookWarning] = useState<string | null>(null);
 
   // Session state
   const [verses, setVerses] = useState<NTVerse[]>([]);
@@ -76,6 +77,17 @@ export default function TranslationPage() {
     }
   }, [showResult, currentIndex, verses.length]);
 
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && showBookSelector) {
+        setShowBookSelector(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [showBookSelector]);
+
   const startRandomMode = useCallback(() => {
     const shuffled = shuffleArray([...allVerses]).slice(0, 10);
     setVerses(shuffled);
@@ -97,8 +109,9 @@ export default function TranslationPage() {
         });
 
       if (bookVerses.length === 0) {
-        // No verses for this book yet, show message
-        alert('No verses available for this book yet. Try another book or random mode.');
+        // No verses for this book yet, show warning message
+        setBookWarning('No verses available for this book yet. Try another book or random mode.');
+        setTimeout(() => setBookWarning(null), 4000); // Auto-dismiss after 4 seconds
         return;
       }
 
@@ -269,6 +282,11 @@ export default function TranslationPage() {
                         <X className="w-5 h-5" />
                       </Button>
                     </div>
+                    {bookWarning && (
+                      <div className="mb-4 p-3 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-sm">
+                        {bookWarning}
+                      </div>
+                    )}
                     <div className="space-y-1 max-h-[60vh] overflow-y-auto">
                       {books.map((book) => {
                         const verseCount = allVerses.filter((v) => v.book === book.id).length;

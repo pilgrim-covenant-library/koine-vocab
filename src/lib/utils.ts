@@ -300,10 +300,11 @@ export function checkTypingAnswer(
   }
 
   // Check for partial word matches (user typed part of the answer)
-  // Only if input is at least 3 characters
+  // Require at least 50% of the answer length AND minimum 3 characters
   if (input.length >= 3) {
     for (const answer of acceptableAnswers) {
-      if (answer.startsWith(input) || answer.includes(input)) {
+      const minLength = Math.max(3, Math.floor(answer.length * 0.5));
+      if (input.length >= minLength && (answer.startsWith(input) || answer.includes(input))) {
         return 'close';
       }
     }
@@ -329,8 +330,10 @@ export const storage = {
     if (typeof window === 'undefined') return;
     try {
       localStorage.setItem(key, JSON.stringify(value));
-    } catch {
-      // Ignore storage errors
+    } catch (error) {
+      // Log storage errors - likely quota exceeded
+      console.warn('localStorage.setItem failed:', error);
+      console.warn('Storage may be full. Some data may not be saved.');
     }
   },
   remove(key: string): void {
