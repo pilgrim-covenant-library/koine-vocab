@@ -165,8 +165,9 @@ export const useUserStore = create<UserState>()(
         };
 
         // Check if we need to reset daily count and daily goal award flag
-        // Use ISO date format for consistent timezone handling (YYYY-MM-DD)
-        const today = new Date().toISOString().split('T')[0];
+        // Use local timezone for date comparison (not UTC) to match user's day boundary
+        const now = new Date();
+        const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         let dailyGoalAwardedToday = state.dailyGoalAwardedToday;
         if (lastReviewDate !== today) {
           todayReviews = 0;
@@ -223,7 +224,7 @@ export const useUserStore = create<UserState>()(
         };
 
         // Update study history for heatmap (using local date, not UTC)
-        const now = new Date();
+        // Reuse 'now' from above (already declared on line 169)
         const todayKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         const { studyHistory } = state;
         const todayHistory = studyHistory[todayKey] || { reviews: 0, wordsLearned: 0 };
@@ -481,45 +482,115 @@ export const useUserStore = create<UserState>()(
       // Custom serialization for Date objects with data validation
       storage: {
         getItem: (name) => {
-          const str = localStorage.getItem(name);
-          if (!str) return null;
-          const data = JSON.parse(str);
+          try {
+            const str = localStorage.getItem(name);
+            if (!str) return null;
 
-          // Convert date strings back to Date objects and sanitize data
-          if (data.state?.progress) {
-            Object.values(data.state.progress as Record<string, WordProgress>).forEach((p) => {
-              if (p.nextReview) p.nextReview = new Date(p.nextReview);
-              if (p.lastReview) p.lastReview = new Date(p.lastReview);
-            });
-            // Sanitize progress data to fix any corrupted values
-            data.state.progress = sanitizeProgress(data.state.progress);
-          }
-
-          if (data.state?.stats) {
-            if (data.state.stats.lastStudyDate) {
-              data.state.stats.lastStudyDate = new Date(data.state.stats.lastStudyDate);
+            let data;
+            try {
+              data = JSON.parse(str);
+            } catch (parseError) {
+              console.error('Failed to parse localStorage data:', parseError);
+              // Try to backup corrupted data before returning null
+              try {
+                const backupKey = `${name}_corrupted_${Date.now()}`;
+                localStorage.setItem(backupKey, str);
+                console.log(`Corrupted data backed up to: ${backupKey}`);
+              } catch (backupError) {
+                console.error('Failed to backup corrupted data:', backupError);
+              }
+              return null;
             }
-            // Sanitize stats to fix any corrupted values
-            data.state.stats = sanitizeUserStats(data.state.stats);
-          }
 
-          // Migrate old date format for lastReviewDate
-          if (data.state?.lastReviewDate) {
-            data.state.lastReviewDate = migrateLastReviewDate(data.state.lastReviewDate);
-          }
+            // Validate basic structure
+            if (!data || typeof data !== 'object' || !data.state) {
+              console.error('Invalid localStorage structure, resetting');
+              return null;
+            }
 
-          // Sanitize study history
-          if (data.state?.studyHistory) {
-            data.state.studyHistory = sanitizeStudyHistory(data.state.studyHistory);
-          }
+            // Convert date strings back to Date objects and sanitize data
+            if (data.state?.progress) {
+              Object.values(data.state.progress as Record<string, WordProgress>).forEach((p) => {
+                if (p.nextReview) p.nextReview = new Date(p.nextReview);
+                if (p.lastReview) p.lastReview = new Date(p.lastReview);
+              });
+              // Sanitize progress data to fix any corrupted values
+              data.state.progress = sanitizeProgress(data.state.progress);
+            }
 
-          return data;
+            if (data.state?.stats) {
+              if (data.state.stats.lastStudyDate) {
+                data.state.stats.lastStudyDate = new Date(data.state.stats.lastStudyDate);
+              }
+              // Sanitize stats to fix any corrupted values
+              data.state.stats = sanitizeUserStats(data.state.stats);
+            }
+
+            // Migrate old date format for lastReviewDate
+            if (data.state?.lastReviewDate) {
+              data.state.lastReviewDate = migrateLastReviewDate(data.state.lastReviewDate);
+            }
+
+            // Sanitize study history
+            if (data.state?.studyHistory) {
+              data.state.studyHistory = sanitizeStudyHistory(data.state.studyHistory);
+            }
+
+            return data;
+          } catch (error) {
+            console.error('Failed to load from localStorage:', error);
+            return null;
+          }
         },
         setItem: (name, value) => {
-          localStorage.setItem(name, JSON.stringify(value));
+          try {
+            const serialized = JSON.stringify(value);
+
+            // Check quota before writing (rough estimate)
+            const estimatedSize = serialized.length * 2; // UTF-16 chars = 2 bytes each
+            const QUOTA_WARNING_THRESHOLD = 5 * 1024 * 1024; // 5MB
+
+            if (estimatedSize > QUOTA_WARNING_THRESHOLD) {
+              console.warn(`localStorage data approaching quota limit: ${(estimatedSize / 1024 / 1024).toFixed(2)}MB`);
+            }
+
+            localStorage.setItem(name, serialized);
+          } catch (error) {
+            if (error instanceof Error) {
+              if (error.name === 'QuotaExceededError') {
+                console.error('localStorage quota exceeded');
+                // Try to clean up old backups to free space
+                try {
+                  const keysToRemove: string[] = [];
+                  for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key && key.includes('_corrupted_')) {
+                      keysToRemove.push(key);
+                    }
+                  }
+                  keysToRemove.forEach((key) => localStorage.removeItem(key));
+                  console.log(`Cleaned up ${keysToRemove.length} old backup(s)`);
+
+                  // Retry write after cleanup
+                  localStorage.setItem(name, JSON.stringify(value));
+                } catch (retryError) {
+                  console.error('Failed to save even after cleanup:', retryError);
+                  // TODO: Show user notification about storage full
+                  throw retryError;
+                }
+              } else {
+                console.error('Failed to save to localStorage:', error);
+                throw error;
+              }
+            }
+          }
         },
         removeItem: (name) => {
-          localStorage.removeItem(name);
+          try {
+            localStorage.removeItem(name);
+          } catch (error) {
+            console.error('Failed to remove from localStorage:', error);
+          }
         },
       },
     }

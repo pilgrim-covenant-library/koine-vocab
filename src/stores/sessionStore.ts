@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import type { LearningMode, ReviewWord, VocabularyWord } from '@/types';
 import { generateId } from '@/lib/utils';
 
@@ -68,22 +69,24 @@ export interface SessionSummary {
   reviews: ReviewWord[];
 }
 
-export const useSessionStore = create<SessionState>((set, get) => ({
-  isActive: false,
-  mode: null,
-  sessionId: null,
-  startTime: null,
-  lastWordTime: null,
-  words: [],
-  currentIndex: 0,
-  reviews: [],
-  xpEarned: 0,
-  isFlipped: false,
-  showResult: false,
-  selectedAnswer: null,
-  typedAnswer: '',
-  currentStreak: 0,
-  bestStreak: 0,
+export const useSessionStore = create<SessionState>()(
+  persist(
+    (set, get) => ({
+      isActive: false,
+      mode: null,
+      sessionId: null,
+      startTime: null,
+      lastWordTime: null,
+      words: [],
+      currentIndex: 0,
+      reviews: [],
+      xpEarned: 0,
+      isFlipped: false,
+      showResult: false,
+      selectedAnswer: null,
+      typedAnswer: '',
+      currentStreak: 0,
+      bestStreak: 0,
 
   startSession: (mode: LearningMode, words: VocabularyWord[]) => {
     const now = Date.now();
@@ -316,4 +319,22 @@ export const useSessionStore = create<SessionState>((set, get) => ({
     const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
     return { correct, total, accuracy, currentStreak, bestStreak };
   },
-}));
+    }),
+    {
+      name: 'koine-session-store',
+      // Only persist session data, not ephemeral UI state or timers
+      partialize: (state) => ({
+        isActive: state.isActive,
+        mode: state.mode,
+        sessionId: state.sessionId,
+        words: state.words,
+        currentIndex: state.currentIndex,
+        reviews: state.reviews,
+        xpEarned: state.xpEarned,
+        currentStreak: state.currentStreak,
+        bestStreak: state.bestStreak,
+        // Don't persist: startTime, lastWordTime, isFlipped, showResult, selectedAnswer, typedAnswer
+      }),
+    }
+  )
+);

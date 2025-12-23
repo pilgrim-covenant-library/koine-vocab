@@ -12,8 +12,13 @@ import {
   ChevronDown,
   Eye,
   EyeOff,
+  Cloud,
+  CloudOff,
+  Loader2,
 } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
+import { useAuthStore } from '@/stores/authStore';
+import { syncProgressToCloud } from '@/lib/firebase';
 import { GreekWord } from '@/components/GreekWord';
 import { XPBar, XPGain } from '@/components/XPBar';
 import { Button } from '@/components/ui/Button';
@@ -34,13 +39,55 @@ interface SessionStats {
 export default function TranslationPage() {
   const router = useRouter();
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const { stats, addXP } = useUserStore();
+  const { user } = useAuthStore();
+  const { stats, progress, addXP } = useUserStore();
 
   // Mode selection state
   const [mode, setMode] = useState<TranslationMode | null>(null);
   const [selectedBook, setSelectedBook] = useState<string | null>(null);
   const [showBookSelector, setShowBookSelector] = useState(false);
   const [bookWarning, setBookWarning] = useState<string | null>(null);
+
+  // Cloud sync state
+  const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
+  const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastSyncedProgressRef = useRef<string>('');
+
+  // Debounced cloud sync for learning progress
+  useEffect(() => {
+    if (!user || mode === null) return;
+
+    const currentProgressStr = JSON.stringify({ progress, stats });
+    if (currentProgressStr === lastSyncedProgressRef.current) return;
+
+    if (syncTimeoutRef.current) {
+      clearTimeout(syncTimeoutRef.current);
+    }
+
+    syncTimeoutRef.current = setTimeout(async () => {
+      try {
+        setSyncStatus('syncing');
+        await syncProgressToCloud(user.uid, {
+          words: progress,
+          stats,
+          lastSynced: new Date(),
+        });
+        lastSyncedProgressRef.current = currentProgressStr;
+        setSyncStatus('synced');
+        setTimeout(() => setSyncStatus('idle'), 2000);
+      } catch (error) {
+        console.error('Failed to sync learning progress:', error);
+        setSyncStatus('error');
+        setTimeout(() => setSyncStatus('idle'), 3000);
+      }
+    }, 30000);
+
+    return () => {
+      if (syncTimeoutRef.current) {
+        clearTimeout(syncTimeoutRef.current);
+      }
+    };
+  }, [user, progress, stats, mode]);
 
   // Session state
   const [verses, setVerses] = useState<NTVerse[]>([]);
@@ -169,7 +216,23 @@ export default function TranslationPage() {
     }
   }, [currentIndex, verses.length]);
 
-  const handleEndSession = () => {
+  const handleEndSession = async () => {
+    // Final sync to cloud before exiting
+    if (user && sessionStats.versesCompleted > 0) {
+      try {
+        setSyncStatus('syncing');
+        await syncProgressToCloud(user.uid, {
+          words: progress,
+          stats,
+          lastSynced: new Date(),
+        });
+        setSyncStatus('synced');
+      } catch (error) {
+        console.error('Failed final sync on session end:', error);
+        setSyncStatus('error');
+      }
+    }
+
     setMode(null);
     setVerses([]);
     setCurrentIndex(0);
@@ -362,9 +425,23 @@ export default function TranslationPage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between mb-2">
-            <Button variant="ghost" size="icon" onClick={handleEndSession}>
-              <ArrowLeft className="w-5 h-5" />
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button variant="ghost" size="icon" onClick={handleEndSession}>
+                <ArrowLeft className="w-5 h-5" />
+              </Button>
+              {/* Sync status indicator */}
+              {user && syncStatus !== 'idle' && (
+                <div className="flex items-center gap-1" title={
+                  syncStatus === 'syncing' ? 'Saving to cloud...' :
+                  syncStatus === 'synced' ? 'Saved to cloud' :
+                  'Sync failed - data saved locally'
+                }>
+                  {syncStatus === 'syncing' && <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />}
+                  {syncStatus === 'synced' && <Cloud className="w-3.5 h-3.5 text-green-500" />}
+                  {syncStatus === 'error' && <CloudOff className="w-3.5 h-3.5 text-orange-500" />}
+                </div>
+              )}
+            </div>
             <span className="text-sm font-medium">
               {currentIndex + 1} / {verses.length}
             </span>

@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { X, RotateCcw, Keyboard, Undo2, Eye, EyeOff } from 'lucide-react';
+import { X, RotateCcw, Keyboard, Undo2, Eye, EyeOff, Cloud, CloudOff, Loader2 } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
 import { useQuestStore } from '@/stores/questStore';
+import { useAuthStore } from '@/stores/authStore';
+import { syncProgressToCloud } from '@/lib/firebase';
 import { FlashCard } from '@/components/FlashCard';
 import { ReviewButtons } from '@/components/ReviewButtons';
 import { XPBar, XPGain } from '@/components/XPBar';
@@ -28,6 +30,7 @@ const KEYBOARD_SHORTCUTS = {
 
 export default function FlashcardsPage() {
   const router = useRouter();
+  const { user } = useAuthStore();
   const { stats, progress, reviewWord, undoLastReview, canUndo, initializeWord, getWordProgress, getDueWords, sessionLength, selectedTiers, selectedPOS, selectedCategories, checkAndUnlockAchievements, recordSession, getIntervalModifier, blindMode, setBlindMode } =
     useUserStore();
   const {
@@ -55,10 +58,62 @@ export default function FlashcardsPage() {
   const [showUndo, setShowUndo] = useState(false);
   const [undoTimeLeft, setUndoTimeLeft] = useState(0);
 
+  // Cloud sync state
+  const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
+  const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastSyncedProgressRef = useRef<string>('');
+
   // Initialize session on mount
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Debounced cloud sync for learning progress
+  useEffect(() => {
+    if (!user || !isActive) return;
+
+    // Convert progress to JSON string for comparison
+    const currentProgressStr = JSON.stringify({ progress, stats });
+
+    // Only sync if progress has actually changed
+    if (currentProgressStr === lastSyncedProgressRef.current) {
+      return;
+    }
+
+    // Clear existing timeout
+    if (syncTimeoutRef.current) {
+      clearTimeout(syncTimeoutRef.current);
+    }
+
+    // Set new timeout for debounced sync (30 seconds for batching)
+    syncTimeoutRef.current = setTimeout(async () => {
+      try {
+        setSyncStatus('syncing');
+        await syncProgressToCloud(user.uid, {
+          words: progress,
+          stats,
+          lastSynced: new Date(),
+        });
+        lastSyncedProgressRef.current = currentProgressStr;
+        setSyncStatus('synced');
+
+        // Reset to idle after 2 seconds
+        setTimeout(() => setSyncStatus('idle'), 2000);
+      } catch (error) {
+        console.error('Failed to sync learning progress:', error);
+        setSyncStatus('error');
+
+        // Reset to idle after 3 seconds
+        setTimeout(() => setSyncStatus('idle'), 3000);
+      }
+    }, 30000); // 30 second debounce for batching
+
+    return () => {
+      if (syncTimeoutRef.current) {
+        clearTimeout(syncTimeoutRef.current);
+      }
+    };
+  }, [user, progress, stats, isActive]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -227,8 +282,9 @@ export default function FlashcardsPage() {
 
   const { recordReviewCount, recordSessionAccuracy, recordPerfectSession } = useQuestStore();
 
-  const handleEndSession = () => {
+  const handleEndSession = async () => {
     const summary = endSession();
+
     // Record session history
     if (summary.wordsReviewed > 0) {
       recordSession({
@@ -248,6 +304,23 @@ export default function FlashcardsPage() {
         recordPerfectSession();
       }
     }
+
+    // Final sync to cloud before exiting (immediate, no debounce)
+    if (user && summary.wordsReviewed > 0) {
+      try {
+        setSyncStatus('syncing');
+        await syncProgressToCloud(user.uid, {
+          words: progress,
+          stats,
+          lastSynced: new Date(),
+        });
+        setSyncStatus('synced');
+      } catch (error) {
+        console.error('Failed final sync on session end:', error);
+        setSyncStatus('error');
+      }
+    }
+
     router.push('/');
   };
 
@@ -352,7 +425,20 @@ export default function FlashcardsPage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between mb-2">
-            <div className="w-10" /> {/* Spacer for layout balance */}
+            {/* Sync status indicator */}
+            <div className="w-10 flex items-center justify-start">
+              {user && syncStatus !== 'idle' && (
+                <div className="flex items-center gap-1" title={
+                  syncStatus === 'syncing' ? 'Saving to cloud...' :
+                  syncStatus === 'synced' ? 'Saved to cloud' :
+                  'Sync failed - data saved locally'
+                }>
+                  {syncStatus === 'syncing' && <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />}
+                  {syncStatus === 'synced' && <Cloud className="w-3.5 h-3.5 text-green-500" />}
+                  {syncStatus === 'error' && <CloudOff className="w-3.5 h-3.5 text-orange-500" />}
+                </div>
+              )}
+            </div>
             <span className="text-sm font-medium">
               {sessionProgress.current} / {sessionProgress.total}
             </span>

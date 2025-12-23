@@ -2,10 +2,12 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { X, RotateCcw, ChevronRight, Eye, Trophy, ThumbsUp, Zap, Keyboard } from 'lucide-react';
+import { X, RotateCcw, ChevronRight, Eye, Trophy, ThumbsUp, Zap, Keyboard, Cloud, CloudOff, Loader2 } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
 import { useQuestStore } from '@/stores/questStore';
+import { useAuthStore } from '@/stores/authStore';
+import { syncProgressToCloud } from '@/lib/firebase';
 import { GreekWord } from '@/components/GreekWord';
 import { TypingInput, TypingFeedback } from '@/components/TypingInput';
 import { XPBar, XPGain } from '@/components/XPBar';
@@ -21,6 +23,7 @@ type AnswerStatus = 'idle' | 'correct' | 'incorrect' | 'close';
 export default function TypingPage() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
+  const { user } = useAuthStore();
   const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, selectedPOS, selectedCategories, checkAndUnlockAchievements, recordSession } = useUserStore();
   const {
     isActive,
@@ -48,10 +51,51 @@ export default function TypingPage() {
   const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
   const [showShortcuts, setShowShortcuts] = useState(false);
 
+  // Cloud sync state
+  const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
+  const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastSyncedProgressRef = useRef<string>('');
+
   // Initialize session on mount
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Debounced cloud sync for learning progress
+  useEffect(() => {
+    if (!user || !isActive) return;
+
+    const currentProgressStr = JSON.stringify({ progress, stats });
+    if (currentProgressStr === lastSyncedProgressRef.current) return;
+
+    if (syncTimeoutRef.current) {
+      clearTimeout(syncTimeoutRef.current);
+    }
+
+    syncTimeoutRef.current = setTimeout(async () => {
+      try {
+        setSyncStatus('syncing');
+        await syncProgressToCloud(user.uid, {
+          words: progress,
+          stats,
+          lastSynced: new Date(),
+        });
+        lastSyncedProgressRef.current = currentProgressStr;
+        setSyncStatus('synced');
+        setTimeout(() => setSyncStatus('idle'), 2000);
+      } catch (error) {
+        console.error('Failed to sync learning progress:', error);
+        setSyncStatus('error');
+        setTimeout(() => setSyncStatus('idle'), 3000);
+      }
+    }, 30000);
+
+    return () => {
+      if (syncTimeoutRef.current) {
+        clearTimeout(syncTimeoutRef.current);
+      }
+    };
+  }, [user, progress, stats, isActive]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -171,8 +215,9 @@ export default function TypingPage() {
 
   const { recordReviewCount, recordSessionAccuracy, recordPerfectSession } = useQuestStore();
 
-  const handleEndSession = () => {
+  const handleEndSession = async () => {
     const summary = endSession();
+
     // Record session history
     if (summary.wordsReviewed > 0) {
       recordSession({
@@ -192,6 +237,23 @@ export default function TypingPage() {
         recordPerfectSession();
       }
     }
+
+    // Final sync to cloud before exiting
+    if (user && summary.wordsReviewed > 0) {
+      try {
+        setSyncStatus('syncing');
+        await syncProgressToCloud(user.uid, {
+          words: progress,
+          stats,
+          lastSynced: new Date(),
+        });
+        setSyncStatus('synced');
+      } catch (error) {
+        console.error('Failed final sync on session end:', error);
+        setSyncStatus('error');
+      }
+    }
+
     router.push('/');
   };
 
@@ -303,7 +365,20 @@ export default function TypingPage() {
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between mb-2">
-            <div className="w-10" /> {/* Spacer for layout balance */}
+            {/* Sync status indicator */}
+            <div className="w-10 flex items-center justify-start">
+              {user && syncStatus !== 'idle' && (
+                <div className="flex items-center gap-1" title={
+                  syncStatus === 'syncing' ? 'Saving to cloud...' :
+                  syncStatus === 'synced' ? 'Saved to cloud' :
+                  'Sync failed - data saved locally'
+                }>
+                  {syncStatus === 'syncing' && <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />}
+                  {syncStatus === 'synced' && <Cloud className="w-3.5 h-3.5 text-green-500" />}
+                  {syncStatus === 'error' && <CloudOff className="w-3.5 h-3.5 text-orange-500" />}
+                </div>
+              )}
+            </div>
             <span className="text-sm font-medium">
               {sessionProgress.current} / {sessionProgress.total}
             </span>

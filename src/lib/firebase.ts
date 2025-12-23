@@ -67,6 +67,57 @@ export function isFirebaseAvailable(): boolean {
   return isFirebaseConfigured && auth !== null;
 }
 
+// =============================================================================
+// Retry Logic for Network Operations
+// =============================================================================
+
+/**
+ * Retry an async operation with exponential backoff
+ * @param operation - The async function to retry
+ * @param maxRetries - Maximum number of retry attempts (default: 3)
+ * @param initialDelay - Initial delay in ms (default: 1000)
+ * @returns Promise with the operation result
+ */
+async function retryOperation<T>(
+  operation: () => Promise<T>,
+  maxRetries = 3,
+  initialDelay = 1000
+): Promise<T> {
+  let lastError: Error | unknown;
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+
+      // Don't retry on the last attempt
+      if (attempt === maxRetries - 1) {
+        throw error;
+      }
+
+      // Don't retry auth errors or permission errors
+      if (error instanceof Error) {
+        const errorMessage = error.message.toLowerCase();
+        if (
+          errorMessage.includes('permission') ||
+          errorMessage.includes('unauthorized') ||
+          errorMessage.includes('unauthenticated')
+        ) {
+          throw error;
+        }
+      }
+
+      // Exponential backoff: delay increases with each attempt
+      const delay = initialDelay * Math.pow(2, attempt);
+      console.log(`Retry attempt ${attempt + 1}/${maxRetries} after ${delay}ms...`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+
+  throw lastError || new Error('Max retries exceeded');
+}
+
 // User role types
 export type UserRole = 'student' | 'teacher';
 
@@ -234,28 +285,32 @@ export async function syncProgressToCloud(
 ): Promise<void> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  await setDoc(doc(firestore, 'progress', uid), {
-    ...progress,
-    lastSynced: serverTimestamp(),
+  return retryOperation(async () => {
+    await setDoc(doc(firestore, 'progress', uid), {
+      ...progress,
+      lastSynced: serverTimestamp(),
+    });
   });
 }
 
 export async function getProgressFromCloud(uid: string): Promise<SyncedProgress | null> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  const docRef = doc(firestore, 'progress', uid);
-  const docSnap = await getDoc(docRef);
+  return retryOperation(async () => {
+    const docRef = doc(firestore, 'progress', uid);
+    const docSnap = await getDoc(docRef);
 
-  if (docSnap.exists()) {
-    const data = docSnap.data();
-    return {
-      words: data.words || {},
-      stats: data.stats || {},
-      lastSynced: data.lastSynced?.toDate() || new Date(),
-    };
-  }
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return {
+        words: data.words || {},
+        stats: data.stats || {},
+        lastSynced: data.lastSynced?.toDate() || new Date(),
+      };
+    }
 
-  return null;
+    return null;
+  });
 }
 
 // Auth state observer
@@ -293,27 +348,29 @@ export async function syncHomeworkToCloud(
 ): Promise<void> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  const docRef = doc(firestore, 'homework', uid, 'assignments', homeworkId);
+  return retryOperation(async () => {
+    const docRef = doc(firestore, 'homework', uid, 'assignments', homeworkId);
 
-  // Convert sections Record to plain object for Firestore
-  const sectionsData: Record<string, SectionProgress> = {};
-  for (const key in progress.sections) {
-    sectionsData[key] = progress.sections[key as unknown as SectionId];
-  }
+    // Convert sections Record to plain object for Firestore
+    const sectionsData: Record<string, SectionProgress> = {};
+    for (const key in progress.sections) {
+      sectionsData[key] = progress.sections[key as unknown as SectionId];
+    }
 
-  const data: FirestoreHomeworkProgress = {
-    id: progress.id,
-    status: progress.status,
-    sections: sectionsData,
-    currentSection: progress.currentSection,
-    startedAt: progress.startedAt,
-    completedAt: progress.completedAt,
-    totalScore: progress.totalScore,
-    totalPossible: progress.totalPossible,
-    lastSynced: serverTimestamp(),
-  };
+    const data: FirestoreHomeworkProgress = {
+      id: progress.id,
+      status: progress.status,
+      sections: sectionsData,
+      currentSection: progress.currentSection,
+      startedAt: progress.startedAt,
+      completedAt: progress.completedAt,
+      totalScore: progress.totalScore,
+      totalPossible: progress.totalPossible,
+      lastSynced: serverTimestamp(),
+    };
 
-  await setDoc(docRef, data, { merge: true });
+    await setDoc(docRef, data, { merge: true });
+  });
 }
 
 /**
@@ -325,34 +382,36 @@ export async function getHomeworkFromCloud(
 ): Promise<Homework1Progress | null> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  const docRef = doc(firestore, 'homework', uid, 'assignments', homeworkId);
-  const docSnap = await getDoc(docRef);
+  return retryOperation(async () => {
+    const docRef = doc(firestore, 'homework', uid, 'assignments', homeworkId);
+    const docSnap = await getDoc(docRef);
 
-  if (docSnap.exists()) {
-    const data = docSnap.data();
+    if (docSnap.exists()) {
+      const data = docSnap.data();
 
-    // Convert sections back to proper Record type
-    const sections: Record<SectionId, SectionProgress> = {
-      1: data.sections['1'] || data.sections[1],
-      2: data.sections['2'] || data.sections[2],
-      3: data.sections['3'] || data.sections[3],
-      4: data.sections['4'] || data.sections[4],
-      5: data.sections['5'] || data.sections[5],
-    };
+      // Convert sections back to proper Record type
+      const sections: Record<SectionId, SectionProgress> = {
+        1: data.sections['1'] || data.sections[1],
+        2: data.sections['2'] || data.sections[2],
+        3: data.sections['3'] || data.sections[3],
+        4: data.sections['4'] || data.sections[4],
+        5: data.sections['5'] || data.sections[5],
+      };
 
-    return {
-      id: data.id,
-      status: data.status,
-      sections,
-      currentSection: data.currentSection as SectionId,
-      startedAt: data.startedAt,
-      completedAt: data.completedAt,
-      totalScore: data.totalScore,
-      totalPossible: data.totalPossible,
-    };
-  }
+      return {
+        id: data.id,
+        status: data.status,
+        sections,
+        currentSection: data.currentSection as SectionId,
+        startedAt: data.startedAt,
+        completedAt: data.completedAt,
+        totalScore: data.totalScore,
+        totalPossible: data.totalPossible,
+      };
+    }
 
-  return null;
+    return null;
+  });
 }
 
 /**
@@ -395,19 +454,21 @@ export async function submitHomeworkResult(
 ): Promise<void> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  const percentage = totalPossible > 0 ? Math.round((score / totalPossible) * 100) : 0;
+  return retryOperation(async () => {
+    const percentage = totalPossible > 0 ? Math.round((score / totalPossible) * 100) : 0;
 
-  await setDoc(doc(firestore, 'homeworkSubmissions', studentUid), {
-    studentUid,
-    homeworkId: hwId,
-    status: 'completed',
-    completedAt: serverTimestamp(),
-    score,
-    totalPossible,
-    percentage,
-    displayName: userInfo.displayName,
-    email: userInfo.email,
-    sections,
+    await setDoc(doc(firestore, 'homeworkSubmissions', studentUid), {
+      studentUid,
+      homeworkId: hwId,
+      status: 'completed',
+      completedAt: serverTimestamp(),
+      score,
+      totalPossible,
+      percentage,
+      displayName: userInfo.displayName,
+      email: userInfo.email,
+      sections,
+    });
   });
 }
 
@@ -418,26 +479,69 @@ export async function submitHomeworkResult(
 export async function getAllHomeworkSubmissions(): Promise<HomeworkSubmission[]> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  const submissionsQuery = query(
-    collection(firestore, 'homeworkSubmissions'),
-    orderBy('completedAt', 'desc')
-  );
+  return retryOperation(async () => {
+    const submissionsQuery = query(
+      collection(firestore, 'homeworkSubmissions'),
+      orderBy('completedAt', 'desc')
+    );
 
-  const snapshot = await getDocs(submissionsQuery);
+    const snapshot = await getDocs(submissionsQuery);
 
-  return snapshot.docs.map((docSnap) => {
-    const data = docSnap.data();
-    return {
-      studentUid: docSnap.id,
-      homeworkId: data.homeworkId,
-      status: 'completed' as const,
-      completedAt: data.completedAt?.toDate() || new Date(),
-      score: data.score,
-      totalPossible: data.totalPossible,
-      percentage: data.percentage,
-      displayName: data.displayName,
-      email: data.email,
-      sections: data.sections,
-    };
+    return snapshot.docs.map((docSnap) => {
+      const data = docSnap.data();
+      return {
+        studentUid: docSnap.id,
+        homeworkId: data.homeworkId,
+        status: 'completed' as const,
+        completedAt: data.completedAt?.toDate() || new Date(),
+        score: data.score,
+        totalPossible: data.totalPossible,
+        percentage: data.percentage,
+        displayName: data.displayName,
+        email: data.email,
+        sections: data.sections,
+      };
+    });
   });
+}
+
+/**
+ * Aliases for backward compatibility and test consistency
+ */
+export const loadProgressFromCloud = getProgressFromCloud;
+export const loadHomeworkFromCloud = getHomeworkFromCloud;
+
+/**
+ * Sync user stats to cloud
+ * TODO: Implement full stats syncing
+ */
+export async function syncStatsToCloud(uid: string, stats: any): Promise<void> {
+  if (!db) {
+    throw new Error('Firebase not initialized');
+  }
+
+  const statsRef = doc(db, 'users', uid, 'stats', 'current');
+  await setDoc(statsRef, {
+    ...stats,
+    lastSynced: serverTimestamp(),
+  }, { merge: true });
+}
+
+/**
+ * Load user stats from cloud
+ * TODO: Implement full stats loading
+ */
+export async function loadStatsFromCloud(uid: string): Promise<any | null> {
+  if (!db) {
+    throw new Error('Firebase not initialized');
+  }
+
+  const statsRef = doc(db, 'users', uid, 'stats', 'current');
+  const snapshot = await getDoc(statsRef);
+
+  if (!snapshot.exists()) {
+    return null;
+  }
+
+  return snapshot.data();
 }

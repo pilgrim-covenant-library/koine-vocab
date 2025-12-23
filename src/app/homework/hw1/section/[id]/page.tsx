@@ -39,28 +39,17 @@ export default function SectionPage() {
     syncToCloud,
   } = useHomeworkStore();
 
-  // Debounce sync to avoid too many requests
-  const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const debouncedSync = useCallback(() => {
+  // Immediate sync to cloud (no debounce) - more reliable for homework data
+  const syncImmediately = useCallback(async () => {
     if (!user) return;
 
-    if (syncTimeoutRef.current) {
-      clearTimeout(syncTimeoutRef.current);
+    try {
+      await syncToCloud(user.uid);
+    } catch (error) {
+      console.error('Failed to sync homework to cloud:', error);
+      // Note: Store still persists to localStorage even if cloud sync fails
     }
-
-    syncTimeoutRef.current = setTimeout(() => {
-      syncToCloud(user.uid);
-    }, 2000); // Sync 2 seconds after last change
   }, [user, syncToCloud]);
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (syncTimeoutRef.current) {
-        clearTimeout(syncTimeoutRef.current);
-      }
-    };
-  }, []);
 
   const [userInput, setUserInput] = useState('');
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -175,9 +164,9 @@ export default function SectionPage() {
     setIsCorrect(correct);
     setShowFeedback(true);
 
-    // Sync to cloud after answer
-    debouncedSync();
-  }, [currentQuestion, selectedOption, userInput, sectionId, submitAnswer, debouncedSync]);
+    // Sync to cloud immediately after answer (no debounce for homework data)
+    syncImmediately();
+  }, [currentQuestion, selectedOption, userInput, sectionId, submitAnswer, syncImmediately]);
 
   // Handle next question
   const handleNext = () => {
