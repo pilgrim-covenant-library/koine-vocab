@@ -3511,6 +3511,226 @@
         "theology-proper",
         "sovereignty"
       ]
+    },
+    {
+      "id": "heal-therapeuo-iaomai-sozo",
+      "category": "heal",
+      "title": "Words for Heal/Cure",
+      "englishWord": "heal/cure",
+      "introduction": "Greek has several words for healing, each with distinct emphasis. Some stress the process of treatment, others the instantaneous cure, and one connects physical healing to spiritual salvation. These distinctions illuminate the Gospel healing narratives.",
+      "words": [
+        {
+          "greek": "θεραπεύω",
+          "transliteration": "therapeuō",
+          "strongs": "G2323",
+          "shortDef": "to heal, cure, serve, treat (process of care)",
+          "nuance": "To heal by treating, serving, or caring for - emphasizing the process of treatment and restoration. Originally meant 'to serve' or 'attend to.' Used for Jesus healing diseases (Matt 4:23-24; 12:15). The root of 'therapy' and 'therapeutic.' Suggests ongoing care and treatment.",
+          "ntUsage": 43
+        },
+        {
+          "greek": "ἰάομαι",
+          "transliteration": "iaomai",
+          "strongs": "G2390",
+          "shortDef": "to heal, cure (instantaneous, complete)",
+          "nuance": "To heal or cure - often emphasizing instantaneous, complete healing. The physician's term for effecting a cure. 'Your faith has healed (ἰάσατο) you' (Luke 17:19). 'By His wounds you have been healed (ἰάθητε)' (1 Pet 2:24). Can refer to physical or spiritual healing.",
+          "ntUsage": 26
+        },
+        {
+          "greek": "σῴζω",
+          "transliteration": "sōzō",
+          "strongs": "G4982",
+          "shortDef": "to save, heal, deliver, make whole",
+          "nuance": "To save, rescue, deliver - used for both spiritual salvation and physical healing. 'Your faith has saved/healed (σέσωκεν) you' (Mark 5:34; 10:52; Luke 7:50; 17:19). The overlap between 'heal' and 'save' shows the holistic nature of Jesus' ministry. Physical healing points to greater salvation.",
+          "ntUsage": 106
+        },
+        {
+          "greek": "ὑγιαίνω",
+          "transliteration": "hygiainō",
+          "strongs": "G5198",
+          "shortDef": "to be healthy, sound, whole",
+          "nuance": "To be healthy, sound, or whole - the state of health rather than the act of healing. 'Those who are well (ὑγιαίνοντες) have no need of a physician' (Luke 5:31). Used metaphorically for 'sound doctrine' (1 Tim 1:10; 2 Tim 4:3; Titus 1:9). The root of 'hygiene.'",
+          "ntUsage": 12
+        }
+      ],
+      "vineQuote": "Therapeuō emphasizes the process of healing and care; iaomai stresses the accomplished cure; sōzō connects physical healing to the broader concept of salvation and deliverance; hygiainō describes the resultant state of health.",
+      "exampleVerse": {
+        "reference": "Mark 5:34",
+        "greek": "ἡ πίστις σου σέσωκέν σε· ὕπαγε εἰς εἰρήνην καὶ ἴσθι ὑγιὴς",
+        "english": "Your faith has saved/healed (sōzō) you; go in peace and be healed/whole (hygiēs).",
+        "wordHighlighted": "σῴζω and ὑγιής"
+      },
+      "practicalTip": "When Jesus says 'your faith has saved you' (σέσωκεν) to those He heals, the word deliberately connects physical healing to spiritual salvation. The healings are signs pointing to greater wholeness - the salvation Christ brings encompasses body and soul.",
+      "tags": [
+        "essential",
+        "gospels",
+        "miracles",
+        "salvation"
+      ]
+    },
+    {
+      "id": "walk-peripateo-poreuomai-stoicheo",
+      "category": "walk",
+      "title": "Words for Walk/Conduct",
+      "englishWord": "walk/live/conduct",
+      "introduction": "Greek uses several 'walking' words metaphorically for how one lives or conducts oneself. This is especially prominent in Paul's letters: believers are to 'walk' in newness of life, by the Spirit, in love. The metaphor emphasizes daily, step-by-step living.",
+      "words": [
+        {
+          "greek": "περιπατέω",
+          "transliteration": "peripateō",
+          "strongs": "G4043",
+          "shortDef": "to walk, live, conduct oneself (lifestyle)",
+          "nuance": "Literally to walk around; metaphorically, to conduct one's life, to live in a certain manner. Paul's characteristic term for Christian living: 'walk in newness of life' (Rom 6:4), 'walk by the Spirit' (Gal 5:16), 'walk in love' (Eph 5:2), 'walk as children of light' (Eph 5:8). Emphasizes the ongoing pattern of daily life.",
+          "ntUsage": 95
+        },
+        {
+          "greek": "πορεύομαι",
+          "transliteration": "poreuomai",
+          "strongs": "G4198",
+          "shortDef": "to go, journey, travel, proceed",
+          "nuance": "To go, travel, or journey - more directional than περιπατέω. Often literal (journeying from place to place) but also metaphorical for pursuing a course of life: 'go in peace' (Luke 7:50), 'go and sin no more' (John 8:11). Emphasizes direction and destination.",
+          "ntUsage": 153
+        },
+        {
+          "greek": "στοιχέω",
+          "transliteration": "stoicheō",
+          "strongs": "G4748",
+          "shortDef": "to walk in line, follow, conform to",
+          "nuance": "To walk in line, to keep in step - a military term for marching in formation. 'If we live by the Spirit, let us also keep in step (στοιχῶμεν) with the Spirit' (Gal 5:25). 'Walk by the same rule' (Phil 3:16). Emphasizes orderly following and conformity to a standard.",
+          "ntUsage": 5
+        },
+        {
+          "greek": "ὁδεύω",
+          "transliteration": "hodeuō",
+          "strongs": "G3593",
+          "shortDef": "to travel, journey (on a road)",
+          "nuance": "To travel on a road (ὁδός). Less common, emphasizing the road or path being traveled. 'As they were journeying' (Luke 10:38). Related to ὁδός (way/road) - Christ is 'the Way.'",
+          "ntUsage": 1
+        }
+      ],
+      "vineQuote": "Peripateō signifies one's habitual conduct or manner of life; poreuomai emphasizes the direction of one's going; stoicheō suggests walking in line, keeping step with a standard or rule.",
+      "exampleVerse": {
+        "reference": "Galatians 5:16, 25",
+        "greek": "πνεύματι περιπατεῖτε... εἰ ζῶμεν πνεύματι, πνεύματι καὶ στοιχῶμεν",
+        "english": "Walk (peripateō) by the Spirit... if we live by the Spirit, let us also keep in step (stoicheō) with the Spirit.",
+        "wordHighlighted": "περιπατέω and στοιχέω"
+      },
+      "practicalTip": "Paul uses περιπατέω for the general lifestyle ('walk by the Spirit') and στοιχέω for the disciplined following ('keep in step'). Both are needed: general direction (περιπατέω) and moment-by-moment obedience (στοιχέω). The Christian life is a journey walked daily in step with the Spirit.",
+      "tags": [
+        "essential",
+        "ethics",
+        "pauline",
+        "spirit"
+      ]
+    },
+    {
+      "id": "bless-eulogeo-makarizo",
+      "category": "bless",
+      "title": "Words for Bless/Blessed",
+      "englishWord": "bless/blessed",
+      "introduction": "Greek has two main words translated 'bless' or 'blessed,' but they have distinct meanings. One involves speaking well (blessing), the other describes a state of happiness or favor (beatitude). The Beatitudes use one; doxologies use the other.",
+      "words": [
+        {
+          "greek": "εὐλογέω",
+          "transliteration": "eulogeō",
+          "strongs": "G2127",
+          "shortDef": "to bless, speak well of, praise",
+          "nuance": "To speak well of, to bless - either God blessing humans (conferring favor) or humans blessing God (praising). 'Blessed (εὐλογημένος) is He who comes in the name of the Lord' (Matt 21:9). 'Blessed be the God and Father' (Eph 1:3). Used at the Last Supper: Jesus 'blessed' the bread (Matt 26:26). Root of 'eulogy.'",
+          "ntUsage": 41
+        },
+        {
+          "greek": "μακαρίζω",
+          "transliteration": "makarizō",
+          "strongs": "G3106",
+          "shortDef": "to pronounce blessed, consider fortunate",
+          "nuance": "To pronounce or consider someone blessed/happy - declaring their fortunate state. 'All generations will call me blessed (μακαριοῦσιν)' (Luke 1:48). 'We count them blessed (μακαρίζομεν) who remained steadfast' (Jas 5:11). Less about conferring blessing than recognizing it.",
+          "ntUsage": 2
+        },
+        {
+          "greek": "μακάριος",
+          "transliteration": "makarios",
+          "strongs": "G3107",
+          "shortDef": "blessed, happy, fortunate (state)",
+          "nuance": "The adjective: blessed, happy, fortunate - describing a state of blessedness. The Beatitudes: 'Blessed (μακάριοι) are the poor in spirit' (Matt 5:3-11). 'Blessed is the man who...' (Ps 1:1 LXX; Rom 4:7-8). Describes the enviable condition of those favored by God.",
+          "ntUsage": 50
+        },
+        {
+          "greek": "εὐλογητός",
+          "transliteration": "eulogētos",
+          "strongs": "G2128",
+          "shortDef": "blessed, praised, worthy of blessing",
+          "nuance": "The adjective from εὐλογέω - blessed or praised. Used almost exclusively of God: 'Blessed be the God and Father of our Lord Jesus Christ' (Eph 1:3; 1 Pet 1:3). 'The blessed (εὐλογητός) God' (1 Tim 6:15). Describes God as worthy of blessing/praise.",
+          "ntUsage": 8
+        }
+      ],
+      "vineQuote": "Eulogeō means to speak well of, to bless; makarios describes a state of blessedness or happiness. When we bless God (εὐλογοῦμεν), we praise Him; when God blesses us (εὐλογεῖ), He bestows favor. The Beatitudes declare people μακάριοι - in an enviable state of divine favor.",
+      "exampleVerse": {
+        "reference": "Matthew 5:3",
+        "greek": "μακάριοι οἱ πτωχοὶ τῷ πνεύματι",
+        "english": "Blessed (makarioi) are the poor in spirit.",
+        "wordHighlighted": "μακάριος"
+      },
+      "practicalTip": "The Beatitudes use μακάριος (a state of blessedness) not εὐλογημένος (blessed by speech). Jesus declares certain people to be in an enviable state - already blessed by God - not that He is blessing them at that moment. The difference: εὐλογέω is the act of blessing; μακάριος is the resulting state.",
+      "tags": [
+        "essential",
+        "beatitudes",
+        "worship",
+        "doxology"
+      ]
+    },
+    {
+      "id": "weep-mourn-klaio-pentheo-threneo",
+      "category": "weep",
+      "title": "Words for Weep/Mourn/Lament",
+      "englishWord": "weep/mourn/lament",
+      "introduction": "Greek distinguishes between different types of sorrow and its expressions. Some words emphasize tears, others mourning rituals, still others vocal lamentation. These distinctions illuminate Gospel accounts of grief and the 'blessed' who mourn.",
+      "words": [
+        {
+          "greek": "κλαίω",
+          "transliteration": "klaiō",
+          "strongs": "G2799",
+          "shortDef": "to weep, cry, shed tears",
+          "nuance": "To weep, cry audibly - expressing grief through tears. 'Jesus wept (ἐδάκρυσεν)' uses a different word, but κλαίω is more common: 'weep with those who weep' (Rom 12:15), Peter 'wept bitterly' (Matt 26:75), the widow of Nain was weeping (Luke 7:13). Audible, emotional weeping.",
+          "ntUsage": 40
+        },
+        {
+          "greek": "πενθέω",
+          "transliteration": "pentheō",
+          "strongs": "G3996",
+          "shortDef": "to mourn, grieve, lament (formal mourning)",
+          "nuance": "To mourn, grieve - often the formal mourning for the dead or deep grief. 'Blessed are those who mourn (πενθοῦντες)' (Matt 5:4). 'You will weep and mourn (πενθήσετε)' (John 16:20). Can include mourning rituals and outward expressions of grief.",
+          "ntUsage": 10
+        },
+        {
+          "greek": "θρηνέω",
+          "transliteration": "thrēneō",
+          "strongs": "G2354",
+          "shortDef": "to lament, wail, sing a dirge",
+          "nuance": "To lament, wail, sing a funeral song - vocal, even musical lamentation. 'We played the flute for you and you did not dance; we sang a dirge (ἐθρηνήσαμεν) and you did not mourn' (Matt 11:17). Professional mourners would thrēneō at funerals. Loud, vocal grief.",
+          "ntUsage": 4
+        },
+        {
+          "greek": "δακρύω",
+          "transliteration": "dakryō",
+          "strongs": "G1145",
+          "shortDef": "to weep, shed tears (quietly)",
+          "nuance": "To weep or shed tears - used only once: 'Jesus wept (ἐδάκρυσεν)' (John 11:35). Distinct from κλαίω in being quieter, less demonstrative. Jesus shed tears rather than wailing aloud. Deep, quiet grief.",
+          "ntUsage": 1
+        }
+      ],
+      "vineQuote": "Klaiō signifies audible weeping; pentheō is mourning, especially formal or ritual mourning for the dead; thrēneō is vocal lamentation, singing a dirge; dakryō is simply to shed tears, used of Jesus at Lazarus's tomb.",
+      "exampleVerse": {
+        "reference": "Matthew 5:4",
+        "greek": "μακάριοι οἱ πενθοῦντες, ὅτι αὐτοὶ παρακληθήσονται",
+        "english": "Blessed are those who mourn (pentheō), for they shall be comforted.",
+        "wordHighlighted": "πενθέω"
+      },
+      "practicalTip": "When 'Jesus wept' (John 11:35) uses δακρύω rather than κλαίω, it suggests quiet tears rather than loud wailing - deeply moved yet composed. The Beatitude uses πενθέω - not just sadness but the grief that leads to God for comfort. Those who mourn over sin and suffering are blessed because they will receive divine comfort.",
+      "tags": [
+        "essential",
+        "beatitudes",
+        "gospels",
+        "emotion"
+      ]
     }
   ]
 }
