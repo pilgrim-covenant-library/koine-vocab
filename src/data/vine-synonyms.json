@@ -1,0 +1,658 @@
+{
+  "synonymGroups": [
+    {
+      "id": "love-agapao-phileo",
+      "category": "love",
+      "title": "Words for Love",
+      "englishWord": "love",
+      "introduction": "English has only one primary word for 'love,' but Greek distinguishes between different types and expressions of love. Understanding these distinctions illuminates Jesus' famous exchange with Peter in John 21 and reveals the depth of God's love throughout Scripture.",
+      "words": [
+        {
+          "greek": "ἀγαπάω",
+          "transliteration": "agapaō",
+          "strongs": "G25",
+          "shortDef": "to love (unconditionally, sacrificially)",
+          "nuance": "The distinctively Christian word for love. It denotes a deliberate, reasoned, purposeful love that seeks the highest good of the beloved regardless of their merit or response. This is the love of choice and will, not merely emotion.",
+          "ntUsage": 143
+        },
+        {
+          "greek": "φιλέω",
+          "transliteration": "phileō",
+          "strongs": "G5368",
+          "shortDef": "to love (with affection, friendship)",
+          "nuance": "Denotes tender affection, the love of friendship and natural emotional attachment. It implies warmth, fondness, and personal delight in the one loved. Often used for family affection and close friendship.",
+          "ntUsage": 25
+        },
+        {
+          "greek": "στέργω",
+          "transliteration": "stergō",
+          "strongs": "G4748",
+          "shortDef": "to love (family affection)",
+          "nuance": "Natural family affection, especially between parents and children. Appears only in compounds in the NT (ἄστοργος, φιλόστοργος), emphasizing natural bonds of kinship.",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Agapaō is distinguished from phileō in this, that the former more frequently involves the idea of showing love by action, the latter more frequently suggests the idea of cherishing, of having affection for.",
+      "exampleVerse": {
+        "reference": "John 21:15-17",
+        "greek": "Σίμων Ἰωάννου, ἀγαπᾷς με πλέον τούτων;... φιλῶ σε",
+        "english": "Simon son of John, do you love (agapaō) me more than these?... I love (phileō) you.",
+        "wordHighlighted": "ἀγαπάω and φιλέω"
+      },
+      "practicalTip": "When you see 'love' in your English Bible, ask: Is this ἀγαπάω (deliberate, sacrificial choice) or φιλέω (warm affection)? The distinction often reveals whether the emphasis is on commitment or emotion.",
+      "tags": ["essential", "johannine", "famous-passage"]
+    },
+    {
+      "id": "know-ginosko-oida",
+      "category": "know",
+      "title": "Words for Know",
+      "englishWord": "know",
+      "introduction": "Greek distinguishes between knowledge gained through experience or learning and knowledge that is intuitive or complete. This distinction appears throughout the NT and affects our understanding of how we come to know God and truth.",
+      "words": [
+        {
+          "greek": "γινώσκω",
+          "transliteration": "ginōskō",
+          "strongs": "G1097",
+          "shortDef": "to know (by experience, progressively)",
+          "nuance": "Denotes knowledge acquired through experience, observation, or learning. It suggests a progressive, growing knowledge that develops over time. Used for coming to know something that was previously unknown.",
+          "ntUsage": 222
+        },
+        {
+          "greek": "οἶδα",
+          "transliteration": "oida",
+          "strongs": "G1492",
+          "shortDef": "to know (intuitively, completely)",
+          "nuance": "Denotes fullness of knowledge, absolute or intuitive knowledge. It suggests knowing something completely without needing to learn it progressively. Often used of divine knowledge or settled convictions.",
+          "ntUsage": 318
+        },
+        {
+          "greek": "ἐπίσταμαι",
+          "transliteration": "epistamai",
+          "strongs": "G1987",
+          "shortDef": "to know (by understanding, skill)",
+          "nuance": "Knowledge based on close acquaintance or expertise. Suggests understanding how something works or being skilled in something. The root of our word 'epistemology.'",
+          "ntUsage": 14
+        }
+      ],
+      "vineQuote": "Ginōskō frequently suggests inception or progress in knowledge, while oida suggests fullness of knowledge.",
+      "exampleVerse": {
+        "reference": "John 8:55",
+        "greek": "καὶ οὐκ ἐγνώκατε αὐτόν, ἐγὼ δὲ οἶδα αὐτόν",
+        "english": "You do not know (ginōskō) him, but I know (oida) him.",
+        "wordHighlighted": "γινώσκω and οἶδα"
+      },
+      "practicalTip": "γινώσκω often appears for growing in knowledge of God (Phil 3:10 'that I may know him'), while οἶδα appears for settled certainties (1 John 5:13 'that you may know you have eternal life').",
+      "tags": ["essential", "johannine", "theological"]
+    },
+    {
+      "id": "see-blepo-horao",
+      "category": "see",
+      "title": "Words for See",
+      "englishWord": "see",
+      "introduction": "Greek has multiple words for seeing, each emphasizing a different aspect of perception. Some stress physical sight, others contemplation, and still others spiritual perception or revelation.",
+      "words": [
+        {
+          "greek": "βλέπω",
+          "transliteration": "blepō",
+          "strongs": "G991",
+          "shortDef": "to see, look at (physical sight)",
+          "nuance": "The most general word for seeing, emphasizing the physical act of seeing or looking. Often used for ordinary observation without implying deep understanding.",
+          "ntUsage": 133
+        },
+        {
+          "greek": "ὁράω",
+          "transliteration": "horaō",
+          "strongs": "G3708",
+          "shortDef": "to see (with perception, understanding)",
+          "nuance": "Denotes seeing with understanding or spiritual perception. Often used for supernatural visions, seeing the significance of something, or perceiving truth. The aorist εἶδον emphasizes the completed act of perception.",
+          "ntUsage": 454
+        },
+        {
+          "greek": "θεωρέω",
+          "transliteration": "theōreō",
+          "strongs": "G2334",
+          "shortDef": "to view, contemplate (as a spectator)",
+          "nuance": "To view attentively, contemplate. Originally used for spectators at games or theater. Suggests careful observation and consideration of what is seen. Root of our word 'theory.'",
+          "ntUsage": 58
+        },
+        {
+          "greek": "θεάομαι",
+          "transliteration": "theaomai",
+          "strongs": "G2300",
+          "shortDef": "to gaze upon, behold (with wonder)",
+          "nuance": "To behold, view with a sense of wonder or appreciation. Emphasizes the impressive nature of what is seen. Often used for beholding Christ's glory.",
+          "ntUsage": 22
+        }
+      ],
+      "vineQuote": "Horaō and blepō both denote the physical sense of seeing; horaō, in general, implies direction of the thoughts to what is seen, while blepō denotes the act of seeing more specifically.",
+      "exampleVerse": {
+        "reference": "John 1:14",
+        "greek": "καὶ ἐθεασάμεθα τὴν δόξαν αὐτοῦ",
+        "english": "And we beheld (theaomai) his glory",
+        "wordHighlighted": "θεάομαι"
+      },
+      "practicalTip": "When Scripture uses θεάομαι or θεωρέω instead of simple βλέπω, it's inviting you to contemplate and marvel, not just observe. Slow down and wonder.",
+      "tags": ["perception", "johannine", "revelation"]
+    },
+    {
+      "id": "new-neos-kainos",
+      "category": "new",
+      "title": "Words for New",
+      "englishWord": "new",
+      "introduction": "English uses 'new' for both something recently made and something of a different quality. Greek distinguishes between new in time (νέος) and new in quality or nature (καινός). This distinction is crucial for understanding the 'new covenant' and 'new creation.'",
+      "words": [
+        {
+          "greek": "νέος",
+          "transliteration": "neos",
+          "strongs": "G3501",
+          "shortDef": "new (in time, recently made)",
+          "nuance": "New in respect to time, recently made or come into existence. Young as opposed to old. Emphasizes recency rather than difference in kind. A νέος garment is a recently-made garment of the same type.",
+          "ntUsage": 24
+        },
+        {
+          "greek": "καινός",
+          "transliteration": "kainos",
+          "strongs": "G2537",
+          "shortDef": "new (in quality, of a different kind)",
+          "nuance": "New in quality, nature, or character. Not merely recent but different from what existed before - fresh, unprecedented, superior. A καινός covenant is not just a recent covenant but one of a fundamentally different character.",
+          "ntUsage": 42
+        }
+      ],
+      "vineQuote": "Kainos denotes that which is unaccustomed or unused, not new in time, recent, but new as to form or quality, of different nature from what is contrasted as old.",
+      "exampleVerse": {
+        "reference": "2 Corinthians 5:17",
+        "greek": "εἴ τις ἐν Χριστῷ, καινὴ κτίσις",
+        "english": "If anyone is in Christ, he is a new (kainos) creation",
+        "wordHighlighted": "καινός"
+      },
+      "practicalTip": "The 'new covenant' (καινή διαθήκη) is not just the most recent covenant but a covenant of an entirely different character. The 'new creation' is not just a refreshed version of the old but something qualitatively different.",
+      "tags": ["essential", "theological", "covenant"]
+    },
+    {
+      "id": "time-chronos-kairos",
+      "category": "time",
+      "title": "Words for Time",
+      "englishWord": "time",
+      "introduction": "Greek distinguishes between time as duration (χρόνος) and time as opportune moment (καιρός). This distinction reveals God's sovereign ordering of history and helps us understand biblical statements about 'times and seasons.'",
+      "words": [
+        {
+          "greek": "χρόνος",
+          "transliteration": "chronos",
+          "strongs": "G5550",
+          "shortDef": "time (as duration, period)",
+          "nuance": "Time in its extent or duration, the succession of moments. Measurable, quantitative time. The root of our word 'chronology.' Asks 'how long?' rather than 'what kind of time?'",
+          "ntUsage": 54
+        },
+        {
+          "greek": "καιρός",
+          "transliteration": "kairos",
+          "strongs": "G2540",
+          "shortDef": "time (as opportunity, season)",
+          "nuance": "The right, proper, or opportune time. A decisive moment, a season of unique significance. Qualitative rather than quantitative - emphasizing the character of the time rather than its length.",
+          "ntUsage": 85
+        },
+        {
+          "greek": "αἰών",
+          "transliteration": "aiōn",
+          "strongs": "G165",
+          "shortDef": "age, eternity (era or epoch)",
+          "nuance": "An age or era, a period of time with distinctive characteristics. Can refer to eternity when used of God's time. The biblical view of history as divided into 'this age' and 'the age to come.'",
+          "ntUsage": 122
+        }
+      ],
+      "vineQuote": "Chronos marks quantity, kairos marks quality. Chronos is time measured; kairos is time as it affects circumstances or affords opportunities.",
+      "exampleVerse": {
+        "reference": "Acts 1:7",
+        "greek": "οὐχ ὑμῶν ἐστιν γνῶναι χρόνους ἢ καιροὺς",
+        "english": "It is not for you to know times (chronos) or seasons (kairos)",
+        "wordHighlighted": "χρόνος and καιρός"
+      },
+      "practicalTip": "When Scripture speaks of 'redeeming the time' (Eph 5:16), it uses καιρός - we are to make the most of opportune moments. Look for God-given opportunities, not just the passage of time.",
+      "tags": ["essential", "theological", "practical"]
+    },
+    {
+      "id": "life-bios-zoe",
+      "category": "life",
+      "title": "Words for Life",
+      "englishWord": "life",
+      "introduction": "Greek distinguishes between physical/biological life (βίος) and the principle of life itself, especially spiritual life (ζωή). John's Gospel especially uses ζωή for the divine life that Christ gives.",
+      "words": [
+        {
+          "greek": "βίος",
+          "transliteration": "bios",
+          "strongs": "G979",
+          "shortDef": "life (physical existence, livelihood)",
+          "nuance": "The period or manner of earthly life, the means of living (livelihood), or life in its outward manifestation. Concerns how we live in the world. Root of our word 'biology.'",
+          "ntUsage": 11
+        },
+        {
+          "greek": "ζωή",
+          "transliteration": "zōē",
+          "strongs": "G2222",
+          "shortDef": "life (the principle of life, spiritual life)",
+          "nuance": "Life in its fullest, highest sense. The vital principle, especially the divine life that belongs to God and is given through Christ. In John's writings, almost always refers to eternal, spiritual life.",
+          "ntUsage": 135
+        },
+        {
+          "greek": "ψυχή",
+          "transliteration": "psychē",
+          "strongs": "G5590",
+          "shortDef": "soul, life (the seat of personality)",
+          "nuance": "The soul, the seat of personality, desires, and emotions. Can refer to physical life that can be lost (Matt 16:25) or the inner person. Root of our word 'psychology.'",
+          "ntUsage": 103
+        }
+      ],
+      "vineQuote": "Zōē is used of life as a principle, life in the absolute sense, life as God has it. Bios is used of the period or duration of life.",
+      "exampleVerse": {
+        "reference": "John 14:6",
+        "greek": "ἐγώ εἰμι ἡ ὁδὸς καὶ ἡ ἀλήθεια καὶ ἡ ζωή",
+        "english": "I am the way, the truth, and the life (zōē)",
+        "wordHighlighted": "ζωή"
+      },
+      "practicalTip": "When John speaks of 'eternal life' (ζωὴ αἰώνιος), he means not just life that lasts forever but a quality of life - God's own life shared with us. It's not just duration but divine nature.",
+      "tags": ["essential", "johannine", "theological"]
+    },
+    {
+      "id": "word-logos-rhema",
+      "category": "word",
+      "title": "Words for Word",
+      "englishWord": "word",
+      "introduction": "Greek has multiple terms for 'word,' each with distinct emphases. The most famous is λόγος, used for Christ in John 1, but ῥῆμα also appears frequently with its own nuances.",
+      "words": [
+        {
+          "greek": "λόγος",
+          "transliteration": "logos",
+          "strongs": "G3056",
+          "shortDef": "word (expression of thought, reason)",
+          "nuance": "A word as the expression of thought, not the mere name of an object. Can mean word, speech, account, reason, or the divine Word (Christ). Emphasizes the underlying thought or meaning expressed.",
+          "ntUsage": 330
+        },
+        {
+          "greek": "ῥῆμα",
+          "transliteration": "rhēma",
+          "strongs": "G4487",
+          "shortDef": "word (as spoken, utterance)",
+          "nuance": "A word as spoken, a specific saying or utterance. Emphasizes the word as actually communicated, the spoken expression rather than the underlying concept. Often used for specific divine commands or promises.",
+          "ntUsage": 68
+        }
+      ],
+      "vineQuote": "The distinction between logos and rhēma is that the former denotes the expression of thought, the latter a saying or statement. In regard to the Scriptures, logos is the expression of divine thought as a whole; rhēma denotes particular words or sayings.",
+      "exampleVerse": {
+        "reference": "Romans 10:17",
+        "greek": "ἄρα ἡ πίστις ἐξ ἀκοῆς, ἡ δὲ ἀκοὴ διὰ ῥήματος Χριστοῦ",
+        "english": "So faith comes from hearing, and hearing through the word (rhēma) of Christ",
+        "wordHighlighted": "ῥῆμα"
+      },
+      "practicalTip": "λόγος emphasizes Scripture as God's complete revelation and thought; ῥῆμα emphasizes specific words God speaks to us. Both are essential - the whole counsel of God and His specific direction.",
+      "tags": ["essential", "johannine", "scripture"]
+    },
+    {
+      "id": "temple-hieron-naos",
+      "category": "temple",
+      "title": "Words for Temple",
+      "englishWord": "temple",
+      "introduction": "Greek distinguishes between the entire temple complex (ἱερόν) and the inner sanctuary where God's presence dwelt (ναός). This distinction illuminates many NT passages about worship, Jesus' body, and the church.",
+      "words": [
+        {
+          "greek": "ἱερόν",
+          "transliteration": "hieron",
+          "strongs": "G2411",
+          "shortDef": "temple (the entire sacred precinct)",
+          "nuance": "The whole temple complex including courts, porticos, and surrounding areas. Where the people gathered, commerce occurred, and daily activities took place. Anyone could enter certain areas.",
+          "ntUsage": 71
+        },
+        {
+          "greek": "ναός",
+          "transliteration": "naos",
+          "strongs": "G3485",
+          "shortDef": "temple (the inner sanctuary)",
+          "nuance": "The inner shrine, the sanctuary proper where God's presence dwelt. Only priests could enter the Holy Place, only the high priest the Holy of Holies. Used figuratively for believers as God's dwelling.",
+          "ntUsage": 45
+        }
+      ],
+      "vineQuote": "Hieron denotes the entire precincts of the Temple in its enlarged form, while naos is used of the inner sanctuary, the shrine itself.",
+      "exampleVerse": {
+        "reference": "1 Corinthians 6:19",
+        "greek": "τὸ σῶμα ὑμῶν ναὸς τοῦ ἐν ὑμῖν Ἁγίου Πνεύματός ἐστιν",
+        "english": "Your body is a temple (naos) of the Holy Spirit within you",
+        "wordHighlighted": "ναός"
+      },
+      "practicalTip": "When Paul says believers are God's ναός, he's not saying we're part of a religious complex - we are the very dwelling place of God's presence, as intimate and sacred as the Holy of Holies.",
+      "tags": ["theological", "pauline", "ecclesiology"]
+    },
+    {
+      "id": "another-allos-heteros",
+      "category": "another",
+      "title": "Words for Another",
+      "englishWord": "another",
+      "introduction": "Greek distinguishes between another of the same kind (ἄλλος) and another of a different kind (ἕτερος). This distinction is crucial in passages about the Holy Spirit, false gospels, and Christ's uniqueness.",
+      "words": [
+        {
+          "greek": "ἄλλος",
+          "transliteration": "allos",
+          "strongs": "G243",
+          "shortDef": "another (of the same kind)",
+          "nuance": "Another of the same sort, numerically distinct but qualitatively similar. When Jesus promises 'another Advocate' (ἄλλον παράκλητον), He means one of the same divine nature as Himself.",
+          "ntUsage": 155
+        },
+        {
+          "greek": "ἕτερος",
+          "transliteration": "heteros",
+          "strongs": "G2087",
+          "shortDef": "another (of a different kind)",
+          "nuance": "Another of a different quality or nature. Implies distinction not just in number but in kind. A 'different gospel' (ἕτερον εὐαγγέλιον) is fundamentally different from the true gospel.",
+          "ntUsage": 98
+        }
+      ],
+      "vineQuote": "Allos expresses a numerical difference and denotes another of the same sort; heteros expresses a qualitative difference and denotes another of a different sort.",
+      "exampleVerse": {
+        "reference": "John 14:16",
+        "greek": "ἄλλον Παράκλητον δώσει ὑμῖν",
+        "english": "He will give you another (allos) Helper",
+        "wordHighlighted": "ἄλλος"
+      },
+      "practicalTip": "Jesus calls the Spirit 'another Helper' (ἄλλος) - same divine nature, same advocacy, same comfort. But Paul warns against 'another gospel' (ἕτερος in Gal 1:6) - fundamentally different and therefore damning.",
+      "tags": ["essential", "pneumatology", "galatians"]
+    },
+    {
+      "id": "sin-hamartia-paraptoma",
+      "category": "sin",
+      "title": "Words for Sin",
+      "englishWord": "sin",
+      "introduction": "Greek has multiple words for human transgression, each highlighting a different aspect of sin. Together they give a comprehensive picture of humanity's fallen condition and need for redemption.",
+      "words": [
+        {
+          "greek": "ἁμαρτία",
+          "transliteration": "hamartia",
+          "strongs": "G266",
+          "shortDef": "sin (missing the mark)",
+          "nuance": "The most common NT word for sin. Originally an archery term meaning to miss the mark or target. Emphasizes falling short of God's standard, failure to be what God intended.",
+          "ntUsage": 173
+        },
+        {
+          "greek": "παράβασις",
+          "transliteration": "parabasis",
+          "strongs": "G3847",
+          "shortDef": "transgression (stepping across a line)",
+          "nuance": "Transgression, overstepping a boundary. Implies a known law or command that has been deliberately crossed. Emphasizes willful disobedience to a clear standard.",
+          "ntUsage": 7
+        },
+        {
+          "greek": "παράπτωμα",
+          "transliteration": "paraptōma",
+          "strongs": "G3900",
+          "shortDef": "trespass (falling aside)",
+          "nuance": "A fall, slip, or false step. Suggests deviation from the right path, whether through carelessness or weakness. Less deliberate than parabasis but still culpable.",
+          "ntUsage": 19
+        },
+        {
+          "greek": "ἀνομία",
+          "transliteration": "anomia",
+          "strongs": "G458",
+          "shortDef": "lawlessness (without law)",
+          "nuance": "Lawlessness, disregard for law. Emphasizes the spirit of rebellion against God's authority, not just individual acts but a fundamental rejection of divine order.",
+          "ntUsage": 15
+        }
+      ],
+      "vineQuote": "Hamartia indicates a missing of the mark, the failure to attain to a fixed standard. Anomia indicates lawlessness, the disregard of law. Parabasis indicates the breaking of a definite law.",
+      "exampleVerse": {
+        "reference": "Romans 3:23",
+        "greek": "πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται τῆς δόξης τοῦ θεοῦ",
+        "english": "For all have sinned (hamartanō) and fall short of the glory of God",
+        "wordHighlighted": "ἁμαρτάνω (verb form of ἁμαρτία)"
+      },
+      "practicalTip": "The variety of Greek words for sin shows that our problem is comprehensive - we miss God's mark, cross His boundaries, slip from His path, and rebel against His authority. We need a comprehensive Savior.",
+      "tags": ["essential", "theological", "hamartiology"]
+    },
+    {
+      "id": "power-dynamis-exousia",
+      "category": "power",
+      "title": "Words for Power",
+      "englishWord": "power",
+      "introduction": "Greek distinguishes between inherent power or ability (δύναμις) and delegated authority or right (ἐξουσία). Both are used of God and given to believers, but in different senses.",
+      "words": [
+        {
+          "greek": "δύναμις",
+          "transliteration": "dynamis",
+          "strongs": "G1411",
+          "shortDef": "power (inherent ability, might)",
+          "nuance": "Inherent power, ability, or might. The capacity to do something, often miraculous. Root of 'dynamite' and 'dynamic.' Emphasizes power as force or energy.",
+          "ntUsage": 120
+        },
+        {
+          "greek": "ἐξουσία",
+          "transliteration": "exousia",
+          "strongs": "G1849",
+          "shortDef": "authority (right, permission)",
+          "nuance": "Authority, the right or permission to act. Delegated power, jurisdiction, or liberty to do something. Emphasizes power as rightful authority rather than raw force.",
+          "ntUsage": 102
+        },
+        {
+          "greek": "ἰσχύς",
+          "transliteration": "ischys",
+          "strongs": "G2479",
+          "shortDef": "strength (bodily or mental)",
+          "nuance": "Strength, might, especially as manifested. Often used of physical strength or the capacity for forceful action.",
+          "ntUsage": 10
+        },
+        {
+          "greek": "κράτος",
+          "transliteration": "kratos",
+          "strongs": "G2904",
+          "shortDef": "dominion (ruling power)",
+          "nuance": "Dominion, ruling power, sovereignty. The power to control or govern. Often used in doxologies for God's supreme rule.",
+          "ntUsage": 12
+        }
+      ],
+      "vineQuote": "Dynamis is power in the sense of inherent ability or capability; exousia is authority, the right to exercise power.",
+      "exampleVerse": {
+        "reference": "Luke 4:36",
+        "greek": "ἐν ἐξουσίᾳ καὶ δυνάμει ἐπιτάσσει τοῖς ἀκαθάρτοις πνεύμασιν",
+        "english": "With authority (exousia) and power (dynamis) he commands the unclean spirits",
+        "wordHighlighted": "ἐξουσία and δύναμις"
+      },
+      "practicalTip": "Jesus gave believers ἐξουσία (authority/right) to become children of God (John 1:12) and δύναμις (power/ability) through the Spirit (Acts 1:8). We have both the right and the resources.",
+      "tags": ["essential", "christological", "pneumatology"]
+    },
+    {
+      "id": "servant-doulos-diakonos",
+      "category": "servant",
+      "title": "Words for Servant",
+      "englishWord": "servant",
+      "introduction": "Greek has several words for those who serve, each emphasizing different aspects of service. Understanding these distinctions clarifies roles in the church and the nature of Christian service.",
+      "words": [
+        {
+          "greek": "δοῦλος",
+          "transliteration": "doulos",
+          "strongs": "G1401",
+          "shortDef": "slave, bondservant",
+          "nuance": "A slave, one bound to a master. Emphasizes complete ownership and absolute submission. Paul's favorite term for his relationship to Christ - total devotion with no rights of his own.",
+          "ntUsage": 126
+        },
+        {
+          "greek": "διάκονος",
+          "transliteration": "diakonos",
+          "strongs": "G1249",
+          "shortDef": "servant, minister (one who serves)",
+          "nuance": "A servant or attendant, one who renders service to another. Less emphasis on bondage, more on active ministry. Root of 'deacon.' Used for table service and general ministry.",
+          "ntUsage": 29
+        },
+        {
+          "greek": "ὑπηρέτης",
+          "transliteration": "hypēretēs",
+          "strongs": "G5257",
+          "shortDef": "attendant, assistant (under-rower)",
+          "nuance": "An under-rower, then any subordinate acting under another's direction. Suggests willing assistance and cooperation. Used for synagogue attendants and officers of various kinds.",
+          "ntUsage": 20
+        },
+        {
+          "greek": "θεράπων",
+          "transliteration": "therapōn",
+          "strongs": "G2324",
+          "shortDef": "servant (with dignity, attendant)",
+          "nuance": "A servant, but with dignity - a personal attendant. Used only of Moses in the NT (Heb 3:5), suggesting honored service. Root of 'therapist.'",
+          "ntUsage": 1
+        }
+      ],
+      "vineQuote": "Doulos denotes one who is in permanent relation of servitude to another, his will being wholly subject to the will of the other. Diakonos suggests more the idea of service than subjection.",
+      "exampleVerse": {
+        "reference": "Romans 1:1",
+        "greek": "Παῦλος δοῦλος Χριστοῦ Ἰησοῦ",
+        "english": "Paul, a servant (doulos) of Christ Jesus",
+        "wordHighlighted": "δοῦλος"
+      },
+      "practicalTip": "Paul calls himself Christ's δοῦλος (slave) - he belongs entirely to Jesus. But to others he is a διάκονος (minister) - actively serving their needs. Total devotion upward, active service outward.",
+      "tags": ["pauline", "ecclesiology", "practical"]
+    },
+    {
+      "id": "world-kosmos-aion",
+      "category": "world",
+      "title": "Words for World",
+      "englishWord": "world",
+      "introduction": "Greek uses several words translated 'world,' each with distinct meanings. Understanding these distinctions clarifies passages about Christian engagement with culture and eschatological hope.",
+      "words": [
+        {
+          "greek": "κόσμος",
+          "transliteration": "kosmos",
+          "strongs": "G2889",
+          "shortDef": "world (ordered system, humanity)",
+          "nuance": "The ordered world, the universe, or humanity as a whole. Can be neutral (God so loved the world) or negative (the world's system opposed to God). Emphasizes order and arrangement.",
+          "ntUsage": 186
+        },
+        {
+          "greek": "αἰών",
+          "transliteration": "aiōn",
+          "strongs": "G165",
+          "shortDef": "age, world (era or epoch)",
+          "nuance": "An age, a period characterized by certain features. 'This age' vs 'the age to come.' When translated 'world,' emphasizes the temporal, passing nature of the present order.",
+          "ntUsage": 122
+        },
+        {
+          "greek": "οἰκουμένη",
+          "transliteration": "oikoumenē",
+          "strongs": "G3625",
+          "shortDef": "world (the inhabited earth)",
+          "nuance": "The inhabited world, the known world, the Roman Empire. Geographic rather than moral or temporal. Root of 'ecumenical.'",
+          "ntUsage": 15
+        },
+        {
+          "greek": "γῆ",
+          "transliteration": "gē",
+          "strongs": "G1093",
+          "shortDef": "earth, land",
+          "nuance": "The earth as opposed to heaven, or a particular land/region. Physical ground, territory. Can mean the whole earth or a specific country.",
+          "ntUsage": 250
+        }
+      ],
+      "vineQuote": "Kosmos is used of the earth as distinct from the universe, of mankind, and of the world system opposed to God. Aiōn stresses the idea of a period of time, an era.",
+      "exampleVerse": {
+        "reference": "Romans 12:2",
+        "greek": "μὴ συσχηματίζεσθε τῷ αἰῶνι τούτῳ",
+        "english": "Do not be conformed to this world (aiōn)",
+        "wordHighlighted": "αἰών"
+      },
+      "practicalTip": "When Paul warns against conformity to 'this age' (αἰών), he emphasizes its temporary, passing nature. We live in this age but belong to the age to come. Don't invest too heavily in a passing order.",
+      "tags": ["essential", "pauline", "eschatology"]
+    },
+    {
+      "id": "ask-aiteo-erotao",
+      "category": "ask",
+      "title": "Words for Ask",
+      "englishWord": "ask",
+      "introduction": "Greek distinguishes between asking as a request or petition and asking as inquiry. It also differentiates based on the relationship between the one asking and the one asked.",
+      "words": [
+        {
+          "greek": "αἰτέω",
+          "transliteration": "aiteō",
+          "strongs": "G154",
+          "shortDef": "to ask (request, petition)",
+          "nuance": "To ask for something, to request or petition. Often implies asking from an inferior to a superior position. Used for prayer requests to God.",
+          "ntUsage": 70
+        },
+        {
+          "greek": "ἐρωτάω",
+          "transliteration": "erōtaō",
+          "strongs": "G2065",
+          "shortDef": "to ask (inquire, or ask as equal)",
+          "nuance": "To ask a question or inquire, or to make a request as one with a close relationship. Jesus uses this word for His intercession because He asks as the Son, not as a petitioner.",
+          "ntUsage": 63
+        },
+        {
+          "greek": "δέομαι",
+          "transliteration": "deomai",
+          "strongs": "G1189",
+          "shortDef": "to beg, entreat (expressing need)",
+          "nuance": "To beg or beseech, expressing an urgent need. More intense than aiteō, emphasizing the petitioner's felt need and earnestness.",
+          "ntUsage": 22
+        },
+        {
+          "greek": "παρακαλέω",
+          "transliteration": "parakaleō",
+          "strongs": "G3870",
+          "shortDef": "to call alongside (appeal, comfort)",
+          "nuance": "To call to one's side, hence to appeal, urge, comfort, or encourage. Can be asking but with the nuance of coming alongside to support or persuade.",
+          "ntUsage": 109
+        }
+      ],
+      "vineQuote": "Aiteō suggests the attitude of a suppliant, the petition of one who is lesser. Erōtaō suggests the familiarity of equals, or the request of one who has a right to ask.",
+      "exampleVerse": {
+        "reference": "John 16:26",
+        "greek": "ἐν ἐκείνῃ τῇ ἡμέρᾳ ἐν τῷ ὀνόματί μου αἰτήσεσθε",
+        "english": "In that day you will ask (aiteō) in my name",
+        "wordHighlighted": "αἰτέω"
+      },
+      "practicalTip": "Jesus uses ἐρωτάω when He intercedes for us (John 17:9) - He asks as the beloved Son with intimate access. We use αἰτέω as petitioners, but through Christ we can 'ask in His name' with confidence.",
+      "tags": ["prayer", "johannine", "practical"]
+    },
+    {
+      "id": "pray-proseuchomai-deomai",
+      "category": "pray",
+      "title": "Words for Prayer",
+      "englishWord": "pray",
+      "introduction": "The NT uses several words for prayer, each highlighting different aspects of communion with God. Together they give a rich vocabulary for our relationship with the Father.",
+      "words": [
+        {
+          "greek": "προσεύχομαι",
+          "transliteration": "proseuchomai",
+          "strongs": "G4336",
+          "shortDef": "to pray (general term for prayer)",
+          "nuance": "The most general and comprehensive word for prayer. Includes adoration, confession, thanksgiving, and supplication. Exclusively used for prayer to God, never to humans.",
+          "ntUsage": 85
+        },
+        {
+          "greek": "δέομαι",
+          "transliteration": "deomai",
+          "strongs": "G1189",
+          "shortDef": "to beg, supplicate (expressing need)",
+          "nuance": "To beg or entreat, emphasizing the petitioner's sense of need. More intense than a general request, it expresses urgency and dependency.",
+          "ntUsage": 22
+        },
+        {
+          "greek": "αἰτέω",
+          "transliteration": "aiteō",
+          "strongs": "G154",
+          "shortDef": "to ask (make specific requests)",
+          "nuance": "To ask for something specific, to petition. When used of prayer, emphasizes specific requests brought to God.",
+          "ntUsage": 70
+        },
+        {
+          "greek": "ἐντυγχάνω",
+          "transliteration": "entynchanō",
+          "strongs": "G1793",
+          "shortDef": "to intercede (meet with, plead)",
+          "nuance": "To meet with, hence to make intercession. Used for Christ's and the Spirit's intercession for believers. Suggests personal access and pleading on another's behalf.",
+          "ntUsage": 5
+        }
+      ],
+      "vineQuote": "Proseuchomai is used of prayer in general; deomai stresses the sense of need; aiteō emphasizes the request for particular things.",
+      "exampleVerse": {
+        "reference": "Romans 8:26",
+        "greek": "τὸ πνεῦμα ὑπερεντυγχάνει στεναγμοῖς ἀλαλήτοις",
+        "english": "The Spirit himself intercedes (hyperentynchanō) with groanings too deep for words",
+        "wordHighlighted": "ὑπερεντυγχάνω (intensive form of ἐντυγχάνω)"
+      },
+      "practicalTip": "When you don't know how to pray, remember that the Spirit ἐντυγχάνει (intercedes) for you - He has personal access to the Father and pleads on your behalf. Your weakness in prayer is covered.",
+      "tags": ["prayer", "pneumatology", "pauline"]
+    }
+  ]
+}

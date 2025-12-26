@@ -418,3 +418,158 @@ export const STORY_ERAS: Record<StoryEra, StoryEraInfo> = {
     color: 'rose',
   },
 } as const;
+
+// ========================================
+// Greek Synonyms Types - Vine's Expository Dictionary word distinctions
+// ========================================
+
+export type SynonymCategory =
+  | 'love'        // ἀγαπάω, φιλέω, στέργω, ἐράω
+  | 'know'        // γινώσκω, οἶδα, ἐπίσταμαι
+  | 'see'         // βλέπω, ὁράω, θεωρέω, θεάομαι
+  | 'ask'         // αἰτέω, ἐρωτάω, δέομαι, παρακαλέω
+  | 'pray'        // προσεύχομαι, δέομαι, αἰτέω, ἐντυγχάνω
+  | 'sin'         // ἁμαρτία, παράβασις, παράπτωμα, ἀνομία
+  | 'power'       // δύναμις, ἐξουσία, ἰσχύς, κράτος
+  | 'new'         // νέος, καινός
+  | 'time'        // χρόνος, καιρός, αἰών
+  | 'life'        // βίος, ζωή, ψυχή
+  | 'word'        // λόγος, ῥῆμα, ἔπος
+  | 'temple'      // ἱερόν, ναός
+  | 'world'       // κόσμος, αἰών, οἰκουμένη, γῆ
+  | 'another'     // ἄλλος, ἕτερος
+  | 'servant'     // δοῦλος, διάκονος, ὑπηρέτης, θεράπων
+  | 'other';      // Other synonym groups
+
+export interface SynonymWord {
+  greek: string;
+  transliteration: string;
+  strongs: string;
+  shortDef: string;
+  nuance: string;         // Vine's distinction
+  ntUsage: number;        // Approximate NT occurrences
+}
+
+export interface SynonymGroup {
+  id: string;
+  category: SynonymCategory;
+  title: string;          // e.g., "Words for Love"
+  englishWord: string;    // The English word that needs distinction
+  introduction: string;   // Brief intro explaining why these matter
+  words: SynonymWord[];   // The synonyms being compared
+  vineQuote: string;      // Key quote from Vine's Dictionary
+  exampleVerse: {
+    reference: string;
+    greek: string;
+    english: string;
+    wordHighlighted: string; // Which synonym is used here
+  };
+  practicalTip: string;   // How to remember/apply the distinction
+  tags: string[];
+}
+
+export interface SynonymCategoryInfo {
+  label: string;
+  description: string;
+  color: string;
+  icon: string;
+}
+
+export const SYNONYM_CATEGORIES: Record<SynonymCategory, SynonymCategoryInfo> = {
+  love: {
+    label: 'Love',
+    description: 'Greek words for different types and expressions of love',
+    color: 'rose',
+    icon: 'Heart',
+  },
+  know: {
+    label: 'Knowledge',
+    description: 'Different ways of knowing in Greek thought',
+    color: 'blue',
+    icon: 'Brain',
+  },
+  see: {
+    label: 'Seeing',
+    description: 'Various Greek words for perception and sight',
+    color: 'cyan',
+    icon: 'Eye',
+  },
+  ask: {
+    label: 'Asking',
+    description: 'Different modes of requesting and questioning',
+    color: 'amber',
+    icon: 'HelpCircle',
+  },
+  pray: {
+    label: 'Prayer',
+    description: 'Greek vocabulary for communion with God',
+    color: 'purple',
+    icon: 'HandHeart',
+  },
+  sin: {
+    label: 'Sin',
+    description: 'Various aspects of human transgression',
+    color: 'red',
+    icon: 'AlertTriangle',
+  },
+  power: {
+    label: 'Power',
+    description: 'Different types of strength and authority',
+    color: 'orange',
+    icon: 'Zap',
+  },
+  new: {
+    label: 'Newness',
+    description: 'New in time versus new in quality',
+    color: 'emerald',
+    icon: 'Sparkles',
+  },
+  time: {
+    label: 'Time',
+    description: 'Greek concepts of time and eternity',
+    color: 'sky',
+    icon: 'Clock',
+  },
+  life: {
+    label: 'Life',
+    description: 'Physical life, spiritual life, and soul',
+    color: 'green',
+    icon: 'Heart',
+  },
+  word: {
+    label: 'Word',
+    description: 'Greek vocabulary for speech and communication',
+    color: 'indigo',
+    icon: 'MessageSquare',
+  },
+  temple: {
+    label: 'Temple',
+    description: 'Temple complex versus inner sanctuary',
+    color: 'amber',
+    icon: 'Church',
+  },
+  world: {
+    label: 'World',
+    description: 'Different Greek concepts of the world',
+    color: 'teal',
+    icon: 'Globe',
+  },
+  another: {
+    label: 'Another',
+    description: 'Another of the same kind versus different kind',
+    color: 'violet',
+    icon: 'Copy',
+  },
+  servant: {
+    label: 'Servant',
+    description: 'Various roles of service and servitude',
+    color: 'slate',
+    icon: 'Users',
+  },
+  other: {
+    label: 'Other',
+    description: 'Additional synonym distinctions',
+    color: 'gray',
+    icon: 'MoreHorizontal',
+  },
+} as const;
