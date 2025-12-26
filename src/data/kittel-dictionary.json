@@ -3488,6 +3488,994 @@
       "tags": ["essential", "synoptic", "pauline", "eschatology"],
       "volume": 5,
       "pages": "497-543"
+    },
+    {
+      "id": "pater",
+      "category": "other",
+      "greek": "πατήρ",
+      "transliteration": "patēr",
+      "strongs": "G3962",
+      "shortDef": "father, ancestor, originator",
+      "title": "Father: The Revealed Name of God",
+      "summary": "Πατήρ is 'father' - used for human fathers, ancestors, and supremely for God. Jesus' distinctive revelation is that God is 'Abba, Father.' The Father sends the Son and Spirit; believers are adopted as children of the Father.",
+      "classicalGreek": "In classical Greek, πατήρ meant 'father' in the natural sense, extending to ancestors, founders, and originators. Zeus was called 'father of gods and men' - a title of authority and origin rather than intimate relationship. Philosophers spoke of the divine as 'father' of the cosmos.",
+      "lxxBackground": "The LXX uses πατήρ for אָב (ab). God is Israel's Father (Deut 32:6; Isa 63:16; 64:8; Mal 2:10) - by creation and covenant. Yet direct address to God as 'Father' is rare in the OT. The fatherhood emphasizes God's authority, care, and Israel's obligation as children.",
+      "intertestamental": "God as Father appears occasionally (Sirach 23:1, 4; Wisdom 14:3; 3 Macc 6:3). The concept remained primarily corporate - God as Father of Israel - rather than individual. No evidence exists for 'Abba' as direct address to God before Jesus.",
+      "ntUsage": "Jesus uniquely calls God 'Abba, Father' (Mark 14:36) and teaches disciples to pray 'Our Father' (Matt 6:9). The Father is revealed through the Son (Matt 11:27; John 14:9). The Father sends the Son (John 3:16; Gal 4:4) and the Spirit (John 14:26). Believers receive adoption as children (Rom 8:15; Gal 4:5-6) and cry 'Abba, Father.' God is 'Father of mercies' (2 Cor 1:3), 'Father of lights' (Jas 1:17), and 'Father of glory' (Eph 1:17). The Father's love is supreme (1 John 3:1).",
+      "keyPassages": [
+        {
+          "reference": "Matthew 6:9",
+          "greek": "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς, ἁγιασθήτω τὸ ὄνομά σου",
+          "significance": "Our Father in heaven - the model prayer begins with intimate address."
+        },
+        {
+          "reference": "Romans 8:15",
+          "greek": "ἐλάβετε πνεῦμα υἱοθεσίας ἐν ᾧ κράζομεν· Αββα ὁ πατήρ",
+          "significance": "You received the Spirit of adoption by whom we cry 'Abba, Father.'"
+        },
+        {
+          "reference": "John 14:9",
+          "greek": "ὁ ἑωρακὼς ἐμὲ ἑώρακεν τὸν πατέρα",
+          "significance": "Whoever has seen me has seen the Father - Christ reveals the Father."
+        }
+      ],
+      "theologicalSignificance": "Jesus' revelation of God as Father is revolutionary. The intimacy of 'Abba' (Aramaic for 'dear father') was unprecedented. This fatherhood is not generic but specifically 'the Father of our Lord Jesus Christ' (Eph 1:3). Through union with Christ, believers share His relationship - 'my Father and your Father' (John 20:17). The Father initiates salvation (elects, sends, draws), the Son accomplishes it, the Spirit applies it. Divine fatherhood grounds human fatherhood (Eph 3:14-15). God's fatherhood combines tender care with holy authority.",
+      "relatedWords": [
+        {
+          "greek": "Αββα",
+          "transliteration": "Abba",
+          "relationship": "Aramaic 'dear father' (Mark 14:36; Rom 8:15; Gal 4:6)"
+        },
+        {
+          "greek": "πατριά",
+          "transliteration": "patria",
+          "relationship": "Family, lineage (Eph 3:15)"
+        },
+        {
+          "greek": "πατρῷος",
+          "transliteration": "patrōos",
+          "relationship": "Paternal, ancestral"
+        }
+      ],
+      "tags": ["essential", "synoptic", "johannine", "pauline", "theology-proper"],
+      "volume": 5,
+      "pages": "945-1022"
+    },
+    {
+      "id": "soma",
+      "category": "anthropology",
+      "greek": "σῶμα",
+      "transliteration": "sōma",
+      "strongs": "G4983",
+      "shortDef": "body, physical form, corporate entity",
+      "title": "Body: The Whole Person in Physical Expression",
+      "summary": "Σῶμα is body - the physical aspect of human existence. Unlike Greek dualism that despised the body, biblical thought values embodiment. Christ took a body, believers are the body of Christ, and resurrection is bodily.",
+      "classicalGreek": "In classical Greek, σῶμα meant 'body' - originally a corpse, then the living body. Platonic thought viewed the body as the prison of the soul (σῶμα-σῆμα, 'body-tomb'). The goal was liberation from bodily existence. Greek dualism sharply divided body (material, evil) from soul (spiritual, good).",
+      "lxxBackground": "The LXX uses σῶμα occasionally, but Hebrew thought emphasized the whole person (נֶפֶשׁ, בָּשָׂר) rather than body/soul division. Humans are embodied beings, created good (Gen 1:31). The body is not evil but part of God's good creation. Resurrection hope included the body (Dan 12:2).",
+      "intertestamental": "Greek influence increased body/soul dualism in some circles. Yet resurrection hope (2 Macc 7) affirmed bodily existence. Wisdom of Solomon shows tension: soul pre-exists and is burdened by body (9:15), yet resurrection is affirmed. Qumran awaited bodily resurrection.",
+      "ntUsage": "Christ took a body (Heb 10:5). His body was given for us (Luke 22:19; 1 Cor 11:24). Believers' bodies are temples of the Spirit (1 Cor 6:19), living sacrifices (Rom 12:1), and members of Christ (1 Cor 6:15). The church is Christ's body (1 Cor 12:12-27; Eph 1:23; 4:12; Col 1:18, 24). Resurrection is bodily - a 'spiritual body' (1 Cor 15:44). Sexual immorality sins against one's own body (1 Cor 6:18). We await the redemption of our bodies (Rom 8:23).",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 6:19",
+          "greek": "τὸ σῶμα ὑμῶν ναὸς τοῦ ἐν ὑμῖν ἁγίου πνεύματός ἐστιν",
+          "significance": "Your body is a temple of the Holy Spirit - dignity of embodiment."
+        },
+        {
+          "reference": "1 Corinthians 12:27",
+          "greek": "ὑμεῖς δέ ἐστε σῶμα Χριστοῦ καὶ μέλη ἐκ μέρους",
+          "significance": "You are the body of Christ and individually members - corporate identity."
+        },
+        {
+          "reference": "Romans 12:1",
+          "greek": "παραστῆσαι τὰ σώματα ὑμῶν θυσίαν ζῶσαν ἁγίαν",
+          "significance": "Present your bodies as living sacrifices - bodily worship."
+        }
+      ],
+      "theologicalSignificance": "Biblical anthropology affirms embodiment. The incarnation validates the body - the Word became flesh. Resurrection (not immortality of the soul) is the Christian hope - a transformed body, not escape from body. The body is for the Lord and the Lord for the body (1 Cor 6:13). The church as Christ's body emphasizes unity, interdependence, and Christ's headship. Each member matters; diversity serves unity. Bodily resurrection grounds ethics: what we do in the body matters eternally.",
+      "relatedWords": [
+        {
+          "greek": "σωματικός",
+          "transliteration": "sōmatikos",
+          "relationship": "Bodily, corporeal (Luke 3:22; Col 2:9)"
+        },
+        {
+          "greek": "σύσσωμος",
+          "transliteration": "syssōmos",
+          "relationship": "Member of the same body (Eph 3:6)"
+        },
+        {
+          "greek": "σάρξ",
+          "transliteration": "sarx",
+          "relationship": "Flesh - overlaps but with different nuances"
+        }
+      ],
+      "tags": ["essential", "pauline", "anthropology", "ecclesiology"],
+      "volume": 7,
+      "pages": "1024-1094"
+    },
+    {
+      "id": "hiereus",
+      "category": "christology",
+      "greek": "ἱερεύς",
+      "transliteration": "hiereus",
+      "strongs": "G2409",
+      "shortDef": "priest, one who offers sacrifice",
+      "title": "Priest: The Mediator Between God and Humanity",
+      "summary": "Ἱερεύς is priest - one who mediates between God and people through sacrifice and intercession. Christ is the great High Priest after the order of Melchizedek. All believers are a royal priesthood offering spiritual sacrifices.",
+      "classicalGreek": "In classical Greek, ἱερεύς meant 'priest' - one who performed sacred rites at temples. Priests sacrificed, maintained temples, and interpreted omens. Each deity had designated priests. The role was cultic rather than pastoral.",
+      "lxxBackground": "The LXX uses ἱερεύς for כֹּהֵן (kohen). Levitical priests descended from Aaron, offered sacrifices, taught Torah, and mediated between God and Israel (Ex 28-29; Lev 8-9). The high priest alone entered the Holy of Holies annually (Lev 16). Melchizedek was a mysterious priest-king (Gen 14:18; Ps 110:4).",
+      "intertestamental": "The priesthood continued at the Temple but was often corrupt (1 Macc 7:14). Qumran expected two messiahs - priestly and royal. The Messiah would purify the priesthood. Philo spiritualized priestly concepts. The Hasmoneans controversially combined kingship and priesthood.",
+      "ntUsage": "Jesus is High Priest (Heb 2:17; 3:1; 4:14-15; 5:5-10). His priesthood is after Melchizedek's order - eternal, superior to Levitical (Heb 7). He offered Himself once for all (Heb 7:27; 9:12; 10:10). He ever lives to intercede (Heb 7:25). Believers are a 'royal priesthood' (1 Pet 2:5, 9), offering spiritual sacrifices (Rom 12:1; Heb 13:15-16). The Levitical system is obsolete (Heb 8:13).",
+      "keyPassages": [
+        {
+          "reference": "Hebrews 4:14-15",
+          "greek": "ἔχοντες οὖν ἀρχιερέα μέγαν... Ἰησοῦν τὸν υἱὸν τοῦ θεοῦ... πεπειρασμένον δὲ κατὰ πάντα καθ᾽ ὁμοιότητα χωρὶς ἁμαρτίας",
+          "significance": "A great high priest who was tempted yet without sin - sympathetic mediator."
+        },
+        {
+          "reference": "Hebrews 7:25",
+          "greek": "ὅθεν καὶ σῴζειν εἰς τὸ παντελὲς δύναται τοὺς προσερχομένους δι᾽ αὐτοῦ τῷ θεῷ, πάντοτε ζῶν εἰς τὸ ἐντυγχάνειν ὑπὲρ αὐτῶν",
+          "significance": "Able to save completely because He always lives to intercede."
+        },
+        {
+          "reference": "1 Peter 2:9",
+          "greek": "ὑμεῖς δὲ γένος ἐκλεκτόν, βασίλειον ἱεράτευμα",
+          "significance": "You are a chosen race, a royal priesthood - believers' priestly identity."
+        }
+      ],
+      "theologicalSignificance": "Christ's priesthood fulfills and surpasses the old covenant. Unlike Levitical priests, He is sinless, eternal, and His sacrifice needs no repetition. His priesthood is based on God's oath (Ps 110:4), not genealogy. He is both priest and sacrifice. His ongoing intercession assures perseverance. The 'priesthood of all believers' means direct access to God through Christ and service/sacrifice by all Christians - not that clergy are unnecessary, but that all believers are ministers.",
+      "relatedWords": [
+        {
+          "greek": "ἀρχιερεύς",
+          "transliteration": "archiereus",
+          "relationship": "High priest, chief priest"
+        },
+        {
+          "greek": "ἱεράτευμα",
+          "transliteration": "hierateuma",
+          "relationship": "Priesthood (1 Pet 2:5, 9)"
+        },
+        {
+          "greek": "ἱερατεύω",
+          "transliteration": "hierateuō",
+          "relationship": "To serve as priest (Luke 1:8)"
+        }
+      ],
+      "tags": ["essential", "hebrews", "christology", "ecclesiology"],
+      "volume": 3,
+      "pages": "257-283"
+    },
+    {
+      "id": "naos",
+      "category": "ecclesiology",
+      "greek": "ναός",
+      "transliteration": "naos",
+      "strongs": "G3485",
+      "shortDef": "temple, sanctuary, shrine",
+      "title": "Temple: The Dwelling Place of God",
+      "summary": "Ναός is temple or sanctuary - specifically the inner sanctuary where deity dwells. Christ's body is the temple; believers individually and corporately are God's temple. The Spirit indwells this living temple.",
+      "classicalGreek": "In classical Greek, ναός meant the inner shrine of a temple where the deity's image resided, distinct from ἱερόν (the whole temple complex). It was the sacred dwelling place of the god, accessible only to priests.",
+      "lxxBackground": "The LXX uses ναός for הֵיכָל (hekal) - the temple building, especially the Holy Place. God's presence dwelt in the Temple (1 Kings 8:10-11). Yet Solomon acknowledged heaven cannot contain God (1 Kings 8:27). The Temple was destroyed (586 BC) and rebuilt, but the glory didn't return as before.",
+      "intertestamental": "The Second Temple lacked the Shekinah glory and the ark. Yet it remained central to Jewish identity. Qumran saw themselves as a spiritual temple. Expectation grew for a future, glorious temple (Ezek 40-48). The Temple's destruction (AD 70) was devastating.",
+      "ntUsage": "Jesus spoke of His body as the temple (John 2:19-21). Believers are God's temple (1 Cor 3:16-17; 6:19; 2 Cor 6:16). The church is built into a holy temple (Eph 2:21). The veil was torn at Christ's death (Matt 27:51). The new Jerusalem needs no temple - God and Lamb are its temple (Rev 21:22). The heavenly temple appears in Revelation (Rev 7:15; 11:19; 15:5-8).",
+      "keyPassages": [
+        {
+          "reference": "John 2:19-21",
+          "greek": "λύσατε τὸν ναὸν τοῦτον καὶ ἐν τρισὶν ἡμέραις ἐγερῶ αὐτόν... ἐκεῖνος δὲ ἔλεγεν περὶ τοῦ ναοῦ τοῦ σώματος αὐτοῦ",
+          "significance": "Destroy this temple - He spoke of the temple of His body."
+        },
+        {
+          "reference": "1 Corinthians 3:16",
+          "greek": "οὐκ οἴδατε ὅτι ναὸς θεοῦ ἐστε καὶ τὸ πνεῦμα τοῦ θεοῦ οἰκεῖ ἐν ὑμῖν",
+          "significance": "You are God's temple and God's Spirit dwells in you - corporate temple."
+        },
+        {
+          "reference": "Ephesians 2:21-22",
+          "greek": "ἐν ᾧ πᾶσα οἰκοδομὴ συναρμολογουμένη αὔξει εἰς ναὸν ἅγιον ἐν κυρίῳ",
+          "significance": "The whole structure grows into a holy temple - the church as living temple."
+        }
+      ],
+      "theologicalSignificance": "The temple theme traces God's dwelling with humanity: Garden → Tabernacle → Temple → Jesus → Church → New Creation. Christ is the true temple - God dwelling with humanity in person. Through the Spirit, believers become living temples, individually and corporately. This implies holiness (don't defile God's temple, 1 Cor 3:17), access (the veil is torn), and mission (we are God's presence in the world). The ultimate hope is not a rebuilt earthly temple but God dwelling directly with His people (Rev 21:3, 22).",
+      "relatedWords": [
+        {
+          "greek": "ἱερόν",
+          "transliteration": "hieron",
+          "relationship": "Temple complex (the whole precinct)"
+        },
+        {
+          "greek": "οἶκος",
+          "transliteration": "oikos",
+          "relationship": "House - 'house of God' (1 Tim 3:15)"
+        },
+        {
+          "greek": "σκηνή",
+          "transliteration": "skēnē",
+          "relationship": "Tabernacle, tent - portable predecessor"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "ecclesiology"],
+      "volume": 4,
+      "pages": "880-890"
+    },
+    {
+      "id": "thysia",
+      "category": "worship",
+      "greek": "θυσία",
+      "transliteration": "thysia",
+      "strongs": "G2378",
+      "shortDef": "sacrifice, offering, victim",
+      "title": "Sacrifice: The Offering That Atones and Consecrates",
+      "summary": "Θυσία is sacrifice - an offering to God. OT sacrifices pointed to Christ's once-for-all sacrifice. Believers now offer spiritual sacrifices: praise, good deeds, and their very lives. Sacrifice expresses worship, atonement, and consecration.",
+      "classicalGreek": "In classical Greek, θυσία meant 'sacrifice' - an offering to the gods, usually involving the slaughter of animals. Sacrifices accompanied prayers, sought divine favor, and maintained relationship with deities. The practice was universal in ancient religion.",
+      "lxxBackground": "The LXX uses θυσία for זֶבַח (zebach) - slaughtered offering. The Levitical system included burnt offerings (עֹלָה), peace offerings (שֶׁלֶם), sin offerings (חַטָּאת), and guilt offerings (אָשָׁם). Sacrifice dealt with sin (Lev 17:11), expressed worship, and maintained covenant relationship. Yet prophets warned that sacrifice without obedience was worthless (1 Sam 15:22; Isa 1:11-17; Hos 6:6).",
+      "intertestamental": "Temple sacrifices continued until AD 70. Some groups (Qumran) substituted prayer and community life for Temple sacrifice. Suffering was seen as potentially atoning. The Maccabean martyrs' deaths were interpreted sacrificially (4 Macc 17:22).",
+      "ntUsage": "Christ offered Himself as sacrifice (Eph 5:2; Heb 9:26; 10:12). His sacrifice was once for all (Heb 7:27; 9:28; 10:10). Animal sacrifices are superseded (Heb 10:1-18). Believers offer: bodies as living sacrifices (Rom 12:1), praise (Heb 13:15), good works (Heb 13:16), financial gifts (Phil 4:18), and faith itself (Phil 2:17). God desires mercy, not sacrifice (Matt 9:13; 12:7). Christ is our Passover sacrificed for us (1 Cor 5:7).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 5:2",
+          "greek": "Χριστὸς ἠγάπησεν ἡμᾶς καὶ παρέδωκεν ἑαυτὸν ὑπὲρ ἡμῶν προσφορὰν καὶ θυσίαν τῷ θεῷ",
+          "significance": "Christ loved us and gave Himself as an offering and sacrifice to God."
+        },
+        {
+          "reference": "Hebrews 10:12",
+          "greek": "οὗτος δὲ μίαν ὑπὲρ ἁμαρτιῶν προσενέγκας θυσίαν εἰς τὸ διηνεκές",
+          "significance": "He offered for all time a single sacrifice for sins - finality of Christ's work."
+        },
+        {
+          "reference": "Romans 12:1",
+          "greek": "παραστῆσαι τὰ σώματα ὑμῶν θυσίαν ζῶσαν ἁγίαν εὐάρεστον τῷ θεῷ",
+          "significance": "Present your bodies as a living sacrifice - the believer's responsive worship."
+        }
+      ],
+      "theologicalSignificance": "Sacrifice deals with the problem of sin. Christ's sacrifice accomplishes what animal sacrifices symbolized - actual atonement, propitiation, and reconciliation. It is unrepeatable because it was complete. The Lord's Supper commemorates but does not repeat the sacrifice. Christian sacrifice is now responsive - we offer ourselves because He first offered Himself. Sacrifice remains costly: true worship costs something (2 Sam 24:24). The language of sacrifice permeates Christian understanding of Christ's death and believers' devotion.",
+      "relatedWords": [
+        {
+          "greek": "θύω",
+          "transliteration": "thyō",
+          "relationship": "To sacrifice, slaughter"
+        },
+        {
+          "greek": "θυσιαστήριον",
+          "transliteration": "thysiastērion",
+          "relationship": "Altar (Matt 5:23-24; Heb 13:10)"
+        },
+        {
+          "greek": "προσφορά",
+          "transliteration": "prosphora",
+          "relationship": "Offering, sacrifice (Eph 5:2; Heb 10:10)"
+        }
+      ],
+      "tags": ["essential", "hebrews", "pauline", "atonement", "worship"],
+      "volume": 3,
+      "pages": "180-190"
+    },
+    {
+      "id": "eklektos",
+      "category": "salvation",
+      "greek": "ἐκλεκτός",
+      "transliteration": "eklektos",
+      "strongs": "G1588",
+      "shortDef": "elect, chosen, select",
+      "title": "Elect: Chosen by God for Salvation",
+      "summary": "Ἐκλεκτός means 'chosen' or 'elect' - selected from among others. God chose Israel; Christ is the Elect One; believers are the elect. Election is rooted in God's sovereign grace, executed in Christ, and results in holiness and mission.",
+      "classicalGreek": "In classical Greek, ἐκλεκτός (from ἐκλέγομαι, 'to choose out') meant 'chosen, select, excellent.' It described things or persons picked for special quality or purpose. The word emphasized deliberate selection from among alternatives.",
+      "lxxBackground": "The LXX uses ἐκλεκτός for בָּחִיר (bachir). God chose Abraham (Neh 9:7), Israel (Deut 7:6; 14:2; Isa 45:4), David (Ps 89:3), and the Servant (Isa 42:1). Election was based not on merit but on God's love (Deut 7:7-8). The chosen people had a mission to the nations.",
+      "intertestamental": "Election remained central to Jewish identity. Various groups claimed to be the true elect (Qumran especially). The elect would be vindicated at judgment. Apocalyptic literature spoke of the elect preserved through tribulation.",
+      "ntUsage": "Christ is 'the Elect One' (Luke 9:35; 23:35; 1 Pet 2:4, 6). Believers are elect (Rom 8:33; Col 3:12; 1 Pet 1:1; 2:9). God chose us before creation (Eph 1:4). Election is 'in Christ' (Eph 1:4), according to foreknowledge (Rom 8:29; 1 Pet 1:2), unto holiness (Eph 1:4), and for good works (Eph 2:10). The elect cannot be separated from Christ (Rom 8:33-39). Election is confirmed through sanctification (2 Pet 1:10). Angels are also elect (1 Tim 5:21).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 1:4",
+          "greek": "καθὼς ἐξελέξατο ἡμᾶς ἐν αὐτῷ πρὸ καταβολῆς κόσμου εἶναι ἡμᾶς ἁγίους",
+          "significance": "He chose us in Him before the foundation of the world - eternal election."
+        },
+        {
+          "reference": "Romans 8:33",
+          "greek": "τίς ἐγκαλέσει κατὰ ἐκλεκτῶν θεοῦ; θεὸς ὁ δικαιῶν",
+          "significance": "Who shall bring any charge against God's elect? - security of the chosen."
+        },
+        {
+          "reference": "1 Peter 2:9",
+          "greek": "ὑμεῖς δὲ γένος ἐκλεκτόν",
+          "significance": "You are a chosen race - corporate identity of the elect."
+        }
+      ],
+      "theologicalSignificance": "Election is God's sovereign, gracious choice before creation. It is not based on foreseen faith or merit but on God's purpose and grace (Rom 9:11-13; 2 Tim 1:9). Election is always 'in Christ' - He is the Elect One in whom we are chosen. Far from producing pride, election humbles: we contribute nothing. Far from producing passivity, it assures: God's purpose cannot fail. Election is unto holiness and service, not merely heaven. The doctrine comforts believers (God's choice is unchanging) and calls sinners (everyone who comes to Christ finds they were chosen).",
+      "relatedWords": [
+        {
+          "greek": "ἐκλέγομαι",
+          "transliteration": "eklegomai",
+          "relationship": "To choose, select (John 15:16; Eph 1:4)"
+        },
+        {
+          "greek": "ἐκλογή",
+          "transliteration": "eklogē",
+          "relationship": "Election, choosing (Rom 9:11; 11:5, 7)"
+        },
+        {
+          "greek": "αἱρετίζω",
+          "transliteration": "hairetizō",
+          "relationship": "To choose (Matt 12:18)"
+        }
+      ],
+      "tags": ["essential", "pauline", "petrine", "soteriology"],
+      "volume": 4,
+      "pages": "144-192"
+    },
+    {
+      "id": "kaleo",
+      "category": "salvation",
+      "greek": "καλέω",
+      "transliteration": "kaleō",
+      "strongs": "G2564",
+      "shortDef": "to call, name, invite, summon",
+      "title": "Call: The Divine Summons to Salvation",
+      "summary": "Καλέω means 'to call' - to name, invite, or summon. God's call brings sinners to salvation, assigns vocation, and creates identity. The called are the church (ἐκκλησία, 'the called out'). God's call is effectual and irrevocable.",
+      "classicalGreek": "In classical Greek, καλέω meant 'to call, name, summon, invite.' It was used for naming children, inviting guests, summoning to court, and calling to military service. The word implied authoritative address expecting response.",
+      "lxxBackground": "The LXX uses καλέω for קָרָא (qara). God calls into being what doesn't exist (Isa 41:4; 48:13). He called Abraham (Isa 51:2), Israel (Isa 43:1), the Servant (Isa 49:1), and individuals by name. Divine calling implies purpose and relationship.",
+      "intertestamental": "Calling language continued for God's summons and human response. The righteous were 'called' to covenant faithfulness. Prophetic calling was God's authoritative commission. Calling included both privilege and responsibility.",
+      "ntUsage": "God calls sinners to salvation (Rom 8:30; 9:24; 1 Cor 1:9; Gal 1:6; 1 Thess 2:12). Those called are 'saints' (Rom 1:7; 1 Cor 1:2). The call is effectual - those called come (Rom 8:30). God calls to His kingdom (1 Thess 2:12), to peace (1 Cor 7:15), to freedom (Gal 5:13), to holiness (1 Thess 4:7), and to hope (Eph 4:4). Calling includes vocation (1 Cor 7:20). The gifts and call are irrevocable (Rom 11:29). Believers must live worthy of their calling (Eph 4:1).",
+      "keyPassages": [
+        {
+          "reference": "Romans 8:30",
+          "greek": "οὓς δὲ προώρισεν, τούτους καὶ ἐκάλεσεν· καὶ οὓς ἐκάλεσεν, τούτους καὶ ἐδικαίωσεν",
+          "significance": "Those He predestined He also called; those He called He justified - golden chain."
+        },
+        {
+          "reference": "1 Corinthians 1:9",
+          "greek": "πιστὸς ὁ θεὸς δι᾽ οὗ ἐκλήθητε εἰς κοινωνίαν τοῦ υἱοῦ αὐτοῦ",
+          "significance": "God is faithful, by whom you were called into fellowship with His Son."
+        },
+        {
+          "reference": "Ephesians 4:1",
+          "greek": "παρακαλῶ οὖν ὑμᾶς... ἀξίως περιπατῆσαι τῆς κλήσεως ἧς ἐκλήθητε",
+          "significance": "Walk worthy of the calling to which you have been called."
+        }
+      ],
+      "theologicalSignificance": "God's call is powerful and effective. It brings about what it commands. The 'general call' (gospel proclamation to all) becomes 'effectual call' when the Spirit makes it effective in the elect. Calling links election (before time) with justification (in time) - Romans 8:30's 'golden chain.' The church is literally 'the called-out ones' (ἐκκλησία). Calling creates identity: we are 'called saints,' not 'called to become saints.' Vocation (calling to work/service) flows from salvation calling. God's call demands corresponding conduct - living worthy of who we've been made.",
+      "relatedWords": [
+        {
+          "greek": "κλῆσις",
+          "transliteration": "klēsis",
+          "relationship": "Calling, vocation (Rom 11:29; Eph 4:1)"
+        },
+        {
+          "greek": "κλητός",
+          "transliteration": "klētos",
+          "relationship": "Called (Rom 1:1, 6-7; 1 Cor 1:1-2)"
+        },
+        {
+          "greek": "ἐκκλησία",
+          "transliteration": "ekklēsia",
+          "relationship": "Church, assembly - 'the called out'"
+        }
+      ],
+      "tags": ["essential", "pauline", "soteriology"],
+      "volume": 3,
+      "pages": "487-536"
+    },
+    {
+      "id": "pleroo",
+      "category": "revelation",
+      "greek": "πληρόω",
+      "transliteration": "plēroō",
+      "strongs": "G4137",
+      "shortDef": "to fill, fulfill, complete, accomplish",
+      "title": "Fulfill: The Completion of God's Purposes",
+      "summary": "Πληρόω means 'to fill' or 'fulfill' - to complete, accomplish, or bring to full expression. Christ fulfilled the Scriptures, the law, and prophecy. Believers are filled with the Spirit and must fulfill their calling. God's purposes reach their intended goal.",
+      "classicalGreek": "In classical Greek, πληρόω meant 'to fill, make full' - whether a container, a number, or a time period. It extended to 'complete, accomplish' what was intended. The word implied reaching fullness or intended completion.",
+      "lxxBackground": "The LXX uses πληρόω for מָלֵא (male, 'to fill'). Time is fulfilled (Gen 25:24). Commands are fulfilled/obeyed. Prophecies are fulfilled when they come to pass. The land is filled with God's glory (Num 14:21). Filling implies completion of divine purpose.",
+      "intertestamental": "Fulfillment language applied to prophecy and divine promises. Expectations grew for eschatological fulfillment - when God would finally accomplish His purposes. The Messiah would bring fulfillment of Israel's hopes.",
+      "ntUsage": "Christ came to fulfill the law and prophets (Matt 5:17). Events happened 'to fulfill' Scripture (Matt 1:22; 2:15, 17, 23; 4:14; etc.). The time was fulfilled (Mark 1:15; Gal 4:4). Believers are to be filled with the Spirit (Eph 5:18), with knowledge (Col 1:9), with joy (John 16:24), and with the fullness of God (Eph 3:19). The law is fulfilled in love (Rom 13:8, 10; Gal 5:14). God is able to fulfill His promises (Rom 4:21).",
+      "keyPassages": [
+        {
+          "reference": "Matthew 5:17",
+          "greek": "μὴ νομίσητε ὅτι ἦλθον καταλῦσαι τὸν νόμον ἢ τοὺς προφήτας· οὐκ ἦλθον καταλῦσαι ἀλλὰ πληρῶσαι",
+          "significance": "I came not to abolish but to fulfill - Christ completes God's revelation."
+        },
+        {
+          "reference": "Galatians 4:4",
+          "greek": "ὅτε δὲ ἦλθεν τὸ πλήρωμα τοῦ χρόνου, ἐξαπέστειλεν ὁ θεὸς τὸν υἱὸν αὐτοῦ",
+          "significance": "When the fullness of time came, God sent His Son - salvation history reaches climax."
+        },
+        {
+          "reference": "Ephesians 5:18",
+          "greek": "πληροῦσθε ἐν πνεύματι",
+          "significance": "Be filled with the Spirit - ongoing spiritual fullness."
+        }
+      ],
+      "theologicalSignificance": "Fulfillment is central to NT theology. Christ is the goal toward which the OT pointed. He didn't abolish but brought to completion - filling the law with its intended meaning and accomplishing what it demanded. Prophecy reaches its 'yes' in Him (2 Cor 1:20). This validates the OT as Christian Scripture while showing its incompleteness without Christ. The present age is the era of fulfillment begun but not yet consummated. Believers experience the 'already' of fulfillment while awaiting the 'not yet' of final completion.",
+      "relatedWords": [
+        {
+          "greek": "πλήρωμα",
+          "transliteration": "plērōma",
+          "relationship": "Fullness, that which fills (Eph 1:23; Col 1:19)"
+        },
+        {
+          "greek": "πλήρης",
+          "transliteration": "plērēs",
+          "relationship": "Full (Acts 6:3, 5; 7:55)"
+        },
+        {
+          "greek": "ἀναπληρόω",
+          "transliteration": "anaplēroō",
+          "relationship": "To fill up, complete (1 Cor 16:17; Gal 6:2)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "pauline", "hermeneutics"],
+      "volume": 6,
+      "pages": "286-298"
+    },
+    {
+      "id": "mathetes",
+      "category": "ecclesiology",
+      "greek": "μαθητής",
+      "transliteration": "mathētēs",
+      "strongs": "G3101",
+      "shortDef": "disciple, learner, follower, student",
+      "title": "Disciple: The Learner Who Follows the Master",
+      "summary": "Μαθητής is disciple - a learner who follows a teacher. Jesus called disciples to follow Him, learn from Him, and become like Him. Discipleship means total allegiance, ongoing learning, and multiplication through making other disciples.",
+      "classicalGreek": "In classical Greek, μαθητής meant 'learner, pupil, student' - one who attached to a teacher to learn. Philosophers had disciples who learned their teaching and way of life. The relationship involved both intellectual learning and imitation of life.",
+      "lxxBackground": "The LXX rarely uses μαθητής. The concept appears in prophetic schools (sons of the prophets) and wisdom teaching. Isaiah 8:16 refers to disciples. The Torah was to be taught (Deut 6:7), implying a teaching-learning relationship. The righteous learned God's ways.",
+      "intertestamental": "Rabbinic Judaism developed formal discipleship. Disciples attached to rabbis, learned Torah, and served their masters. The goal was eventually to become teachers themselves. Discipleship was total commitment, including physical service.",
+      "ntUsage": "Jesus called disciples (Matt 4:19; Mark 1:17). The Twelve were disciples in a special sense (Matt 10:1). The term extends to all followers (Acts 6:1-2, 7; 9:1, 10, 19, 26). Discipleship costs: taking up the cross (Luke 14:27), forsaking all (Luke 14:33), and following (John 8:31; 12:26). The Great Commission is to 'make disciples' (Matt 28:19). Disciples are characterized by love (John 13:35), fruitfulness (John 15:8), and continuing in Jesus' word (John 8:31).",
+      "keyPassages": [
+        {
+          "reference": "Matthew 28:19",
+          "greek": "πορευθέντες οὖν μαθητεύσατε πάντα τὰ ἔθνη",
+          "significance": "Go and make disciples of all nations - mission defined as disciple-making."
+        },
+        {
+          "reference": "Luke 14:27",
+          "greek": "ὅστις οὐ βαστάζει τὸν σταυρὸν ἑαυτοῦ καὶ ἔρχεται ὀπίσω μου, οὐ δύναται εἶναί μου μαθητής",
+          "significance": "Whoever does not bear his cross and come after me cannot be my disciple."
+        },
+        {
+          "reference": "John 13:35",
+          "greek": "ἐν τούτῳ γνώσονται πάντες ὅτι ἐμοὶ μαθηταί ἐστε, ἐὰν ἀγάπην ἔχητε ἐν ἀλλήλοις",
+          "significance": "By this all will know you are my disciples - if you have love for one another."
+        }
+      ],
+      "theologicalSignificance": "Discipleship is the normal Christian life. Unlike Greek students who eventually graduated, Jesus' disciples remain learners for life. Discipleship is relational (with Jesus), transformational (becoming like Him), and missional (making other disciples). It demands absolute loyalty - above family, possessions, and self. The marks of discipleship are love, obedience, perseverance, and fruitfulness. The church's mission is not merely to make converts but disciples - those who follow, learn, and obey all Christ commanded.",
+      "relatedWords": [
+        {
+          "greek": "μαθητεύω",
+          "transliteration": "mathēteuō",
+          "relationship": "To make disciples, become a disciple (Matt 28:19)"
+        },
+        {
+          "greek": "μανθάνω",
+          "transliteration": "manthanō",
+          "relationship": "To learn (Matt 11:29; Phil 4:11)"
+        },
+        {
+          "greek": "διδάσκαλος",
+          "transliteration": "didaskalos",
+          "relationship": "Teacher - the counterpart to disciple"
+        }
+      ],
+      "tags": ["essential", "synoptic", "johannine", "ecclesiology", "mission"],
+      "volume": 4,
+      "pages": "415-461"
+    },
+    {
+      "id": "nikao",
+      "category": "eschatology",
+      "greek": "νικάω",
+      "transliteration": "nikaō",
+      "strongs": "G3528",
+      "shortDef": "to conquer, overcome, prevail, be victorious",
+      "title": "Overcome: Victory Through Christ",
+      "summary": "Νικάω means 'to conquer' or 'overcome' - to gain victory in conflict. Christ has overcome the world; believers overcome through Him. Revelation's promises are 'to the one who overcomes.' Victory is already won yet must be appropriated through faith and perseverance.",
+      "classicalGreek": "In classical Greek, νικάω meant 'to conquer, defeat, win.' It was used for military victory, athletic triumph, and legal success. Nike was the goddess of victory. The word implied successful struggle against opposition.",
+      "lxxBackground": "The LXX uses νικάω occasionally for victory in battle. God gives victory (2 Sam 23:10, 12). The theme of divine victory pervades Scripture: God defeats enemies, vindicates His people, and will ultimately triumph.",
+      "intertestamental": "Victory language intensified in apocalyptic contexts. God would finally conquer evil. The righteous who endured persecution would be vindicated and share in divine victory. Martyrs especially would triumph.",
+      "ntUsage": "Christ has overcome the world (John 16:33) and the evil one (1 John 2:13-14). Believers overcome through faith (1 John 5:4-5), the blood of the Lamb and their testimony (Rev 12:11), and perseverance. Revelation's letters promise blessings 'to the one who overcomes' (Rev 2:7, 11, 17, 26; 3:5, 12, 21). The Lamb conquers (Rev 5:5; 17:14). Good overcomes evil (Rom 12:21). Love is supreme - we are 'more than conquerors' (Rom 8:37).",
+      "keyPassages": [
+        {
+          "reference": "John 16:33",
+          "greek": "θαρσεῖτε, ἐγὼ νενίκηκα τὸν κόσμον",
+          "significance": "Take heart; I have overcome the world - Christ's victory complete."
+        },
+        {
+          "reference": "1 John 5:4",
+          "greek": "αὕτη ἐστὶν ἡ νίκη ἡ νικήσασα τὸν κόσμον, ἡ πίστις ἡμῶν",
+          "significance": "This is the victory that has overcome the world - our faith."
+        },
+        {
+          "reference": "Revelation 12:11",
+          "greek": "αὐτοὶ ἐνίκησαν αὐτὸν διὰ τὸ αἷμα τοῦ ἀρνίου καὶ διὰ τὸν λόγον τῆς μαρτυρίας αὐτῶν",
+          "significance": "They conquered him by the blood of the Lamb and their testimony."
+        }
+      ],
+      "theologicalSignificance": "Christian victory is paradoxical. It comes through apparent defeat - the cross. The Lamb conquers by being slain (Rev 5:5-6). Believers overcome not by worldly power but by faith, testimony, and willingness to suffer. Victory is already accomplished in Christ; believers appropriate it through faith and perseverance. The overcomer promises in Revelation encourage persecuted believers: present suffering leads to eternal glory. Evil will not have the last word. Those who endure to the end will reign with Christ.",
+      "relatedWords": [
+        {
+          "greek": "νίκη",
+          "transliteration": "nikē",
+          "relationship": "Victory (1 John 5:4)"
+        },
+        {
+          "greek": "νῖκος",
+          "transliteration": "nikos",
+          "relationship": "Victory (Matt 12:20; 1 Cor 15:54-57)"
+        },
+        {
+          "greek": "ὑπερνικάω",
+          "transliteration": "hypernikaō",
+          "relationship": "To be more than a conqueror (Rom 8:37)"
+        }
+      ],
+      "tags": ["essential", "johannine", "revelation", "eschatology"],
+      "volume": 4,
+      "pages": "942-945"
+    },
+    {
+      "id": "peirasmos",
+      "category": "ethics",
+      "greek": "πειρασμός",
+      "transliteration": "peirasmos",
+      "strongs": "G3986",
+      "shortDef": "temptation, trial, test, testing",
+      "title": "Temptation/Trial: The Test That Proves or Exposes",
+      "summary": "Πειρασμός can mean either 'temptation' (enticement to sin) or 'trial' (testing that proves faith). God tests but doesn't tempt; Satan tempts. Trials produce endurance; temptation must be resisted. Christ was tempted yet without sin and helps the tempted.",
+      "classicalGreek": "In classical Greek, πειρασμός (from πειράζω, 'to try, test') meant 'trial, test, experiment.' It was neutral - the test could have positive or negative outcomes. Testing could prove quality or expose weakness.",
+      "lxxBackground": "The LXX uses πειρασμός for נִסָּיוֹן (nisayon). God tested Abraham (Gen 22:1), Israel in the wilderness (Deut 8:2), and believers generally (Ps 26:2). Testing proves faith. Israel 'tested' God at Massah (Ex 17:7; Ps 95:8-9) - demanding proof of His presence. Testing can be from God (proving) or against God (doubting).",
+      "intertestamental": "Testing was seen as purifying the righteous (Sirach 2:1-5; Wisdom 3:5-6). Trials would intensify before the end. The pious were tested to demonstrate their faithfulness. Satan emerged more clearly as tempter.",
+      "ntUsage": "Jesus was tempted by Satan (Matt 4:1-11; Heb 4:15) yet without sin. We pray 'lead us not into temptation' (Matt 6:13). God tempts no one (Jas 1:13); temptation comes from one's own desires (Jas 1:14-15). Yet God permits trials (1 Pet 1:6; Jas 1:2-4). Trials produce endurance and proven character (Rom 5:3-4; Jas 1:3). God provides escape from temptation (1 Cor 10:13). Christ helps the tempted (Heb 2:18; 4:15-16).",
+      "keyPassages": [
+        {
+          "reference": "James 1:2-4",
+          "greek": "πᾶσαν χαρὰν ἡγήσασθε... ὅταν πειρασμοῖς περιπέσητε ποικίλοις, γινώσκοντες ὅτι τὸ δοκίμιον ὑμῶν τῆς πίστεως κατεργάζεται ὑπομονήν",
+          "significance": "Count it all joy when you meet trials - testing produces endurance."
+        },
+        {
+          "reference": "1 Corinthians 10:13",
+          "greek": "πειρασμὸς ὑμᾶς οὐκ εἴληφεν εἰ μὴ ἀνθρώπινος· πιστὸς δὲ ὁ θεὸς... ἀλλὰ ποιήσει σὺν τῷ πειρασμῷ καὶ τὴν ἔκβασιν",
+          "significance": "God is faithful and will provide the way of escape with the temptation."
+        },
+        {
+          "reference": "Hebrews 4:15",
+          "greek": "πεπειρασμένον δὲ κατὰ πάντα καθ᾽ ὁμοιότητα χωρὶς ἁμαρτίας",
+          "significance": "Tempted in every way as we are, yet without sin - sympathetic high priest."
+        }
+      ],
+      "theologicalSignificance": "The dual meaning of πειρασμός (temptation/trial) requires careful interpretation. God tests to prove and strengthen faith; He never entices to sin. Satan tempts to destroy faith. The same circumstance can be both - a trial from God's perspective, a temptation from Satan's. Christ's victory over temptation enables His people to overcome. We should neither seek testing (pray 'lead us not') nor be surprised by it (count it joy). God limits and provides escape. Character is forged through testing endured.",
+      "relatedWords": [
+        {
+          "greek": "πειράζω",
+          "transliteration": "peirazō",
+          "relationship": "To test, tempt, try (Matt 4:1; Jas 1:13)"
+        },
+        {
+          "greek": "ἐκπειράζω",
+          "transliteration": "ekpeirazō",
+          "relationship": "To test thoroughly (Matt 4:7; 1 Cor 10:9)"
+        },
+        {
+          "greek": "δοκιμή",
+          "transliteration": "dokimē",
+          "relationship": "Proven character, test (Rom 5:4; 2 Cor 2:9)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "james", "ethics"],
+      "volume": 6,
+      "pages": "23-36"
+    },
+    {
+      "id": "homologeo",
+      "category": "faith",
+      "greek": "ὁμολογέω",
+      "transliteration": "homologeō",
+      "strongs": "G3670",
+      "shortDef": "to confess, acknowledge, declare, profess",
+      "title": "Confess: Public Declaration of Faith",
+      "summary": "Ὁμολογέω means 'to confess' or 'acknowledge' - to say the same thing, agree, or declare publicly. Confession includes professing faith in Christ, acknowledging sin, and declaring allegiance. Confession with the mouth accompanies belief in the heart.",
+      "classicalGreek": "In classical Greek, ὁμολογέω (from ὁμός 'same' + λέγω 'speak') meant 'to say the same thing, agree, concede, promise.' It implied agreement between parties, public acknowledgment, or binding commitment. Legal and contractual usage was common.",
+      "lxxBackground": "The LXX uses ὁμολογέω for יָדָה (yadah) in the sense of praise and thanksgiving (confessing God's goodness). Confession of sin also appears (Lev 5:5; 16:21). To confess is to declare openly what one believes or has done.",
+      "intertestamental": "Confession of faith distinguished Israel from pagans. Martyrs confessed God before oppressors. Confession of sin was part of repentance. The Shema (Deut 6:4) was the fundamental confession.",
+      "ntUsage": "Confess Jesus as Lord (Rom 10:9-10; Phil 2:11). Confess Christ before people (Matt 10:32). The good confession (1 Tim 6:12-13; Heb 3:1; 4:14). Confess sins to God (1 John 1:9) and one another (Jas 5:16). Deny vs. confess Christ (Matt 10:32-33; 2 Tim 2:12; 1 John 2:23). Demons confess Christ's identity (Mark 1:24; 3:11; 5:7). Jesus confessed before Pilate (1 Tim 6:13).",
+      "keyPassages": [
+        {
+          "reference": "Romans 10:9-10",
+          "greek": "ἐὰν ὁμολογήσῃς ἐν τῷ στόματί σου κύριον Ἰησοῦν καὶ πιστεύσῃς ἐν τῇ καρδίᾳ σου... σωθήσῃ",
+          "significance": "If you confess with your mouth Jesus as Lord and believe... you will be saved."
+        },
+        {
+          "reference": "1 John 1:9",
+          "greek": "ἐὰν ὁμολογῶμεν τὰς ἁμαρτίας ἡμῶν, πιστός ἐστιν καὶ δίκαιος, ἵνα ἀφῇ ἡμῖν τὰς ἁμαρτίας",
+          "significance": "If we confess our sins, He is faithful and just to forgive us."
+        },
+        {
+          "reference": "Matthew 10:32",
+          "greek": "πᾶς οὖν ὅστις ὁμολογήσει ἐν ἐμοὶ ἔμπροσθεν τῶν ἀνθρώπων, ὁμολογήσω κἀγὼ ἐν αὐτῷ",
+          "significance": "Everyone who confesses me before others, I will confess before my Father."
+        }
+      ],
+      "theologicalSignificance": "Confession unites mouth and heart. Belief is invisible; confession makes it public. To confess is to take a stand, to be identified with Christ whatever the cost. The earliest Christian confession was 'Jesus is Lord' (Rom 10:9; 1 Cor 12:3) - a statement with both theological content and political implications (Caesar is not Lord). Confession of sin (agreeing with God about our sin) is the path to forgiveness. Both confessions are relational: acknowledging who Christ is and who we are before Him.",
+      "relatedWords": [
+        {
+          "greek": "ὁμολογία",
+          "transliteration": "homologia",
+          "relationship": "Confession, profession (Heb 3:1; 4:14; 10:23)"
+        },
+        {
+          "greek": "ἐξομολογέω",
+          "transliteration": "exomologeō",
+          "relationship": "To confess openly, acknowledge (Matt 3:6; Phil 2:11)"
+        },
+        {
+          "greek": "ἀρνέομαι",
+          "transliteration": "arneomai",
+          "relationship": "To deny - the opposite of confess (Matt 10:33)"
+        }
+      ],
+      "tags": ["essential", "pauline", "johannine", "faith"],
+      "volume": 5,
+      "pages": "199-220"
+    },
+    {
+      "id": "karpos",
+      "category": "ethics",
+      "greek": "καρπός",
+      "transliteration": "karpos",
+      "strongs": "G2590",
+      "shortDef": "fruit, produce, result, outcome",
+      "title": "Fruit: The Evidence of Life and Faith",
+      "summary": "Καρπός is fruit - the natural produce of a plant, and metaphorically the outcome of life, actions, and character. Good trees bear good fruit; believers bear the fruit of the Spirit. Fruit-bearing demonstrates genuine discipleship and glorifies God.",
+      "classicalGreek": "In classical Greek, καρπός meant 'fruit' - the edible produce of trees and plants. Metaphorically it extended to any result, benefit, or outcome. Fruit represented the natural product of something's essential nature.",
+      "lxxBackground": "The LXX uses καρπός for פְּרִי (peri). The righteous are like fruitful trees (Ps 1:3; Jer 17:8). Israel is God's vineyard expected to bear fruit (Isa 5:1-7). 'Fruit of the womb' means children (Gen 30:2; Ps 127:3). Fruit represents the outcome of one's ways - righteousness or wickedness.",
+      "intertestamental": "Fruit imagery continued. The righteous bear good fruit; the wicked bear evil. Wisdom produces fruit (Sirach 6:19). The tree metaphor applied to individuals and nations. Fruit-bearing was evidence of covenant faithfulness.",
+      "ntUsage": "John the Baptist demanded fruit of repentance (Matt 3:8). Trees are known by fruit (Matt 7:16-20; 12:33). The vine and branches imagery: abiding produces fruit (John 15:1-8). The fruit of the Spirit (Gal 5:22-23) contrasts with works of the flesh. Paul seeks fruit for the Philippians' account (Phil 4:17). Fruit of righteousness (Heb 12:11; Jas 3:18), fruit of lips (Heb 13:15). The unfruitful are cut off (John 15:2; Matt 3:10).",
+      "keyPassages": [
+        {
+          "reference": "Galatians 5:22-23",
+          "greek": "ὁ δὲ καρπὸς τοῦ πνεύματός ἐστιν ἀγάπη χαρὰ εἰρήνη, μακροθυμία χρηστότης ἀγαθωσύνη, πίστις πραΰτης ἐγκράτεια",
+          "significance": "The fruit of the Spirit is love, joy, peace... - singular fruit, multiple expressions."
+        },
+        {
+          "reference": "John 15:5",
+          "greek": "ἐγώ εἰμι ἡ ἄμπελος, ὑμεῖς τὰ κλήματα. ὁ μένων ἐν ἐμοὶ κἀγὼ ἐν αὐτῷ οὗτος φέρει καρπὸν πολύν",
+          "significance": "I am the vine, you are the branches - abiding produces much fruit."
+        },
+        {
+          "reference": "Matthew 7:16-17",
+          "greek": "ἀπὸ τῶν καρπῶν αὐτῶν ἐπιγνώσεσθε αὐτούς... πᾶν δένδρον ἀγαθὸν καρποὺς καλοὺς ποιεῖ",
+          "significance": "You will recognize them by their fruits - fruit reveals nature."
+        }
+      ],
+      "theologicalSignificance": "Fruit is evidence, not cause, of life. A tree doesn't become good by producing good fruit; it produces good fruit because it is good. Similarly, works don't save but genuine salvation produces works. The 'fruit of the Spirit' is singular - a unified character manifested in various virtues, produced by the Spirit, not self-effort. Fruit-bearing requires abiding in Christ. Fruitlessness is serious - fruitless branches are removed (John 15:2). Much fruit glorifies the Father and proves discipleship (John 15:8). Fruit includes character, converts, and praise.",
+      "relatedWords": [
+        {
+          "greek": "καρποφορέω",
+          "transliteration": "karpophoreō",
+          "relationship": "To bear fruit (Matt 13:23; Col 1:6, 10)"
+        },
+        {
+          "greek": "ἄκαρπος",
+          "transliteration": "akarpos",
+          "relationship": "Unfruitful (Matt 13:22; Titus 3:14)"
+        },
+        {
+          "greek": "πρωτότοκος",
+          "transliteration": "prōtotokos",
+          "relationship": "Firstborn, first-fruits - related imagery"
+        }
+      ],
+      "tags": ["essential", "synoptic", "pauline", "johannine", "ethics"],
+      "volume": 3,
+      "pages": "614-616"
+    },
+    {
+      "id": "ergon",
+      "category": "ethics",
+      "greek": "ἔργον",
+      "transliteration": "ergon",
+      "strongs": "G2041",
+      "shortDef": "work, deed, action, task",
+      "title": "Work: The Deeds That Demonstrate Faith",
+      "summary": "Ἔργον is work or deed - any action or task. The NT discusses 'works of the law' (rejected for justification), God's works, Christ's works, and believers' good works. Faith without works is dead; saved by grace, we are created for good works.",
+      "classicalGreek": "In classical Greek, ἔργον meant 'work, deed, action' - any activity or its product. It covered manual labor, artistic works, military action, and moral conduct. Works revealed character and produced results.",
+      "lxxBackground": "The LXX uses ἔργον for מַעֲשֶׂה (maaseh). God's works in creation (Gen 2:2-3) and redemption (Ps 66:5; 111:2-4). Human works are judged (Eccl 12:14). 'Work of their hands' could mean idols or labor. The righteous are known by their works.",
+      "intertestamental": "Works-righteousness developed in some circles: accumulating merit through law-keeping. Yet dependence on God's grace remained in others. Works would be judged at the final accounting. The relationship of works to salvation was debated.",
+      "ntUsage": "'Works of the law' don't justify (Rom 3:20, 28; Gal 2:16; 3:2, 5, 10). Yet faith without works is dead (Jas 2:17, 26). Believers are created for good works (Eph 2:10). Works will be judged (2 Cor 5:10; Rev 20:12-13). Christ's works testify to Him (John 5:36; 10:25, 32, 38). God's work is to believe (John 6:29). Work out salvation with fear (Phil 2:12). Faith works through love (Gal 5:6).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 2:8-10",
+          "greek": "τῇ γὰρ χάριτί ἐστε σεσῳσμένοι διὰ πίστεως... οὐκ ἐξ ἔργων... αὐτοῦ γάρ ἐσμεν ποίημα, κτισθέντες... ἐπὶ ἔργοις ἀγαθοῖς",
+          "significance": "Saved by grace through faith, not works - created for good works."
+        },
+        {
+          "reference": "James 2:17",
+          "greek": "οὕτως καὶ ἡ πίστις, ἐὰν μὴ ἔχῃ ἔργα, νεκρά ἐστιν καθ᾽ ἑαυτήν",
+          "significance": "Faith by itself, if it does not have works, is dead."
+        },
+        {
+          "reference": "Titus 2:14",
+          "greek": "ἵνα λυτρώσηται ἡμᾶς ἀπὸ πάσης ἀνομίας καὶ καθαρίσῃ ἑαυτῷ λαὸν περιούσιον, ζηλωτὴν καλῶν ἔργων",
+          "significance": "To purify for Himself a people zealous for good works."
+        }
+      ],
+      "theologicalSignificance": "Paul and James don't contradict. Paul opposes works as grounds of justification; James insists genuine faith produces works. 'Works of the law' (religious performance to earn salvation) differ from 'good works' (grateful response to salvation). We are not saved BY works but FOR works (Eph 2:10). Works will be evaluated at judgment, not for salvation but for reward (1 Cor 3:12-15). Good works glorify God (Matt 5:16) and benefit neighbors. The integration of faith and works, grace and obedience, is essential to NT ethics.",
+      "relatedWords": [
+        {
+          "greek": "ἐργάζομαι",
+          "transliteration": "ergazomai",
+          "relationship": "To work, labor, do (John 6:27; Gal 6:10)"
+        },
+        {
+          "greek": "ἐργάτης",
+          "transliteration": "ergatēs",
+          "relationship": "Worker, laborer (Matt 9:37-38; 2 Tim 2:15)"
+        },
+        {
+          "greek": "ἐνεργέω",
+          "transliteration": "energeō",
+          "relationship": "To work, be active (Gal 2:8; Phil 2:13)"
+        }
+      ],
+      "tags": ["essential", "pauline", "james", "ethics", "soteriology"],
+      "volume": 2,
+      "pages": "635-655"
+    },
+    {
+      "id": "geenna",
+      "category": "eschatology",
+      "greek": "γέεννα",
+      "transliteration": "geenna",
+      "strongs": "G1067",
+      "shortDef": "Gehenna, hell, place of final punishment",
+      "title": "Gehenna: The Place of Final Judgment",
+      "summary": "Γέεννα (from Hebrew גֵּיא הִנֹּם, Valley of Hinnom) is the place of final punishment - what Jesus called 'hell.' It is characterized by unquenchable fire and eternal separation from God. Jesus warned about Gehenna more than anyone else in Scripture.",
+      "classicalGreek": "Γέεννα is not a classical Greek word. It is a transliteration of the Hebrew geographical term 'Valley of Hinnom' (גֵּי הִנֹּם), which became a term for final punishment.",
+      "lxxBackground": "The Valley of Hinnom (Jer 7:31-32; 19:2-6; 32:35) south of Jerusalem was where children were sacrificed to Molech. Josiah defiled it (2 Kings 23:10). It became a garbage dump with perpetual fires. The prophets predicted judgment there (Jer 7:32; Isa 66:24).",
+      "intertestamental": "Gehenna developed into the place of eschatological punishment (1 Enoch 27:2; 54:1-6; 90:26-27; 4 Ezra 7:36). It was contrasted with paradise or Abraham's bosom. Fire and destruction characterized it. It became the standard term for final judgment of the wicked.",
+      "ntUsage": "Jesus speaks of Gehenna frequently (Matt 5:22, 29-30; 10:28; 18:9; 23:15, 33; Mark 9:43, 45, 47; Luke 12:5). It is better to enter life maimed than go to Gehenna with whole body (Mark 9:43-47). Fear Him who can destroy both soul and body in Gehenna (Matt 10:28). Unquenchable fire (Mark 9:43, 48). Eternal punishment (Matt 25:46). James 3:6 mentions the tongue set on fire by Gehenna.",
+      "keyPassages": [
+        {
+          "reference": "Mark 9:43, 47-48",
+          "greek": "καλόν ἐστίν σε... εἰσελθεῖν εἰς τὴν ζωὴν ἢ... βληθῆναι εἰς τὴν γέενναν, εἰς τὸ πῦρ τὸ ἄσβεστον... ὅπου ὁ σκώληξ αὐτῶν οὐ τελευτᾷ",
+          "significance": "Better to enter life than be thrown into Gehenna, unquenchable fire."
+        },
+        {
+          "reference": "Matthew 10:28",
+          "greek": "φοβεῖσθε δὲ μᾶλλον τὸν δυνάμενον καὶ ψυχὴν καὶ σῶμα ἀπολέσαι ἐν γεέννῃ",
+          "significance": "Fear Him who can destroy both soul and body in Gehenna."
+        },
+        {
+          "reference": "Matthew 25:46",
+          "greek": "ἀπελεύσονται οὗτοι εἰς κόλασιν αἰώνιον, οἱ δὲ δίκαιοι εἰς ζωὴν αἰώνιον",
+          "significance": "These will go away into eternal punishment - duration matches eternal life."
+        }
+      ],
+      "theologicalSignificance": "Jesus' warnings about Gehenna are the clearest biblical teaching on final judgment. The language is severe: fire, destruction, eternal duration. This is not annihilation (eternal punishment implies ongoing existence) nor temporary purgation. Gehenna motivates evangelism (we warn because judgment is real), gratitude (we are saved from wrath), and holiness (radical measures are warranted to avoid hell). The doctrine is difficult but Jesus' teaching is clear. Gehenna is the ultimate consequence of rejecting God - eternal separation from the source of all good.",
+      "relatedWords": [
+        {
+          "greek": "ᾅδης",
+          "transliteration": "hadēs",
+          "relationship": "Hades - place of the dead, distinct from Gehenna"
+        },
+        {
+          "greek": "ἄβυσσος",
+          "transliteration": "abyssos",
+          "relationship": "Abyss, bottomless pit (Luke 8:31; Rev 9:1)"
+        },
+        {
+          "greek": "τάρταρος",
+          "transliteration": "tartaros",
+          "relationship": "Tartarus - place of fallen angels (2 Pet 2:4)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "eschatology", "judgment"],
+      "volume": 1,
+      "pages": "657-658"
+    },
+    {
+      "id": "hades",
+      "category": "eschatology",
+      "greek": "ᾅδης",
+      "transliteration": "hadēs",
+      "strongs": "G86",
+      "shortDef": "Hades, realm of the dead, underworld",
+      "title": "Hades: The Realm of the Dead",
+      "summary": "ᾍδης is Hades - the realm of the dead, the intermediate state between death and resurrection. It is not the same as Gehenna (final judgment). The gates of Hades cannot prevail against the church. Christ holds the keys of Death and Hades.",
+      "classicalGreek": "In classical Greek, ᾅδης (from ἀ-ιδεῖν, 'unseen') was the god of the underworld and the underworld itself - the realm of the dead. All deceased went there, regardless of moral character. It was shadowy, gloomy, and final.",
+      "lxxBackground": "The LXX uses ᾅδης for שְׁאוֹל (Sheol) - the place of the dead. All died and went to Sheol (Gen 37:35; Ps 89:48). It was described as dark, silent, and cut off from the living and from praising God (Ps 6:5; 88:3-12; 115:17). Later texts hint at differentiation within Sheol.",
+      "intertestamental": "Differentiation developed between the righteous and wicked in Sheol/Hades. 1 Enoch describes separate compartments. The righteous await resurrection in comfort; the wicked in torment. Paradise and Abraham's bosom designate the blessed area.",
+      "ntUsage": "Jesus descended to Hades (Acts 2:27, 31). The gates of Hades won't prevail against the church (Matt 16:18). The rich man in Hades (Luke 16:23). Death and Hades are personified (Rev 1:18; 6:8; 20:13-14). Christ holds their keys (Rev 1:18). Death and Hades are thrown into the lake of fire (Rev 20:14) - they are penultimate, not final.",
+      "keyPassages": [
+        {
+          "reference": "Matthew 16:18",
+          "greek": "πύλαι ᾅδου οὐ κατισχύσουσιν αὐτῆς",
+          "significance": "The gates of Hades will not prevail against it - death cannot stop the church."
+        },
+        {
+          "reference": "Revelation 1:18",
+          "greek": "ἔχω τὰς κλεῖς τοῦ θανάτου καὶ τοῦ ᾅδου",
+          "significance": "I have the keys of Death and Hades - Christ's sovereignty over death."
+        },
+        {
+          "reference": "Revelation 20:14",
+          "greek": "ὁ θάνατος καὶ ὁ ᾅδης ἐβλήθησαν εἰς τὴν λίμνην τοῦ πυρός",
+          "significance": "Death and Hades were thrown into the lake of fire - their abolition."
+        }
+      ],
+      "theologicalSignificance": "Hades is the intermediate state, not the final state. It is temporary, awaiting resurrection and final judgment. The distinction between Hades (intermediate) and Gehenna (final) is important. Christ's resurrection broke Hades' power - He holds the keys. For believers, to be 'away from the body' is to be 'with the Lord' (2 Cor 5:8; Phil 1:23) - the blessed aspect of Hades/Paradise. The final enemy, Death (and Hades with it), will be destroyed (1 Cor 15:26; Rev 20:14). The resurrection empties Hades of its occupants for final judgment.",
+      "relatedWords": [
+        {
+          "greek": "θάνατος",
+          "transliteration": "thanatos",
+          "relationship": "Death - often paired with Hades"
+        },
+        {
+          "greek": "γέεννα",
+          "transliteration": "geenna",
+          "relationship": "Gehenna - the final place of judgment"
+        },
+        {
+          "greek": "παράδεισος",
+          "transliteration": "paradeisos",
+          "relationship": "Paradise - the blessed area (Luke 23:43)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "revelation", "eschatology"],
+      "volume": 1,
+      "pages": "146-149"
+    },
+    {
+      "id": "pleroma",
+      "category": "christology",
+      "greek": "πλήρωμα",
+      "transliteration": "plērōma",
+      "strongs": "G4138",
+      "shortDef": "fullness, completeness, that which fills",
+      "title": "Fullness: The Complete Divine Presence",
+      "summary": "Πλήρωμα is fullness - that which fills or the state of being full. In Christ dwells all the fullness of deity bodily. The church is filled with Christ's fullness. Believers are being filled unto all the fullness of God. Fullness counters any deficiency theology.",
+      "classicalGreek": "In classical Greek, πλήρωμα meant 'that which fills, fullness, completeness.' It could be active (what fills) or passive (the state of being filled). Ships' crews, cargoes, and full measures were πλήρωμα. The word implied completion and abundance.",
+      "lxxBackground": "The LXX uses πλήρωμα occasionally. 'The earth is the Lord's and the fullness thereof' (Ps 24:1; 50:12; 89:11). God's glory fills creation. The concept relates to God's complete presence and blessing.",
+      "intertestamental": "Fullness language appeared in Jewish wisdom speculation and later in Gnostic systems (though NT usage precedes developed Gnosticism). The divine fullness dwelt in Wisdom. In Gnostic systems, πλήρωμα was the totality of divine emanations - which NT teaching counters.",
+      "ntUsage": "All fullness dwells in Christ (Col 1:19). In Him the fullness of deity dwells bodily (Col 2:9). Believers are filled in Him (Col 2:10). The church is His body, the fullness of Him (Eph 1:23). We are to be filled unto all the fullness of God (Eph 3:19). The fullness of time (Gal 4:4; Eph 1:10). Fullness of blessing (Rom 15:29). Love is the fullness of the law (Rom 13:10). The fullness of the Gentiles (Rom 11:25).",
+      "keyPassages": [
+        {
+          "reference": "Colossians 2:9",
+          "greek": "ἐν αὐτῷ κατοικεῖ πᾶν τὸ πλήρωμα τῆς θεότητος σωματικῶς",
+          "significance": "In Him all the fullness of deity dwells bodily - complete deity in Christ."
+        },
+        {
+          "reference": "Ephesians 3:19",
+          "greek": "ἵνα πληρωθῆτε εἰς πᾶν τὸ πλήρωμα τοῦ θεοῦ",
+          "significance": "That you may be filled with all the fullness of God - believers' goal."
+        },
+        {
+          "reference": "Ephesians 1:23",
+          "greek": "τὸ σῶμα αὐτοῦ, τὸ πλήρωμα τοῦ πληροῦντος τὰ πάντα ἐν πᾶσιν",
+          "significance": "The church is His body, the fullness of Him who fills all in all."
+        }
+      ],
+      "theologicalSignificance": "Paul's fullness language counters deficiency theologies. Christ is not one emanation among many; ALL fullness dwells in Him. Nothing is lacking; no additional mediators are needed. Believers need not seek fullness elsewhere - they are complete in Him (Col 2:10). The church participates in this fullness. The goal of salvation is being filled with divine fullness - not absorption into God but transformation into Christ's likeness. Fullness is already ours positionally; we grow into experiencing it practically.",
+      "relatedWords": [
+        {
+          "greek": "πληρόω",
+          "transliteration": "plēroō",
+          "relationship": "To fill, fulfill, complete"
+        },
+        {
+          "greek": "πλήρης",
+          "transliteration": "plērēs",
+          "relationship": "Full (Acts 6:3; 7:55)"
+        },
+        {
+          "greek": "ἀναπληρόω",
+          "transliteration": "anaplēroō",
+          "relationship": "To fill up (1 Cor 16:17; Col 1:24)"
+        }
+      ],
+      "tags": ["essential", "pauline", "christology", "colossians"],
+      "volume": 6,
+      "pages": "298-305"
+    },
+    {
+      "id": "arche",
+      "category": "christology",
+      "greek": "ἀρχή",
+      "transliteration": "archē",
+      "strongs": "G746",
+      "shortDef": "beginning, origin, ruler, authority",
+      "title": "Beginning: The Origin and Authority of All Things",
+      "summary": "Ἀρχή means 'beginning' or 'ruler' - the origin, first cause, or governing authority. Christ is both the beginning (origin of creation) and the ruler (over all principalities). 'In the beginning' opens both Genesis and John's Gospel, pointing to Christ's eternal pre-existence.",
+      "classicalGreek": "In classical Greek, ἀρχή meant 'beginning, origin, first principle' and also 'sovereignty, rule, authority.' Philosophers sought the ἀρχή of all things - the first principle or element. Political ἀρχή meant ruling power. The word bridged cosmology and politics.",
+      "lxxBackground": "The LXX uses ἀρχή for רֵאשִׁית (reshit, 'beginning') in Genesis 1:1. It also translates terms for rule and dominion. Wisdom was with God 'from the beginning' (Prov 8:22-23). The beginning of wisdom is fear of the Lord (Prov 1:7; 9:10). Rulers exercise ἀρχή.",
+      "intertestamental": "Speculation about the ἀρχή of creation continued. Angels and cosmic powers were called ἀρχαί (rulers). Wisdom was present at the beginning. The origin of evil was debated. Apocalyptic literature featured celestial rulers.",
+      "ntUsage": "'In the beginning was the Word' (John 1:1). Christ is the beginning, firstborn from the dead (Col 1:18). He is the beginning of God's creation (Rev 3:14). Christ existed 'from the beginning' (1 John 1:1; 2:13-14). Principalities and powers (ἀρχαί) are subject to Christ (Rom 8:38; Eph 1:21; 3:10; 6:12; Col 1:16; 2:10, 15). The beginning of signs (John 2:11). The beginning of the gospel (Mark 1:1).",
+      "keyPassages": [
+        {
+          "reference": "John 1:1",
+          "greek": "Ἐν ἀρχῇ ἦν ὁ λόγος",
+          "significance": "In the beginning was the Word - eternal pre-existence of Christ."
+        },
+        {
+          "reference": "Colossians 1:18",
+          "greek": "ὅς ἐστιν ἀρχή, πρωτότοκος ἐκ τῶν νεκρῶν",
+          "significance": "He is the beginning, the firstborn from the dead - resurrection origin."
+        },
+        {
+          "reference": "Revelation 3:14",
+          "greek": "ἡ ἀρχὴ τῆς κτίσεως τοῦ θεοῦ",
+          "significance": "The beginning of God's creation - origin/ruler of creation."
+        }
+      ],
+      "theologicalSignificance": "John 1:1 echoes Genesis 1:1: before creation, Christ existed. He is not the first created but the origin of creation. Revelation 3:14's 'beginning of creation' means source/ruler, not first creature (the same Christ through whom all was made, John 1:3; Col 1:16). Christ is both ἀρχή (beginning) and τέλος (end) - the Alpha and Omega (Rev 22:13). The 'rulers' (ἀρχαί) are cosmic powers, now subject to Christ. All authority structures find their origin and accountability in Him.",
+      "relatedWords": [
+        {
+          "greek": "ἄρχω",
+          "transliteration": "archō",
+          "relationship": "To rule, begin"
+        },
+        {
+          "greek": "ἄρχων",
+          "transliteration": "archōn",
+          "relationship": "Ruler, prince (John 12:31; Eph 2:2)"
+        },
+        {
+          "greek": "ἀρχηγός",
+          "transliteration": "archēgos",
+          "relationship": "Author, founder, pioneer (Acts 3:15; Heb 2:10)"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "christology"],
+      "volume": 1,
+      "pages": "478-484"
+    },
+    {
+      "id": "hodos",
+      "category": "revelation",
+      "greek": "ὁδός",
+      "transliteration": "hodos",
+      "strongs": "G3598",
+      "shortDef": "way, road, path, journey, manner of life",
+      "title": "Way: The Path of Life and Salvation",
+      "summary": "Ὁδός is way or road - both literal path and metaphorical way of life. Christ is THE Way to the Father. Early Christians were called followers of 'the Way.' God's ways are distinct from human ways. Walking in God's way means obedient living.",
+      "classicalGreek": "In classical Greek, ὁδός meant 'road, way, path' - literally, the route traveled. Metaphorically it extended to manner of life, conduct, and method. 'The way of' something meant its characteristic manner or the path leading to it.",
+      "lxxBackground": "The LXX uses ὁδός for דֶּרֶךְ (derek) - way, path, journey, conduct. God's way is perfect (Ps 18:30). The righteous walk in God's way (Ps 1:1, 6; Prov 2:20). Prepare the way of the Lord (Isa 40:3). Two ways: life and death (Jer 21:8). God's ways are higher than human ways (Isa 55:8-9).",
+      "intertestamental": "The two-ways teaching developed (life vs. death, light vs. darkness). The Qumran community walked in the way of truth. Wisdom literature emphasized the path of righteousness. The way to life was following Torah.",
+      "ntUsage": "'I am the Way' (John 14:6). Prepare the way of the Lord (Matt 3:3; Mark 1:2-3). The narrow way leads to life (Matt 7:13-14). Early Christians called 'the Way' (Acts 9:2; 19:9, 23; 22:4; 24:14, 22). The way of salvation (Acts 16:17). The way of truth (2 Pet 2:2). A new and living way through Christ's flesh (Heb 10:20). The way of Cain (Jude 11).",
+      "keyPassages": [
+        {
+          "reference": "John 14:6",
+          "greek": "ἐγώ εἰμι ἡ ὁδὸς καὶ ἡ ἀλήθεια καὶ ἡ ζωή· οὐδεὶς ἔρχεται πρὸς τὸν πατέρα εἰ μὴ δι᾽ ἐμοῦ",
+          "significance": "I am the way, the truth, and the life - exclusive access to the Father."
+        },
+        {
+          "reference": "Acts 9:2",
+          "greek": "τῆς ὁδοῦ ὄντας",
+          "significance": "Those belonging to the Way - early Christian self-designation."
+        },
+        {
+          "reference": "Hebrews 10:20",
+          "greek": "ἣν ἐνεκαίνισεν ἡμῖν ὁδὸν πρόσφατον καὶ ζῶσαν διὰ τοῦ καταπετάσματος",
+          "significance": "A new and living way through the veil - access through Christ's sacrifice."
+        }
+      ],
+      "theologicalSignificance": "Christ is not A way but THE Way - the exclusive path to the Father. This claim is central to Christian particularity. The early church's self-designation as 'the Way' emphasized Christianity as a manner of life, not merely belief system. Following Jesus means walking in His way - ethical obedience, not just theological assent. The two-ways teaching (Matt 7:13-14) maintains the biblical distinction between life and death paths. Christ opened a new way of access to God through His sacrifice. Christians are people of the Way.",
+      "relatedWords": [
+        {
+          "greek": "ὁδηγέω",
+          "transliteration": "hodēgeō",
+          "relationship": "To lead, guide (John 16:13; Acts 8:31)"
+        },
+        {
+          "greek": "ὁδηγός",
+          "transliteration": "hodēgos",
+          "relationship": "Guide, leader (Matt 15:14; Rom 2:19)"
+        },
+        {
+          "greek": "ὁδοιπορία",
+          "transliteration": "hodoiporia",
+          "relationship": "Journey (John 4:6)"
+        }
+      ],
+      "tags": ["essential", "johannine", "acts", "christology"],
+      "volume": 5,
+      "pages": "42-114"
     }
   ]
 }
