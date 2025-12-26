@@ -31,7 +31,7 @@ describe('Data Persistence Integration', () => {
   describe('Complete User Journey', () => {
     it('should persist data through full learning session', () => {
       // 1. User starts session
-      useSessionStore.getState().startSession('flashcards', [
+      useSessionStore.getState().startSession('flashcard', [
         { id: 'word_1', word: 'λόγος', translation: 'word' },
         { id: 'word_2', word: 'θεός', translation: 'God' },
       ]);

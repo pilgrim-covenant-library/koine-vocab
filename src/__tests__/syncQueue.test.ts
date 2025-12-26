@@ -90,7 +90,7 @@ describe('Sync Queue', () => {
     it('should categorize operations by type', () => {
       syncQueue.add(async () => {}, 'progress');
       syncQueue.add(async () => {}, 'homework');
-      syncQueue.add(async () => {}, 'stats');
+      syncQueue.add(async () => {}, 'submission');
 
       const status = syncQueue.getStatus();
       expect(status.queueLength).toBeGreaterThan(0);
@@ -557,7 +557,7 @@ describe('Sync Queue', () => {
     });
 
     it('should handle operations that never resolve', async () => {
-      const hangingOperation = () =>
+      const hangingOperation = (): Promise<void> =>
         new Promise(() => {
           // Never resolves
         });

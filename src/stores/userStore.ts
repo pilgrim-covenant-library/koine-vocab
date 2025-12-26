@@ -57,7 +57,7 @@ export const SRS_PRESETS: Record<SRSMode, { name: string; description: string; i
   },
 };
 
-interface UserState {
+export interface UserState {
   // User stats
   stats: UserStats;
   // Word progress keyed by word ID

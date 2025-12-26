@@ -5,7 +5,7 @@
  * as the app schema evolves over time.
  */
 
-import type { UserStoreState } from '@/stores/userStore';
+import type { UserState } from '@/stores/userStore';
 import type { SessionState } from '@/stores/sessionStore';
 import type { Homework1Progress } from '@/types/homework';
 
@@ -33,7 +33,7 @@ export interface MigrationResult {
  * @returns Migrated data compatible with current schema
  */
 export function migrateUserStore(data: any): {
-  data: Partial<UserStoreState>;
+  data: Partial<UserState>;
   result: MigrationResult;
 } {
   const result: MigrationResult = {

@@ -252,14 +252,15 @@ export async function getUserData(uid: string): Promise<AppUser | null> {
 }
 
 // Progress syncing functions
+// Uses Date | string for flexibility - Firestore handles Date objects natively
 export interface SyncedProgress {
   words: Record<string, {
     easeFactor: number;
     interval: number;
     repetitions: number;
     maxRepetitions?: number; // Optional for backwards compatibility with existing data
-    nextReview: string;
-    lastReview: string | null;
+    nextReview: Date | string;
+    lastReview: Date | string | null;
     lastQuality: number;
     timesReviewed: number;
     timesCorrect: number;
@@ -269,7 +270,7 @@ export interface SyncedProgress {
     level: number;
     streak: number;
     longestStreak: number;
-    lastStudyDate: string | null;
+    lastStudyDate: Date | string | null;
     achievements: string[];
     wordsLearned: number;
     wordsInProgress: number;

@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 import type { LearningMode, ReviewWord, VocabularyWord } from '@/types';
 import { generateId } from '@/lib/utils';
 
-interface SessionState {
+export interface SessionState {
   // Current session
   isActive: boolean;
   mode: LearningMode | null;

@@ -160,9 +160,10 @@ export default function StudentDetailPage() {
     };
   });
 
-  const formatDate = (date: string | null) => {
+  const formatDate = (date: Date | string | null) => {
     if (!date) return 'Never';
-    return new Date(date).toLocaleDateString('en-US', {
+    const d = typeof date === 'string' ? new Date(date) : date;
+    return d.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
       year: 'numeric',

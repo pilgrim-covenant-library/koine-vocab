@@ -3181,44 +3181,6 @@
       ]
     },
     {
-      "id": "temple-hieron-naos",
-      "category": "temple",
-      "title": "Words for Temple/Sanctuary",
-      "englishWord": "temple/sanctuary",
-      "introduction": "Greek distinguishes the temple complex as a whole from the sanctuary proper. This distinction is crucial for understanding 'your body is a temple' - which word is used? - and for grasping the significance of the veil being torn.",
-      "words": [
-        {
-          "greek": "ἱερόν",
-          "transliteration": "hieron",
-          "strongs": "G2411",
-          "shortDef": "temple (the entire sacred precinct)",
-          "nuance": "The whole temple area including all the courts - the Court of Gentiles, Court of Women, etc. The public, accessible areas where teaching occurred. Jesus 'cleansed the temple' (ἱερόν, Matt 21:12) and taught in the temple (Matt 26:55). This is where people gathered.",
-          "ntUsage": 71
-        },
-        {
-          "greek": "ναός",
-          "transliteration": "naos",
-          "strongs": "G3485",
-          "shortDef": "sanctuary, inner shrine (the sacred dwelling)",
-          "nuance": "The sanctuary proper - the sacred inner structure containing the Holy Place and Most Holy Place. Where God dwells. Only priests entered the Holy Place; only the high priest entered the Most Holy Place once yearly. Zechariah served in the ναός (Luke 1:9). The veil of the ναός was torn (Matt 27:51). Believers are the ναός of the Holy Spirit (1 Cor 3:16; 6:19).",
-          "ntUsage": 45
-        }
-      ],
-      "vineQuote": "Hieron denotes the entire building with its precincts, naos the inner sanctuary where God dwells. When Paul says the body is a temple (naos), he means God's dwelling-place, not merely a sacred precinct.",
-      "exampleVerse": {
-        "reference": "1 Corinthians 6:19",
-        "greek": "τὸ σῶμα ὑμῶν ναὸς τοῦ ἐν ὑμῖν ἁγίου πνεύματός ἐστιν",
-        "english": "Your body is a sanctuary (naos) of the Holy Spirit who is in you.",
-        "wordHighlighted": "ναός"
-      },
-      "practicalTip": "When Paul says 'your body is a temple (ναός),' he uses the word for the sacred sanctuary - God's dwelling place. You are not merely part of a religious complex but the very dwelling of God's Spirit. This elevates the body's significance immensely.",
-      "tags": [
-        "essential",
-        "spirit",
-        "ecclesiology"
-      ]
-    },
-    {
       "id": "clean-pure-katharos-hagnos-eilikrines",
       "category": "clean",
       "title": "Words for Clean/Pure",
