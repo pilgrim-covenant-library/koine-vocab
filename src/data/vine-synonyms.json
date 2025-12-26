@@ -40,7 +40,11 @@
         "wordHighlighted": "ἀγαπάω and φιλέω"
       },
       "practicalTip": "When you see 'love' in your English Bible, ask: Is this ἀγαπάω (deliberate, sacrificial choice) or φιλέω (warm affection)? The distinction often reveals whether the emphasis is on commitment or emotion.",
-      "tags": ["essential", "johannine", "famous-passage"]
+      "tags": [
+        "essential",
+        "johannine",
+        "famous-passage"
+      ]
     },
     {
       "id": "know-ginosko-oida",
@@ -82,7 +86,11 @@
         "wordHighlighted": "γινώσκω and οἶδα"
       },
       "practicalTip": "γινώσκω often appears for growing in knowledge of God (Phil 3:10 'that I may know him'), while οἶδα appears for settled certainties (1 John 5:13 'that you may know you have eternal life').",
-      "tags": ["essential", "johannine", "theological"]
+      "tags": [
+        "essential",
+        "johannine",
+        "theological"
+      ]
     },
     {
       "id": "see-blepo-horao",
@@ -132,7 +140,11 @@
         "wordHighlighted": "θεάομαι"
       },
       "practicalTip": "When Scripture uses θεάομαι or θεωρέω instead of simple βλέπω, it's inviting you to contemplate and marvel, not just observe. Slow down and wonder.",
-      "tags": ["perception", "johannine", "revelation"]
+      "tags": [
+        "perception",
+        "johannine",
+        "revelation"
+      ]
     },
     {
       "id": "new-neos-kainos",
@@ -166,7 +178,11 @@
         "wordHighlighted": "καινός"
       },
       "practicalTip": "The 'new covenant' (καινή διαθήκη) is not just the most recent covenant but a covenant of an entirely different character. The 'new creation' is not just a refreshed version of the old but something qualitatively different.",
-      "tags": ["essential", "theological", "covenant"]
+      "tags": [
+        "essential",
+        "theological",
+        "covenant"
+      ]
     },
     {
       "id": "time-chronos-kairos",
@@ -208,7 +224,11 @@
         "wordHighlighted": "χρόνος and καιρός"
       },
       "practicalTip": "When Scripture speaks of 'redeeming the time' (Eph 5:16), it uses καιρός - we are to make the most of opportune moments. Look for God-given opportunities, not just the passage of time.",
-      "tags": ["essential", "theological", "practical"]
+      "tags": [
+        "essential",
+        "theological",
+        "practical"
+      ]
     },
     {
       "id": "life-bios-zoe",
@@ -250,7 +270,11 @@
         "wordHighlighted": "ζωή"
       },
       "practicalTip": "When John speaks of 'eternal life' (ζωὴ αἰώνιος), he means not just life that lasts forever but a quality of life - God's own life shared with us. It's not just duration but divine nature.",
-      "tags": ["essential", "johannine", "theological"]
+      "tags": [
+        "essential",
+        "johannine",
+        "theological"
+      ]
     },
     {
       "id": "word-logos-rhema",
@@ -284,7 +308,11 @@
         "wordHighlighted": "ῥῆμα"
       },
       "practicalTip": "λόγος emphasizes Scripture as God's complete revelation and thought; ῥῆμα emphasizes specific words God speaks to us. Both are essential - the whole counsel of God and His specific direction.",
-      "tags": ["essential", "johannine", "scripture"]
+      "tags": [
+        "essential",
+        "johannine",
+        "scripture"
+      ]
     },
     {
       "id": "temple-hieron-naos",
@@ -318,7 +346,11 @@
         "wordHighlighted": "ναός"
       },
       "practicalTip": "When Paul says believers are God's ναός, he's not saying we're part of a religious complex - we are the very dwelling place of God's presence, as intimate and sacred as the Holy of Holies.",
-      "tags": ["theological", "pauline", "ecclesiology"]
+      "tags": [
+        "theological",
+        "pauline",
+        "ecclesiology"
+      ]
     },
     {
       "id": "another-allos-heteros",
@@ -352,7 +384,11 @@
         "wordHighlighted": "ἄλλος"
       },
       "practicalTip": "Jesus calls the Spirit 'another Helper' (ἄλλος) - same divine nature, same advocacy, same comfort. But Paul warns against 'another gospel' (ἕτερος in Gal 1:6) - fundamentally different and therefore damning.",
-      "tags": ["essential", "pneumatology", "galatians"]
+      "tags": [
+        "essential",
+        "pneumatology",
+        "galatians"
+      ]
     },
     {
       "id": "sin-hamartia-paraptoma",
@@ -402,7 +438,11 @@
         "wordHighlighted": "ἁμαρτάνω (verb form of ἁμαρτία)"
       },
       "practicalTip": "The variety of Greek words for sin shows that our problem is comprehensive - we miss God's mark, cross His boundaries, slip from His path, and rebel against His authority. We need a comprehensive Savior.",
-      "tags": ["essential", "theological", "hamartiology"]
+      "tags": [
+        "essential",
+        "theological",
+        "hamartiology"
+      ]
     },
     {
       "id": "power-dynamis-exousia",
@@ -452,7 +492,11 @@
         "wordHighlighted": "ἐξουσία and δύναμις"
       },
       "practicalTip": "Jesus gave believers ἐξουσία (authority/right) to become children of God (John 1:12) and δύναμις (power/ability) through the Spirit (Acts 1:8). We have both the right and the resources.",
-      "tags": ["essential", "christological", "pneumatology"]
+      "tags": [
+        "essential",
+        "christological",
+        "pneumatology"
+      ]
     },
     {
       "id": "servant-doulos-diakonos",
@@ -502,7 +546,11 @@
         "wordHighlighted": "δοῦλος"
       },
       "practicalTip": "Paul calls himself Christ's δοῦλος (slave) - he belongs entirely to Jesus. But to others he is a διάκονος (minister) - actively serving their needs. Total devotion upward, active service outward.",
-      "tags": ["pauline", "ecclesiology", "practical"]
+      "tags": [
+        "pauline",
+        "ecclesiology",
+        "practical"
+      ]
     },
     {
       "id": "world-kosmos-aion",
@@ -552,7 +600,11 @@
         "wordHighlighted": "αἰών"
       },
       "practicalTip": "When Paul warns against conformity to 'this age' (αἰών), he emphasizes its temporary, passing nature. We live in this age but belong to the age to come. Don't invest too heavily in a passing order.",
-      "tags": ["essential", "pauline", "eschatology"]
+      "tags": [
+        "essential",
+        "pauline",
+        "eschatology"
+      ]
     },
     {
       "id": "ask-aiteo-erotao",
@@ -602,7 +654,11 @@
         "wordHighlighted": "αἰτέω"
       },
       "practicalTip": "Jesus uses ἐρωτάω when He intercedes for us (John 17:9) - He asks as the beloved Son with intimate access. We use αἰτέω as petitioners, but through Christ we can 'ask in His name' with confidence.",
-      "tags": ["prayer", "johannine", "practical"]
+      "tags": [
+        "prayer",
+        "johannine",
+        "practical"
+      ]
     },
     {
       "id": "pray-proseuchomai-deomai",
@@ -652,7 +708,11 @@
         "wordHighlighted": "ὑπερεντυγχάνω (intensive form of ἐντυγχάνω)"
       },
       "practicalTip": "When you don't know how to pray, remember that the Spirit ἐντυγχάνει (intercedes) for you - He has personal access to the Father and pleads on your behalf. Your weakness in prayer is covered.",
-      "tags": ["prayer", "pneumatology", "pauline"]
+      "tags": [
+        "prayer",
+        "pneumatology",
+        "pauline"
+      ]
     },
     {
       "id": "faith-pistis-peitho",
@@ -702,7 +762,11 @@
         "wordHighlighted": "πίστις"
       },
       "practicalTip": "πιστεύω εἰς Χριστόν (believe INTO Christ) suggests more than mental assent - it's committing your whole self to Him, like stepping onto a bridge you trust to hold you.",
-      "tags": ["essential", "theological", "johannine"]
+      "tags": [
+        "essential",
+        "theological",
+        "johannine"
+      ]
     },
     {
       "id": "grace-charis-eleos",
@@ -752,7 +816,11 @@
         "wordHighlighted": "χάρις"
       },
       "practicalTip": "We need both χάρις and ἔλεος - grace because we are guilty before God, mercy because we are miserable in our sin. God provides both abundantly in Christ.",
-      "tags": ["essential", "pauline", "salvation"]
+      "tags": [
+        "essential",
+        "pauline",
+        "salvation"
+      ]
     },
     {
       "id": "forgive-aphiemi-charizomai",
@@ -802,7 +870,11 @@
         "wordHighlighted": "χαρίζομαι"
       },
       "practicalTip": "In Ephesians 4:32, we are to forgive (χαρίζομαι) 'as God in Christ forgave you' - freely, graciously, without demanding payment. This is costly forgiveness, not cheap tolerance.",
-      "tags": ["salvation", "pauline", "practical"]
+      "tags": [
+        "salvation",
+        "pauline",
+        "practical"
+      ]
     },
     {
       "id": "holy-hagios-hieros",
@@ -852,7 +924,11 @@
         "wordHighlighted": "ἅγιος"
       },
       "practicalTip": "NT holiness (ἅγιος) is not merely ceremonial or external (ἱερός) but moral and personal. We are called to share in God's moral character, not just participate in religious rituals.",
-      "tags": ["essential", "theological", "petrine"]
+      "tags": [
+        "essential",
+        "theological",
+        "petrine"
+      ]
     },
     {
       "id": "righteous-dikaios-hosios",
@@ -902,7 +978,11 @@
         "wordHighlighted": "δίκαιος and δικαιόω"
       },
       "practicalTip": "God is both δίκαιος (just, maintaining his righteous standard) and the one who δικαιόω (justifies) sinners. The cross satisfies both - justice is upheld, sinners are declared righteous.",
-      "tags": ["essential", "pauline", "salvation"]
+      "tags": [
+        "essential",
+        "pauline",
+        "salvation"
+      ]
     },
     {
       "id": "truth-aletheia-alethinos",
@@ -952,7 +1032,11 @@
         "wordHighlighted": "ἀλήθεια"
       },
       "practicalTip": "Christ is ἀλήθεια (truth/reality) and ἀληθινός (the genuine, authentic one). False christs are counterfeits; Jesus is the real thing. All truth ultimately connects to Him.",
-      "tags": ["essential", "johannine", "christological"]
+      "tags": [
+        "essential",
+        "johannine",
+        "christological"
+      ]
     },
     {
       "id": "wisdom-sophia-phronesis",
@@ -1002,7 +1086,11 @@
         "wordHighlighted": "σοφία and σύνεσις"
       },
       "practicalTip": "We need both σοφία (seeing truth) and φρόνησις (applying it wisely). Knowledge without practical wisdom leads to pride; practical wisdom without truth leads to pragmatism.",
-      "tags": ["practical", "pauline", "wisdom"]
+      "tags": [
+        "practical",
+        "pauline",
+        "wisdom"
+      ]
     },
     {
       "id": "fear-phobos-deilia",
@@ -1052,7 +1140,11 @@
         "wordHighlighted": "δειλία"
       },
       "practicalTip": "The 'fear of the Lord' (φόβος θεοῦ) is not δειλία (cowardice) but εὐλάβεια (reverence). It's the awe of a child before a loving Father, not the terror of a criminal before a judge.",
-      "tags": ["essential", "practical", "wisdom"]
+      "tags": [
+        "essential",
+        "practical",
+        "wisdom"
+      ]
     },
     {
       "id": "joy-chara-agalliasis",
@@ -1102,7 +1194,11 @@
         "wordHighlighted": "ἀγαλλιάω and χαρά"
       },
       "practicalTip": "NT joy is not mere happiness (dependent on happenings) but χαρά rooted in God. Paul commands joy (Phil 4:4) - it's a choice rooted in relationship, not a feeling dependent on circumstances.",
-      "tags": ["fruit", "essential", "practical"]
+      "tags": [
+        "fruit",
+        "essential",
+        "practical"
+      ]
     },
     {
       "id": "peace-eirene-hesychia",
@@ -1152,7 +1248,11 @@
         "wordHighlighted": "εἰρήνη"
       },
       "practicalTip": "εἰρήνη with God (Rom 5:1) is the foundation for the εἰρήνη of God (Phil 4:7). We must first be reconciled to God, then His peace guards our hearts.",
-      "tags": ["fruit", "essential", "pauline"]
+      "tags": [
+        "fruit",
+        "essential",
+        "pauline"
+      ]
     },
     {
       "id": "hope-elpis-apekdechomai",
@@ -1202,7 +1302,11 @@
         "wordHighlighted": "ἐλπίς and ἀπεκδέχομαι"
       },
       "practicalTip": "Biblical ἐλπίς is not 'I hope it doesn't rain' but 'I know God will keep His promises.' Our hope has a sure foundation - Christ's resurrection guarantees our future.",
-      "tags": ["essential", "eschatology", "pauline"]
+      "tags": [
+        "essential",
+        "eschatology",
+        "pauline"
+      ]
     },
     {
       "id": "wrath-orge-thymos",
@@ -1252,7 +1356,11 @@
         "wordHighlighted": "ὀργή"
       },
       "practicalTip": "God's ὀργή is not petty irritation but settled opposition to evil. We can be angry (ὀργίζεσθε) without sin (Eph 4:26) when our anger reflects God's holy opposition to injustice.",
-      "tags": ["theological", "pauline", "attributes"]
+      "tags": [
+        "theological",
+        "pauline",
+        "attributes"
+      ]
     },
     {
       "id": "send-apostello-pempo",
@@ -1302,7 +1410,11 @@
         "wordHighlighted": "ἀποστέλλω and πέμπω"
       },
       "practicalTip": "Jesus was ἀπεσταλμένος - sent with full authority from the Father. An 'apostle' (ἀπόστολος) carries the sender's authority. We too are sent - with Christ's commission and authority.",
-      "tags": ["essential", "johannine", "mission"]
+      "tags": [
+        "essential",
+        "johannine",
+        "mission"
+      ]
     },
     {
       "id": "receive-lambano-dechomai",
@@ -1352,7 +1464,11 @@
         "wordHighlighted": "παραλαμβάνω"
       },
       "practicalTip": "Paul παρέλαβεν (received as tradition) the gospel and παρέδωκεν (passed on) to others. We too are links in the chain - faithfully receiving and transmitting the apostolic faith.",
-      "tags": ["pauline", "tradition", "gospel"]
+      "tags": [
+        "pauline",
+        "tradition",
+        "gospel"
+      ]
     },
     {
       "id": "work-ergazomai-poieo",
@@ -1402,7 +1518,11 @@
         "wordHighlighted": "κατεργάζομαι and ἐνεργέω"
       },
       "practicalTip": "We κατεργάζομαι (work out) our salvation because God ἐνεργέω (works in) us. Divine sovereignty and human responsibility work together - we labor because He empowers.",
-      "tags": ["essential", "pauline", "practical"]
+      "tags": [
+        "essential",
+        "pauline",
+        "practical"
+      ]
     },
     {
       "id": "follow-akoloutheo-mimeomai",
@@ -1452,7 +1572,11 @@
         "wordHighlighted": "ὀπίσω (behind, after)"
       },
       "practicalTip": "Discipleship is both ἀκολουθέω (following Jesus) and μιμέομαι (imitating Him). We walk where He walked and become like Him as we do. Following produces transformation.",
-      "tags": ["discipleship", "synoptic", "practical"]
+      "tags": [
+        "discipleship",
+        "synoptic",
+        "practical"
+      ]
     },
     {
       "id": "think-logizomai-phroneo",
@@ -1502,7 +1626,11 @@
         "wordHighlighted": "λογίζομαι"
       },
       "practicalTip": "Paul commands us to λογίζομαι (deliberately calculate and consider) what is true, noble, right. We choose what occupies our minds. Transformed thinking is intentional, not accidental.",
-      "tags": ["pauline", "practical", "sanctification"]
+      "tags": [
+        "pauline",
+        "practical",
+        "sanctification"
+      ]
     },
     {
       "id": "judge-krino-anakrino",
@@ -1552,7 +1680,11 @@
         "wordHighlighted": "ἀνακρίνω"
       },
       "practicalTip": "Not all 'judging' is forbidden. We must διακρίνω (discern) between truth and error, ἀνακρίνω (examine) teaching. What's forbidden is κατακρίνω (condemning) others hypocritically.",
-      "tags": ["essential", "pauline", "practical"]
+      "tags": [
+        "essential",
+        "pauline",
+        "practical"
+      ]
     },
     {
       "id": "hear-akouo-hypakouo",
@@ -1602,7 +1734,11 @@
         "wordHighlighted": "ἀκοή (noun from ἀκούω)"
       },
       "practicalTip": "In Hebrew thought (influencing NT Greek), 'hearing' implies obedience. The Shema says 'Hear, O Israel' - meaning 'Listen and obey.' True hearing (ἀκούω) leads to obedience (ὑπακούω).",
-      "tags": ["essential", "practical", "obedience"]
+      "tags": [
+        "essential",
+        "practical",
+        "obedience"
+      ]
     },
     {
       "id": "speak-lego-laleo",
@@ -1652,7 +1788,11 @@
         "wordHighlighted": "εἴπω (from λέγω) and λαλήσω"
       },
       "practicalTip": "In John 12:49, Jesus distinguishes what to say (content) and how to speak (manner). Both matter in Christian witness - we need the right message delivered in the right way.",
-      "tags": ["johannine", "practical", "speech"]
+      "tags": [
+        "johannine",
+        "practical",
+        "speech"
+      ]
     },
     {
       "id": "save-sozo-ryomai",
@@ -1702,7 +1842,11 @@
         "wordHighlighted": "σῴζω"
       },
       "practicalTip": "Salvation is comprehensive: σῴζω (saved from sin's penalty and power), ῥύομαι (rescued from Satan's grip), λυτρόω (redeemed by Christ's blood), ἐλευθερόω (freed for new life).",
-      "tags": ["essential", "salvation", "pauline"]
+      "tags": [
+        "essential",
+        "salvation",
+        "pauline"
+      ]
     },
     {
       "id": "preach-kerysso-euangelizo",
@@ -1752,7 +1896,11 @@
         "wordHighlighted": "κηρύσσω"
       },
       "practicalTip": "Effective ministry includes κηρύσσω (authoritative proclamation), εὐαγγελίζω (good news announcement), and διδάσκω (systematic teaching). Herald the truth, share the good news, build understanding.",
-      "tags": ["essential", "mission", "ministry"]
+      "tags": [
+        "essential",
+        "mission",
+        "ministry"
+      ]
     },
     {
       "id": "worship-proskyneo-latreuo",
@@ -1802,7 +1950,11 @@
         "wordHighlighted": "προσκυνέω"
       },
       "practicalTip": "Worship is both προσκυνέω (bowing in homage) and λατρεύω (serving in life). Sunday worship continues in Monday service. All of life is λατρεία - worship-service to God (Rom 12:1).",
-      "tags": ["essential", "johannine", "worship"]
+      "tags": [
+        "essential",
+        "johannine",
+        "worship"
+      ]
     },
     {
       "id": "repent-metanoeo-metamelomai",
@@ -1852,7 +2004,11 @@
         "wordHighlighted": "μετάνοια and ἀμεταμέλητος"
       },
       "practicalTip": "Judas μεταμέλομαι (regretted) but did not μετανοέω (repent). Peter wept bitterly and μετανοέω - his life changed. True repentance isn't just feeling sorry; it's a complete turnaround.",
-      "tags": ["essential", "salvation", "synoptic"]
+      "tags": [
+        "essential",
+        "salvation",
+        "synoptic"
+      ]
     },
     {
       "id": "body-soma-sarx",
@@ -1902,7 +2058,11 @@
         "wordHighlighted": "σάρξ"
       },
       "practicalTip": "The body (σῶμα) is not evil - it will be resurrected. But the 'flesh' (σάρξ) as sinful nature must be put to death. We honor our bodies while crucifying our flesh.",
-      "tags": ["essential", "pauline", "anthropology"]
+      "tags": [
+        "essential",
+        "pauline",
+        "anthropology"
+      ]
     },
     {
       "id": "spirit-pneuma-psyche",
@@ -1952,7 +2112,11 @@
         "wordHighlighted": "πνεῦμα, ψυχή, and σῶμα"
       },
       "practicalTip": "God renews our πνεῦμα (spirit - our connection to Him), transforms our νοῦς (mind - our thinking), heals our ψυχή (soul - our emotions), and will resurrect our σῶμα (body).",
-      "tags": ["essential", "anthropology", "pauline"]
+      "tags": [
+        "essential",
+        "anthropology",
+        "pauline"
+      ]
     },
     {
       "id": "remain-meno-diameno",
@@ -2002,7 +2166,11 @@
         "wordHighlighted": "μένω"
       },
       "practicalTip": "John uses μένω 40 times! Salvation isn't just a moment but a permanent dwelling. We μένω (remain in Christ), διαμένω (continue consistently), ὑπομένω (endure through trials).",
-      "tags": ["essential", "johannine", "practical"]
+      "tags": [
+        "essential",
+        "johannine",
+        "practical"
+      ]
     },
     {
       "id": "destroy-apollymi-katalyo",
@@ -2052,7 +2220,11 @@
         "wordHighlighted": "ἀπόλλυμι"
       },
       "practicalTip": "ἀπόλλυμι doesn't mean annihilation but ruin. The 'lost' (ἀπολωλότα) sheep exists but is ruined. Hell is not ceasing to exist but eternal ruin - existing apart from all good.",
-      "tags": ["eschatology", "theological", "synoptic"]
+      "tags": [
+        "eschatology",
+        "theological",
+        "synoptic"
+      ]
     },
     {
       "id": "glory-doxa-time",
@@ -2102,7 +2274,11 @@
         "wordHighlighted": "δοξάζω and δόξα"
       },
       "practicalTip": "We δοξάζω (glorify) God not by adding to His δόξα (glory) - that's impossible. We glorify Him by acknowledging, displaying, and praising the glory that already belongs to Him.",
-      "tags": ["essential", "johannine", "worship"]
+      "tags": [
+        "essential",
+        "johannine",
+        "worship"
+      ]
     },
     {
       "id": "appear-phaino-phaneroo",
@@ -2152,7 +2328,11 @@
         "wordHighlighted": "φανερόω"
       },
       "practicalTip": "Christ's ἐπιφάνεια (appearing) will φανερόω (manifest) what we truly are. Our transformation isn't uncertain - it's simply not yet visible. When He appears, we appear with Him in glory.",
-      "tags": ["eschatology", "johannine", "christological"]
+      "tags": [
+        "eschatology",
+        "johannine",
+        "christological"
+      ]
     },
     {
       "id": "call-kaleo-krazo",
@@ -2202,7 +2382,11 @@
         "wordHighlighted": "ἐπικαλέω"
       },
       "practicalTip": "God καλέω (calls) us to salvation; we ἐπικαλέω (call upon) His name for salvation. His call is effectual, enabling our response. We call because He first called.",
-      "tags": ["essential", "salvation", "pauline"]
+      "tags": [
+        "essential",
+        "salvation",
+        "pauline"
+      ]
     },
     {
       "id": "confess-homologeo-exomologeo",
@@ -2244,7 +2428,11 @@
         "wordHighlighted": "ὁμολογέω"
       },
       "practicalTip": "ὁμολογέω means to say the same thing as God - about our sin (agreeing it's wrong) and about Christ (agreeing He is Lord). Confession aligns our words with God's truth.",
-      "tags": ["salvation", "practical", "pauline"]
+      "tags": [
+        "salvation",
+        "practical",
+        "pauline"
+      ]
     },
     {
       "id": "sign-semeion-teras",
@@ -2294,7 +2482,11 @@
         "wordHighlighted": "σημεῖον"
       },
       "practicalTip": "John uses σημεῖα (signs) because miracles are meant to point beyond themselves to Christ. If we marvel at the power (δύναμις) but miss the significance (σημεῖον), we've missed the point.",
-      "tags": ["johannine", "synoptic", "christological"]
+      "tags": [
+        "johannine",
+        "synoptic",
+        "christological"
+      ]
     },
     {
       "id": "clothing-himation-endyma",
@@ -2344,7 +2536,11 @@
         "wordHighlighted": "ἐνδύω (the verb 'to clothe')"
       },
       "practicalTip": "When Paul says 'put on' (ἐνδύω) Christ or virtues, he uses clothing language. Just as we deliberately dress each morning, we deliberately clothe ourselves with Christ-like character.",
-      "tags": ["pauline", "practical", "metaphorical"]
+      "tags": [
+        "pauline",
+        "practical",
+        "metaphorical"
+      ]
     },
     {
       "id": "test-peirazo-dokimazo",
@@ -2394,7 +2590,11 @@
         "wordHighlighted": "πειράζω"
       },
       "practicalTip": "James clarifies: God δοκιμάζω (tests to prove) but never πειράζω (tempts to sin). Trials strengthen; temptations entice. The same situation may be God's test and Satan's temptation.",
-      "tags": ["essential", "james", "practical"]
+      "tags": [
+        "essential",
+        "james",
+        "practical"
+      ]
     },
     {
       "id": "reward-misthos-antapodoma",
@@ -2444,7 +2644,379 @@
         "wordHighlighted": "βραβεῖον"
       },
       "practicalTip": "Salvation is a gift (χάρισμα), not μισθός (wages). But within salvation, faithful service receives μισθός (reward). We cannot earn salvation, but we can earn crowns.",
-      "tags": ["pauline", "eschatology", "practical"]
+      "tags": [
+        "pauline",
+        "eschatology",
+        "practical"
+      ]
+    },
+    {
+      "id": "eternal-aionios-aidios",
+      "category": "eternal",
+      "title": "Words for Eternal/Everlasting",
+      "englishWord": "eternal/everlasting",
+      "introduction": "English uses 'eternal' and 'everlasting' interchangeably, but Greek has distinct terms. This distinction is crucial for understanding 'eternal life,' 'eternal punishment,' and the nature of God's existence.",
+      "words": [
+        {
+          "greek": "αἰώνιος",
+          "transliteration": "aiōnios",
+          "strongs": "G166",
+          "shortDef": "eternal, belonging to the age (aeon)",
+          "nuance": "The primary NT word for 'eternal.' Derived from αἰών (age), it can mean 'belonging to the coming age' or 'age-long.' When applied to God or divine realities, it indicates timeless, unending existence. The word carries qualitative as well as quantitative meaning - not just endless duration but the quality of the age to come.",
+          "ntUsage": 71
+        },
+        {
+          "greek": "ἀΐδιος",
+          "transliteration": "aidios",
+          "strongs": "G126",
+          "shortDef": "everlasting, perpetual",
+          "nuance": "Rare in the NT (only twice), this word unambiguously means 'everlasting' in the sense of unending duration. It emphasizes continuous, unbroken existence without beginning or end. Used for God's eternal power (Rom 1:20) and the everlasting chains binding fallen angels (Jude 6).",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Aidios is used of that which is endless in duration, while aiōnios may sometimes suggest that which is timeless in quality, belonging to the eternal order of things.",
+      "exampleVerse": {
+        "reference": "Romans 1:20",
+        "greek": "ἥ τε ἀΐδιος αὐτοῦ δύναμις καὶ θειότης",
+        "english": "His eternal (aidios) power and divine nature.",
+        "wordHighlighted": "ἀΐδιος"
+      },
+      "practicalTip": "When you see 'eternal life' (ζωὴ αἰώνιος), remember it means not just life without end but life of a different quality - the life of the coming age, experienced now through Christ. The term points to both duration and character.",
+      "tags": [
+        "essential",
+        "theological",
+        "eschatology"
+      ]
+    },
+    {
+      "id": "covenant-diatheke-syntheke",
+      "category": "covenant",
+      "title": "Words for Covenant/Testament",
+      "englishWord": "covenant/testament",
+      "introduction": "The Greek word for 'covenant' in the NT (διαθήκη) differs from the classical word for mutual agreements (συνθήκη). This choice reveals something profound about the nature of God's relationship with His people - it is not a negotiated contract but a gracious disposition.",
+      "words": [
+        {
+          "greek": "διαθήκη",
+          "transliteration": "diathēkē",
+          "strongs": "G1242",
+          "shortDef": "covenant, testament, will",
+          "nuance": "The NT word for God's covenant. Unlike συνθήκη (mutual agreement), διαθήκη emphasizes a unilateral disposition - like a will or testament that one party establishes. God initiates and guarantees His covenant; humans receive it. The LXX translators chose this word (not συνθήκη) to translate Hebrew בְּרִית (berith).",
+          "ntUsage": 33
+        },
+        {
+          "greek": "συνθήκη",
+          "transliteration": "synthēkē",
+          "strongs": "G4934",
+          "shortDef": "agreement, compact (mutual)",
+          "nuance": "Classical Greek word for a mutual agreement or treaty between equal parties. Significantly, the NT never uses this word for God's covenant. God does not negotiate terms with humanity; He graciously establishes His covenant. This word does not appear in the NT at all.",
+          "ntUsage": 0
+        }
+      ],
+      "vineQuote": "Diathēkē primarily signifies a disposition of property by will or otherwise. In its use in the Septuagint it is the rendering of a Hebrew word meaning a 'covenant' or agreement. The choice of this word by the LXX, instead of synthēkē, is significant: God's covenant is not a mutual compact but a sovereign disposition.",
+      "exampleVerse": {
+        "reference": "Hebrews 9:15",
+        "greek": "διαθήκης καινῆς μεσίτης ἐστίν",
+        "english": "He is the mediator of a new covenant (diathēkē).",
+        "wordHighlighted": "διαθήκη"
+      },
+      "practicalTip": "When studying the 'new covenant' passages (Jer 31, Heb 8-10), remember that διαθήκη emphasizes God's gracious initiative. The covenant is His promise, guaranteed by His character, not a bargain we negotiate with Him.",
+      "tags": [
+        "essential",
+        "theological",
+        "hebrews"
+      ]
+    },
+    {
+      "id": "obey-hupakouo-peitho-hupotasso",
+      "category": "obey",
+      "title": "Words for Obey/Submit",
+      "englishWord": "obey/submit",
+      "introduction": "Greek has several words for obedience, each with distinct emphases. Some stress listening and responding, others emphasize persuasion and trust, and still others focus on orderly submission. Understanding these helps clarify NT commands about obedience.",
+      "words": [
+        {
+          "greek": "ὑπακούω",
+          "transliteration": "hypakouō",
+          "strongs": "G5219",
+          "shortDef": "to obey (by listening attentively)",
+          "nuance": "Literally 'to hear under' - to listen carefully and respond accordingly. Emphasizes hearing and heeding, the obedience that comes from careful attention to what is commanded. Used for obeying parents (Eph 6:1), masters (Eph 6:5), and the gospel (Rom 10:16).",
+          "ntUsage": 21
+        },
+        {
+          "greek": "πείθω",
+          "transliteration": "peithō",
+          "strongs": "G3982",
+          "shortDef": "to persuade, trust, obey (from conviction)",
+          "nuance": "In its middle/passive forms, means 'to be persuaded, to trust, to obey.' The obedience that flows from inner conviction rather than external compulsion. Used for obeying leaders (Heb 13:17) - suggesting willing, convinced submission rather than mere compliance.",
+          "ntUsage": 52
+        },
+        {
+          "greek": "ὑποτάσσω",
+          "transliteration": "hypotassō",
+          "strongs": "G5293",
+          "shortDef": "to submit, place under (orderly subordination)",
+          "nuance": "A military term meaning to arrange under, to subordinate. Emphasizes taking one's proper place in an ordered structure. Used for wives to husbands (Eph 5:22), church to Christ (Eph 5:24), citizens to government (Rom 13:1). Often middle voice: 'to voluntarily place oneself under.'",
+          "ntUsage": 38
+        },
+        {
+          "greek": "πειθαρχέω",
+          "transliteration": "peitharcheō",
+          "strongs": "G3980",
+          "shortDef": "to obey authority",
+          "nuance": "Combines πείθω (persuade/obey) with ἀρχή (authority). Emphasizes obedience to constituted authority. Used in Acts 5:29 'We must obey God rather than men' - obedience to legitimate authority.",
+          "ntUsage": 4
+        }
+      ],
+      "vineQuote": "Hypakouō stresses the idea of hearing and responding; peithō suggests the obedience that springs from persuasion or trust; hupotassō implies the orderly arrangement of subordination.",
+      "exampleVerse": {
+        "reference": "Hebrews 13:17",
+        "greek": "πείθεσθε τοῖς ἡγουμένοις ὑμῶν καὶ ὑπείκετε",
+        "english": "Obey (peithō - be persuaded by) your leaders and submit.",
+        "wordHighlighted": "πείθω"
+      },
+      "practicalTip": "Note that biblical obedience is never mindless compliance. ὑπακούω involves careful listening; πείθω involves conviction; ὑποτάσσω often appears in middle voice, suggesting voluntary placement. Christian obedience is intelligent, willing, and ordered.",
+      "tags": [
+        "essential",
+        "ethics",
+        "pauline"
+      ]
+    },
+    {
+      "id": "patience-makrothymia-hypomone",
+      "category": "patience",
+      "title": "Words for Patience/Endurance",
+      "englishWord": "patience/endurance",
+      "introduction": "English 'patience' covers two distinct Greek concepts: patience with people (μακροθυμία) and endurance under circumstances (ὑπομονή). Confusing them weakens our understanding of key NT virtues.",
+      "words": [
+        {
+          "greek": "μακροθυμία",
+          "transliteration": "makrothymia",
+          "strongs": "G3115",
+          "shortDef": "patience, long-suffering (toward people)",
+          "nuance": "Literally 'long-tempered' - the opposite of quick-tempered. Patience with people who provoke, offend, or wrong us. It is not retaliating or giving up on difficult people. A fruit of the Spirit (Gal 5:22) and an attribute of God who is 'slow to anger' toward sinners.",
+          "ntUsage": 14
+        },
+        {
+          "greek": "ὑπομονή",
+          "transliteration": "hypomonē",
+          "strongs": "G5281",
+          "shortDef": "endurance, perseverance (under circumstances)",
+          "nuance": "Literally 'remaining under' - standing firm under pressure, trial, or difficulty. Not passive resignation but active, courageous endurance. The fortitude that perseveres through suffering while maintaining faith and hope. The mark of tested faith (Jas 1:3-4).",
+          "ntUsage": 32
+        },
+        {
+          "greek": "ἀνοχή",
+          "transliteration": "anochē",
+          "strongs": "G463",
+          "shortDef": "forbearance, restraint",
+          "nuance": "A holding back, restraint, forbearance. Used of God's patience in withholding judgment (Rom 2:4; 3:26). While μακροθυμία emphasizes long-suffering disposition, ἀνοχή emphasizes the restraint of deserved punishment.",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Makrothumia is the quality that does not easily give up in the face of provocation by people; hupomonē is the temper that does not surrender to circumstances or succumb under trial.",
+      "exampleVerse": {
+        "reference": "Colossians 1:11",
+        "greek": "εἰς πᾶσαν ὑπομονὴν καὶ μακροθυμίαν μετὰ χαρᾶς",
+        "english": "For all endurance (hypomonē) and patience (makrothymia) with joy.",
+        "wordHighlighted": "ὑπομονή and μακροθυμία"
+      },
+      "practicalTip": "When praying for 'patience,' be specific: Do you need μακροθυμία (patience with a difficult person) or ὑπομονή (endurance through a hard circumstance)? The distinction helps target both prayer and practice.",
+      "tags": [
+        "essential",
+        "fruit-of-spirit",
+        "suffering"
+      ]
+    },
+    {
+      "id": "comfort-parakaleo-paramytheomai",
+      "category": "comfort",
+      "title": "Words for Comfort/Encourage",
+      "englishWord": "comfort/encourage",
+      "introduction": "The NT uses several words for comfort and encouragement. The most significant is παρακαλέω (the root of 'Paraclete,' Jesus' name for the Holy Spirit). Understanding these words enriches our grasp of Christian consolation and the Spirit's ministry.",
+      "words": [
+        {
+          "greek": "παρακαλέω",
+          "transliteration": "parakaleō",
+          "strongs": "G3870",
+          "shortDef": "to call alongside, encourage, exhort, comfort",
+          "nuance": "The richest NT word for encouragement. Literally 'to call alongside.' The range of meaning includes: exhorting (urging to action), comforting (consoling in sorrow), encouraging (strengthening resolve), and entreating (making request). Context determines emphasis. The Holy Spirit is the Paráklētos (Παράκλητος) - the One called alongside to help.",
+          "ntUsage": 109
+        },
+        {
+          "greek": "παραμυθέομαι",
+          "transliteration": "paramytheomai",
+          "strongs": "G3888",
+          "shortDef": "to console, soothe, comfort",
+          "nuance": "A tender word for consolation, especially in grief or sorrow. While παρακαλέω can include urging to action, παραμυθέομαι emphasizes gentle, sympathetic comfort. Used for comforting the bereaved (John 11:19, 31) and tender care (1 Thess 2:11; 5:14).",
+          "ntUsage": 4
+        },
+        {
+          "greek": "παρηγορία",
+          "transliteration": "parēgoria",
+          "strongs": "G3931",
+          "shortDef": "comfort, solace",
+          "nuance": "A soothing, cheering word. Only in Col 3:11 in the NT. The root of English 'paregoric' (a soothing medicine). Emphasizes the comforting, reassuring aspect rather than exhortation.",
+          "ntUsage": 1
+        }
+      ],
+      "vineQuote": "Parakaleō primarily means 'to call to one's side,' hence to comfort, exhort, entreat. Paramytheomai suggests tender comfort, especially in sorrow, a comforting that is more personal and sympathetic.",
+      "exampleVerse": {
+        "reference": "2 Corinthians 1:3-4",
+        "greek": "ὁ θεὸς πάσης παρακλήσεως, ὁ παρακαλῶν ἡμᾶς",
+        "english": "The God of all comfort (paraklēsis), who comforts (parakaleō) us.",
+        "wordHighlighted": "παράκλησις and παρακαλέω"
+      },
+      "practicalTip": "The Holy Spirit as 'Paraclete' (John 14-16) means far more than 'Comforter.' He is the One called alongside to encourage, strengthen, convict, guide, and advocate. Every meaning of παρακαλέω applies to His ministry.",
+      "tags": [
+        "essential",
+        "spirit",
+        "johannine"
+      ]
+    },
+    {
+      "id": "good-agathos-kalos-chrestos",
+      "category": "good",
+      "title": "Words for Good",
+      "englishWord": "good",
+      "introduction": "Greek has several words for 'good,' each with distinct emphasis. Some stress inherent quality, others beauty and excellence, still others usefulness or kindness. These distinctions illuminate NT descriptions of God, people, and actions.",
+      "words": [
+        {
+          "greek": "ἀγαθός",
+          "transliteration": "agathos",
+          "strongs": "G18",
+          "shortDef": "good (intrinsically, beneficially)",
+          "nuance": "Moral goodness that benefits others. Emphasizes intrinsic goodness and its beneficial effect. Used of God (Matt 19:17 'One is good'), good works (Eph 2:10), and the good fruit produced by believers. Often paired with καλός but emphasizes the beneficial aspect more strongly.",
+          "ntUsage": 102
+        },
+        {
+          "greek": "καλός",
+          "transliteration": "kalos",
+          "strongs": "G2570",
+          "shortDef": "good (beautiful, excellent, noble)",
+          "nuance": "Good in the sense of beautiful, noble, or excellent. Emphasizes quality, attractiveness, and fitness for purpose. Used for 'good works' that are visible and praiseworthy (Matt 5:16), 'good' soil (Mark 4:8), the 'good shepherd' (John 10:11). The aesthetic and ethical merge.",
+          "ntUsage": 101
+        },
+        {
+          "greek": "χρηστός",
+          "transliteration": "chrēstos",
+          "strongs": "G5543",
+          "shortDef": "good (kind, gracious, useful)",
+          "nuance": "Good in the sense of kind, pleasant, or serviceable. Emphasizes usefulness and kindness in dealings with others. Used of God's kindness (Rom 2:4; Eph 2:7), the 'easy' yoke of Christ (Matt 11:30), and gracious speech (Eph 4:32).",
+          "ntUsage": 7
+        }
+      ],
+      "vineQuote": "Agathos describes that which, being good in its character or constitution, is beneficial in its effect; kalos denotes that which is intrinsically good, beautiful, or honorable; chrestos suggests what is suitable, serviceable, and kind.",
+      "exampleVerse": {
+        "reference": "Matthew 19:17",
+        "greek": "εἷς ἐστιν ὁ ἀγαθός",
+        "english": "There is only One who is good (agathos).",
+        "wordHighlighted": "ἀγαθός"
+      },
+      "practicalTip": "When Scripture says 'do good,' note which word is used: ἀγαθός emphasizes beneficial effect on others; καλός emphasizes visible excellence that glorifies God. Both are called for (Gal 6:10; Titus 3:8).",
+      "tags": [
+        "essential",
+        "ethics",
+        "theological"
+      ]
+    },
+    {
+      "id": "evil-kakos-poneros-phaulos",
+      "category": "evil",
+      "title": "Words for Evil/Bad",
+      "englishWord": "evil/bad",
+      "introduction": "As Greek distinguishes types of good, it also distinguishes types of evil. Some words emphasize harmful quality, others active malice, still others worthlessness. The 'evil one' (πονηρός) and his works are described with precision.",
+      "words": [
+        {
+          "greek": "κακός",
+          "transliteration": "kakos",
+          "strongs": "G2556",
+          "shortDef": "bad, evil (in quality or effect)",
+          "nuance": "The general word for evil or bad, emphasizing harmful quality or effect. Can refer to moral evil (Rom 12:17) or physical harm (Acts 28:5). Often contrasted with ἀγαθός. The corresponding noun κακία means 'malice' or 'wickedness.'",
+          "ntUsage": 50
+        },
+        {
+          "greek": "πονηρός",
+          "transliteration": "ponēros",
+          "strongs": "G4190",
+          "shortDef": "evil (actively wicked, malevolent)",
+          "nuance": "Evil in an active, malignant sense - not merely bad but actively harmful and corrupting. The word used for 'the evil one' (ὁ πονηρός, Matt 13:19; 1 John 5:19). Implies a malevolent influence that spreads corruption. Used for evil eyes (Matt 6:23), evil generations (Matt 12:39), and evil hearts (Heb 3:12).",
+          "ntUsage": 78
+        },
+        {
+          "greek": "φαῦλος",
+          "transliteration": "phaulos",
+          "strongs": "G5337",
+          "shortDef": "worthless, bad (contemptible)",
+          "nuance": "Evil in the sense of worthless, trivial, or contemptible. Not so much actively malignant as base and good-for-nothing. Used for evil deeds that merit judgment (John 5:29; Rom 9:11; 2 Cor 5:10). Emphasizes the worthlessness of sin.",
+          "ntUsage": 6
+        }
+      ],
+      "vineQuote": "Kakos stands for 'bad' in character, poneros denotes what is actively evil in influence, phaulos suggests what is worthless or contemptible.",
+      "exampleVerse": {
+        "reference": "Matthew 6:13",
+        "greek": "ῥῦσαι ἡμᾶς ἀπὸ τοῦ πονηροῦ",
+        "english": "Deliver us from the evil one (ponēros).",
+        "wordHighlighted": "πονηρός"
+      },
+      "practicalTip": "When the NT speaks of 'the evil one' (ὁ πονηρός), the word choice emphasizes Satan's actively malignant influence. He is not merely 'bad' (κακός) but aggressively corrupting and destructive.",
+      "tags": [
+        "essential",
+        "spiritual-warfare",
+        "ethics"
+      ]
+    },
+    {
+      "id": "death-life-thanatos-zoe-bios-psyche",
+      "category": "death-life",
+      "title": "Words for Death and Life",
+      "englishWord": "death/life",
+      "introduction": "The contrast between death and life runs through all Scripture. Greek provides distinct words that reveal different aspects: physical death vs. spiritual death, biological life vs. eternal life, natural life vs. soul. These distinctions are foundational for NT theology.",
+      "words": [
+        {
+          "greek": "θάνατος",
+          "transliteration": "thanatos",
+          "strongs": "G2288",
+          "shortDef": "death (physical or spiritual)",
+          "nuance": "Death as state or power. Used for physical death (Phil 1:20), spiritual death (separation from God, Rom 6:23), and 'the second death' (Rev 20:14). Death is personified as an enemy (1 Cor 15:26) and as having lost its sting through Christ (1 Cor 15:55).",
+          "ntUsage": 120
+        },
+        {
+          "greek": "ζωή",
+          "transliteration": "zōē",
+          "strongs": "G2222",
+          "shortDef": "life (essential, eternal)",
+          "nuance": "Life in its highest sense - the life that God has in Himself and gives to believers. The word for 'eternal life' (ζωὴ αἰώνιος). Not merely biological existence but spiritual vitality, abundant life (John 10:10), the life that is in Christ (John 1:4; 14:6). The opposite of spiritual death.",
+          "ntUsage": 135
+        },
+        {
+          "greek": "βίος",
+          "transliteration": "bios",
+          "strongs": "G979",
+          "shortDef": "life (manner, livelihood, duration)",
+          "nuance": "Life in terms of its duration, manner of living, or means of subsistence. Used for livelihood/possessions (Mark 12:44; Luke 8:14), the duration of life (1 Pet 4:3), and lifestyle (1 Tim 2:2). The root of 'biology.' Distinguished from ζωή as the outward life is from the inner life principle.",
+          "ntUsage": 11
+        },
+        {
+          "greek": "ψυχή",
+          "transliteration": "psychē",
+          "strongs": "G5590",
+          "shortDef": "soul, life, self",
+          "nuance": "The soul or self - the seat of personality, emotions, and natural life. Can mean physical life (Matt 6:25), the soul as distinct from body (Matt 10:28), or the whole person (Acts 2:41 'three thousand souls'). Distinguished from πνεῦμα (spirit) as the self-conscious life is from the God-conscious spirit.",
+          "ntUsage": 105
+        }
+      ],
+      "vineQuote": "Zōē is used of life as the absolute gift of God in Christ, βίος of the period or manner of life, ψυχή of the natural life in relation to the soul and self.",
+      "exampleVerse": {
+        "reference": "John 11:25",
+        "greek": "ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή",
+        "english": "I am the resurrection and the life (zōē).",
+        "wordHighlighted": "ζωή"
+      },
+      "practicalTip": "When Jesus offers 'life' (ζωή), He offers the very life of God - not just a longer βίος or a better ψυχή, but divine, eternal, abundant ζωή. This is the life we lost in Adam and receive in Christ.",
+      "tags": [
+        "essential",
+        "johannine",
+        "soteriology"
+      ]
     }
   ]
 }
