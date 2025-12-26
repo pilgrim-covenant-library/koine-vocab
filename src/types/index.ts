@@ -357,3 +357,64 @@ export const GEM_LEVELS: Record<GemLevel, GemLevelInfo> = {
     color: 'purple',
   },
 } as const;
+
+// ========================================
+// Greek Learning Stories Types - Inspirational stories of how ministers learned Greek
+// ========================================
+
+export type StoryEra = 'reformation' | 'puritan' | 'eighteenth' | 'nineteenth' | 'modern';
+
+export interface GreekLearningStory {
+  id: string;
+  era: StoryEra;
+  title: string;
+  figure: string;
+  years: string;
+  summary: string;
+  story: string;
+  greekMethod: string;
+  keyLesson: string;
+  quote?: string;
+  source: GemSource; // Reuse existing source type
+  tags: string[];
+}
+
+export interface StoryEraInfo {
+  label: string;
+  years: string;
+  description: string;
+  color: string;
+}
+
+export const STORY_ERAS: Record<StoryEra, StoryEraInfo> = {
+  reformation: {
+    label: 'Reformation',
+    years: '1500-1600',
+    description: 'The recovery of biblical languages and ad fontes scholarship',
+    color: 'amber',
+  },
+  puritan: {
+    label: 'Puritan Era',
+    years: '1600-1700',
+    description: 'Rigorous devotion to original texts and pastoral application',
+    color: 'emerald',
+  },
+  eighteenth: {
+    label: '18th Century',
+    years: '1700-1800',
+    description: 'The Great Awakening and evangelical scholarship',
+    color: 'blue',
+  },
+  nineteenth: {
+    label: '19th Century',
+    years: '1800-1900',
+    description: 'The Prince of Preachers and Princeton theology',
+    color: 'purple',
+  },
+  modern: {
+    label: 'Modern Era',
+    years: '1900-Present',
+    description: 'Defending the faith in a skeptical age',
+    color: 'rose',
+  },
+} as const;

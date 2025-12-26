@@ -1,0 +1,274 @@
+{
+  "stories": [
+    {
+      "id": "story-001",
+      "era": "reformation",
+      "title": "Erasmus and the Greek New Testament",
+      "figure": "Desiderius Erasmus",
+      "years": "1466-1536",
+      "summary": "The scholar who gave the world its first printed Greek New Testament, learning Greek largely on his own in an age when it was almost unknown in Western Europe.",
+      "story": "When Erasmus began his studies, Greek was virtually unknown in Western Europe. Latin dominated the universities, and anyone who wanted to read the New Testament in its original language had to seek out rare manuscripts and even rarer teachers.\n\nErasmus taught himself Greek by collecting every Greek text he could find, studying with any teacher available (even paying for private lessons when he could barely afford food), and spending countless hours with a Greek grammar. He was past thirty when he finally gained competence.\n\nHis passion drove him to produce the Novum Instrumentum in 1516 - the first published Greek New Testament. This single work ignited the Reformation by putting the original text into scholars' hands. Luther used it to translate the German Bible. Tyndale used it for the English New Testament.\n\nErasmus famously said: 'I would have the Scriptures translated into all languages... I long that the husbandman should sing portions of them to himself as he follows the plow.'",
+      "greekMethod": "Erasmus was largely self-taught, collecting Greek manuscripts wherever he could find them. He studied with various tutors in Paris and Italy, practiced by translating Greek texts, and created his own study materials. He spent years perfecting his Greek before attempting his New Testament edition.",
+      "keyLesson": "It is never too late to learn Greek. Erasmus didn't become proficient until his thirties, yet he produced the most influential Greek text in history. Your late start is no barrier to significant achievement.",
+      "quote": "When I get a little money I buy books; and if any is left I buy food and clothes.",
+      "source": {
+        "author": "Roland Bainton",
+        "work": "Erasmus of Christendom",
+        "year": 1969
+      },
+      "tags": ["self-taught", "late-start", "perseverance", "scholarship"]
+    },
+    {
+      "id": "story-002",
+      "era": "reformation",
+      "title": "Luther's Greek at Wartburg Castle",
+      "figure": "Martin Luther",
+      "years": "1483-1546",
+      "summary": "The Reformer who learned Greek as an adult and translated the entire New Testament in just eleven weeks while hiding for his life.",
+      "story": "Martin Luther did not begin learning Greek until he was already a monk and professor. He was 34 years old when he started seriously studying the language that would transform his understanding of Scripture.\n\nIn 1521, after his stand at the Diet of Worms, Luther was 'kidnapped' by friends and hidden in Wartburg Castle for his safety. He could have despaired. Instead, he used this forced exile for perhaps the greatest translation project in history.\n\nIn just eleven weeks, Luther translated the entire New Testament from Greek into German. He worked feverishly, sometimes translating several chapters a day. His German Bible would shape the German language itself and inspire countless translations in other languages.\n\nLuther later reflected: 'I have undertaken to translate the Bible into German. This was good for me; otherwise I might have died in the delusion that I was a learned fellow.'",
+      "greekMethod": "Luther learned Greek as an adult at the University of Wittenberg, studying alongside his teaching duties. He used Erasmus's Greek New Testament extensively and practiced by making his own translations. He believed in reading the text repeatedly until the meaning became clear.",
+      "keyLesson": "Adversity can become opportunity. Luther used his exile to accomplish what would have seemed impossible. When life confines you, use that time for focused study that changes everything.",
+      "quote": "If you want to interpret well and confidently, set the Hebrew before you, and you will find that the translations hit upon the right meaning.",
+      "source": {
+        "author": "Heiko Oberman",
+        "work": "Luther: Man Between God and the Devil",
+        "year": 1989
+      },
+      "tags": ["late-start", "translation", "adversity", "intensive-study"]
+    },
+    {
+      "id": "story-003",
+      "era": "reformation",
+      "title": "Calvin's Classical Education",
+      "figure": "John Calvin",
+      "years": "1509-1564",
+      "summary": "The systematic theologian who mastered Greek and Hebrew as a young man and dedicated his life to careful exposition of Scripture in its original languages.",
+      "story": "Unlike many Reformers, John Calvin received excellent classical training from a young age. His father, a notary, secured him positions that funded his education at the finest schools in Paris.\n\nCalvin studied under the renowned Greek scholar Mathurin Cordier and later at the Collège de Montaigu. By his early twenties, he had mastered not only Latin and Greek but also Hebrew. His first published work was actually a commentary on a classical Latin text.\n\nThis rigorous foundation in languages served Calvin throughout his life. His commentaries on nearly every book of the Bible demonstrate careful attention to the Greek and Hebrew. His Institutes of the Christian Religion became the most influential systematic theology of the Reformation.\n\nIn Geneva, Calvin established the Academy specifically to train pastors in the biblical languages. He believed every minister should read Scripture in the original.",
+      "greekMethod": "Calvin received formal classical education from age 14 at the University of Paris. He studied under expert tutors, memorized paradigms, and practiced composition. His legal training further honed his analytical skills. He believed in systematic, rigorous study from youth.",
+      "keyLesson": "Master the fundamentals early and thoroughly. Calvin's youthful investment in language learning paid dividends for decades of ministry. If you're young, seize this season. If you're older, start now and encourage the young.",
+      "quote": "Scripture is like a pair of spectacles which dispels the darkness and gives us a clear view of God.",
+      "source": {
+        "author": "Bruce Gordon",
+        "work": "Calvin",
+        "year": 2009
+      },
+      "tags": ["young-start", "systematic-study", "education", "teaching"]
+    },
+    {
+      "id": "story-004",
+      "era": "reformation",
+      "title": "Melanchthon: Teacher of Germany",
+      "figure": "Philip Melanchthon",
+      "years": "1497-1560",
+      "summary": "The brilliant Greek scholar who arrived at Wittenberg at age 21 and became the educational architect of the Reformation.",
+      "story": "Philip Melanchthon was a prodigy. A great-nephew of the famous humanist Johannes Reuchlin, he learned Greek from childhood. By age 12, he had enrolled at the University of Heidelberg. By 21, he was appointed professor of Greek at Wittenberg.\n\nWhen the young scholar arrived to give his inaugural lecture, Luther was skeptical - Melanchthon looked frail and boyish. But when Melanchthon began to speak, Luther was overwhelmed. 'This little Greek surpasses me even in theology,' Luther declared.\n\nMelanchthon reformed German education entirely. He wrote Greek and Latin grammars that became standard for generations. He trained thousands of pastors and teachers. He earned the title 'Teacher of Germany.'\n\nMost importantly, he showed Luther the treasures hidden in the Greek New Testament. Their partnership changed history - Luther's passion combined with Melanchthon's precision.",
+      "greekMethod": "Melanchthon learned Greek from childhood through family connections. He studied systematically under expert tutors, became a teacher himself at a young age, and believed that teaching others was the best way to master a subject. He wrote textbooks to clarify his own understanding.",
+      "keyLesson": "Teaching deepens learning. Melanchthon became the greatest Greek teacher of his age by constantly teaching others. Consider finding someone to teach, even if you're a beginner - explaining concepts to others will cement your own understanding.",
+      "quote": "Grammar opens the door to all other sciences.",
+      "source": {
+        "author": "Timothy Wengert",
+        "work": "Philip Melanchthon: Speaker of the Reformation",
+        "year": 2010
+      },
+      "tags": ["young-start", "prodigy", "teaching", "systematic-study"]
+    },
+    {
+      "id": "story-005",
+      "era": "puritan",
+      "title": "John Owen and the Original Languages",
+      "figure": "John Owen",
+      "years": "1616-1683",
+      "summary": "The greatest Puritan theologian, who believed that access to the original languages was essential for every minister of the gospel.",
+      "story": "John Owen entered Queen's College, Oxford, at just twelve years old. Even among the brilliant Puritans, Owen stood out for his intellectual gifts. He mastered not only Greek and Hebrew but also rabbinic literature and patristic sources.\n\nOwen became chaplain to Oliver Cromwell and later Vice-Chancellor of Oxford University. Yet he never lost his commitment to careful exegesis in the original languages.\n\nHis works on biblical texts - especially Hebrews - show meticulous attention to Greek. He would often spend pages discussing a single Greek word, tracing its usage across Scripture and classical literature.\n\nOwen believed that ministers without the original languages were like surgeons without anatomy - perhaps able to do something, but dangerously limited. He trained countless students in the biblical languages at Oxford.",
+      "greekMethod": "Owen received rigorous classical training at Oxford from age 12. He supplemented formal education with intense private study, often reading 16-18 hours a day. He kept detailed notes on Greek vocabulary and usage, cross-referencing biblical and classical sources.",
+      "keyLesson": "There are no shortcuts to deep understanding. Owen's incredible output came from years of painstaking study. Be willing to spend hours on a single word or phrase - that depth will make all the difference in your teaching and understanding.",
+      "quote": "The vigour of our spiritual life will be in exact proportion to the place held by the Bible in our life and thoughts.",
+      "source": {
+        "author": "Sinclair Ferguson",
+        "work": "John Owen on the Christian Life",
+        "year": 1987
+      },
+      "tags": ["young-start", "intensive-study", "oxford", "depth"]
+    },
+    {
+      "id": "story-006",
+      "era": "puritan",
+      "title": "Bunyan's Limited Resources",
+      "figure": "John Bunyan",
+      "years": "1628-1688",
+      "summary": "The tinker who wrote Pilgrim's Progress without formal education, proving that hunger for God's Word matters more than academic credentials.",
+      "story": "John Bunyan had almost no formal education. He was a tinker - a traveling mender of pots and pans. He learned to read and write as a child but received no classical training.\n\nUnlike the university-trained Puritans, Bunyan could not read Greek or Hebrew. What he could do was read Scripture constantly in English and meditate on it deeply. His writings show intimate knowledge of the Bible's content, if not its original languages.\n\nDuring his twelve years in Bedford jail for unlicensed preaching, Bunyan wrote prolifically. Pilgrim's Progress, written in prison, became the most widely read book in English after the Bible itself.\n\nBunyan proves that while Greek is invaluable, the most essential thing is a heart captivated by Scripture. He knew the English Bible so thoroughly that his works overflow with biblical allusion and imagery.",
+      "greekMethod": "Bunyan could not read Greek but compensated by exhaustive study of English translations, memorizing vast portions of Scripture, and meditating constantly on what he read. He showed that deep engagement with translation can yield profound understanding.",
+      "keyLesson": "Don't let lack of Greek stop you from deep Scripture engagement - but also don't let Bunyan's example become an excuse. He desperately wanted the training he couldn't get. If you have the opportunity to learn Greek, seize it. Bunyan would have.",
+      "quote": "This Book will keep you from sin, or sin will keep you from this Book.",
+      "source": {
+        "author": "John Brown",
+        "work": "John Bunyan: His Life, Times, and Work",
+        "year": 1885
+      },
+      "tags": ["self-taught", "limited-resources", "meditation", "persistence"]
+    },
+    {
+      "id": "story-007",
+      "era": "puritan",
+      "title": "Matthew Henry's Father-Son Study",
+      "figure": "Matthew Henry",
+      "years": "1662-1714",
+      "summary": "The author of the most beloved commentary in English, trained in the biblical languages by his godly father in their family home.",
+      "story": "Matthew Henry's father, Philip Henry, was a Puritan minister ejected from his church by the Act of Uniformity. Unable to preach publicly, Philip devoted himself to educating his children at home.\n\nPhilip taught young Matthew Greek, Hebrew, and Latin alongside daily family worship. The Henry home became a school where Scripture in its original languages was the core curriculum.\n\nMatthew later studied at a dissenting academy, but the foundation was laid at home. His famous commentary - still in print after three hundred years - reflects both scholarly precision and devotional warmth.\n\nThe Commentary on the Whole Bible took Matthew Henry twenty-five years to write. He died before completing it, having reached Acts 16. Friends completed the work from his notes.\n\nHenry's method was to rise at 4am for private devotion, then spend mornings in study and writing. His disciplined approach produced work that has blessed millions.",
+      "greekMethod": "Henry learned Greek from his father in a home school environment, combining language study with devotional reading. He continued at Thomas Doolittle's academy. His method was systematic daily study integrated with prayer and meditation.",
+      "keyLesson": "Family discipleship is powerful. Philip Henry lost his pulpit but gained the opportunity to raise a son whose commentary has outlasted thousands of sermons. Consider how you might teach others - especially children - the biblical languages.",
+      "quote": "He whose head is in heaven need not fear to put his feet into the grave.",
+      "source": {
+        "author": "Allan Harman",
+        "work": "Matthew Henry: His Life and Influence",
+        "year": 2012
+      },
+      "tags": ["family-training", "home-education", "systematic-study", "devotion"]
+    },
+    {
+      "id": "story-008",
+      "era": "eighteenth",
+      "title": "Jonathan Edwards at Yale",
+      "figure": "Jonathan Edwards",
+      "years": "1703-1758",
+      "summary": "America's greatest theologian, who entered Yale at 13 and developed rigorous study habits that served a lifetime of extraordinary ministry.",
+      "story": "Jonathan Edwards entered Yale College at just thirteen years old. Even among students, his intellectual intensity was remarkable. He would study for thirteen hours a day, maintaining detailed notebooks on every subject.\n\nEdwards learned Greek and Hebrew thoroughly, but he also studied natural philosophy, Locke, and Newton. His scientific mind and theological heart combined uniquely.\n\nHis 'Resolutions' - written at age nineteen - reveal his character. He resolved to 'study the Scriptures so steadily, constantly, and frequently, as that I may find, and plainly perceive, myself to grow in the knowledge of the same.'\n\nEdwards' sermons and theological works demonstrate constant engagement with the Greek and Hebrew. 'Sinners in the Hands of an Angry God' - often misunderstood - is actually a carefully reasoned exposition of Scripture.\n\nHis method was to take extensive notes while reading, then review and organize those notes systematically. He created a complex system of cross-references that allowed him to connect insights across years of study.",
+      "greekMethod": "Edwards received rigorous classical training at Yale beginning at age 13. He supplemented formal classes with intense private study, keeping detailed notebooks. He believed in systematic review and cross-referencing of insights over years.",
+      "keyLesson": "Build systems for long-term learning. Edwards' notebook method allowed him to retain and connect insights across decades. Consider how you might organize your Greek learning for the long haul - not just this week, but for a lifetime of study.",
+      "quote": "Resolution One: I will live for God. Resolution Two: If no one else does, I still will.",
+      "source": {
+        "author": "George Marsden",
+        "work": "Jonathan Edwards: A Life",
+        "year": 2003
+      },
+      "tags": ["young-start", "systematic-study", "notebooks", "discipline"]
+    },
+    {
+      "id": "story-009",
+      "era": "eighteenth",
+      "title": "Wesley's Methodical Greek",
+      "figure": "John Wesley",
+      "years": "1703-1791",
+      "summary": "The founder of Methodism, who rose at 4am daily for language study and read his Greek New Testament on horseback.",
+      "story": "John Wesley was a creature of rigorous habit - hence 'Methodist.' He rose at 4am every morning for prayer and Scripture study, a practice he maintained for over fifty years.\n\nAt Oxford, Wesley and his 'Holy Club' committed to systematic Bible study in the original languages. They met regularly to read the Greek New Testament together, holding one another accountable.\n\nWesley traveled over 250,000 miles on horseback during his ministry, preaching forty thousand sermons. Yet even while riding, he would read. He designed a special bridle arrangement that freed his hands for books.\n\nHis journals record reading Greek and Hebrew texts while traveling between preaching appointments. He published his own Notes on the New Testament, drawing on the Greek text, and encouraged his lay preachers to learn the original languages.\n\nWesley proved that a busy ministry schedule is no excuse for neglecting study. If anything, the busier you are, the more you need the discipline of daily engagement with Scripture.",
+      "greekMethod": "Wesley learned Greek at Charterhouse School and Oxford. He maintained his Greek through daily reading of the New Testament in the original, often while traveling. He believed in methodical daily practice rather than sporadic intensive study.",
+      "keyLesson": "Consistency trumps intensity. Wesley's lifelong Greek fluency came from daily engagement, not occasional cramming. Build Greek study into your daily routine - even fifteen minutes daily beats three hours occasionally.",
+      "quote": "I want to know one thing, the way to heaven: how to land safe on that happy shore. God himself has condescended to teach the way.",
+      "source": {
+        "author": "Henry Rack",
+        "work": "Reasonable Enthusiast: John Wesley and the Rise of Methodism",
+        "year": 1989
+      },
+      "tags": ["discipline", "consistency", "busy-life", "daily-practice"]
+    },
+    {
+      "id": "story-010",
+      "era": "nineteenth",
+      "title": "Spurgeon the Self-Taught Prince",
+      "figure": "Charles Spurgeon",
+      "years": "1834-1892",
+      "summary": "The Prince of Preachers who never attended seminary but built a legendary personal library and trained thousands of pastors.",
+      "story": "Charles Spurgeon never attended theological college. He was largely self-taught, converting at 15 and preaching at 16. By 19, he was pastor of London's largest Baptist church.\n\nWhat Spurgeon lacked in formal training, he made up for in voracious reading. He read six books a week for most of his ministry and built a personal library of over 12,000 volumes. He could quote the Puritans from memory.\n\nWhile Spurgeon did study Greek, he was honest about his limitations compared to seminary-trained scholars. Yet he demonstrated that careful use of commentaries and reference works could compensate for lack of formal training.\n\nSpurgeon founded a Pastors' College precisely because he valued theological education - even though he hadn't received it formally himself. He trained nearly 900 students during his lifetime, insisting they learn Greek and Hebrew.\n\nHis sermons, still widely read today, demonstrate thorough preparation. He typically spent all week studying a text, consulting multiple commentaries and the Greek, before preaching without notes on Sunday.",
+      "greekMethod": "Spurgeon was largely self-taught in Greek, learning from grammars and by using commentaries that referenced the original. He compensated for less formal training through extensive reading of those who knew the languages well.",
+      "keyLesson": "Use every resource available. Spurgeon couldn't attend seminary, so he built his own education through reading. Today you have resources Spurgeon could never have imagined - apps, online courses, interlinear texts. Use them all.",
+      "quote": "Visit many good books, but live in the Bible.",
+      "source": {
+        "author": "Arnold Dallimore",
+        "work": "Spurgeon: A New Biography",
+        "year": 1984
+      },
+      "tags": ["self-taught", "reading", "no-seminary", "resourcefulness"]
+    },
+    {
+      "id": "story-011",
+      "era": "nineteenth",
+      "title": "J.C. Ryle's Practical Scholarship",
+      "figure": "J.C. Ryle",
+      "years": "1816-1900",
+      "summary": "The first Bishop of Liverpool, who combined Oxford scholarship with simple, clear writing that brought Greek insights to ordinary Christians.",
+      "story": "J.C. Ryle was first in his class in classics at Eton and Oxford. He was destined for a political career until his father's bankruptcy forced him into the ministry.\n\nWhat seemed like disaster became divine appointment. Ryle's classical training enabled deep engagement with Scripture, while his 'reduced circumstances' gave him sympathy for ordinary people.\n\nRyle became famous for simple, direct writing. His Expository Thoughts on the Gospels made Greek scholarship accessible to everyone. He would explain the original language in plain English, showing how Greek illuminated the meaning.\n\nHis motto was: 'I have a deep conviction that to write what people will read you must write simply.' Yet beneath that simplicity lay serious scholarship.\n\nAs Bishop of Liverpool, Ryle championed training for clergy in the original languages. He believed every minister should be able to read Greek, but also that scholarship should serve the church, not just the academy.",
+      "greekMethod": "Ryle received rigorous classical education at Eton and Oxford, achieving first-class honors. He maintained his Greek through daily reading and by writing expositions that forced careful engagement with the text.",
+      "keyLesson": "Scholarship should serve clarity, not obscure it. Ryle used his Greek to make Scripture clearer to ordinary readers. As you learn Greek, practice explaining insights in simple terms - if you can't explain it simply, you may not understand it fully.",
+      "quote": "Never be afraid of reading your Bible too much. The soul of Bible-reading is reading the Bible with soul.",
+      "source": {
+        "author": "Eric Russell",
+        "work": "That Man of Granite with the Heart of a Child",
+        "year": 2001
+      },
+      "tags": ["oxford", "simplicity", "practical", "teaching"]
+    },
+    {
+      "id": "story-012",
+      "era": "nineteenth",
+      "title": "B.B. Warfield's Princeton Rigor",
+      "figure": "Benjamin Breckinridge Warfield",
+      "years": "1851-1921",
+      "summary": "The Princeton theologian who combined rigorous linguistic scholarship with warm devotion, defending Scripture in an age of doubt.",
+      "story": "B.B. Warfield studied at Princeton College, then traveled to Germany to learn from the finest biblical scholars in the world. He immersed himself in the most advanced Greek and Hebrew scholarship of his day.\n\nReturning to Princeton Seminary, Warfield became the leading defender of biblical inerrancy. His textual and linguistic arguments were so thorough that critics rarely engaged them directly.\n\nWarfield was known for his phenomenal memory. He could quote vast portions of Scripture in Greek and could recall details from hundreds of scholarly articles. Yet he was no mere technician - his writings overflow with devotion to Christ.\n\nHis wife became an invalid early in their marriage. For nearly forty years, Warfield rarely left Princeton so he could care for her. He turned this confinement into an opportunity for incredible scholarly output.\n\nWarfield's method was careful, patient, exhaustive study. He believed that truth could be found through diligent investigation and that apparent difficulties in Scripture yielded to patient scholarship.",
+      "greekMethod": "Warfield received the finest classical education available - Princeton College, then study in Germany with leading scholars. He maintained his Greek through constant reading, writing, and teaching. He believed in exhaustive, patient study of texts.",
+      "keyLesson": "Scholarship and devotion belong together. Warfield combined rigorous academic work with personal faith. Don't let learning Greek become merely academic - let it draw you closer to Christ.",
+      "quote": "The systematic theologian is pre-eminently a preacher of the gospel; and the end of his work is obviously not merely the logical arrangement of the truths concerning God, but the leading of men to God.",
+      "source": {
+        "author": "Fred Zaspel",
+        "work": "The Theology of B.B. Warfield",
+        "year": 2010
+      },
+      "tags": ["princeton", "germany", "scholarship", "devotion"]
+    },
+    {
+      "id": "story-013",
+      "era": "modern",
+      "title": "Machen's Defense of the Faith",
+      "figure": "J. Gresham Machen",
+      "years": "1881-1937",
+      "summary": "The Princeton scholar who left everything to defend orthodox Christianity, proving that Greek scholarship serves the church's faith.",
+      "story": "J. Gresham Machen was one of the finest Greek scholars America ever produced. His 'New Testament Greek for Beginners' remains in print after a century. His scholarly credentials were impeccable.\n\nMachen studied at Johns Hopkins, Princeton, and then in Germany under the greatest New Testament scholars. He could have had a comfortable academic career anywhere.\n\nInstead, Machen sacrificed everything for the truth. When Princeton Seminary drifted from its orthodox heritage, Machen left to found Westminster Seminary. He was stripped of his ordination by his denomination.\n\nThrough it all, Machen insisted that linguistic scholarship and orthodox faith belonged together. His book 'Christianity and Liberalism' argued that theological liberalism was not Christianity at all - and backed the argument with careful exegesis.\n\nMachen died at 55, exhausted from travel and controversy. His legacy lives on in Westminster Seminary and in generations of scholars who learned Greek from his textbook.",
+      "greekMethod": "Machen received the finest available education - Johns Hopkins, Princeton, and German universities. He learned by immersion in the scholarly community, then consolidated his learning by writing a grammar for beginners.",
+      "keyLesson": "Greek scholarship exists to serve the church's faith, not to undermine it. Machen showed that the most rigorous scholarship confirms orthodox Christianity. Learn Greek to strengthen your faith and defend the faith of others.",
+      "quote": "God give us men who hold that truth is more to be desired than popularity.",
+      "source": {
+        "author": "D.G. Hart",
+        "work": "Defending the Faith: J. Gresham Machen and the Crisis of Conservative Protestantism",
+        "year": 1994
+      },
+      "tags": ["scholarship", "apologetics", "sacrifice", "teaching"]
+    },
+    {
+      "id": "story-014",
+      "era": "modern",
+      "title": "Lloyd-Jones: From Medicine to Ministry",
+      "figure": "D. Martyn Lloyd-Jones",
+      "years": "1899-1981",
+      "summary": "The Welsh doctor who left a brilliant medical career to preach, proving that it's never too late to reorient your life around Scripture.",
+      "story": "Martyn Lloyd-Jones was a brilliant young doctor, chief clinical assistant to the royal physician. A spectacular medical career lay before him. Then he encountered the living God.\n\nAt 27, Lloyd-Jones left medicine to become a pastor in a small Welsh church. His medical colleagues thought he was mad. His income dropped by 90%.\n\nLloyd-Jones had not studied Greek formally as a minister would. He was a medical doctor. But he threw himself into study of the original languages with the same intensity he had brought to medicine.\n\nFor thirty years at Westminster Chapel in London, Lloyd-Jones preached systematically through books of the Bible. His sermons on Romans took fourteen years. Every sermon demonstrated careful engagement with the Greek text.\n\nLloyd-Jones showed that a career change does not mean starting from zero. The discipline and analytical skills from medicine transferred to biblical study. He simply redirected his considerable abilities toward Scripture.",
+      "greekMethod": "Lloyd-Jones learned Greek as an adult, after entering ministry. He studied systematically with grammars and commentaries, applying the same rigorous analytical approach he had developed in medical training.",
+      "keyLesson": "Your previous training is not wasted. Lloyd-Jones's medical precision transferred to theological study. Whatever skills you've developed in other fields - analysis, research, communication - can serve your Greek learning.",
+      "quote": "I spent most of my time doing what I believe God had called me to do - namely, the study and exposition of the Bible.",
+      "source": {
+        "author": "Iain Murray",
+        "work": "D. Martyn Lloyd-Jones: The Fight of Faith",
+        "year": 1990
+      },
+      "tags": ["career-change", "late-start", "discipline", "preaching"]
+    },
+    {
+      "id": "story-015",
+      "era": "modern",
+      "title": "John Piper's Seminary Journey",
+      "figure": "John Piper",
+      "years": "1946-present",
+      "summary": "The pastor-theologian who discovered that 'God is most glorified in us when we are most satisfied in Him' through deep engagement with the Greek New Testament.",
+      "story": "John Piper grew up in a Christian home but discovered the life-changing power of Greek in seminary and graduate school. He earned a doctorate in New Testament studies from the University of Munich.\n\nPiper has spoken often about how learning Greek transformed his Bible reading. He describes the experience of seeing the original text as 'like seeing in color after seeing only black and white.'\n\nFor 33 years as pastor of Bethlehem Baptist Church in Minneapolis, Piper preached systematically through books of the Bible. His method was to work carefully through the Greek text during the week, then preach without notes on Sunday.\n\nPiper has made Greek scholarship accessible through his 'Look at the Book' videos, where he walks through passages in the original language. He believes every Christian can benefit from at least basic Greek.\n\nHis example shows that scholarly training and pastoral passion belong together. Piper moved from academia to the pastorate precisely because he wanted to use his Greek training to feed God's people.",
+      "greekMethod": "Piper learned Greek through formal seminary and doctoral education at Fuller and Munich. He maintains his Greek through daily reading of the Greek New Testament and weekly sermon preparation that engages the original text.",
+      "keyLesson": "Greek is not just for scholars - it's for pastors and all who want to know God's Word deeply. Piper's example shows that rigorous academic training can serve joyful, passionate ministry.",
+      "quote": "Desire that your reading of Scripture would be a discovery of God's new mercies every morning.",
+      "source": {
+        "author": "John Piper",
+        "work": "Reading the Bible Supernaturally",
+        "year": 2017
+      },
+      "tags": ["seminary", "doctoral-study", "pastoral", "joy"]
+    }
+  ]
+}

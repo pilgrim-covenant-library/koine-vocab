@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem, BookHeart } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
@@ -217,6 +217,13 @@ export default function Dashboard() {
               title="Greek Gems"
               description="Discover insights lost in English translation"
               color="bg-violet-500"
+            />
+            <LearningModeCard
+              href="/stories"
+              icon={<BookHeart className="w-6 h-6" />}
+              title="Inspirational Stories"
+              description="How the Reformers mastered Greek"
+              color="bg-rose-500"
             />
           </div>
         </section>
