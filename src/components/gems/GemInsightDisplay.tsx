@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, BookOpen, AlertTriangle, Lightbulb } from 'lucide-react';
+import { ChevronDown, ChevronUp, BookOpen, AlertTriangle, Quote } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/Card';
+import type { GemSource } from '@/types';
 
 interface GemInsightDisplayProps {
   insight: string;
+  source: GemSource;
   whyEnglishMisses: string;
   referenceText: string;
   reference: string;
@@ -15,6 +17,7 @@ interface GemInsightDisplayProps {
 
 export function GemInsightDisplay({
   insight,
+  source,
   whyEnglishMisses,
   referenceText,
   reference,
@@ -24,16 +27,23 @@ export function GemInsightDisplay({
 
   return (
     <div className={cn('space-y-6', className)}>
-      {/* Main Insight */}
+      {/* Main Insight - Quote from Reformed/Puritan source */}
       <Card className="border-l-4 border-l-primary">
         <CardContent className="p-4 sm:p-5">
           <div className="flex items-start gap-3">
             <div className="p-2 rounded-full bg-primary/10 text-primary shrink-0">
-              <Lightbulb className="w-5 h-5" />
+              <Quote className="w-5 h-5" />
             </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-2">The Greek Insight</h3>
-              <p className="text-muted-foreground leading-relaxed">{insight}</p>
+            <div className="flex-1">
+              <h3 className="font-semibold text-foreground mb-3">The Greek Insight</h3>
+              <blockquote className="border-l-2 border-muted-foreground/30 pl-4 italic text-muted-foreground leading-relaxed">
+                "{insight}"
+              </blockquote>
+              <p className="mt-3 text-sm text-muted-foreground">
+                — <span className="font-medium text-foreground">{source.author}</span>,{' '}
+                <em>{source.work}</em>
+                {source.year && <span> ({source.year})</span>}
+              </p>
             </div>
           </div>
         </CardContent>

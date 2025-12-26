@@ -244,6 +244,12 @@ export type GemCategory =
 
 export type GemLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert';
 
+export interface GemSource {
+  author: string;
+  work: string;
+  year?: number;
+}
+
 export interface GreekGem {
   id: string;
   category: GemCategory;
@@ -254,6 +260,7 @@ export interface GreekGem {
   reference: string;
   referenceText: string;
   insight: string;
+  source: GemSource; // Attribution for the quote
   whyEnglishMisses: string;
   relatedWords?: string[]; // Strong's numbers
   tags: string[];

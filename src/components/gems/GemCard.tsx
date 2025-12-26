@@ -65,10 +65,15 @@ export function GemCard({ gem, compact = false, className }: GemCardProps) {
 
           {/* Insight Preview */}
           {!compact && (
-            <p className="text-sm text-muted-foreground line-clamp-3 mb-3">
-              {insightPreview}
+            <p className="text-sm text-muted-foreground line-clamp-2 mb-2 italic">
+              "{insightPreview}"
             </p>
           )}
+
+          {/* Source Author */}
+          <p className="text-xs text-muted-foreground mb-3">
+            — {gem.source.author}
+          </p>
 
           {/* Read More Indicator */}
           <div className="flex items-center justify-end text-sm text-primary font-medium group-hover:text-primary/80">

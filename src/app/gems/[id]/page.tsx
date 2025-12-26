@@ -166,6 +166,7 @@ export default function GemDetailPage() {
         {/* Insights */}
         <GemInsightDisplay
           insight={gem.insight}
+          source={gem.source}
           whyEnglishMisses={gem.whyEnglishMisses}
           referenceText={gem.referenceText}
           reference={gem.reference}
