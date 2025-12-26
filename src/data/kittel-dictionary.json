@@ -5700,6 +5700,348 @@
       ],
       "volume": 2,
       "pages": "232-255"
+    },
+    {
+      "id": "nomos",
+      "category": "ethics",
+      "greek": "νόμος",
+      "transliteration": "nomos",
+      "strongs": "G3551",
+      "shortDef": "law, principle, norm, the Mosaic Law",
+      "title": "Law: Torah, Principle, and the Pedagogue to Christ",
+      "summary": "Νόμος is the NT word for law - especially the Mosaic Law (Torah), but also law as principle or norm. Paul's treatment of νόμος is central to understanding justification: the law reveals sin, condemns sinners, but cannot save. Christ is the end (τέλος) of the law for righteousness.",
+      "classicalGreek": "In classical Greek, νόμος meant custom, usage, or law - that which is assigned or apportioned as normal. It could refer to musical modes, civic laws, or social conventions. The emphasis was on established practice recognized as binding. Νόμος stood for order against chaos, civilization against barbarism.",
+      "lxxBackground": "The LXX uses νόμος primarily for תּוֹרָה (torah) - instruction, teaching, law. Torah is more than legislation; it is God's instruction for covenant life. The Pentateuch is 'the Law.' The Psalms celebrate the law: 'Oh how I love your law!' (Ps 119:97). The law is God's gracious gift revealing His will. Yet the prophets anticipate a new covenant with law written on hearts (Jer 31:33).",
+      "intertestamental": "Second Temple Judaism intensified focus on Torah observance. The 'fence around the law' (oral traditions) developed. The Pharisees sought precise Torah keeping. The Qumran community had their own strict legal interpretations. Keeping the law was seen as the path to righteousness and national restoration. Different groups debated what proper law-keeping looked like.",
+      "ntUsage": "Paul's letters wrestle extensively with νόμος. The law is 'holy, righteous, and good' (Rom 7:12), yet 'by works of the law no one will be justified' (Gal 2:16). The law reveals sin (Rom 3:20; 7:7), increases transgression (Rom 5:20), and brings curse (Gal 3:10). Yet the law was a 'pedagogue' leading to Christ (Gal 3:24). Christ is 'the end of the law for righteousness' (Rom 10:4). Believers are 'not under law but under grace' (Rom 6:14), yet fulfill 'the law of Christ' (Gal 6:2) and 'the law of the Spirit of life' (Rom 8:2). James speaks of 'the perfect law of liberty' (Jas 1:25; 2:12). Jesus came not to abolish but to fulfill the law (Matt 5:17).",
+      "keyPassages": [
+        {
+          "reference": "Romans 3:20",
+          "greek": "ἐξ ἔργων νόμου οὐ δικαιωθήσεται πᾶσα σὰρξ ἐνώπιον αὐτοῦ, διὰ γὰρ νόμου ἐπίγνωσις ἁμαρτίας",
+          "significance": "By works of law no flesh justified; through law comes knowledge of sin - the law diagnoses but cannot cure."
+        },
+        {
+          "reference": "Galatians 3:24",
+          "greek": "ὁ νόμος παιδαγωγὸς ἡμῶν γέγονεν εἰς Χριστόν",
+          "significance": "The law was our pedagogue unto Christ - its purpose was to lead us to the Savior."
+        },
+        {
+          "reference": "Romans 10:4",
+          "greek": "τέλος γὰρ νόμου Χριστὸς εἰς δικαιοσύνην παντὶ τῷ πιστεύοντι",
+          "significance": "Christ is the end/goal of the law for righteousness to everyone who believes."
+        }
+      ],
+      "theologicalSignificance": "Understanding νόμος is essential for grasping Paul's gospel. The law is God's good gift revealing His holy will. Yet the law cannot justify because sinful humans cannot keep it perfectly (Rom 8:3). The law's purpose was never to save but to expose sin and drive sinners to Christ. Those in Christ are free from the law's condemnation (Rom 8:1) yet fulfill the law's intent through love (Rom 13:8-10). The Reformation's 'three uses of the law' (to restrain evil, reveal sin, guide believers) capture the NT's nuanced treatment. Christ fulfills the law's demands and frees believers from its curse.",
+      "relatedWords": [
+        {
+          "greek": "νομικός",
+          "transliteration": "nomikos",
+          "relationship": "Pertaining to law; lawyer, legal expert (Luke 7:30; Titus 3:9)"
+        },
+        {
+          "greek": "νόμιμος",
+          "transliteration": "nomimos",
+          "relationship": "Lawful, legal (1 Tim 1:8; 2 Tim 2:5)"
+        },
+        {
+          "greek": "ἄνομος",
+          "transliteration": "anomos",
+          "relationship": "Lawless, without law (1 Cor 9:21; 2 Thess 2:8)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "pauline",
+        "reformation",
+        "justification"
+      ],
+      "volume": 4,
+      "pages": "1022-1091"
+    },
+    {
+      "id": "stauros",
+      "category": "salvation",
+      "greek": "σταυρός",
+      "transliteration": "stauros",
+      "strongs": "G4716",
+      "shortDef": "cross, stake, crucifixion",
+      "title": "The Cross: Scandal, Power, and Glory",
+      "summary": "Σταυρός is the cross - the instrument of Jesus' execution that became Christianity's central symbol. To the ancient world, crucifixion was shameful torture reserved for slaves and criminals. Paul proclaims this scandal as 'the power of God' - God's wisdom hidden in apparent foolishness.",
+      "classicalGreek": "In classical Greek, σταυρός meant an upright stake or pole, often used for impaling or hanging. By Roman times, it designated the cross-shaped instrument of execution. Crucifixion was the most shameful death imaginable - reserved for slaves, rebels, and the worst criminals. Cicero called it 'the most cruel and disgusting penalty.' The word carried connotations of utter degradation and curse.",
+      "lxxBackground": "The LXX does not use σταυρός, but Deuteronomy 21:22-23 declares that one 'hung on a tree' is under God's curse. This passage becomes crucial for NT interpretation: Christ became a curse for us by hanging on a tree (Gal 3:13). The OT also foreshadows: the bronze serpent lifted up (Num 21:8-9; John 3:14), the Passover lamb's blood (Ex 12), the Suffering Servant (Isa 53).",
+      "intertestamental": "Crucifixion was used by Greeks and Romans throughout this period. The Qumran pesher on Nahum mentions 'hanging alive on a tree.' Jewish sources viewed crucifixion as cursed death. The cross was associated with shame, torture, and divine rejection. No one could have anticipated that the Messiah would be crucified.",
+      "ntUsage": "The Gospels narrate Jesus' crucifixion in detail (Matt 27; Mark 15; Luke 23; John 19). Jesus calls disciples to 'take up the cross' (Matt 16:24) - accepting shame and death for His sake. Paul makes the cross central: 'I decided to know nothing among you except Jesus Christ and Him crucified' (1 Cor 2:2). The cross is foolishness to Greeks and scandal to Jews, but to believers 'the power of God' (1 Cor 1:18, 23-24). Through the cross, God reconciles all things (Col 1:20), breaks down dividing walls (Eph 2:16), cancels the debt against us (Col 2:14), and defeats powers (Col 2:15). Believers are 'crucified with Christ' (Gal 2:20) and crucify the flesh (Gal 5:24). The cross is both historical event and ongoing reality.",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 1:18",
+          "greek": "ὁ λόγος γὰρ ὁ τοῦ σταυροῦ τοῖς μὲν ἀπολλυμένοις μωρία ἐστίν, τοῖς δὲ σῳζομένοις ἡμῖν δύναμις θεοῦ ἐστιν",
+          "significance": "The word of the cross is foolishness to the perishing but the power of God to the saved."
+        },
+        {
+          "reference": "Galatians 6:14",
+          "greek": "ἐμοὶ δὲ μὴ γένοιτο καυχᾶσθαι εἰ μὴ ἐν τῷ σταυρῷ τοῦ κυρίου ἡμῶν Ἰησοῦ Χριστοῦ",
+          "significance": "Far be it from me to boast except in the cross of our Lord Jesus Christ."
+        },
+        {
+          "reference": "Colossians 2:14-15",
+          "greek": "ἐξαλείψας τὸ καθ᾽ ἡμῶν χειρόγραφον... προσηλώσας αὐτὸ τῷ σταυρῷ",
+          "significance": "Canceling the record of debt by nailing it to the cross - debt paid, powers defeated."
+        }
+      ],
+      "theologicalSignificance": "The σταυρός revolutionizes all human values. What the world sees as shameful defeat, God reveals as glorious victory. The cross is where God's wrath and mercy meet: Christ bears the curse we deserved (Gal 3:13), becoming sin for us (2 Cor 5:21). The cross is substitutionary atonement - the just dying for the unjust. It is also victory - through apparent defeat, Christ triumphed over sin, death, and demonic powers (Col 2:15). The cross shapes Christian life: believers are crucified with Christ (Gal 2:20), dying to sin and self. 'Taking up the cross' means accepting suffering, shame, and self-denial for Christ's sake. The cross remains 'folly' to the world but 'the power of God' to believers.",
+      "relatedWords": [
+        {
+          "greek": "σταυρόω",
+          "transliteration": "stauroō",
+          "relationship": "To crucify (Matt 27:35; Gal 5:24; 6:14)"
+        },
+        {
+          "greek": "συσταυρόω",
+          "transliteration": "systauroō",
+          "relationship": "To crucify with/together (Rom 6:6; Gal 2:20)"
+        },
+        {
+          "greek": "ἀνασταυρόω",
+          "transliteration": "anastauroō",
+          "relationship": "To crucify again (Heb 6:6)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "pauline",
+        "atonement",
+        "gospel"
+      ],
+      "volume": 7,
+      "pages": "572-584"
+    },
+    {
+      "id": "anastasis",
+      "category": "eschatology",
+      "greek": "ἀνάστασις",
+      "transliteration": "anastasis",
+      "strongs": "G386",
+      "shortDef": "resurrection, rising up, standing again",
+      "title": "Resurrection: The Defeat of Death",
+      "summary": "Ἀνάστασις means resurrection - rising from the dead. Christ's resurrection is Christianity's foundation: 'If Christ has not been raised, your faith is futile' (1 Cor 15:17). Believers share in Christ's resurrection now spiritually and will share bodily at His return. Resurrection is not mere resuscitation but transformation into glorious, immortal life.",
+      "classicalGreek": "In classical Greek, ἀνάστασις meant a rising up or standing - from seats, from sleep, or in general. It could refer to removal, migration, or recovery. The concept of bodily resurrection from death was largely foreign to Greek thought, which generally viewed death as the soul's liberation from the body. The body was a prison, not something to be raised.",
+      "lxxBackground": "The LXX uses ἀνάστασις occasionally, but the concept develops in later OT books. Daniel 12:2 is the clearest OT resurrection text: 'Many who sleep in the dust of the earth shall awake.' Isaiah 26:19 declares 'Your dead shall live; their bodies shall rise.' Ezekiel's valley of dry bones (Ezek 37) symbolizes national restoration but suggests bodily resurrection. The Maccabean martyrs died believing in resurrection (2 Macc 7).",
+      "intertestamental": "By Jesus' time, resurrection was debated. The Pharisees affirmed bodily resurrection; the Sadducees denied it (Acts 23:8). Apocalyptic texts (1 Enoch, 4 Ezra) developed resurrection hope. The Qumran community's beliefs are debated but may have included resurrection. Most Jews who believed in resurrection expected it at the end of history, not within it.",
+      "ntUsage": "Jesus affirms resurrection and claims to be 'the resurrection and the life' (John 11:25). He debates Sadducees, proving resurrection from Scripture (Matt 22:23-33). The apostolic preaching centers on Jesus' resurrection: 'God raised Him from the dead' (Acts 2:24, 32; 3:15; 4:10; 10:40; 13:30). Paul's gospel is that Christ 'was raised on the third day' (1 Cor 15:4). 1 Corinthians 15 is the fullest treatment: Christ's resurrection guarantees ours; the resurrection body is transformed, spiritual, glorious, imperishable. Believers already participate in Christ's resurrection (Rom 6:4-5; Eph 2:5-6; Col 3:1) and await bodily resurrection at His coming (1 Thess 4:16; Phil 3:21).",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 15:17",
+          "greek": "εἰ δὲ Χριστὸς οὐκ ἐγήγερται, ματαία ἡ πίστις ὑμῶν",
+          "significance": "If Christ has not been raised, your faith is futile - resurrection is non-negotiable."
+        },
+        {
+          "reference": "John 11:25",
+          "greek": "ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή",
+          "significance": "I AM the resurrection and the life - Jesus embodies resurrection, not just teaches it."
+        },
+        {
+          "reference": "Philippians 3:10-11",
+          "greek": "τοῦ γνῶναι αὐτὸν καὶ τὴν δύναμιν τῆς ἀναστάσεως αὐτοῦ",
+          "significance": "To know Him and the power of His resurrection - resurrection power transforms present life."
+        }
+      ],
+      "theologicalSignificance": "Ἀνάστασις is Christianity's cornerstone. Without resurrection, there is no Christianity (1 Cor 15:14-19). Christ's resurrection vindicates His claims, demonstrates His deity, conquers death, and guarantees our resurrection. The resurrection is historical - it happened in space and time - yet also eschatological - it inaugurates the new creation. Believers already share in resurrection life spiritually (Eph 2:5-6) and will share bodily at Christ's return. The resurrection body is not resuscitated flesh but transformed, glorified, immortal (1 Cor 15:42-54). Resurrection affirms the body's goodness - God redeems, not abandons, His material creation. Easter is not an appendix to Good Friday but its vindication and completion.",
+      "relatedWords": [
+        {
+          "greek": "ἀνίστημι",
+          "transliteration": "anistēmi",
+          "relationship": "To raise up, rise (Mark 8:31; Acts 2:24)"
+        },
+        {
+          "greek": "ἐγείρω",
+          "transliteration": "egeirō",
+          "relationship": "To raise, wake (1 Cor 15:4, 12-20 - often used for resurrection)"
+        },
+        {
+          "greek": "ἐξανάστασις",
+          "transliteration": "exanastasis",
+          "relationship": "Resurrection (out from), used in Phil 3:11"
+        }
+      ],
+      "tags": [
+        "essential",
+        "eschatology",
+        "christology",
+        "gospel"
+      ],
+      "volume": 1,
+      "pages": "368-372"
+    },
+    {
+      "id": "metanoia",
+      "category": "salvation",
+      "greek": "μετάνοια",
+      "transliteration": "metanoia",
+      "strongs": "G3341",
+      "shortDef": "repentance, change of mind, conversion",
+      "title": "Repentance: The Turning That Transforms",
+      "summary": "Μετάνοια is repentance - a radical change of mind that produces changed behavior. More than regret or remorse, it is a fundamental reorientation of life toward God. John the Baptist, Jesus, and the apostles all preach: 'Repent!' It is the human response to God's grace, inseparable from faith.",
+      "classicalGreek": "In classical Greek, μετάνοια meant afterthought, change of mind, or regret. It could indicate reconsideration of a decision or remorse over past action. The emphasis was cognitive - changing one's thinking. It did not carry the strong moral and religious weight it gains in biblical usage.",
+      "lxxBackground": "The LXX uses μετανοέω occasionally, but more often uses ἐπιστρέφω (to turn) for Hebrew שׁוּב (shuv) - the primary OT term for repentance. Prophetic preaching calls Israel to 'return' to God (Jer 3:12; Hos 14:1; Joel 2:12-13). Repentance involves turning from sin and turning to God. It is both gift and demand, enabled by God yet commanded of humans (Ezek 18:30-32).",
+      "intertestamental": "Second Temple Judaism emphasized repentance as the path back to God. The Qumran community called for radical repentance and separation from sinners. Rabbinic literature extensively discussed repentance (teshuvah). Some texts speak of God's patience giving opportunity for repentance. John the Baptist's call to repentance (Matt 3:2) stood in this tradition yet announced something new - the kingdom was at hand.",
+      "ntUsage": "John the Baptist preaches 'Repent, for the kingdom of heaven is at hand' (Matt 3:2). Jesus begins His ministry with the same call (Matt 4:17; Mark 1:15). Repentance is essential for forgiveness (Luke 24:47; Acts 2:38; 3:19; 5:31). Paul preached 'repentance toward God and faith in our Lord Jesus Christ' (Acts 20:21). God's kindness leads to repentance (Rom 2:4). God grants repentance (Acts 11:18; 2 Tim 2:25) - it is His gift. Yet humans are commanded to repent (Acts 17:30). Repentance produces fruit (Matt 3:8; Acts 26:20) - changed behavior demonstrates genuine change of heart. There is joy in heaven over one sinner who repents (Luke 15:7, 10).",
+      "keyPassages": [
+        {
+          "reference": "Mark 1:15",
+          "greek": "μετανοεῖτε καὶ πιστεύετε ἐν τῷ εὐαγγελίῳ",
+          "significance": "Repent and believe the gospel - repentance and faith are the twin responses to good news."
+        },
+        {
+          "reference": "Acts 2:38",
+          "greek": "μετανοήσατε καὶ βαπτισθήτω ἕκαστος ὑμῶν",
+          "significance": "Repent and be baptized - Peter's Pentecost call, the apostolic gospel demand."
+        },
+        {
+          "reference": "2 Corinthians 7:10",
+          "greek": "ἡ γὰρ κατὰ θεὸν λύπη μετάνοιαν εἰς σωτηρίαν ἀμεταμέλητον ἐργάζεται",
+          "significance": "Godly grief produces repentance leading to salvation - distinguishing true from worldly sorrow."
+        }
+      ],
+      "theologicalSignificance": "Μετάνοια is more than feeling sorry or even changing behavior - it is a fundamental reorientation of the whole person toward God. It involves mind (new understanding), emotions (godly sorrow), and will (changed direction). Repentance is inseparable from faith - two sides of one coin, as turning from sin is turning to Christ. Though commanded, repentance is ultimately God's gift (Acts 11:18) - only His grace enables genuine change. Repentance is not merely initial conversion but ongoing posture: believers continually turn from sin. The Reformation recovered repentance's centrality: Luther's first thesis declared 'the whole life of believers should be repentance.'",
+      "relatedWords": [
+        {
+          "greek": "μετανοέω",
+          "transliteration": "metanoeō",
+          "relationship": "To repent, change one's mind (Matt 3:2; Acts 2:38)"
+        },
+        {
+          "greek": "μεταμέλομαι",
+          "transliteration": "metamelomai",
+          "relationship": "To regret, feel remorse (Matt 27:3 - Judas's regret, not saving repentance)"
+        },
+        {
+          "greek": "ἐπιστρέφω",
+          "transliteration": "epistrephō",
+          "relationship": "To turn, convert (Acts 3:19; 26:18 - often paired with repent)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "salvation",
+        "gospels",
+        "conversion"
+      ],
+      "volume": 4,
+      "pages": "975-1008"
+    },
+    {
+      "id": "parousia",
+      "category": "eschatology",
+      "greek": "παρουσία",
+      "transliteration": "parousia",
+      "strongs": "G3952",
+      "shortDef": "coming, presence, arrival, advent",
+      "title": "The Coming: Christ's Return in Glory",
+      "summary": "Παρουσία means 'presence' or 'coming' - technically, the arrival that initiates presence. It became the technical term for Christ's second coming: His glorious return to judge the living and dead, raise believers, and consummate the kingdom. The παρουσία is the 'blessed hope' that shapes Christian living.",
+      "classicalGreek": "In classical Greek, παρουσία meant presence (as opposed to absence) or the act of arriving that establishes presence. It was used for the visit of a king or dignitary to a city - an 'advent' or royal visitation. Such visits were occasions for preparation, celebration, and benefaction. The term carried connotations of a significant, transformative arrival.",
+      "lxxBackground": "The LXX uses παρουσία occasionally for presence or arrival. The OT anticipates 'the Day of the LORD' (יוֹם יהוה) - God's coming to judge and save (Amos 5:18-20; Joel 2:1-11; Zeph 1:14-18; Mal 4:1-6). This 'coming' would be both terrifying (for God's enemies) and glorious (for His people). The prophetic hope of God's definitive intervention sets the stage for NT παρουσία theology.",
+      "intertestamental": "Apocalyptic texts developed the expectation of God's end-time intervention. The 'Son of Man' coming on clouds (Dan 7:13) influenced messianic expectation. Various texts anticipated the Messiah's coming to defeat evil and establish God's reign. The Qumran community awaited multiple messianic figures. The 'coming age' would replace 'this age.'",
+      "ntUsage": "Jesus speaks of 'the coming of the Son of Man' (Matt 24:27, 37, 39) - sudden, visible, glorious. Paul frequently references Christ's παρουσία: believers will be raised 'at His coming' (1 Cor 15:23); the Lord will descend from heaven (1 Thess 4:15); believers should be blameless 'at the coming of our Lord Jesus Christ' (1 Thess 5:23). James urges patience 'until the Lord's coming' (Jas 5:7-8). Peter defends the παρουσία against scoffers (2 Pet 3:4, 12). John says believers should 'abide in Him, so that when He appears we may have confidence' (1 John 2:28). The παρουσία shapes ethics: live in light of His return.",
+      "keyPassages": [
+        {
+          "reference": "Matthew 24:27",
+          "greek": "οὕτως ἔσται ἡ παρουσία τοῦ υἱοῦ τοῦ ἀνθρώπου",
+          "significance": "So will be the coming of the Son of Man - sudden, unmistakable, like lightning."
+        },
+        {
+          "reference": "1 Thessalonians 4:15",
+          "greek": "ἡμεῖς οἱ ζῶντες οἱ περιλειπόμενοι εἰς τὴν παρουσίαν τοῦ κυρίου",
+          "significance": "We who are alive and remain until the Lord's coming - the παρουσία as believers' hope."
+        },
+        {
+          "reference": "2 Peter 3:12",
+          "greek": "προσδοκῶντας καὶ σπεύδοντας τὴν παρουσίαν τῆς τοῦ θεοῦ ἡμέρας",
+          "significance": "Waiting for and hastening the coming of the day of God - active expectation."
+        }
+      ],
+      "theologicalSignificance": "The παρουσία is Christianity's 'blessed hope' (Titus 2:13). Christ who ascended will return 'in the same way' (Acts 1:11). His coming will be personal, visible, glorious, and decisive. It will bring resurrection of the dead (1 Cor 15:23; 1 Thess 4:16), transformation of the living (1 Cor 15:51-52), judgment of all (2 Thess 1:7-10; Matt 25:31-46), destruction of evil (2 Thess 2:8), and consummation of the kingdom. The παρουσία creates urgency: 'the Lord is at hand' (Phil 4:5). It shapes ethics: live worthily of His return (1 Thess 5:1-11). It provides comfort: reunion with deceased believers (1 Thess 4:13-18). Against scoffers, Peter insists the delay is God's patience (2 Pet 3:9). Maranatha - 'Our Lord, come!' (1 Cor 16:22).",
+      "relatedWords": [
+        {
+          "greek": "ἔρχομαι",
+          "transliteration": "erchomai",
+          "relationship": "To come - Jesus promises 'I am coming' (John 14:3; Rev 22:20)"
+        },
+        {
+          "greek": "ἀποκάλυψις",
+          "transliteration": "apokalypsis",
+          "relationship": "Revelation, appearing - Christ's 'revelation' at His coming (1 Cor 1:7; 1 Pet 1:7)"
+        },
+        {
+          "greek": "ἐπιφάνεια",
+          "transliteration": "epiphaneia",
+          "relationship": "Appearing, manifestation - used for Christ's return (2 Tim 4:8; Titus 2:13)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "eschatology",
+        "pauline",
+        "hope"
+      ],
+      "volume": 5,
+      "pages": "858-871"
+    },
+    {
+      "id": "mysterion",
+      "category": "revelation",
+      "greek": "μυστήριον",
+      "transliteration": "mystērion",
+      "strongs": "G3466",
+      "shortDef": "mystery, secret, hidden truth now revealed",
+      "title": "Mystery: The Open Secret of God's Plan",
+      "summary": "Μυστήριον in the NT is not something mysterious or unknowable, but a secret now revealed - God's hidden plan disclosed in Christ. The 'mystery' was kept secret for ages but is now made known: Gentiles are fellow heirs with Jews in Christ. God's wisdom, hidden from rulers, is revealed to believers through the Spirit.",
+      "classicalGreek": "In classical Greek, μυστήριον referred to the secret rites of mystery religions (Eleusinian, Dionysian, etc.) - sacred knowledge revealed only to initiates. These 'mysteries' were kept secret from outsiders. The term carried connotations of hidden wisdom, sacred initiation, and esoteric knowledge unavailable to the uninitiated.",
+      "lxxBackground": "The LXX uses μυστήριον primarily in Daniel for רָז (raz) - secret, mystery. Daniel reveals Nebuchadnezzar's dream because 'there is a God in heaven who reveals mysteries' (Dan 2:28-29, 47). God discloses what is hidden. The apocalyptic tradition developed this: heavenly secrets are revealed to chosen seers. Unlike pagan mysteries kept permanently secret, divine mysteries are revealed.",
+      "intertestamental": "Apocalyptic literature extensively uses mystery language. Heavenly secrets about the end times, cosmic battles, and divine plans are 'revealed' to visionaries (1 Enoch, 4 Ezra). The Qumran community believed they received special revelation of Scripture's mysteries. The 'mystery' is God's hidden plan, now disclosed to the elect.",
+      "ntUsage": "Paul uses μυστήριον most frequently. The 'mystery of Christ' was hidden for ages but now revealed: Gentiles are fellow heirs (Eph 3:3-6). The 'mystery of the gospel' (Eph 6:19) is this inclusive salvation. Colossians declares 'Christ in you, the hope of glory' is the mystery (Col 1:27; 2:2). Romans concludes with the mystery 'kept secret for long ages but now disclosed' (Rom 16:25-26). 1 Corinthians 2:7 speaks of 'God's wisdom, secret and hidden, which God decreed before the ages.' The 'mystery of lawlessness' is already at work (2 Thess 2:7). Revelation speaks of 'the mystery of God' being fulfilled (Rev 10:7). Marriage reflects 'the mystery' of Christ and the church (Eph 5:32).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 3:4-6",
+          "greek": "τὸ μυστήριον τοῦ Χριστοῦ... εἶναι τὰ ἔθνη συγκληρονόμα",
+          "significance": "The mystery of Christ: Gentiles are fellow heirs - the previously hidden inclusion now revealed."
+        },
+        {
+          "reference": "Colossians 1:26-27",
+          "greek": "τὸ μυστήριον τὸ ἀποκεκρυμμένον... νῦν δὲ ἐφανερώθη... ὅ ἐστιν Χριστὸς ἐν ὑμῖν",
+          "significance": "The mystery hidden for ages now revealed: Christ in you, the hope of glory."
+        },
+        {
+          "reference": "1 Corinthians 2:7",
+          "greek": "θεοῦ σοφίαν ἐν μυστηρίῳ τὴν ἀποκεκρυμμένην",
+          "significance": "God's wisdom in a mystery, hidden - now revealed through the Spirit."
+        }
+      ],
+      "theologicalSignificance": "NT μυστήριον is not unknowable but now-known - the 'open secret.' God's eternal plan, hidden from human wisdom and even angelic powers, is revealed in Christ. The central mystery is the inclusion of Gentiles: through Christ, the dividing wall is broken and all peoples become one body (Eph 2-3). This mystery is not discovered by human investigation but revealed by divine disclosure. It is known through the Spirit (1 Cor 2:10) and proclaimed by apostles (Eph 3:8-9). The mystery reveals God's wisdom - what seemed foolish (a crucified Messiah) is actually the deepest wisdom. Believers are 'stewards of God's mysteries' (1 Cor 4:1), entrusted with revealed truth to proclaim.",
+      "relatedWords": [
+        {
+          "greek": "ἀποκαλύπτω",
+          "transliteration": "apokalyptō",
+          "relationship": "To reveal, uncover - mysteries are 'revealed' (Rom 16:25; Eph 3:5)"
+        },
+        {
+          "greek": "φανερόω",
+          "transliteration": "phaneroō",
+          "relationship": "To manifest, make known - the mystery is 'made manifest' (Col 1:26)"
+        },
+        {
+          "greek": "κρύπτω",
+          "transliteration": "kryptō",
+          "relationship": "To hide - the mystery was 'hidden' for ages (Eph 3:9; Col 1:26)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "pauline",
+        "revelation",
+        "ecclesiology"
+      ],
+      "volume": 4,
+      "pages": "802-828"
     }
   ]
 }

@@ -3271,6 +3271,246 @@
         "ethics",
         "holiness"
       ]
+    },
+    {
+      "id": "child-son-teknon-huios-paidion",
+      "category": "child",
+      "title": "Words for Child/Son",
+      "englishWord": "child/son",
+      "introduction": "Greek distinguishes between children by birth relationship, children by legal status, and children by age. These distinctions illuminate NT teaching on believers as God's children - both born of Him and adopted as sons with full inheritance rights.",
+      "words": [
+        {
+          "greek": "τέκνον",
+          "transliteration": "teknon",
+          "strongs": "G5043",
+          "shortDef": "child (by birth, natural relationship)",
+          "nuance": "Child in terms of origin and relationship - one born of a parent. Emphasizes the birth relationship. 'Children of God' (τέκνα θεοῦ, John 1:12) stresses being born of God, having His nature. Used for natural children and metaphorically for spiritual offspring.",
+          "ntUsage": 99
+        },
+        {
+          "greek": "υἱός",
+          "transliteration": "huios",
+          "strongs": "G5207",
+          "shortDef": "son (with rights and status)",
+          "nuance": "Son in terms of status, rights, and inheritance - the legal position. Emphasizes privilege and heirship. 'Sons of God' (υἱοὶ θεοῦ, Rom 8:14) stresses the full legal standing and inheritance rights. Used for 'Son of Man,' 'Son of God,' and believers as adopted sons.",
+          "ntUsage": 377
+        },
+        {
+          "greek": "παιδίον",
+          "transliteration": "paidion",
+          "strongs": "G3813",
+          "shortDef": "little child, young child (by age)",
+          "nuance": "A young child, emphasizing age and immaturity. Used for infants and small children (Matt 2:8 - 'the child' Jesus). Also used affectionately for disciples (John 21:5 - 'Children, have you any fish?'). Diminutive form emphasizing youth.",
+          "ntUsage": 52
+        },
+        {
+          "greek": "νήπιος",
+          "transliteration": "nēpios",
+          "strongs": "G3516",
+          "shortDef": "infant, immature one (unable to speak)",
+          "nuance": "An infant or one who cannot speak (νη- 'not' + ἔπος 'word'). Emphasizes immaturity and need for growth. Used negatively for spiritual immaturity (1 Cor 3:1; Heb 5:13) and positively for childlike receptivity (Matt 11:25). Contrasted with mature (τέλειος).",
+          "ntUsage": 15
+        }
+      ],
+      "vineQuote": "Teknon emphasizes the fact of birth; huios emphasizes dignity and character of relationship; paidion stresses age and immaturity; nēpios suggests one unable to speak, hence an infant or immature one.",
+      "exampleVerse": {
+        "reference": "John 1:12",
+        "greek": "ἔδωκεν αὐτοῖς ἐξουσίαν τέκνα θεοῦ γενέσθαι",
+        "english": "He gave them the right to become children (tekna) of God.",
+        "wordHighlighted": "τέκνον"
+      },
+      "practicalTip": "When Scripture calls believers 'children' (τέκνα) of God, it emphasizes new birth - we share God's nature. When it calls us 'sons' (υἱοί), it emphasizes legal status - we have full inheritance rights. Both are true: born of God AND adopted as heirs.",
+      "tags": [
+        "essential",
+        "johannine",
+        "pauline",
+        "adoption"
+      ]
+    },
+    {
+      "id": "age-world-aion-kosmos",
+      "category": "age-world",
+      "title": "Words for Age/World",
+      "englishWord": "age/world",
+      "introduction": "Greek distinguishes between 'age' (a period of time, an era) and 'world' (the created order or human society). This distinction is crucial for understanding 'this age' versus 'the age to come' and the believer's relationship to 'the world.'",
+      "words": [
+        {
+          "greek": "αἰών",
+          "transliteration": "aiōn",
+          "strongs": "G165",
+          "shortDef": "age, era, eternity, world-age",
+          "nuance": "A period of time, an age or era. 'This age' (ὁ αἰὼν οὗτος) is the present evil age under Satan's influence. 'The age to come' (ὁ αἰὼν μέλλων) is the messianic age of salvation. Can mean 'forever' (εἰς τὸν αἰῶνα) or 'eternity.' The root of 'eon.' Emphasizes time dimension.",
+          "ntUsage": 122
+        },
+        {
+          "greek": "κόσμος",
+          "transliteration": "kosmos",
+          "strongs": "G2889",
+          "shortDef": "world, universe, human society, world-system",
+          "nuance": "The ordered world, universe, or human society. Has multiple senses: (1) the created universe (John 1:10a); (2) humanity (John 3:16 - God loved the world); (3) the world-system opposed to God (1 John 2:15 - do not love the world). Emphasizes space/order dimension.",
+          "ntUsage": 186
+        },
+        {
+          "greek": "οἰκουμένη",
+          "transliteration": "oikoumenē",
+          "strongs": "G3625",
+          "shortDef": "inhabited world, Roman Empire",
+          "nuance": "The inhabited earth, often the Roman world specifically. 'A decree went out from Caesar Augustus that all the world (οἰκουμένη) should be registered' (Luke 2:1). 'This gospel will be proclaimed throughout the whole world (οἰκουμένη)' (Matt 24:14). The civilized, inhabited world.",
+          "ntUsage": 15
+        }
+      ],
+      "vineQuote": "Aiōn denotes a period of time marked by spiritual or moral characteristics; kosmos represents the ordered system, whether physical creation or human society organized apart from God; oikoumenē is the inhabited earth.",
+      "exampleVerse": {
+        "reference": "Romans 12:2",
+        "greek": "μὴ συσχηματίζεσθε τῷ αἰῶνι τούτῳ",
+        "english": "Do not be conformed to this age (aiōn).",
+        "wordHighlighted": "αἰών"
+      },
+      "practicalTip": "When Jesus says the 'world' (κόσμος) hates believers (John 15:18-19), He means human society organized against God. When Paul says not to be conformed to 'this age' (αἰών), he means the present era's values. The enemy operates through both - the world-system AND the present evil age.",
+      "tags": [
+        "essential",
+        "eschatology",
+        "johannine",
+        "pauline"
+      ]
+    },
+    {
+      "id": "teach-learn-didasko-manthano-paideuo",
+      "category": "teach",
+      "title": "Words for Teach/Learn",
+      "englishWord": "teach/learn",
+      "introduction": "Greek has distinct words for teaching, learning, and training. Some emphasize instruction, others the learner's appropriation, still others discipline and correction. These illuminate NT discipleship - becoming a μαθητής (disciple/learner) of Jesus.",
+      "words": [
+        {
+          "greek": "διδάσκω",
+          "transliteration": "didaskō",
+          "strongs": "G1321",
+          "shortDef": "to teach, instruct (systematic instruction)",
+          "nuance": "To teach, give instruction - the activity of the teacher imparting knowledge or skill. Jesus taught (ἐδίδασκεν) in synagogues and temple. The apostles devoted themselves to teaching (Acts 2:42). Emphasizes the systematic communication of truth. Root of 'didactic.'",
+          "ntUsage": 97
+        },
+        {
+          "greek": "μανθάνω",
+          "transliteration": "manthanō",
+          "strongs": "G3129",
+          "shortDef": "to learn (by study, practice, experience)",
+          "nuance": "To learn, acquire knowledge - the activity of the student receiving instruction. 'Learn from me' (Matt 11:29). The μαθητής (disciple) is literally 'a learner.' Emphasizes the student's appropriation of what is taught. Learning through experience and practice, not just hearing.",
+          "ntUsage": 25
+        },
+        {
+          "greek": "παιδεύω",
+          "transliteration": "paideuō",
+          "strongs": "G3811",
+          "shortDef": "to train, discipline, educate, correct",
+          "nuance": "To train a child (παῖς), hence to educate, discipline, or correct. Includes instruction but emphasizes formation of character through discipline. God 'disciplines' (παιδεύει) those He loves (Heb 12:6). Paul was 'educated' (πεπαιδευμένος) under Gamaliel (Acts 22:3). Root of 'pedagogy.'",
+          "ntUsage": 13
+        },
+        {
+          "greek": "κατηχέω",
+          "transliteration": "katēcheō",
+          "strongs": "G2727",
+          "shortDef": "to instruct, inform orally (catechize)",
+          "nuance": "To instruct orally, to teach by word of mouth. Theophilus was 'instructed' (κατηχήθης, Luke 1:4). Apollos was 'instructed' in the way of the Lord (Acts 18:25). The root of 'catechism' - systematic oral instruction in the faith.",
+          "ntUsage": 8
+        }
+      ],
+      "vineQuote": "Didaskō is to teach, hold discourse with others to instruct them; manthanō is to learn, increase one's knowledge by instruction or experience; paideuō is to train children, including discipline and correction; katēcheō is to sound down into the ears, to instruct orally.",
+      "exampleVerse": {
+        "reference": "Matthew 11:29",
+        "greek": "μάθετε ἀπ᾽ ἐμοῦ, ὅτι πραΰς εἰμι",
+        "english": "Learn (manthanō) from me, for I am gentle.",
+        "wordHighlighted": "μανθάνω"
+      },
+      "practicalTip": "Being a 'disciple' (μαθητής) means being a learner - one who not only hears teaching (διδασκαλία) but learns it (μανθάνω). God also disciplines (παιδεύω) us as children. Christian formation involves all three: instruction, learning, and formative discipline.",
+      "tags": [
+        "essential",
+        "discipleship",
+        "education"
+      ]
+    },
+    {
+      "id": "rise-raise-anistemi-egeiro",
+      "category": "rise",
+      "title": "Words for Rise/Raise",
+      "englishWord": "rise/raise",
+      "introduction": "Two main Greek verbs describe resurrection: ἀνίστημι (to stand up, rise) and ἐγείρω (to wake, rouse, raise). Both are used for Christ's resurrection and believers' future resurrection, sometimes interchangeably, but with subtle differences in emphasis.",
+      "words": [
+        {
+          "greek": "ἀνίστημι",
+          "transliteration": "anistēmi",
+          "strongs": "G450",
+          "shortDef": "to rise, stand up, raise up",
+          "nuance": "To cause to rise or to rise oneself - standing up from sitting, lying, or death. The intransitive use emphasizes the subject's own action of rising. 'He rose' (ἀνέστη, Mark 8:31; 9:31; 10:34). The noun ἀνάστασις (resurrection) comes from this verb. Emphasizes the rising action.",
+          "ntUsage": 108
+        },
+        {
+          "greek": "ἐγείρω",
+          "transliteration": "egeirō",
+          "strongs": "G1453",
+          "shortDef": "to wake, rouse, raise up",
+          "nuance": "To wake from sleep, to rouse, to raise up. Often passive for resurrection: 'He was raised' (ἠγέρθη, 1 Cor 15:4) - emphasizing God's action in raising Jesus. 'God raised Him from the dead' (Acts 3:15). The passive voice highlights divine action, the Father raising the Son.",
+          "ntUsage": 141
+        }
+      ],
+      "vineQuote": "Anistēmi signifies to cause to stand up or to stand up oneself; egeirō means to rouse from sleep or death. In resurrection contexts, anistēmi often stresses the rising, egeirō the rousing by another (God the Father).",
+      "exampleVerse": {
+        "reference": "1 Corinthians 15:4",
+        "greek": "καὶ ὅτι ἐγήγερται τῇ ἡμέρᾳ τῇ τρίτῃ κατὰ τὰς γραφάς",
+        "english": "And that He was raised (egeirō - passive) on the third day according to the Scriptures.",
+        "wordHighlighted": "ἐγείρω"
+      },
+      "practicalTip": "When Paul says Christ 'was raised' (ἠγέρθη, passive), he emphasizes the Father's action in raising the Son. When Mark says 'He will rise' (ἀναστήσεται), the focus is on Christ's own rising. Both are true: the Father raised Him, and He rose. The resurrection is Trinitarian.",
+      "tags": [
+        "essential",
+        "resurrection",
+        "christology"
+      ]
+    },
+    {
+      "id": "will-desire-thelo-boulomai",
+      "category": "will",
+      "title": "Words for Will/Desire",
+      "englishWord": "will/desire/wish",
+      "introduction": "Greek has two main verbs for willing or wishing. Understanding their distinction helps interpret passages about God's will, human desires, and the interplay between divine sovereignty and human responsibility.",
+      "words": [
+        {
+          "greek": "θέλω",
+          "transliteration": "thelō",
+          "strongs": "G2309",
+          "shortDef": "to will, wish, desire (inclination)",
+          "nuance": "To will, wish, or desire - often emphasizing inclination, impulse, or emotional desire. Can express strong personal desire ('I want') or deliberate choice. 'What do you want (θέλεις) me to do for you?' (Mark 10:51). 'God wills (θέλει) all people to be saved' (1 Tim 2:4). The more common word for willing.",
+          "ntUsage": 208
+        },
+        {
+          "greek": "βούλομαι",
+          "transliteration": "boulomai",
+          "strongs": "G1014",
+          "shortDef": "to will, purpose, intend (deliberate purpose)",
+          "nuance": "To will with deliberation, to purpose, to plan. Emphasizes reasoned, deliberate intention more than emotional desire. Often used for God's sovereign counsel: 'the purpose (βουλή) of His will' (Eph 1:11). 'The Lord's will (βούλημα) be done' (Acts 21:14). Suggests settled purpose.",
+          "ntUsage": 37
+        },
+        {
+          "greek": "ἐπιθυμέω",
+          "transliteration": "epithymeō",
+          "strongs": "G1937",
+          "shortDef": "to desire earnestly, long for, lust",
+          "nuance": "To set one's heart upon, to desire intensely. Can be positive ('I have earnestly desired to eat this Passover,' Luke 22:15) or negative ('do not covet,' Rom 7:7; 'the lust of the flesh,' Gal 5:16). Stronger emotional intensity than θέλω. Emphasizes passionate desire.",
+          "ntUsage": 16
+        }
+      ],
+      "vineQuote": "Thelō expresses the will that proceeds from inclination; boulomai expresses the will that proceeds from deliberation and purpose; epithymeō denotes a strong desire directed toward something, whether good or evil.",
+      "exampleVerse": {
+        "reference": "Ephesians 1:11",
+        "greek": "κατὰ τὴν βουλὴν τοῦ θελήματος αὐτοῦ",
+        "english": "According to the counsel (boulē) of His will (thelēma).",
+        "wordHighlighted": "βουλή and θέλημα"
+      },
+      "practicalTip": "When Scripture speaks of God's 'will' (θέλημα), it often means His revealed desire - what pleases Him. When it speaks of His 'purpose' (βουλή), it often means His sovereign plan that cannot be thwarted. Both are true: God desires all to be saved (θέλει, 1 Tim 2:4), and His purposes (βουλή) always stand (Isa 46:10).",
+      "tags": [
+        "essential",
+        "theology-proper",
+        "sovereignty"
+      ]
     }
   ]
 }
