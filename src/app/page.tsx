@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
@@ -210,6 +210,13 @@ export default function Dashboard() {
               title="Homework"
               description="Complete assignments to test your knowledge"
               color="bg-cyan-500"
+            />
+            <LearningModeCard
+              href="/gems"
+              icon={<Gem className="w-6 h-6" />}
+              title="Greek Gems"
+              description="Discover insights lost in English translation"
+              color="bg-violet-500"
             />
           </div>
         </section>

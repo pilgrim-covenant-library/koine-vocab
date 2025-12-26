@@ -227,3 +227,126 @@ export const PART_OF_SPEECH_INFO: Record<PartOfSpeech, { label: string; abbrev: 
   article: { label: 'Article', abbrev: 'art.', color: 'gray' },
   interjection: { label: 'Interjection', abbrev: 'interj.', color: 'red' },
 } as const;
+
+// ========================================
+// Greek Gems Types - Insights lost in translation
+// ========================================
+
+export type GemCategory =
+  | 'wordplay'       // Wordplay & puns (Πέτρος/πέτρα)
+  | 'tense'          // Verb tense significance (τετέλεσται perfect)
+  | 'untranslatable' // Words with no English equivalent (ἀγάπη vs φιλέω)
+  | 'chiasm'         // Chiastic literary structures
+  | 'emphatic'       // Emphatic constructions (οὐ μή double negative)
+  | 'article'        // Definite article nuances (θεός vs ὁ θεός)
+  | 'discourse'      // Discourse markers (οὖν, δέ, γάρ)
+  | 'double_meaning'; // Words with layered meanings (ἄνωθεν)
+
+export type GemLevel = 'beginner' | 'intermediate' | 'advanced' | 'expert';
+
+export interface GreekGem {
+  id: string;
+  category: GemCategory;
+  level: GemLevel;
+  title: string;
+  greek: string;
+  transliteration: string;
+  reference: string;
+  referenceText: string;
+  insight: string;
+  whyEnglishMisses: string;
+  relatedWords?: string[]; // Strong's numbers
+  tags: string[];
+}
+
+export interface GemCategoryInfo {
+  label: string;
+  description: string;
+  icon: string;
+  color: string;
+}
+
+export interface GemLevelInfo {
+  label: string;
+  description: string;
+  minGems: number;
+  color: string;
+}
+
+export const GEM_CATEGORIES: Record<GemCategory, GemCategoryInfo> = {
+  wordplay: {
+    label: 'Wordplay & Puns',
+    description: 'Greek wordplay, name meanings, and puns lost in translation',
+    icon: 'Sparkles',
+    color: 'amber',
+  },
+  tense: {
+    label: 'Verb Tense',
+    description: 'How aorist, perfect, and present tenses change meaning',
+    icon: 'Clock',
+    color: 'blue',
+  },
+  untranslatable: {
+    label: 'Untranslatable Words',
+    description: 'Greek words with no single English equivalent',
+    icon: 'Languages',
+    color: 'purple',
+  },
+  chiasm: {
+    label: 'Chiastic Structures',
+    description: 'Literary X-patterns in Greek text',
+    icon: 'FlipHorizontal2',
+    color: 'emerald',
+  },
+  emphatic: {
+    label: 'Emphatic Forms',
+    description: 'Double negatives, intensifiers, and word order',
+    icon: 'Volume2',
+    color: 'red',
+  },
+  article: {
+    label: 'Article Nuances',
+    description: 'Definite article uses English lacks',
+    icon: 'FileText',
+    color: 'cyan',
+  },
+  discourse: {
+    label: 'Discourse Markers',
+    description: 'Words like οὖν, δέ, γάρ that structure arguments',
+    icon: 'GitBranch',
+    color: 'orange',
+  },
+  double_meaning: {
+    label: 'Double Meanings',
+    description: 'Words with layered theological significance',
+    icon: 'Layers',
+    color: 'pink',
+  },
+} as const;
+
+export const GEM_LEVELS: Record<GemLevel, GemLevelInfo> = {
+  beginner: {
+    label: 'Beginner',
+    description: 'Vocabulary-level insights accessible to new Greek students',
+    minGems: 0,
+    color: 'emerald',
+  },
+  intermediate: {
+    label: 'Intermediate',
+    description: 'Insights requiring knowledge of verb tenses and basic syntax',
+    minGems: 5,
+    color: 'blue',
+  },
+  advanced: {
+    label: 'Advanced',
+    description: 'Article usage, discourse analysis, and complex grammar',
+    minGems: 15,
+    color: 'amber',
+  },
+  expert: {
+    label: 'Expert',
+    description: 'Literary structures, textual criticism, and deep exegesis',
+    minGems: 30,
+    color: 'purple',
+  },
+} as const;
