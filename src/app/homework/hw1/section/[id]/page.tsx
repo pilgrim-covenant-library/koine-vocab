@@ -55,6 +55,7 @@ export default function SectionPage() {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const section = getSectionProgress(sectionId);
   const questions = getQuestionsForSection(sectionId);
