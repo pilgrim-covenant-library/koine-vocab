@@ -2292,6 +2292,630 @@
       "tags": ["essential", "pauline", "petrine", "faith"],
       "volume": 2,
       "pages": "517-535"
+    },
+    {
+      "id": "euangelion",
+      "category": "revelation",
+      "greek": "εὐαγγέλιον",
+      "transliteration": "euangelion",
+      "strongs": "G2098",
+      "shortDef": "gospel, good news, glad tidings",
+      "title": "Gospel: The Good News of Jesus Christ",
+      "summary": "Εὐαγγέλιον is the 'good news' - specifically the message of salvation through Jesus Christ. From its roots in Isaiah's announcement of salvation, it became the central NT term for the message of Christ's death, resurrection, and Lordship.",
+      "classicalGreek": "In classical Greek, εὐαγγέλιον meant 'good news' or 'reward for good news.' It was used for announcements of victory, the birth of an emperor, or other joyous public declarations. The εὐάγγελος was the messenger bringing good tidings.",
+      "lxxBackground": "The LXX verb εὐαγγελίζομαι translates בָּשַׂר (basar, 'to bring good news'). Isaiah 40:9; 52:7; 61:1 announce salvation: 'How beautiful are the feet of him who brings good news.' This 'good news' concerns God's coming reign, deliverance from exile, and eschatological salvation.",
+      "intertestamental": "The concept of divine good news continued. The Roman imperial cult used εὐαγγέλιον for announcements about the emperor - his birth, accession, and decrees. The Priene inscription (9 BC) calls Augustus's birthday 'the beginning of good news (euangelia).'",
+      "ntUsage": "Jesus announced the εὐαγγέλιον τῆς βασιλείας (Matt 4:23; 9:35). After the resurrection, the gospel is specifically about Christ - His death, burial, resurrection (1 Cor 15:1-8). Paul uses εὐαγγέλιον 60+ times. It is God's power for salvation (Rom 1:16), must be believed (Mark 1:15), obeyed (Rom 10:16; 2 Thess 1:8), and defended (Phil 1:7). There is only one gospel (Gal 1:6-9).",
+      "keyPassages": [
+        {
+          "reference": "Romans 1:16",
+          "greek": "οὐ γὰρ ἐπαισχύνομαι τὸ εὐαγγέλιον, δύναμις γὰρ θεοῦ ἐστιν εἰς σωτηρίαν παντὶ τῷ πιστεύοντι",
+          "significance": "Not ashamed of the gospel - it is God's power for salvation to everyone who believes."
+        },
+        {
+          "reference": "1 Corinthians 15:1-4",
+          "greek": "γνωρίζω δὲ ὑμῖν, ἀδελφοί, τὸ εὐαγγέλιον... ὅτι Χριστὸς ἀπέθανεν... καὶ ὅτι ἐγήγερται",
+          "significance": "The gospel defined: Christ died, was buried, was raised - the kerygmatic core."
+        },
+        {
+          "reference": "Mark 1:15",
+          "greek": "πεπλήρωται ὁ καιρὸς καὶ ἤγγικεν ἡ βασιλεία τοῦ θεοῦ· μετανοεῖτε καὶ πιστεύετε ἐν τῷ εὐαγγελίῳ",
+          "significance": "Jesus' opening proclamation: the time is fulfilled, repent and believe the gospel."
+        }
+      ],
+      "theologicalSignificance": "The gospel is not advice but announcement - news of what God has done. It proclaims the crucified and risen Christ as Lord and Savior. This message has divine power; through it God saves. The gospel creates the church, transforms lives, and judges those who reject it. It is 'of Christ' (genitive: about Him and from Him), 'of God' (its source), 'of peace' and 'of grace' (its content). The gospel must be believed, not merely acknowledged. It is the church's treasure to guard and proclaim.",
+      "relatedWords": [
+        {
+          "greek": "εὐαγγελίζω",
+          "transliteration": "euangelizō",
+          "relationship": "To announce good news, preach the gospel"
+        },
+        {
+          "greek": "εὐαγγελιστής",
+          "transliteration": "euangelistēs",
+          "relationship": "Evangelist, gospel preacher"
+        },
+        {
+          "greek": "κήρυγμα",
+          "transliteration": "kērygma",
+          "relationship": "Proclamation, preaching"
+        }
+      ],
+      "tags": ["essential", "pauline", "synoptic", "kerygma"],
+      "volume": 2,
+      "pages": "707-737"
+    },
+    {
+      "id": "stauros",
+      "category": "christology",
+      "greek": "σταυρός",
+      "transliteration": "stauros",
+      "strongs": "G4716",
+      "shortDef": "cross, stake, crucifixion",
+      "title": "Cross: The Central Symbol of Salvation",
+      "summary": "Σταυρός refers to the cross on which Christ was crucified. What was a symbol of shame and curse became the central symbol of Christianity - the place where sin was judged, salvation purchased, and God's wisdom displayed.",
+      "classicalGreek": "In classical Greek, σταυρός originally meant a stake or pale for impaling. Crucifixion was adopted from Persia by Rome as the most shameful death - reserved for slaves and criminals. It was designed for maximum suffering and public humiliation.",
+      "lxxBackground": "The LXX does not use σταυρός significantly. However, Deuteronomy 21:23 (LXX: 'cursed is everyone hung on a tree') provides crucial background - one hung on wood is under God's curse. This text shapes Paul's theology of Christ becoming a curse (Gal 3:13).",
+      "intertestamental": "Crucifixion was known in the Hasmonean period (Alexander Jannaeus crucified 800 Pharisees). The Romans used it extensively. It combined torture, shame, and the curse of exposure. No death was more despised or feared.",
+      "ntUsage": "Christ was crucified (Matt 27:35-50; John 19:17-30). The cross is God's wisdom and power (1 Cor 1:17-18, 23-24). Through it, Christ reconciled all things (Col 1:20), made peace (Eph 2:16), and triumphed over powers (Col 2:14-15). Believers are 'crucified with Christ' (Gal 2:20; 6:14). Discipleship means taking up one's cross (Matt 16:24). The message of the cross is foolishness to the perishing (1 Cor 1:18).",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 1:18",
+          "greek": "ὁ λόγος γὰρ ὁ τοῦ σταυροῦ τοῖς μὲν ἀπολλυμένοις μωρία ἐστίν, τοῖς δὲ σῳζομένοις ἡμῖν δύναμις θεοῦ ἐστιν",
+          "significance": "The word of the cross - foolishness to the perishing, but God's power to us being saved."
+        },
+        {
+          "reference": "Galatians 6:14",
+          "greek": "ἐμοὶ δὲ μὴ γένοιτο καυχᾶσθαι εἰ μὴ ἐν τῷ σταυρῷ τοῦ κυρίου ἡμῶν Ἰησοῦ Χριστοῦ",
+          "significance": "Far be it from me to boast except in the cross - the cross as sole ground of boasting."
+        },
+        {
+          "reference": "Colossians 2:14-15",
+          "greek": "ἐξαλείψας τὸ καθ᾽ ἡμῶν χειρόγραφον... προσηλώσας αὐτὸ τῷ σταυρῷ",
+          "significance": "The record of debt nailed to the cross - cosmic victory through crucifixion."
+        }
+      ],
+      "theologicalSignificance": "The cross transforms all values. What was curse becomes blessing; what was shame becomes glory; what was weakness becomes power. God's wisdom is revealed precisely where human wisdom sees only folly. The cross judges human pride and self-salvation. It demonstrates God's love (Rom 5:8) and justice (Rom 3:25). Believers must not be 'enemies of the cross' (Phil 3:18) by seeking glory apart from it. The Christian life is cruciform - shaped by the cross in self-denial, suffering, and ultimate victory through apparent defeat.",
+      "relatedWords": [
+        {
+          "greek": "σταυρόω",
+          "transliteration": "stauroō",
+          "relationship": "To crucify"
+        },
+        {
+          "greek": "συσταυρόω",
+          "transliteration": "systauroō",
+          "relationship": "To crucify with (Rom 6:6; Gal 2:20)"
+        },
+        {
+          "greek": "ξύλον",
+          "transliteration": "xylon",
+          "relationship": "Tree, wood - used for cross (Acts 5:30; 1 Pet 2:24)"
+        }
+      ],
+      "tags": ["essential", "pauline", "christology", "atonement"],
+      "volume": 7,
+      "pages": "572-584"
+    },
+    {
+      "id": "haima",
+      "category": "christology",
+      "greek": "αἷμα",
+      "transliteration": "haima",
+      "strongs": "G129",
+      "shortDef": "blood, bloodshed, sacrifice",
+      "title": "Blood: The Life Poured Out for Redemption",
+      "summary": "Αἷμα (blood) carries profound sacrificial significance. In the OT, blood represented life and was the means of atonement. Christ's blood - His life given in death - accomplishes redemption, cleansing, and the establishment of the new covenant.",
+      "classicalGreek": "In classical Greek, αἷμα referred to blood as a physical substance, often in contexts of violence, kinship ('blood relation'), or life force. Greek religion had blood sacrifices, but without the theological depth of Hebrew thought.",
+      "lxxBackground": "The LXX uses αἷμα for דָּם (dam). 'The life of the flesh is in the blood' (Lev 17:11) - blood represents life. Blood was forbidden as food (Gen 9:4). Atonement came through blood sacrifice (Lev 17:11). The Passover blood protected Israel (Ex 12). Covenant was ratified by blood (Ex 24:8).",
+      "intertestamental": "Blood sacrifice continued at the Temple. The Day of Atonement blood ritual was central (Sirach 50). Martyrdom theology developed - the blood of martyrs was seen as atoning (4 Macc 17:22). Blood represented violent death and its consequences.",
+      "ntUsage": "Christ's blood accomplishes: redemption (Eph 1:7; 1 Pet 1:18-19), justification (Rom 5:9), peace (Col 1:20), cleansing (1 John 1:7; Heb 9:14), new covenant (Matt 26:28; 1 Cor 11:25), access to God (Heb 10:19), and purchase of the church (Acts 20:28). 'Flesh and blood' denotes human nature/weakness (Matt 16:17; 1 Cor 15:50). Blood guilt remains for rejecting Christ (Matt 27:25; Acts 5:28).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 1:7",
+          "greek": "ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν διὰ τοῦ αἵματος αὐτοῦ",
+          "significance": "In Him we have redemption through His blood - blood as the means of purchase."
+        },
+        {
+          "reference": "Hebrews 9:22",
+          "greek": "χωρὶς αἱματεκχυσίας οὐ γίνεται ἄφεσις",
+          "significance": "Without the shedding of blood there is no forgiveness - blood-necessity of atonement."
+        },
+        {
+          "reference": "1 John 1:7",
+          "greek": "τὸ αἷμα Ἰησοῦ τοῦ υἱοῦ αὐτοῦ καθαρίζει ἡμᾶς ἀπὸ πάσης ἁμαρτίας",
+          "significance": "The blood of Jesus cleanses us from all sin - ongoing purification."
+        }
+      ],
+      "theologicalSignificance": "Blood language emphasizes that salvation costs life. Christ's blood is not merely His death but His life poured out sacrificially. The blood of Christ fulfills and surpasses all OT sacrifices - it actually achieves what animal blood symbolized. It establishes the new covenant, provides eternal redemption, and cleanses the conscience. The Lord's Supper commemorates 'the blood of the covenant' poured out for many. Christ's blood speaks better things than Abel's (Heb 12:24) - not crying for vengeance but granting mercy.",
+      "relatedWords": [
+        {
+          "greek": "αἱματεκχυσία",
+          "transliteration": "haimatekchysia",
+          "relationship": "Shedding of blood (Heb 9:22)"
+        },
+        {
+          "greek": "θυσία",
+          "transliteration": "thysia",
+          "relationship": "Sacrifice - blood sacrifices"
+        },
+        {
+          "greek": "ἱλαστήριον",
+          "transliteration": "hilastērion",
+          "relationship": "Propitiation, mercy seat - where blood was sprinkled"
+        }
+      ],
+      "tags": ["essential", "pauline", "johannine", "atonement", "sacrifice"],
+      "volume": 1,
+      "pages": "172-177"
+    },
+    {
+      "id": "psyche",
+      "category": "anthropology",
+      "greek": "ψυχή",
+      "transliteration": "psychē",
+      "strongs": "G5590",
+      "shortDef": "soul, life, self, person",
+      "title": "Soul: The Living Self Before God",
+      "summary": "Ψυχή refers to the soul, life, or self - the entire person as a living being. Unlike Greek philosophy which saw soul as immortal and imprisoned in body, biblical ψυχή is the whole person in relation to God and others.",
+      "classicalGreek": "In classical Greek, ψυχή evolved from 'breath/life' to the immortal, rational soul in Plato. Greek dualism sharply distinguished soul (immortal, divine, good) from body (mortal, material, prison). The goal was the soul's liberation from bodily existence.",
+      "lxxBackground": "The LXX uses ψυχή primarily for נֶפֶשׁ (nephesh) - the living being, person, life. 'God breathed... and man became a living nephesh' (Gen 2:7). Nephesh/ψυχή is not a part of humans but the whole person as a living creature. It can hunger, thirst, desire, be troubled.",
+      "intertestamental": "Greek influence introduced more dualistic thinking. Wisdom of Solomon speaks of the soul preexisting and entering the body (8:19-20). However, much Jewish thought retained the holistic Hebrew understanding, with resurrection (not immortality of the soul) as hope.",
+      "ntUsage": "Ψυχή means: (1) life that can be lost (Matt 2:20; 16:25; John 10:11 - laying down one's life); (2) the self/person (Acts 2:41 - 3000 souls; Rom 13:1 - every soul); (3) inner life, emotions (Matt 26:38 - 'my soul is sorrowful'); (4) in contrast to body in some contexts (Matt 10:28). Jesus gave His ψυχή as ransom (Matt 20:28; Mark 10:45). The great commandment involves loving God with all your ψυχή (Matt 22:37).",
+      "keyPassages": [
+        {
+          "reference": "Matthew 16:26",
+          "greek": "τί γὰρ ὠφεληθήσεται ἄνθρωπος ἐὰν τὸν κόσμον ὅλον κερδήσῃ τὴν δὲ ψυχὴν αὐτοῦ ζημιωθῇ",
+          "significance": "What profit to gain the world and forfeit one's soul - ultimate value of the person."
+        },
+        {
+          "reference": "Mark 10:45",
+          "greek": "δοῦναι τὴν ψυχὴν αὐτοῦ λύτρον ἀντὶ πολλῶν",
+          "significance": "The Son of Man came to give His soul/life as a ransom - substitutionary sacrifice."
+        },
+        {
+          "reference": "1 Peter 2:11",
+          "greek": "ἀπέχεσθαι τῶν σαρκικῶν ἐπιθυμιῶν αἵτινες στρατεύονται κατὰ τῆς ψυχῆς",
+          "significance": "Fleshly passions wage war against the soul - the spiritual battle for the self."
+        }
+      ],
+      "theologicalSignificance": "Biblical anthropology is holistic: humans are not souls imprisoned in bodies but embodied souls/ensouled bodies. Ψυχή represents the person as a living whole - capable of relationship with God, subject to death, and destined for resurrection (not mere immortality). The soul's value is infinite (Matt 16:26). Christ came to save souls (Jas 1:21; 1 Pet 1:9). Pastoral care is 'watching over souls' (Heb 13:17). The soul finds rest only in God (Matt 11:29). Christian hope is resurrection of the whole person, not escape from embodiment.",
+      "relatedWords": [
+        {
+          "greek": "ψυχικός",
+          "transliteration": "psychikos",
+          "relationship": "Natural, unspiritual (1 Cor 2:14; 15:44)"
+        },
+        {
+          "greek": "πνεῦμα",
+          "transliteration": "pneuma",
+          "relationship": "Spirit - sometimes distinguished from soul (1 Thess 5:23)"
+        },
+        {
+          "greek": "καρδία",
+          "transliteration": "kardia",
+          "relationship": "Heart - inner person, often overlapping with soul"
+        }
+      ],
+      "tags": ["essential", "synoptic", "anthropology"],
+      "volume": 9,
+      "pages": "608-666"
+    },
+    {
+      "id": "eirene",
+      "category": "salvation",
+      "greek": "εἰρήνη",
+      "transliteration": "eirēnē",
+      "strongs": "G1515",
+      "shortDef": "peace, harmony, wholeness",
+      "title": "Peace: The Gift of Reconciliation",
+      "summary": "Εἰρήνη encompasses the Hebrew concept of shalom - wholeness, well-being, and right relationships. In the NT, peace is the fruit of reconciliation with God through Christ, the gift of the Spirit, and the goal of Christian community.",
+      "classicalGreek": "In classical Greek, εἰρήνη primarily meant the absence of war - the opposite of πόλεμος. It was a negative concept: cessation of hostilities, treaty, rest from conflict. The Greek goddess Eirene personified civic peace and prosperity.",
+      "lxxBackground": "The LXX uses εἰρήνη for שָׁלוֹם (shalom) - a rich, positive concept meaning wholeness, well-being, prosperity, right relationships. Shalom is God's gift: 'The Lord give you peace' (Num 6:26). It includes health, prosperity, safety, and covenant blessing. 'Peace to the far and near' (Isa 57:19).",
+      "intertestamental": "Peace remained a messianic hope. The Messiah would be 'Prince of Peace' (Isa 9:6). Apocalyptic texts anticipated final peace in God's kingdom. The greeting 'peace' was standard. Rome's 'Pax Romana' offered counterfeit peace through military might.",
+      "ntUsage": "Christ is our peace (Eph 2:14), made peace through His blood (Col 1:20), and gives peace (John 14:27; 16:33). Peace with God comes through justification (Rom 5:1). The gospel is 'gospel of peace' (Eph 6:15; Rom 10:15). Peace is fruit of the Spirit (Gal 5:22), a greeting (Rom 1:7), and command - 'live at peace' (Rom 12:18; Heb 12:14). God is 'God of peace' (Rom 15:33; 16:20; Phil 4:9). Peace rules hearts (Col 3:15) and guards minds (Phil 4:7).",
+      "keyPassages": [
+        {
+          "reference": "Romans 5:1",
+          "greek": "δικαιωθέντες οὖν ἐκ πίστεως εἰρήνην ἔχομεν πρὸς τὸν θεόν",
+          "significance": "Justified by faith, we have peace with God - reconciliation accomplished."
+        },
+        {
+          "reference": "Ephesians 2:14",
+          "greek": "αὐτὸς γάρ ἐστιν ἡ εἰρήνη ἡμῶν",
+          "significance": "He Himself is our peace - Christ as peace personified, unifying Jew and Gentile."
+        },
+        {
+          "reference": "John 14:27",
+          "greek": "εἰρήνην ἀφίημι ὑμῖν, εἰρήνην τὴν ἐμὴν δίδωμι ὑμῖν",
+          "significance": "Peace I leave with you, my peace I give - Christ's unique peace gift."
+        }
+      ],
+      "theologicalSignificance": "Peace is a comprehensive salvation term - not merely feeling peaceful but the objective reality of reconciliation with God. Where there was enmity (Rom 5:10; Col 1:21), there is now peace. This peace flows into all relationships: peace with God produces peaceful community. The 'peace of God' (Phil 4:7) guards believers amid turmoil - not absence of trouble but presence of Christ. Making peace is blessed (Matt 5:9); breaking peace is serious. Ultimate peace awaits the new creation, but believers experience its firstfruits now.",
+      "relatedWords": [
+        {
+          "greek": "εἰρηνεύω",
+          "transliteration": "eirēneuō",
+          "relationship": "To live at peace (Mark 9:50; Rom 12:18)"
+        },
+        {
+          "greek": "εἰρηνοποιός",
+          "transliteration": "eirēnopoios",
+          "relationship": "Peacemaker (Matt 5:9)"
+        },
+        {
+          "greek": "εἰρηνοποιέω",
+          "transliteration": "eirēnopoieō",
+          "relationship": "To make peace (Col 1:20)"
+        }
+      ],
+      "tags": ["essential", "pauline", "johannine", "salvation"],
+      "volume": 2,
+      "pages": "400-420"
+    },
+    {
+      "id": "doulos",
+      "category": "ethics",
+      "greek": "δοῦλος",
+      "transliteration": "doulos",
+      "strongs": "G1401",
+      "shortDef": "slave, bondservant, servant",
+      "title": "Slave: The Radical Lordship of Christ",
+      "summary": "Δοῦλος means 'slave' - one owned by another, with no independent rights. The NT uses this term for believers' relationship to Christ: total allegiance, complete belonging, and paradoxically, true freedom through service to the rightful Lord.",
+      "classicalGreek": "In classical Greek, δοῦλος was a slave - property of another, without legal personhood. Slavery was fundamental to ancient economies. The δοῦλος had no freedom, belonged entirely to the master (κύριος), and could be sold, punished, or freed only by the owner's will.",
+      "lxxBackground": "The LXX uses δοῦλος for עֶבֶד (ebed) - slave or servant. Israel was God's servant people (Isa 41:8-9). Moses, David, and the prophets were 'servants of the Lord.' The Servant of YHWH in Isaiah suffers for others (Isa 52-53). Service to God was highest honor.",
+      "intertestamental": "Servant/slave of God remained a title of honor. The righteous were God's servants. Qumran members called themselves 'servants of God.' Slavery to God was contrasted with slavery to sin and the nations.",
+      "ntUsage": "Believers are slaves of Christ (Rom 1:1; Gal 1:10; Phil 1:1; Jas 1:1) - Paul's favorite self-designation. We were slaves to sin, now slaves to righteousness (Rom 6:17-22). Christ took slave form (Phil 2:7). The greatest is servant/slave of all (Mark 10:44). 'You were bought with a price' - ownership transferred (1 Cor 6:19-20; 7:22-23). Literal slavery was transformed: slave and free are one in Christ (Gal 3:28; Col 3:11).",
+      "keyPassages": [
+        {
+          "reference": "Romans 6:17-18",
+          "greek": "ὅτι ἦτε δοῦλοι τῆς ἁμαρτίας... ἐλευθερωθέντες δὲ ἀπὸ τῆς ἁμαρτίας ἐδουλώθητε τῇ δικαιοσύνῃ",
+          "significance": "Once slaves of sin, now enslaved to righteousness - transfer of lordship."
+        },
+        {
+          "reference": "Philippians 2:7",
+          "greek": "μορφὴν δούλου λαβών",
+          "significance": "Christ took the form of a slave - the incarnation as self-enslavement."
+        },
+        {
+          "reference": "1 Corinthians 7:22-23",
+          "greek": "ὁ γὰρ ἐν κυρίῳ κληθεὶς δοῦλος ἀπελεύθερος κυρίου ἐστίν... τιμῆς ἠγοράσθητε",
+          "significance": "The slave called in the Lord is the Lord's freedman; you were bought with a price."
+        }
+      ],
+      "theologicalSignificance": "Everyone serves something - sin or righteousness, self or God. Freedom is not autonomy but service to the right master. Paradoxically, slavery to Christ is perfect freedom (John 8:32, 36). Christ's lordship (κύριος) implies our slavery. We are 'bought with a price' - ownership fully transferred. This shapes ethics: we live for Him who died for us. Modern translations often soften δοῦλος to 'servant,' losing the radical claim of Christ's ownership and the complete surrender of the believer.",
+      "relatedWords": [
+        {
+          "greek": "δουλεύω",
+          "transliteration": "douleuō",
+          "relationship": "To serve as a slave, to be enslaved"
+        },
+        {
+          "greek": "δουλόω",
+          "transliteration": "douloō",
+          "relationship": "To enslave, make a slave"
+        },
+        {
+          "greek": "σύνδουλος",
+          "transliteration": "syndoulos",
+          "relationship": "Fellow slave (Matt 18:28; Col 4:7)"
+        }
+      ],
+      "tags": ["essential", "pauline", "ethics", "christology"],
+      "volume": 2,
+      "pages": "261-280"
+    },
+    {
+      "id": "hypakoe",
+      "category": "ethics",
+      "greek": "ὑπακοή",
+      "transliteration": "hypakoē",
+      "strongs": "G5218",
+      "shortDef": "obedience, compliance, submission",
+      "title": "Obedience: The Response of Faith",
+      "summary": "Ὑπακοή is obedience - literally 'hearing under.' In the NT, obedience is the necessary response to the gospel, the expression of faith, and the fruit of the Spirit. Christ's obedience secured salvation; believers' obedience evidences it.",
+      "classicalGreek": "In classical Greek, ὑπακοή (from ὑπό 'under' + ἀκούω 'hear') meant 'listening,' then 'obedience.' It implied subordination to authority. The word emphasized hearing that leads to compliance - not mere hearing but heeding.",
+      "lxxBackground": "The LXX concept comes through שָׁמַע (shama) - 'to hear/obey.' In Hebrew, hearing and obeying are inseparable: 'Hear, O Israel' (Deut 6:4) implies 'obey.' Obedience is better than sacrifice (1 Sam 15:22). Israel's history is characterized by disobedience (Jer 7:23-26).",
+      "intertestamental": "Obedience to Torah was central to Jewish identity. Various groups debated what obedience required - Pharisees emphasized oral law, Essenes strict covenant observance. Obedience to God sometimes conflicted with obedience to foreign rulers.",
+      "ntUsage": "Christ learned obedience through suffering (Heb 5:8) and was obedient to death (Phil 2:8). His one act of obedience justifies many (Rom 5:19). The gospel demands 'obedience of faith' (Rom 1:5; 16:26). Faith without obedience is dead (Jas 2:17). Obedience is to be 'from the heart' (Rom 6:17) and 'to Christ' (2 Cor 10:5). Children obey parents (Eph 6:1); wives husbands (1 Pet 3:6); slaves masters (Eph 6:5); all obey governing authorities (Rom 13:1-5).",
+      "keyPassages": [
+        {
+          "reference": "Romans 1:5",
+          "greek": "εἰς ὑπακοὴν πίστεως ἐν πᾶσιν τοῖς ἔθνεσιν",
+          "significance": "For the obedience of faith among all nations - faith's inseparability from obedience."
+        },
+        {
+          "reference": "Philippians 2:8",
+          "greek": "ἐταπείνωσεν ἑαυτὸν γενόμενος ὑπήκοος μέχρι θανάτου, θανάτου δὲ σταυροῦ",
+          "significance": "He humbled Himself, becoming obedient to the point of death - Christ's redemptive obedience."
+        },
+        {
+          "reference": "Hebrews 5:8-9",
+          "greek": "ἔμαθεν ἀφ᾽ ὧν ἔπαθεν τὴν ὑπακοήν... αἴτιος σωτηρίας αἰωνίου",
+          "significance": "He learned obedience through suffering, becoming source of eternal salvation."
+        }
+      ],
+      "theologicalSignificance": "Obedience and faith are inseparable - 'obedience of faith' is a single concept. Saving faith always issues in obedience. Yet obedience is not the ground of salvation but its fruit. Christ's active obedience (fulfilling the law) and passive obedience (suffering its penalty) constitute our righteousness. His obedience reversed Adam's disobedience (Rom 5:19). Believers obey 'from the heart' because transformed by grace. Obedience is loving response to the Lord who bought us, not legalistic compliance. Disobedience remains serious - it characterizes those who perish (Rom 2:8; 2 Thess 1:8).",
+      "relatedWords": [
+        {
+          "greek": "ὑπακούω",
+          "transliteration": "hypakouō",
+          "relationship": "To obey, listen under"
+        },
+        {
+          "greek": "ὑπήκοος",
+          "transliteration": "hypēkoos",
+          "relationship": "Obedient (Phil 2:8)"
+        },
+        {
+          "greek": "παρακοή",
+          "transliteration": "parakoē",
+          "relationship": "Disobedience (Rom 5:19; 2 Cor 10:6)"
+        }
+      ],
+      "tags": ["essential", "pauline", "ethics", "faith"],
+      "volume": 1,
+      "pages": "216-225"
+    },
+    {
+      "id": "semeion",
+      "category": "revelation",
+      "greek": "σημεῖον",
+      "transliteration": "sēmeion",
+      "strongs": "G4592",
+      "shortDef": "sign, miracle, portent",
+      "title": "Sign: The Revelatory Miracle",
+      "summary": "Σημεῖον is a sign - something that points beyond itself. In John's Gospel, Jesus' miracles are 'signs' revealing His glory and identity. Signs authenticate divine messengers but also demand faith; those who seek signs only miss their significance.",
+      "classicalGreek": "In classical Greek, σημεῖον meant 'sign, mark, token' - something distinguishing or indicating. It could refer to military standards, proof, or omens. The word emphasized the pointing function - the sign directs attention beyond itself.",
+      "lxxBackground": "The LXX uses σημεῖον for אוֹת (ot) - sign, miracle, portent. God gave signs: rainbow (Gen 9:12-13), circumcision (Gen 17:11), Sabbath (Exod 31:13), plagues (Exod 7:3). Signs validated prophets (Deut 13:1-2) and confirmed God's word. Israel demanded signs repeatedly.",
+      "intertestamental": "Signs were expected to accompany the Messiah and end times. False prophets would show signs (testing required). Apocalyptic literature featured cosmic signs preceding God's intervention. Signs belonged to God's self-disclosure through history.",
+      "ntUsage": "John calls Jesus' miracles 'signs' (σημεῖα) - they reveal glory and identity (John 2:11; 20:30-31). Seven signs structure John's Gospel. Synoptics use 'sign' for validation requests that Jesus often rejects (Matt 12:38-39; 16:4 - only sign of Jonah). Signs accompanied apostles (Acts 2:22, 43; 2 Cor 12:12; Heb 2:4). End-time signs are predicted (Matt 24:3, 30; Luke 21:11, 25). False christs show signs (Matt 24:24; 2 Thess 2:9).",
+      "keyPassages": [
+        {
+          "reference": "John 2:11",
+          "greek": "ταύτην ἐποίησεν ἀρχὴν τῶν σημείων ὁ Ἰησοῦς... καὶ ἐφανέρωσεν τὴν δόξαν αὐτοῦ",
+          "significance": "The first of signs, manifesting His glory - signs as revelation of Christ's identity."
+        },
+        {
+          "reference": "John 20:30-31",
+          "greek": "ταῦτα δὲ γέγραπται ἵνα πιστεύ[σ]ητε ὅτι Ἰησοῦς ἐστιν ὁ χριστὸς ὁ υἱὸς τοῦ θεοῦ",
+          "significance": "These are written so you may believe - signs recorded to produce faith."
+        },
+        {
+          "reference": "Matthew 12:39",
+          "greek": "γενεὰ πονηρὰ καὶ μοιχαλὶς σημεῖον ἐπιζητεῖ",
+          "significance": "An evil and adulterous generation seeks a sign - sign-seeking as unbelief."
+        }
+      ],
+      "theologicalSignificance": "Signs point beyond themselves to Christ and His mission. They are not ends in themselves but windows into divine reality. Faith should not require signs, yet signs are given to strengthen faith. The danger is seeking signs without seeing what they signify - missing the revelation while demanding more miracles. John's signs progressively reveal Jesus: authority over nature, sickness, death, culminating in His own resurrection. Signs authenticate messengers (apostolic signs - 2 Cor 12:12) but can be counterfeited (2 Thess 2:9). True faith penetrates beyond sign to significance.",
+      "relatedWords": [
+        {
+          "greek": "σημαίνω",
+          "transliteration": "sēmainō",
+          "relationship": "To signify, indicate (John 12:33; Rev 1:1)"
+        },
+        {
+          "greek": "τέρας",
+          "transliteration": "teras",
+          "relationship": "Wonder, portent (often paired: signs and wonders)"
+        },
+        {
+          "greek": "δύναμις",
+          "transliteration": "dynamis",
+          "relationship": "Power, miracle - emphasizes power rather than revelatory function"
+        }
+      ],
+      "tags": ["essential", "johannine", "synoptic", "revelation"],
+      "volume": 7,
+      "pages": "200-269"
+    },
+    {
+      "id": "dynamis",
+      "category": "pneumatology",
+      "greek": "δύναμις",
+      "transliteration": "dynamis",
+      "strongs": "G1411",
+      "shortDef": "power, might, miracle, ability",
+      "title": "Power: The Divine Energy at Work",
+      "summary": "Δύναμις is power - the inherent ability to accomplish. It describes God's omnipotent power, Christ's miraculous power, the Spirit's enabling power, and the gospel's saving power. Divine power works in human weakness.",
+      "classicalGreek": "In classical Greek, δύναμις meant 'power, strength, ability' - the capacity to act or produce effects. It applied to physical, political, and military power. Aristotle distinguished δύναμις (potentiality) from ἐνέργεια (actuality). The term had both concrete and abstract applications.",
+      "lxxBackground": "The LXX uses δύναμις for various Hebrew words expressing God's power: גְּבוּרָה (geburah, 'might'), חַיִל (chayil, 'strength'). God's power created, delivers, and judges. 'Power' and 'glory' are frequently paired (Ps 63:2; 145:11). 'Lord of hosts' (צְבָאוֹת) becomes κύριος τῶν δυνάμεων - Lord of powers/armies.",
+      "intertestamental": "God's power in creation, history, and coming salvation remained central. Apocalyptic texts emphasized God's power to judge and transform. 'Powers' (δυνάμεις) could refer to angelic beings. God's power would be revealed decisively in the end times.",
+      "ntUsage": "God's power is unlimited (Matt 22:29; Rom 1:20). Christ performed δυνάμεις (miracles/mighty works - Matt 11:20-21). The Spirit provides power (Acts 1:8; Rom 15:13, 19). The gospel is God's power for salvation (Rom 1:16; 1 Cor 1:18). Power is perfected in weakness (2 Cor 12:9). Believers are kept by God's power (1 Pet 1:5). Christ is the power of God (1 Cor 1:24). Resurrection power is available to believers (Eph 1:19-20; Phil 3:10).",
+      "keyPassages": [
+        {
+          "reference": "Acts 1:8",
+          "greek": "λήμψεσθε δύναμιν ἐπελθόντος τοῦ ἁγίου πνεύματος ἐφ᾽ ὑμᾶς",
+          "significance": "You will receive power when the Holy Spirit comes - Spirit as source of missional power."
+        },
+        {
+          "reference": "2 Corinthians 12:9",
+          "greek": "ἀρκεῖ σοι ἡ χάρις μου, ἡ γὰρ δύναμις ἐν ἀσθενείᾳ τελεῖται",
+          "significance": "My grace is sufficient; power is perfected in weakness - divine power, human weakness."
+        },
+        {
+          "reference": "Ephesians 1:19-20",
+          "greek": "τὸ ὑπερβάλλον μέγεθος τῆς δυνάμεως αὐτοῦ... κατὰ τὴν ἐνέργειαν τοῦ κράτους τῆς ἰσχύος αὐτοῦ",
+          "significance": "The surpassing greatness of His power - resurrection power available to believers."
+        }
+      ],
+      "theologicalSignificance": "Divine power (δύναμις) distinguishes true Christianity. The gospel is not philosophy but power - it actually transforms. The Spirit enables what law could only command. Paradoxically, this power works through weakness: the cross is God's power (1 Cor 1:18, 24), and human weakness displays divine strength (2 Cor 12:9-10). Believers are 'filled with power' (Col 1:11) but never possess it independently - it flows from abiding in Christ. Power-seeking apart from service corrupts; divine power always serves love's purposes.",
+      "relatedWords": [
+        {
+          "greek": "δυνατός",
+          "transliteration": "dynatos",
+          "relationship": "Powerful, able, possible"
+        },
+        {
+          "greek": "δυναμόω",
+          "transliteration": "dynamoō",
+          "relationship": "To strengthen, make powerful"
+        },
+        {
+          "greek": "ἐνδυναμόω",
+          "transliteration": "endynamoō",
+          "relationship": "To strengthen, empower (Phil 4:13)"
+        }
+      ],
+      "tags": ["essential", "pauline", "pneumatology", "miracles"],
+      "volume": 2,
+      "pages": "284-317"
+    },
+    {
+      "id": "exousia",
+      "category": "christology",
+      "greek": "ἐξουσία",
+      "transliteration": "exousia",
+      "strongs": "G1849",
+      "shortDef": "authority, right, power, domain",
+      "title": "Authority: The Rightful Power to Act",
+      "summary": "Ἐξουσία is authority - the right or freedom to act, delegated power, jurisdiction. Christ received all authority, delegated authority to apostles, and His authority extends over disease, demons, death, and all creation.",
+      "classicalGreek": "In classical Greek, ἐξουσία (from ἔξεστι, 'it is permitted') meant 'freedom of action, right, authority.' It emphasized not raw power but legitimate power - the right to act, permission granted, authority possessed. It could denote political authority, personal liberty, or capability.",
+      "lxxBackground": "The LXX uses ἐξουσία for various terms relating to rule, authority, and domain. Daniel 7:14 gives the Son of Man 'authority' (ἐξουσία) and dominion. Human rulers exercise authority under God's sovereignty. All authority ultimately derives from God (Prov 8:15-16).",
+      "intertestamental": "Authority belonged to God, delegated to human and angelic rulers. Apocalyptic literature distinguished God's authority from illegitimate demonic usurpation. The coming kingdom would restore proper authority structures. Various 'authorities' (angelic powers) featured in cosmological speculation.",
+      "ntUsage": "Christ has all authority (Matt 28:18). He taught with authority (Matt 7:29), forgave with authority (Matt 9:6), and commanded spirits with authority (Mark 1:27). He gave authority to disciples (Matt 10:1; Luke 10:19). All authority comes from God (John 19:11; Rom 13:1-2). Believers have authority to become God's children (John 1:12). Powers and authorities were defeated (Col 2:15) but remain active (Eph 6:12). Christ will hand kingdom authority to the Father (1 Cor 15:24).",
+      "keyPassages": [
+        {
+          "reference": "Matthew 28:18",
+          "greek": "ἐδόθη μοι πᾶσα ἐξουσία ἐν οὐρανῷ καὶ ἐπὶ γῆς",
+          "significance": "All authority in heaven and on earth given to me - Christ's universal lordship."
+        },
+        {
+          "reference": "John 1:12",
+          "greek": "ἔδωκεν αὐτοῖς ἐξουσίαν τέκνα θεοῦ γενέσθαι",
+          "significance": "He gave them authority to become children of God - the right of adoption."
+        },
+        {
+          "reference": "Romans 13:1",
+          "greek": "οὐ γὰρ ἔστιν ἐξουσία εἰ μὴ ὑπὸ θεοῦ",
+          "significance": "There is no authority except from God - divine source of all authority."
+        }
+      ],
+      "theologicalSignificance": "Authority (ἐξουσία) differs from mere power (δύναμις): it is rightful power, legitimate rule. Christ's authority is absolute and delegated from the Father. His authority demonstrates His divine identity. All human and spiritual authorities are under Christ's authority. Believers exercise delegated authority in spiritual warfare and mission. Authority must be exercised in service, not domination (Mark 10:42-45). The spiritual 'authorities' (Eph 6:12) are defeated but active; believers resist them by Christ's authority. Ultimate authority will be exercised when Christ subjects all things to the Father.",
+      "relatedWords": [
+        {
+          "greek": "ἐξουσιάζω",
+          "transliteration": "exousiazō",
+          "relationship": "To exercise authority over (Luke 22:25; 1 Cor 6:12)"
+        },
+        {
+          "greek": "κατεξουσιάζω",
+          "transliteration": "katexousiazō",
+          "relationship": "To lord it over, tyrannize"
+        },
+        {
+          "greek": "δύναμις",
+          "transliteration": "dynamis",
+          "relationship": "Power, might - often paired with authority"
+        }
+      ],
+      "tags": ["essential", "synoptic", "pauline", "christology"],
+      "volume": 2,
+      "pages": "560-575"
+    },
+    {
+      "id": "martyria",
+      "category": "revelation",
+      "greek": "μαρτυρία",
+      "transliteration": "martyria",
+      "strongs": "G3141",
+      "shortDef": "testimony, witness, evidence",
+      "title": "Testimony: The Witness That Establishes Truth",
+      "summary": "Μαρτυρία is testimony or witness - the attestation of truth. God, Christ, the Spirit, Scripture, and believers all bear witness. In John's writings especially, testimony language pervades: the Father testifies to the Son, and believers testify to the world.",
+      "classicalGreek": "In classical Greek, μαρτυρία meant 'testimony, witness, evidence' - especially in legal contexts. The μάρτυς (witness) gave μαρτυρία (testimony). Truth required witnesses; testimony established facts. The concept was fundamentally forensic.",
+      "lxxBackground": "The LXX uses μαρτυρία for עֵדוּת (edut, 'testimony'). Two or three witnesses established truth (Deut 19:15). The covenant tablets were 'testimony' (Ex 25:16). False witness was forbidden (Ex 20:16). God Himself is witness (Gen 31:50; Jer 29:23).",
+      "intertestamental": "Legal witness procedures remained important. God's witness was ultimate. Martyrdom (dying for one's witness) began developing its specialized meaning. The righteous were witnesses to truth even unto death.",
+      "ntUsage": "John's Gospel emphasizes testimony: John the Baptist testified (John 1:7, 19, 32); Jesus testified (John 3:11, 32); the Father testified (John 5:37; 8:18); the works testified (John 5:36; 10:25); Scripture testified (John 5:39); the Spirit testified (John 15:26; 1 John 5:6-8). Believers are witnesses (Acts 1:8; 1 John 1:2). The 'testimony of Jesus' is central (Rev 1:2, 9; 12:17; 19:10). Martyrdom is the ultimate witness (Rev 6:9; 12:11).",
+      "keyPassages": [
+        {
+          "reference": "John 5:36-37",
+          "greek": "τὰ ἔργα... μαρτυρεῖ περὶ ἐμοῦ... καὶ ὁ πέμψας με πατὴρ ἐκεῖνος μεμαρτύρηκεν περὶ ἐμοῦ",
+          "significance": "The works and the Father testify about me - multiple divine witnesses to Christ."
+        },
+        {
+          "reference": "1 John 5:9-11",
+          "greek": "ἡ μαρτυρία τοῦ θεοῦ μείζων ἐστίν... αὕτη ἐστὶν ἡ μαρτυρία, ὅτι ζωὴν αἰώνιον ἔδωκεν ἡμῖν ὁ θεός",
+          "significance": "God's testimony is greater - His testimony is that He gave us eternal life."
+        },
+        {
+          "reference": "Revelation 12:11",
+          "greek": "αὐτοὶ ἐνίκησαν αὐτὸν διὰ τὸ αἷμα τοῦ ἀρνίου καὶ διὰ τὸν λόγον τῆς μαρτυρίας αὐτῶν",
+          "significance": "They conquered by the blood of the Lamb and the word of their testimony."
+        }
+      ],
+      "theologicalSignificance": "Truth is established through witness. The Trinity testifies: Father to Son, Spirit to both. Scripture testifies to Christ. Believers receive and pass on testimony. Faithful witness may cost life - hence μάρτυς becomes 'martyr.' The testimony focuses on Christ: who He is, what He has done. Rejecting testimony brings judgment (John 3:32-33). Faithful witness is part of spiritual warfare (Rev 12:11). The church's mission is witness (Acts 1:8). This is not mere opinion-sharing but solemn attestation to divine truth.",
+      "relatedWords": [
+        {
+          "greek": "μάρτυς",
+          "transliteration": "martys",
+          "relationship": "Witness, martyr"
+        },
+        {
+          "greek": "μαρτυρέω",
+          "transliteration": "martyreō",
+          "relationship": "To testify, bear witness"
+        },
+        {
+          "greek": "μαρτύριον",
+          "transliteration": "martyrion",
+          "relationship": "Testimony, evidence (Matt 8:4; 24:14)"
+        }
+      ],
+      "tags": ["essential", "johannine", "revelation", "mission"],
+      "volume": 4,
+      "pages": "474-514"
+    },
+    {
+      "id": "kosmos",
+      "category": "eschatology",
+      "greek": "κόσμος",
+      "transliteration": "kosmos",
+      "strongs": "G2889",
+      "shortDef": "world, universe, humanity, world-system",
+      "title": "World: Creation Under Judgment and Redemption",
+      "summary": "Κόσμος has multiple meanings: the created order, humanity, or the world-system opposed to God. God loved the world and sent His Son to save it, yet the world lies in the evil one. Believers are in the world but not of it.",
+      "classicalGreek": "In classical Greek, κόσμος meant 'order, arrangement, ornament' - hence 'cosmetics.' Philosophers applied it to the ordered universe (world). The term emphasizes ordered beauty - the world as structured, harmonious whole. It could also mean 'adornment.'",
+      "lxxBackground": "The LXX uses κόσμος occasionally for 'ornament' (Ex 33:5-6; Isa 49:18) and for the ordered world (Gen 2:1; Deut 4:19 - 'host of heaven'). However, Hebrew thought typically spoke of 'heaven and earth' rather than κόσμος. The term gains theological significance primarily in later Judaism and the NT.",
+      "intertestamental": "Greek philosophical concepts increasingly influenced Jewish thought. Wisdom literature personified Wisdom present at creation (Wisdom 9:9). 'This world' and 'the world to come' became standard eschatological categories. The world was God's creation but corrupted by evil.",
+      "ntUsage": "Κόσμος means: (1) the created universe (John 1:10a; Acts 17:24); (2) humanity (John 3:16; Rom 3:19); (3) the world-system opposed to God (John 15:18-19; 1 John 2:15-17; 5:19). God made the world (John 1:10), loves it (3:16), sent Christ to save it (3:17; 1 John 4:14). Yet the world doesn't know God (John 1:10; 1 Cor 1:21), hates believers (John 15:18), and lies in the evil one (1 John 5:19). Believers must not love the world (1 John 2:15-17). Christ has overcome the world (John 16:33).",
+      "keyPassages": [
+        {
+          "reference": "John 3:16",
+          "greek": "οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν τὸν μονογενῆ ἔδωκεν",
+          "significance": "God so loved the world - the extent of divine redemptive love."
+        },
+        {
+          "reference": "1 John 2:15-16",
+          "greek": "μὴ ἀγαπᾶτε τὸν κόσμον μηδὲ τὰ ἐν τῷ κόσμῳ... ὅτι πᾶν τὸ ἐν τῷ κόσμῳ... οὐκ ἔστιν ἐκ τοῦ πατρός",
+          "significance": "Do not love the world - the world-system as opposed to the Father."
+        },
+        {
+          "reference": "John 17:14-16",
+          "greek": "οὐκ εἰσὶν ἐκ τοῦ κόσμου καθὼς ἐγὼ οὐκ εἰμὶ ἐκ τοῦ κόσμου",
+          "significance": "Not of the world, even as I am not - in the world but not of it."
+        }
+      ],
+      "theologicalSignificance": "The semantic range of κόσμος requires careful interpretation. God loves the world (humanity) and sent Christ to save it - this is not universalism but the scope of the offer. Yet believers must not 'love the world' (the anti-God system of values, priorities, and powers). The world-system is passing away (1 John 2:17; 1 Cor 7:31). Christ has overcome it (John 16:33). Believers are sent into the world (John 17:18) without being of it. Mission requires engagement without absorption. The tension between loving people and rejecting worldliness defines Christian existence until Christ returns.",
+      "relatedWords": [
+        {
+          "greek": "κοσμικός",
+          "transliteration": "kosmikos",
+          "relationship": "Worldly, earthly (Titus 2:12; Heb 9:1)"
+        },
+        {
+          "greek": "αἰών",
+          "transliteration": "aiōn",
+          "relationship": "Age, era - 'this age' parallels 'this world'"
+        },
+        {
+          "greek": "γῆ",
+          "transliteration": "gē",
+          "relationship": "Earth, land - physical world"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "eschatology"],
+      "volume": 3,
+      "pages": "868-898"
     }
   ]
 }
