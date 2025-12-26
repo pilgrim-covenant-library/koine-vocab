@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem, BookHeart, BookCopy } from 'lucide-react';
+import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem, BookHeart, BookCopy, Library } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
@@ -224,6 +224,13 @@ export default function Dashboard() {
               title="Synonyms"
               description="Vine's Dictionary word distinctions"
               color="bg-indigo-500"
+            />
+            <LearningModeCard
+              href="/kittel"
+              icon={<Library className="w-6 h-6" />}
+              title="Kittel's Dictionary"
+              description="TDNT theological word studies"
+              color="bg-amber-600"
             />
             <LearningModeCard
               href="/stories"

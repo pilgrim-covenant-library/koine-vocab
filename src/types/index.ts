@@ -573,3 +573,139 @@ export const SYNONYM_CATEGORIES: Record<SynonymCategory, SynonymCategoryInfo> = 
     icon: 'MoreHorizontal',
   },
 } as const;
+
+// ========================================
+// Kittel's Theological Dictionary Types - TDNT word studies
+// ========================================
+
+export type KittelCategory =
+  | 'salvation'     // σωτηρία, λύτρον, ἀπολύτρωσις
+  | 'christology'   // χριστός, κύριος, υἱός
+  | 'pneumatology'  // πνεῦμα, χάρισμα, παράκλητος
+  | 'ecclesiology'  // ἐκκλησία, σῶμα, κοινωνία
+  | 'eschatology'   // βασιλεία, παρουσία, ἀνάστασις
+  | 'anthropology'  // σάρξ, ψυχή, σῶμα, καρδία
+  | 'hamartiology'  // ἁμαρτία, νόμος, θάνατος
+  | 'ethics'        // ἀγάπη, δικαιοσύνη, ἁγιασμός
+  | 'worship'       // λατρεία, προσκυνέω, εὐχαριστία
+  | 'revelation'    // ἀποκάλυψις, λόγος, ἀλήθεια
+  | 'covenant'      // διαθήκη, ἐπαγγελία, κληρονομία
+  | 'faith'         // πίστις, ἐλπίς, μετάνοια
+  | 'other';        // Other theological concepts
+
+export interface KittelEntry {
+  id: string;
+  category: KittelCategory;
+  greek: string;
+  transliteration: string;
+  strongs: string;
+  shortDef: string;
+  title: string;                    // e.g., "The Meaning of πίστις in Paul"
+  summary: string;                  // Brief overview
+  classicalGreek: string;           // Usage in classical Greek
+  lxxBackground: string;            // Usage in the Septuagint / OT context
+  intertestamental?: string;        // Developments between testaments
+  ntUsage: string;                  // NT theological significance
+  keyPassages: {
+    reference: string;
+    greek: string;
+    significance: string;
+  }[];
+  theologicalSignificance: string;  // Core theological meaning
+  relatedWords?: {
+    greek: string;
+    transliteration: string;
+    relationship: string;
+  }[];
+  tags: string[];
+  volume?: number;                  // TDNT volume reference
+  pages?: string;                   // Page range in TDNT
+}
+
+export interface KittelCategoryInfo {
+  label: string;
+  description: string;
+  color: string;
+  icon: string;
+}
+
+export const KITTEL_CATEGORIES: Record<KittelCategory, KittelCategoryInfo> = {
+  salvation: {
+    label: 'Salvation',
+    description: 'Terms relating to redemption, deliverance, and rescue',
+    color: 'emerald',
+    icon: 'Shield',
+  },
+  christology: {
+    label: 'Christology',
+    description: 'Terms describing the person and work of Christ',
+    color: 'amber',
+    icon: 'Crown',
+  },
+  pneumatology: {
+    label: 'Pneumatology',
+    description: 'Terms relating to the Holy Spirit and spiritual gifts',
+    color: 'sky',
+    icon: 'Wind',
+  },
+  ecclesiology: {
+    label: 'Ecclesiology',
+    description: 'Terms describing the church and Christian community',
+    color: 'purple',
+    icon: 'Users',
+  },
+  eschatology: {
+    label: 'Eschatology',
+    description: 'Terms relating to end times and the age to come',
+    color: 'orange',
+    icon: 'Sunrise',
+  },
+  anthropology: {
+    label: 'Anthropology',
+    description: 'Terms describing human nature and constitution',
+    color: 'rose',
+    icon: 'User',
+  },
+  hamartiology: {
+    label: 'Hamartiology',
+    description: 'Terms relating to sin, law, and death',
+    color: 'red',
+    icon: 'AlertTriangle',
+  },
+  ethics: {
+    label: 'Ethics',
+    description: 'Terms relating to Christian virtue and conduct',
+    color: 'blue',
+    icon: 'Heart',
+  },
+  worship: {
+    label: 'Worship',
+    description: 'Terms relating to praise, prayer, and service to God',
+    color: 'violet',
+    icon: 'Music',
+  },
+  revelation: {
+    label: 'Revelation',
+    description: 'Terms relating to divine disclosure and truth',
+    color: 'indigo',
+    icon: 'BookOpen',
+  },
+  covenant: {
+    label: 'Covenant',
+    description: 'Terms relating to God\'s promises and inheritance',
+    color: 'teal',
+    icon: 'ScrollText',
+  },
+  faith: {
+    label: 'Faith',
+    description: 'Terms relating to belief, hope, and repentance',
+    color: 'cyan',
+    icon: 'Sparkles',
+  },
+  other: {
+    label: 'Other',
+    description: 'Additional theological concepts',
+    color: 'gray',
+    icon: 'MoreHorizontal',
+  },
+} as const;

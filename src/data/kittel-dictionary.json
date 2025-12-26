@@ -1,0 +1,888 @@
+{
+  "entries": [
+    {
+      "id": "pistis",
+      "category": "faith",
+      "greek": "πίστις",
+      "transliteration": "pistis",
+      "strongs": "G4102",
+      "shortDef": "faith, belief, trust, faithfulness",
+      "title": "Faith as Trust and Faithfulness",
+      "summary": "Πίστις is one of the most theologically loaded terms in the NT. While often translated simply as 'faith' or 'belief,' it encompasses trust, confidence, faithfulness, and the content of what is believed. In Paul especially, it becomes the central term for humanity's proper response to God's grace.",
+      "classicalGreek": "In classical Greek, πίστις primarily meant 'trust' or 'confidence' in persons or things. It could refer to the reliability that evokes trust, hence 'faithfulness' or 'trustworthiness.' In commercial contexts, it meant 'credit' or 'guarantee.' The verb πιστεύω meant 'to trust' or 'to believe someone.'",
+      "lxxBackground": "The LXX uses πίστις to translate Hebrew אֱמוּנָה (ʾemunah), which fundamentally means 'firmness' or 'reliability.' In Habakkuk 2:4 ('the righteous shall live by his faith/faithfulness'), the term connects to covenant fidelity. The OT emphasis is on God's faithfulness (Deut 32:4) and the corresponding human response of trusting faithfulness.",
+      "intertestamental": "In Second Temple Judaism, πίστις took on additional nuances. In 1 Maccabees, it often means 'loyalty' or 'fidelity.' In Philo, it becomes more philosophical - the highest virtue by which the soul clings to God. The Qumran community emphasized 'faith' as commitment to the community's interpretation of Torah.",
+      "ntUsage": "Paul transforms πίστις into the central soteriological term. In Romans and Galatians, faith is set against works of the law as the means of justification (Rom 3:28; Gal 2:16). Yet it is never mere intellectual assent - it involves trust, commitment, and ongoing faithfulness. The 'obedience of faith' (Rom 1:5; 16:26) shows that genuine faith produces obedience. In Hebrews 11, πίστις is defined as 'the substance of things hoped for, the evidence of things not seen' - an active confidence that shapes life. James insists that faith without works is dead (Jas 2:17), emphasizing that genuine πίστις necessarily produces action.",
+      "keyPassages": [
+        {
+          "reference": "Romans 3:22",
+          "greek": "δικαιοσύνη δὲ θεοῦ διὰ πίστεως Ἰησοῦ Χριστοῦ",
+          "significance": "The righteousness of God comes 'through faith in/of Jesus Christ.' The genitive πίστεως Ἰησοῦ Χριστοῦ is debated - is it faith IN Christ (objective genitive) or Christ's own faithfulness (subjective genitive)? Either way, Christ is central to faith."
+        },
+        {
+          "reference": "Galatians 2:20",
+          "greek": "ζῶ δὲ οὐκέτι ἐγώ, ζῇ δὲ ἐν ἐμοὶ Χριστός· ὃ δὲ νῦν ζῶ ἐν σαρκί, ἐν πίστει ζῶ τῇ τοῦ υἱοῦ τοῦ θεοῦ",
+          "significance": "Faith is not just initial belief but the ongoing principle of Christian life. Paul lives 'by faith in the Son of God' - faith shapes the whole of existence."
+        },
+        {
+          "reference": "Hebrews 11:1",
+          "greek": "Ἔστιν δὲ πίστις ἐλπιζομένων ὑπόστασις, πραγμάτων ἔλεγχος οὐ βλεπομένων",
+          "significance": "Faith is defined as substantive reality (ὑπόστασις) and proof (ἔλεγχος) - not wishful thinking but confident assurance that grasps unseen realities."
+        }
+      ],
+      "theologicalSignificance": "Πίστις in the NT represents humanity's proper response to God's self-revelation in Christ. It is the empty hand that receives grace, yet it is never passive - genuine faith transforms life and produces obedience. The Reformers rightly emphasized that we are justified by faith alone (sola fide), but this faith is never alone - it works through love (Gal 5:6). Faith unites the believer to Christ, so that His righteousness becomes ours. In this sense, faith is not a meritorious work but the God-given means by which we receive Christ and all His benefits.",
+      "relatedWords": [
+        {
+          "greek": "πιστεύω",
+          "transliteration": "pisteuō",
+          "relationship": "Verb form: 'to believe, trust, have faith'"
+        },
+        {
+          "greek": "πιστός",
+          "transliteration": "pistos",
+          "relationship": "Adjective: 'faithful, believing, trustworthy'"
+        },
+        {
+          "greek": "ἀπιστία",
+          "transliteration": "apistia",
+          "relationship": "Negation: 'unbelief, unfaithfulness'"
+        }
+      ],
+      "tags": ["essential", "pauline", "reformation", "soteriology"],
+      "volume": 6,
+      "pages": "174-228"
+    },
+    {
+      "id": "dikaiosyne",
+      "category": "salvation",
+      "greek": "δικαιοσύνη",
+      "transliteration": "dikaiosynē",
+      "strongs": "G1343",
+      "shortDef": "righteousness, justice, justification",
+      "title": "The Righteousness of God",
+      "summary": "Δικαιοσύνη is the NT term for righteousness or justice. In Paul, 'the righteousness of God' (δικαιοσύνη θεοῦ) becomes the heart of the gospel - both God's own righteous character and the right standing He gives to believers through Christ.",
+      "classicalGreek": "In classical Greek, δικαιοσύνη was the cardinal virtue of giving to each their due. For Plato, it was the harmony of the soul's parts; for Aristotle, the virtue of proper social relations. It encompassed legal justice, fairness, and moral rectitude.",
+      "lxxBackground": "The LXX uses δικαιοσύνη primarily for צְדָקָה (tsedaqah), which in Hebrew thought is essentially relational - right standing within the covenant. God's righteousness is His faithfulness to His covenant promises and His saving action on behalf of His people (Ps 98:2; Isa 46:13). Human righteousness is covenant faithfulness.",
+      "intertestamental": "In Second Temple Judaism, righteousness became increasingly associated with Torah observance. The Qumran community spoke of 'the Teacher of Righteousness' and emphasized righteous living according to their strict interpretation. 4 Ezra struggles with how humans can be righteous before a holy God.",
+      "ntUsage": "Paul's doctrine of righteousness revolutionizes the concept. In Romans 1:17, 'the righteousness of God' is revealed in the gospel - not primarily as a condemning standard but as a saving gift. Romans 3:21-26 explains that God demonstrates His righteousness by justifying sinners through Christ's atoning sacrifice. This righteousness is received 'by faith' (Rom 3:22) and 'apart from law' (Rom 3:21). The result is that believers are 'declared righteous' (justified) - they receive a right standing with God not based on their own works but on Christ's perfect obedience. Yet this forensic declaration leads to actual righteousness of life (Rom 6:13, 18).",
+      "keyPassages": [
+        {
+          "reference": "Romans 1:17",
+          "greek": "δικαιοσύνη γὰρ θεοῦ ἐν αὐτῷ ἀποκαλύπτεται ἐκ πίστεως εἰς πίστιν",
+          "significance": "The righteousness of God is 'revealed' in the gospel - this was Luther's breakthrough. It is not merely demanded but given, received by faith."
+        },
+        {
+          "reference": "Romans 3:21-22",
+          "greek": "νυνὶ δὲ χωρὶς νόμου δικαιοσύνη θεοῦ πεφανέρωται... διὰ πίστεως Ἰησοῦ Χριστοῦ",
+          "significance": "God's righteousness is manifested 'apart from the law' - a new age has dawned where righteousness comes through Christ, not Torah."
+        },
+        {
+          "reference": "2 Corinthians 5:21",
+          "greek": "τὸν μὴ γνόντα ἁμαρτίαν ὑπὲρ ἡμῶν ἁμαρτίαν ἐποίησεν, ἵνα ἡμεῖς γενώμεθα δικαιοσύνη θεοῦ ἐν αὐτῷ",
+          "significance": "The great exchange: Christ became sin so that we might become 'the righteousness of God' in Him. Union with Christ is the basis of imputed righteousness."
+        }
+      ],
+      "theologicalSignificance": "The δικαιοσύνη θεοῦ encompasses both God's own righteous character and His gift of right standing to believers. God is both 'just and the justifier' (Rom 3:26). This righteousness is forensic (a legal declaration) but not fictional - it is grounded in Christ's actual obedience and creates real transformation. The Reformation recovered this truth: sinners are justified not by infused righteousness but by Christ's righteousness imputed to them through faith. Yet justified sinners are also being sanctified - declared righteous and made righteous.",
+      "relatedWords": [
+        {
+          "greek": "δικαιόω",
+          "transliteration": "dikaioō",
+          "relationship": "Verb: 'to justify, declare righteous'"
+        },
+        {
+          "greek": "δίκαιος",
+          "transliteration": "dikaios",
+          "relationship": "Adjective: 'righteous, just'"
+        },
+        {
+          "greek": "δικαίωσις",
+          "transliteration": "dikaiōsis",
+          "relationship": "The act of justifying, acquittal"
+        }
+      ],
+      "tags": ["essential", "pauline", "reformation", "soteriology"],
+      "volume": 2,
+      "pages": "192-210"
+    },
+    {
+      "id": "charis",
+      "category": "salvation",
+      "greek": "χάρις",
+      "transliteration": "charis",
+      "strongs": "G5485",
+      "shortDef": "grace, favor, kindness, gift",
+      "title": "Grace: God's Unmerited Favor",
+      "summary": "Χάρις is the distinctively Christian term for God's undeserved favor toward sinners. While the word existed in Greek culture, Paul fills it with new meaning: grace is not just divine goodwill but God's active, saving power that rescues the undeserving and transforms them.",
+      "classicalGreek": "In classical Greek, χάρις had a range of meanings: 'grace' or 'charm' (as a quality that pleases), 'goodwill' or 'favor' (from a superior to an inferior), 'gratitude' (the response to favor), and 'a gift' or 'benefit.' The Graces (Χάριτες) were goddesses of charm and beauty. The term implied reciprocity - favor given expected favor returned.",
+      "lxxBackground": "The LXX uses χάρις primarily for Hebrew חֵן (chen), meaning 'favor' or 'grace.' It describes finding favor in someone's eyes (Gen 6:8; 18:3). However, the LXX also uses χάρις for חֶסֶד (chesed), God's covenant love and faithfulness. The OT emphasis is on God's gracious initiative in choosing and redeeming Israel despite their unworthiness.",
+      "intertestamental": "Sirach uses χάρις extensively for divine favor and human gratitude. The Qumran Hodayot (thanksgiving hymns) emphasize that salvation is entirely by God's grace. 4 Ezra wrestles with whether God's grace or human merit determines salvation. These texts show the tension that Paul's gospel would resolve.",
+      "ntUsage": "Paul makes χάρις the central category for understanding salvation. Grace is God's favor shown to sinners who deserve only wrath (Rom 3:24; Eph 2:8-9). It is the opposite of works - if by grace, then not by works (Rom 11:6). Yet grace is not merely an attitude but a power that reigns (Rom 5:21), teaches believers to live godly (Titus 2:11-12), and is sufficient for every need (2 Cor 12:9). Believers stand in grace (Rom 5:2), grow in grace (2 Pet 3:18), and must not receive it in vain (2 Cor 6:1). The gospel itself is called 'the gospel of the grace of God' (Acts 20:24).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 2:8-9",
+          "greek": "τῇ γὰρ χάριτί ἐστε σεσῳσμένοι διὰ πίστεως· καὶ τοῦτο οὐκ ἐξ ὑμῶν, θεοῦ τὸ δῶρον· οὐκ ἐξ ἔργων, ἵνα μή τις καυχήσηται",
+          "significance": "The definitive statement: salvation is by grace through faith, not from ourselves but God's gift, not by works. All boasting is excluded."
+        },
+        {
+          "reference": "Romans 5:20-21",
+          "greek": "οὗ δὲ ἐπλεόνασεν ἡ ἁμαρτία, ὑπερεπερίσσευσεν ἡ χάρις... ἡ χάρις βασιλεύσῃ διὰ δικαιοσύνης",
+          "significance": "Grace 'super-abounds' over sin and 'reigns' through righteousness. Grace is not just sufficient but overwhelming, not passive but powerful."
+        },
+        {
+          "reference": "2 Corinthians 12:9",
+          "greek": "ἀρκεῖ σοι ἡ χάρις μου· ἡ γὰρ δύναμις ἐν ἀσθενείᾳ τελεῖται",
+          "significance": "Grace is sufficient and is perfected in weakness. This shows grace as ongoing power for Christian living, not just initial salvation."
+        }
+      ],
+      "theologicalSignificance": "Χάρις demolishes all human boasting and establishes God's sovereignty in salvation. It is not a response to human merit but its very opposite - given to the undeserving. Yet grace is not cheap; it cost Christ everything. Grace received produces gratitude and transformation, not license (Rom 6:1-2). The Reformation slogans sola gratia (grace alone) and soli Deo gloria (to God alone be glory) capture the NT teaching: salvation is entirely God's gracious work, and He alone deserves credit.",
+      "relatedWords": [
+        {
+          "greek": "χαρίζομαι",
+          "transliteration": "charizomai",
+          "relationship": "Verb: 'to give freely, forgive, grant'"
+        },
+        {
+          "greek": "χάρισμα",
+          "transliteration": "charisma",
+          "relationship": "A gift of grace, spiritual gift"
+        },
+        {
+          "greek": "εὐχαριστία",
+          "transliteration": "eucharistia",
+          "relationship": "Thanksgiving, gratitude (response to grace)"
+        }
+      ],
+      "tags": ["essential", "pauline", "reformation", "soteriology"],
+      "volume": 9,
+      "pages": "372-402"
+    },
+    {
+      "id": "agape",
+      "category": "ethics",
+      "greek": "ἀγάπη",
+      "transliteration": "agapē",
+      "strongs": "G26",
+      "shortDef": "love (divine, selfless, unconditional)",
+      "title": "Divine Love in Action",
+      "summary": "Ἀγάπη is the distinctively Christian word for love. While it existed before Christianity, the NT fills it with new meaning: the self-giving, sacrificial love of God shown in Christ, which becomes the model and power for Christian love toward God and neighbor.",
+      "classicalGreek": "In classical Greek, ἀγαπάω was the least common of the love words. Ἔρως denoted passionate, romantic love; φιλία described friendship and affection; στοργή meant natural family affection. Ἀγαπάω was colorless by comparison - 'to be content with' or 'to prefer.' It lacked the warmth of φιλέω. The LXX and NT would transform this weakness into a strength.",
+      "lxxBackground": "The LXX uses ἀγαπάω/ἀγάπη to translate אָהֵב (ahev), the primary Hebrew word for love. This covers God's love for Israel (Deut 7:8; Hos 11:1), human love for God (Deut 6:5), and love for neighbor (Lev 19:18). The Shema's command to love God 'with all your heart' becomes the foundation for NT teaching. God's ἀγάπη for Israel is electing, covenant-keeping love.",
+      "intertestamental": "Philo uses ἀγάπη for love of God and virtue. The Testaments of the Twelve Patriarchs emphasize loving God and neighbor. However, ἀγάπη remained relatively rare. It was Christianity that would make it the supreme term for love.",
+      "ntUsage": "The NT revolutionizes ἀγάπη. God's love is definitively revealed in Christ's death for sinners (Rom 5:8; 1 John 4:10). This love is not sentimental but costly - it gives the Son (John 3:16). God's love is the source of salvation (Eph 2:4-5). Believers are commanded to love as they have been loved (John 13:34; 1 John 4:11). Love fulfills the law (Rom 13:10; Gal 5:14). It is the greatest of the virtues (1 Cor 13:13), the bond of perfection (Col 3:14), and the evidence of genuine conversion (1 John 3:14). Without love, even the greatest spiritual gifts are worthless (1 Cor 13:1-3).",
+      "keyPassages": [
+        {
+          "reference": "John 3:16",
+          "greek": "οὕτως γὰρ ἠγάπησεν ὁ θεὸς τὸν κόσμον, ὥστε τὸν υἱὸν τὸν μονογενῆ ἔδωκεν",
+          "significance": "The summary of the gospel: God's love is measured by His gift of the Son. 'So loved' (οὕτως ἠγάπησεν) emphasizes the manner and extent of divine love."
+        },
+        {
+          "reference": "Romans 5:8",
+          "greek": "συνίστησιν δὲ τὴν ἑαυτοῦ ἀγάπην εἰς ἡμᾶς ὁ θεός, ὅτι ἔτι ἁμαρτωλῶν ὄντων ἡμῶν Χριστὸς ὑπὲρ ἡμῶν ἀπέθανεν",
+          "significance": "God's love is demonstrated (συνίστησιν - 'commends,' 'proves') in Christ's death for sinners - not the lovable but the unlovely."
+        },
+        {
+          "reference": "1 Corinthians 13:4-7",
+          "greek": "ἡ ἀγάπη μακροθυμεῖ, χρηστεύεται ἡ ἀγάπη...",
+          "significance": "Love is defined by its actions, not feelings. Paul's description provides a moral portrait that is ultimately a portrait of Christ Himself."
+        },
+        {
+          "reference": "1 John 4:8",
+          "greek": "ὁ θεὸς ἀγάπη ἐστίν",
+          "significance": "The ultimate statement: 'God is love.' Love is not merely what God does but who He is. His essential nature is self-giving love."
+        }
+      ],
+      "theologicalSignificance": "Ἀγάπη is Christianity's distinctive contribution to ethics. It is not natural affection or romantic passion but deliberate, sacrificial commitment to another's good. This love originates in God, is revealed in Christ, and is poured into believers' hearts by the Spirit (Rom 5:5). It is both gift and command - we love because He first loved us (1 John 4:19), yet we are commanded to love (John 13:34). Christian love extends even to enemies (Matt 5:44) because it imitates God who loved His enemies. Love is the fulfillment of the law and the distinguishing mark of Christ's disciples (John 13:35).",
+      "relatedWords": [
+        {
+          "greek": "ἀγαπάω",
+          "transliteration": "agapaō",
+          "relationship": "Verb: 'to love' (with deliberate choice)"
+        },
+        {
+          "greek": "ἀγαπητός",
+          "transliteration": "agapētos",
+          "relationship": "Adjective: 'beloved' (used of Christ and believers)"
+        },
+        {
+          "greek": "φιλέω",
+          "transliteration": "phileō",
+          "relationship": "Related: 'to love' with affection and friendship"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "ethics"],
+      "volume": 1,
+      "pages": "21-55"
+    },
+    {
+      "id": "basileia",
+      "category": "eschatology",
+      "greek": "βασιλεία",
+      "transliteration": "basileia",
+      "strongs": "G932",
+      "shortDef": "kingdom, reign, royal rule",
+      "title": "The Kingdom of God",
+      "summary": "Βασιλεία τοῦ θεοῦ ('the kingdom of God') is the central theme of Jesus' preaching. It refers primarily not to a realm or territory but to God's dynamic, kingly rule breaking into history through Jesus. The kingdom is both present and future, already inaugurated and not yet consummated.",
+      "classicalGreek": "In classical Greek, βασιλεία meant 'kingship,' 'royal rule,' or 'kingdom' (the realm ruled). It emphasized the authority and sovereignty of the king. The word could denote both the abstract concept of royal power and the concrete territory under that power.",
+      "lxxBackground": "The LXX uses βασιλεία for Hebrew מַלְכוּת (malkut). God's kingship is eternal (Ps 145:13) and will be manifested over all nations (Ps 22:28). The prophets anticipated a future when God would establish His reign decisively - the Day of the LORD when God would be 'king over all the earth' (Zech 14:9). Daniel 7:14 pictures the Son of Man receiving an everlasting kingdom.",
+      "intertestamental": "Second Temple Judaism eagerly anticipated God's kingdom. Some expected a political restoration of Davidic monarchy; others envisioned cosmic transformation. The Qumran community believed they were living in the last days before God's decisive intervention. The Psalms of Solomon pray for God to establish His kingdom through the Messiah. There was no single 'kingdom' expectation but rather a variety of hopes for God's final triumph.",
+      "ntUsage": "Jesus announces that the kingdom of God 'has come near' (Mark 1:15). Through His ministry - teaching, healing, casting out demons - God's reign is breaking in (Matt 12:28). Yet the kingdom is also future - believers pray 'Your kingdom come' (Matt 6:10) and will inherit it (Matt 25:34). This 'already/not yet' tension is central: the kingdom is inaugurated in Jesus' first coming but will be consummated at His return. In John, eternal life largely replaces kingdom language but represents the same reality. Paul speaks of inheriting the kingdom (1 Cor 6:9-10; Gal 5:21) and of Christ's kingdom being handed over to the Father (1 Cor 15:24).",
+      "keyPassages": [
+        {
+          "reference": "Mark 1:15",
+          "greek": "πεπλήρωται ὁ καιρὸς καὶ ἤγγικεν ἡ βασιλεία τοῦ θεοῦ",
+          "significance": "Jesus' programmatic announcement: the time is fulfilled, the kingdom has drawn near. The decisive moment in God's plan has arrived."
+        },
+        {
+          "reference": "Matthew 12:28",
+          "greek": "εἰ δὲ ἐν πνεύματι θεοῦ ἐγὼ ἐκβάλλω τὰ δαιμόνια, ἄρα ἔφθασεν ἐφʼ ὑμᾶς ἡ βασιλεία τοῦ θεοῦ",
+          "significance": "Jesus' exorcisms prove the kingdom 'has come upon you' (ἔφθασεν). God's reign is present in Jesus' Spirit-empowered ministry."
+        },
+        {
+          "reference": "Luke 17:20-21",
+          "greek": "οὐκ ἔρχεται ἡ βασιλεία τοῦ θεοῦ μετὰ παρατηρήσεως... ἰδοὺ γὰρ ἡ βασιλεία τοῦ θεοῦ ἐντὸς ὑμῶν ἐστιν",
+          "significance": "The kingdom does not come with observable signs but is 'in your midst' (or 'within you'). It is present where Jesus is present."
+        }
+      ],
+      "theologicalSignificance": "The βασιλεία τοῦ θεοῦ is God's sovereign rule actualized in history through Jesus Christ. It is primarily dynamic (God reigning) rather than static (a territory). Jesus is both the proclaimer and the presence of the kingdom - where He is, God's rule is present. Entry into the kingdom requires repentance and faith (Mark 1:15), new birth (John 3:3), and becomes as a child (Mark 10:15). The kingdom creates a new community living under God's rule now while awaiting its final manifestation. The Lord's Prayer captures the tension: the kingdom is coming and we pray for its full arrival.",
+      "relatedWords": [
+        {
+          "greek": "βασιλεύς",
+          "transliteration": "basileus",
+          "relationship": "Noun: 'king' - Jesus is the King of this kingdom"
+        },
+        {
+          "greek": "βασιλεύω",
+          "transliteration": "basileuō",
+          "relationship": "Verb: 'to reign' - both God and Christ reign"
+        }
+      ],
+      "tags": ["essential", "synoptic", "eschatology", "christology"],
+      "volume": 1,
+      "pages": "564-593"
+    },
+    {
+      "id": "pneuma",
+      "category": "pneumatology",
+      "greek": "πνεῦμα",
+      "transliteration": "pneuma",
+      "strongs": "G4151",
+      "shortDef": "spirit, Spirit, wind, breath",
+      "title": "The Holy Spirit",
+      "summary": "Πνεῦμα is used for the Spirit of God, the Holy Spirit, the human spirit, and spirits (angelic or demonic). In the NT, the Holy Spirit is the divine person through whom God acts in creation, revelation, and redemption - the empowering presence of God in believers.",
+      "classicalGreek": "In classical Greek, πνεῦμα meant 'wind,' 'breath,' or 'air in motion.' Philosophically, it could refer to the vital principle of life. The Stoics conceived of πνεῦμα as the divine rational principle pervading all things. However, πνεῦμα was not a major religious term in Greek religion.",
+      "lxxBackground": "The LXX uses πνεῦμα primarily for רוּחַ (ruach), which means 'wind,' 'breath,' or 'spirit.' God's רוּחַ creates (Gen 1:2; Ps 33:6), gives life (Gen 2:7), empowers leaders (Judg 6:34; 1 Sam 16:13), and inspires prophets (Num 11:25; Ezek 11:5). The prophets promised a future outpouring of the Spirit (Joel 2:28-29; Ezek 36:26-27) that would transform God's people.",
+      "intertestamental": "The Wisdom of Solomon personifies God's Spirit. The Dead Sea Scrolls speak of a 'spirit of truth' and 'spirit of falsehood.' There is increasing interest in the Spirit's eschatological role. Generally, however, the Spirit was seen as largely absent in the present age, awaiting the messianic era.",
+      "ntUsage": "The NT presents the Spirit's eschatological outpouring as fulfilled. At Pentecost, the Spirit comes in power (Acts 2), marking the new age. The Spirit regenerates (John 3:5-8), indwells believers (1 Cor 6:19), produces fruit (Gal 5:22-23), gives gifts (1 Cor 12:4-11), and guarantees future inheritance (Eph 1:13-14). The Spirit witnesses to Christ (John 15:26), teaches truth (John 16:13), and enables believers to cry 'Abba, Father' (Rom 8:15). Paul's letters develop a rich pneumatology: life in the Spirit versus flesh (Rom 8:1-17), the Spirit as the mode of Christian existence (Gal 5:16-25).",
+      "keyPassages": [
+        {
+          "reference": "John 14:16-17",
+          "greek": "κἀγὼ ἐρωτήσω τὸν πατέρα καὶ ἄλλον παράκλητον δώσει ὑμῖν... τὸ πνεῦμα τῆς ἀληθείας",
+          "significance": "Jesus promises 'another Advocate' (ἄλλον παράκλητον) - the Spirit is personal and continues Jesus' ministry as 'the Spirit of truth.'"
+        },
+        {
+          "reference": "Acts 2:4",
+          "greek": "ἐπλήσθησαν πάντες πνεύματος ἁγίου καὶ ἤρξαντο λαλεῖν ἑτέραις γλώσσαις",
+          "significance": "The Spirit's eschatological outpouring fulfills Joel's prophecy. The new covenant age has begun."
+        },
+        {
+          "reference": "Romans 8:14-16",
+          "greek": "ὅσοι γὰρ πνεύματι θεοῦ ἄγονται, οὗτοι υἱοὶ θεοῦ εἰσιν... αὐτὸ τὸ πνεῦμα συμμαρτυρεῖ τῷ πνεύματι ἡμῶν ὅτι ἐσμὲν τέκνα θεοῦ",
+          "significance": "The Spirit leads believers, witnesses to their adoption, and enables them to call God 'Abba' - intimate relational language."
+        }
+      ],
+      "theologicalSignificance": "The Holy Spirit is the third person of the Trinity, fully divine, co-equal with Father and Son. The Spirit is the agent of application - He applies Christ's work to believers through regeneration, sanctification, and glorification. Life 'in the Spirit' is the normal Christian mode of existence. The Spirit empowers mission (Acts 1:8), creates community (1 Cor 12:13), and produces Christlike character (Gal 5:22-23). The Spirit is the 'down payment' (ἀρραβών) of future glory (2 Cor 1:22; Eph 1:14) - present experience of coming consummation.",
+      "relatedWords": [
+        {
+          "greek": "πνευματικός",
+          "transliteration": "pneumatikos",
+          "relationship": "Adjective: 'spiritual' - pertaining to the Spirit"
+        },
+        {
+          "greek": "χάρισμα",
+          "transliteration": "charisma",
+          "relationship": "Spiritual gift given by the Spirit"
+        },
+        {
+          "greek": "παράκλητος",
+          "transliteration": "paraklētos",
+          "relationship": "Advocate, Helper - title for the Spirit in John"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "pneumatology"],
+      "volume": 6,
+      "pages": "332-455"
+    },
+    {
+      "id": "ekklesia",
+      "category": "ecclesiology",
+      "greek": "ἐκκλησία",
+      "transliteration": "ekklēsia",
+      "strongs": "G1577",
+      "shortDef": "church, assembly, congregation",
+      "title": "The Church: God's Called-Out Assembly",
+      "summary": "Ἐκκλησία, from ἐκ ('out') and καλέω ('to call'), denotes an assembly of people called out. In the NT, it refers to the gathered community of believers in Christ - both local congregations and the universal church comprising all believers.",
+      "classicalGreek": "In classical Greek, ἐκκλησία was the regular assembly of citizens in a Greek city-state, summoned by the herald for political deliberation. It was a democratic gathering where citizens discussed and decided matters of public concern. The word carried civic, not primarily religious, connotations.",
+      "lxxBackground": "The LXX uses ἐκκλησία to translate קָהָל (qahal), the assembly of Israel gathered before God. Key instances include the 'day of the assembly' at Sinai (Deut 9:10; 18:16), when Israel received the law. The ἐκκλησία κυρίου ('assembly of the LORD') was Israel as the covenant community gathered for worship and hearing God's word.",
+      "intertestamental": "The Qumran community saw themselves as the true קָהָל/ἐκκλησία, the remnant of faithful Israel. The term continued to denote the gathered community in contrast to the corrupt majority. Jewish synagogues used different terminology (συναγωγή), though the concepts overlapped.",
+      "ntUsage": "Jesus promises to build His ἐκκλησία (Matt 16:18). After Pentecost, believers are called the ἐκκλησία - both local congregations (1 Cor 1:2; Gal 1:2) and the universal body of believers (Eph 1:22-23; Col 1:18). Paul develops rich ecclesiology: the church is Christ's body (1 Cor 12:27), the temple of the Spirit (1 Cor 3:16-17; Eph 2:21-22), Christ's bride (Eph 5:25-27), and God's household (1 Tim 3:15). The church is neither a building nor an institution but the people of God gathered by the gospel.",
+      "keyPassages": [
+        {
+          "reference": "Matthew 16:18",
+          "greek": "ἐπὶ ταύτῃ τῇ πέτρᾳ οἰκοδομήσω μου τὴν ἐκκλησίαν",
+          "significance": "Jesus' foundational promise: He will build His church, and the gates of Hades will not prevail against it. The church is Christ's own building project."
+        },
+        {
+          "reference": "Ephesians 1:22-23",
+          "greek": "αὐτὸν ἔδωκεν κεφαλὴν ὑπὲρ πάντα τῇ ἐκκλησίᾳ, ἥτις ἐστὶν τὸ σῶμα αὐτοῦ",
+          "significance": "Christ is head over all things 'for the church,' which is His body, the fullness of Him who fills all in all. Cosmic lordship is for the church's benefit."
+        },
+        {
+          "reference": "Ephesians 5:25-27",
+          "greek": "Χριστὸς ἠγάπησεν τὴν ἐκκλησίαν καὶ ἑαυτὸν παρέδωκεν ὑπὲρ αὐτῆς",
+          "significance": "Christ loved the church and gave Himself for her - the church as bride, the object of Christ's self-sacrificing love."
+        }
+      ],
+      "theologicalSignificance": "The ἐκκλησία is the new covenant community, the continuation and fulfillment of Israel as God's people (Gal 6:16; 1 Pet 2:9-10). It is both local and universal - every local gathering is the church, yet all believers together constitute one church. Christ is the head; believers are members of His body, mutually interdependent. The church is gathered by the Word, marked by the sacraments, and characterized by mutual love and discipline. It exists between the times - redeemed but not yet perfected, a colony of heaven in a hostile world, witnessing to Christ until He returns.",
+      "relatedWords": [
+        {
+          "greek": "συναγωγή",
+          "transliteration": "synagōgē",
+          "relationship": "Related term: 'synagogue,' assembly - used for Jewish gatherings"
+        },
+        {
+          "greek": "κοινωνία",
+          "transliteration": "koinōnia",
+          "relationship": "Fellowship, communion - characteristic of the church"
+        },
+        {
+          "greek": "σῶμα",
+          "transliteration": "sōma",
+          "relationship": "Body - the church as Christ's body"
+        }
+      ],
+      "tags": ["essential", "pauline", "ecclesiology"],
+      "volume": 3,
+      "pages": "501-536"
+    },
+    {
+      "id": "hamartia",
+      "category": "hamartiology",
+      "greek": "ἁμαρτία",
+      "transliteration": "hamartia",
+      "strongs": "G266",
+      "shortDef": "sin, missing the mark, offense",
+      "title": "Sin: Missing God's Mark",
+      "summary": "Ἁμαρτία is the primary NT word for sin. Originally meaning 'to miss the mark' in archery, it encompasses humanity's failure to meet God's standard, rebellion against His will, and the resulting state of alienation from God. Paul especially develops sin as a power that enslaves humanity.",
+      "classicalGreek": "In classical Greek, ἁμαρτάνω meant 'to miss' (a target), 'to fail,' or 'to make a mistake.' It could describe any failure to achieve a goal, including intellectual error. The word did not carry heavy moral or religious weight - it was more about failure than guilt.",
+      "lxxBackground": "The LXX uses ἁμαρτία primarily for חַטָּאת (chattat), which covers the whole range of sinful acts and states. The OT presents sin as transgression of God's law (Lev 4-5), rebellion against God's authority (Isa 1:2), and violation of the covenant relationship. Sin brings guilt, defilement, and requires atonement through sacrifice.",
+      "intertestamental": "Second Temple literature develops elaborate taxonomies of sin. 1 Enoch explores the origin of sin through fallen angels. 4 Ezra wrestles with sin's origin in Adam and its consequences for all humanity. The Qumran texts emphasize ritual and moral purity, with detailed rules to avoid defilement. There is growing sense that sin is a cosmic problem requiring divine solution.",
+      "ntUsage": "Paul radicalizes the doctrine of sin. In Romans 1-3, he demonstrates that all - Gentile and Jew - are 'under sin' (Rom 3:9). Sin is not just individual acts but a power that entered the world through Adam (Rom 5:12), reigns over humanity (Rom 5:21; 6:12), enslaves (Rom 6:6, 17, 20), and brings death (Rom 6:23). The law, unable to save, actually increases sin's trespass (Rom 5:20; 7:7-13). Only Christ's death can deal with sin's power (Rom 8:3). In John, sin is primarily unbelief - rejection of the light that has come into the world (John 16:9). Sin results in bondage (John 8:34), from which only the Son can free.",
+      "keyPassages": [
+        {
+          "reference": "Romans 3:23",
+          "greek": "πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται τῆς δόξης τοῦ θεοῦ",
+          "significance": "Universal indictment: all have sinned and fall short of God's glory. The verdict applies to every human being without exception."
+        },
+        {
+          "reference": "Romans 6:23",
+          "greek": "τὰ γὰρ ὀψώνια τῆς ἁμαρτίας θάνατος",
+          "significance": "Sin pays wages (ὀψώνια) - it is personified as a slave master who compensates servants with death. But God's gift is eternal life."
+        },
+        {
+          "reference": "Romans 7:17",
+          "greek": "νυνὶ δὲ οὐκέτι ἐγὼ κατεργάζομαι αὐτὸ ἀλλὰ ἡ οἰκοῦσα ἐν ἐμοὶ ἁμαρτία",
+          "significance": "Sin 'dwells' in the person like an alien power. This is not excuse but analysis - sin's power is internal and pervasive."
+        }
+      ],
+      "theologicalSignificance": "Ἁμαρτία in Paul is not just wrong actions but a malignant power that holds humanity captive. It entered through Adam (Rom 5:12), uses the law to provoke rebellion (Rom 7:8), and produces death. This radical diagnosis explains why only a radical remedy - Christ's death - can save. Sin is both act and state, guilt and power. Justification deals with sin's guilt; sanctification addresses its power. Only in the resurrection will sin's presence be finally removed. The doctrine of sin is the dark background against which grace shines most brightly.",
+      "relatedWords": [
+        {
+          "greek": "ἁμαρτάνω",
+          "transliteration": "hamartanō",
+          "relationship": "Verb: 'to sin, miss the mark'"
+        },
+        {
+          "greek": "ἁμαρτωλός",
+          "transliteration": "hamartōlos",
+          "relationship": "Noun/adjective: 'sinner, sinful'"
+        },
+        {
+          "greek": "παράβασις",
+          "transliteration": "parabasis",
+          "relationship": "Transgression - stepping over a known boundary"
+        }
+      ],
+      "tags": ["essential", "pauline", "hamartiology"],
+      "volume": 1,
+      "pages": "267-339"
+    },
+    {
+      "id": "kyrios",
+      "category": "christology",
+      "greek": "κύριος",
+      "transliteration": "kyrios",
+      "strongs": "G2962",
+      "shortDef": "lord, master, Lord (divine title)",
+      "title": "Jesus as Lord",
+      "summary": "Κύριος is the supreme christological title. While it can mean simply 'sir' or 'master,' when applied to Jesus it carries the weight of the divine name YHWH. To confess 'Jesus is Lord' is to acknowledge His divine authority, worship Him, and submit to His reign.",
+      "classicalGreek": "In classical Greek, κύριος denoted one with power or authority - an owner, master, or guardian. It was used for those with legal power over property or persons. The feminine κυρία meant 'mistress.' The term implied authority that required submission.",
+      "lxxBackground": "The LXX's most significant use of κύριος is as the standard translation of YHWH, God's covenant name. Where the Hebrew has the Tetragrammaton, the LXX typically reads κύριος. Thus κύριος became the Greek equivalent of the divine name. It also translates אָדוֹן (adon, 'lord'), but the primary association is with YHWH Himself.",
+      "intertestamental": "Jewish writers continued using κύριος for God while avoiding the divine name. Philo regularly calls God κύριος. The term maintained its association with divine authority. In the Greco-Roman world, κύριος was increasingly used for rulers and emperors, setting up the conflict between 'Caesar is Lord' and 'Jesus is Lord.'",
+      "ntUsage": "The earliest Christian confession was Κύριος Ἰησοῦς - 'Jesus is Lord' (Rom 10:9; 1 Cor 12:3). Paul applies OT κύριος texts directly to Jesus (Rom 10:13 quoting Joel 2:32; Phil 2:10-11 quoting Isa 45:23). Jesus has 'the name above every name' (Phil 2:9). The confession is salvific (Rom 10:9) and must be Spirit-enabled (1 Cor 12:3). As Lord, Jesus is worthy of worship, prayer, and absolute obedience. His lordship encompasses all creation (Phil 2:10-11) and will be fully manifest at His return.",
+      "keyPassages": [
+        {
+          "reference": "Romans 10:9",
+          "greek": "ἐὰν ὁμολογήσῃς ἐν τῷ στόματί σου κύριον Ἰησοῦν καὶ πιστεύσῃς ἐν τῇ καρδίᾳ σου... σωθήσῃ",
+          "significance": "Confession that Jesus is Lord, combined with heart-faith in resurrection, brings salvation. This is the foundational Christian confession."
+        },
+        {
+          "reference": "Philippians 2:9-11",
+          "greek": "διὸ καὶ ὁ θεὸς αὐτὸν ὑπερύψωσεν... ἵνα πᾶσα γλῶσσα ἐξομολογήσηται ὅτι κύριος Ἰησοῦς Χριστός",
+          "significance": "God exalted Jesus and gave Him the name (κύριος = YHWH) so that every tongue will confess His lordship - quoting Isaiah 45:23 about YHWH."
+        },
+        {
+          "reference": "1 Corinthians 8:6",
+          "greek": "ἡμῖν εἷς θεὸς ὁ πατὴρ... καὶ εἷς κύριος Ἰησοῦς Χριστός",
+          "significance": "Reformulating the Shema: one God, the Father; one Lord, Jesus Christ. Jesus is included in the divine identity as κύριος."
+        }
+      ],
+      "theologicalSignificance": "The confession Κύριος Ἰησοῦς is nothing less than the acknowledgment of Christ's deity. By applying YHWH texts to Jesus, the NT writers include Him in the unique divine identity. He shares the divine name, receives divine worship, and exercises divine authority. The title demands total allegiance - one cannot confess Jesus as Lord while living as though Caesar (or self, or anything else) is lord. His lordship is cosmic in scope and will be universally acknowledged at the eschaton.",
+      "relatedWords": [
+        {
+          "greek": "κυριότης",
+          "transliteration": "kyriotēs",
+          "relationship": "Lordship, dominion - the authority of the Lord"
+        },
+        {
+          "greek": "κυριεύω",
+          "transliteration": "kyrieuō",
+          "relationship": "Verb: 'to rule, be lord over'"
+        },
+        {
+          "greek": "μαρανα θα",
+          "transliteration": "marana tha",
+          "relationship": "Aramaic: 'Our Lord, come!' - early prayer to Jesus as Lord"
+        }
+      ],
+      "tags": ["essential", "pauline", "christology", "worship"],
+      "volume": 3,
+      "pages": "1039-1098"
+    },
+    {
+      "id": "logos",
+      "category": "revelation",
+      "greek": "λόγος",
+      "transliteration": "logos",
+      "strongs": "G3056",
+      "shortDef": "word, reason, message, the Word (Christ)",
+      "title": "The Word: Divine Revelation",
+      "summary": "Λόγος has a vast range of meaning: 'word,' 'speech,' 'reason,' 'account,' 'message.' In John's prologue, it becomes a title for Christ: the eternal Word who was with God, was God, and became flesh. As λόγος, Christ is God's ultimate self-revelation.",
+      "classicalGreek": "In classical Greek, λόγος had an extraordinarily wide range: 'word,' 'speech,' 'discourse,' 'argument,' 'reason,' 'proportion,' 'account.' For Heraclitus, the Λόγος was the cosmic principle of rationality underlying all things. Stoic philosophy developed this: the Λόγος was the divine reason permeating the universe, making it intelligible. Greek thought thus associated λόγος with divine rationality.",
+      "lxxBackground": "The LXX uses λόγος frequently, especially for דָּבָר (dabar), God's 'word.' God's word is creative (Gen 1: 'And God said...'; Ps 33:6), prophetic (introducing prophetic oracles), and effective - it accomplishes what God intends (Isa 55:11). The 'word of the LORD' comes to prophets and through them to Israel. Wisdom literature personifies Wisdom (Prov 8) in ways that anticipate Logos christology.",
+      "intertestamental": "Philo of Alexandria made λόγος central to his philosophical theology. For him, the Λόγος was God's instrument of creation, the pattern of the cosmos, the mediator between the transcendent God and the material world. While Philo's Logos is impersonal, his speculation provides background for John's appropriation of the term. Wisdom of Solomon similarly personifies wisdom as God's creative agent.",
+      "ntUsage": "John 1:1-18 presents Christ as the Λόγος - eternally with God, Himself God, the agent of creation, and the one who became flesh. This Prologue draws on both Greek philosophical tradition and Jewish wisdom/word theology to present Christ as the ultimate revelation of God. Throughout the NT, λόγος commonly means the gospel message (Acts 6:4; 1 Thess 1:6), God's word in Scripture (Mark 7:13), or simply speech. But John's christological use towers over all others.",
+      "keyPassages": [
+        {
+          "reference": "John 1:1",
+          "greek": "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος",
+          "significance": "The majestic opening: the Word's eternal pre-existence, personal distinction from yet deity with the Father. θεὸς without the article stresses divine nature/quality."
+        },
+        {
+          "reference": "John 1:14",
+          "greek": "Καὶ ὁ λόγος σὰρξ ἐγένετο καὶ ἐσκήνωσεν ἐν ἡμῖν",
+          "significance": "The incarnation: the eternal Word became flesh and 'tabernacled' (ἐσκήνωσεν) among us. God's glory now dwells in human form."
+        },
+        {
+          "reference": "Hebrews 4:12",
+          "greek": "ζῶν γὰρ ὁ λόγος τοῦ θεοῦ καὶ ἐνεργὴς καὶ τομώτερος ὑπὲρ πᾶσαν μάχαιραν δίστομον",
+          "significance": "God's word (here likely Scripture) is living, active, and penetrating. Whether Word incarnate or word inscripturated, God's revelation is powerful."
+        }
+      ],
+      "theologicalSignificance": "Christ as Λόγος means He is God's final and fullest self-revelation. God has spoken in many ways, but ultimately He speaks in His Son (Heb 1:1-2). The Λόγος was eternally with God (distinct person) and was God (shared deity). In creation He was the Father's agent; in incarnation He revealed the Father perfectly ('Whoever has seen me has seen the Father' - John 14:9). Greek philosophy sought ultimate Reason; Jewish faith awaited God's final Word. In Christ, both find fulfillment. He is the Truth that makes us free, the Life that conquers death, the Word that speaks God's heart.",
+      "relatedWords": [
+        {
+          "greek": "ῥῆμα",
+          "transliteration": "rhēma",
+          "relationship": "A word as spoken, a saying - particular utterances"
+        },
+        {
+          "greek": "λέγω",
+          "transliteration": "legō",
+          "relationship": "Verb: 'to say, speak'"
+        },
+        {
+          "greek": "λόγιον",
+          "transliteration": "logion",
+          "relationship": "An oracle, divine utterance - especially Scripture"
+        }
+      ],
+      "tags": ["essential", "johannine", "christology", "revelation"],
+      "volume": 4,
+      "pages": "69-143"
+    },
+    {
+      "id": "soteria",
+      "category": "salvation",
+      "greek": "σωτηρία",
+      "transliteration": "sōtēria",
+      "strongs": "G4991",
+      "shortDef": "salvation, deliverance, preservation",
+      "title": "Salvation: Divine Rescue",
+      "summary": "Σωτηρία encompasses the full scope of God's saving work: deliverance from sin's penalty, power, and presence; rescue from wrath; and bestowal of eternal life. It is past (justification), present (sanctification), and future (glorification) - already accomplished and not yet consummated.",
+      "classicalGreek": "In classical Greek, σωτηρία meant 'deliverance,' 'preservation,' or 'safety' - often from physical danger like battle, shipwreck, or disease. The σωτήρ (savior) was one who rescued from peril. The word had religious overtones when applied to gods who delivered worshipers, and political overtones when applied to rulers who saved their people.",
+      "lxxBackground": "The LXX uses σωτηρία for יְשׁוּעָה (yeshu'ah) and related words. God is Israel's salvation (Exod 15:2; Ps 27:1). He saves from enemies, exile, and death. The name 'Jesus' (Ἰησοῦς) derives from this root - 'YHWH saves.' Isaiah especially develops salvation eschatologically: God will bring final deliverance, gathering His people and establishing justice (Isa 52:7-10).",
+      "intertestamental": "Second Temple texts continue the theme of divine deliverance. The Psalms of Solomon pray for God's salvation through the Messiah. Qumran looked for eschatological salvation through God's decisive intervention. There is increasing focus on salvation from sin and its consequences, not just physical enemies.",
+      "ntUsage": "The NT announces that God's salvation has arrived in Jesus Christ. The name 'Jesus' declares His mission: 'He will save His people from their sins' (Matt 1:21). Salvation encompasses forgiveness (Acts 2:38), reconciliation (Rom 5:10), redemption (Eph 1:7), and eternal life (John 3:16). It is by grace through faith (Eph 2:8-9), not by works. Believers are saved (past - Eph 2:8), being saved (present - 1 Cor 1:18), and will be saved (future - Rom 5:9-10). The full scope of salvation awaits Christ's return (Rom 13:11; Heb 9:28).",
+      "keyPassages": [
+        {
+          "reference": "Acts 4:12",
+          "greek": "καὶ οὐκ ἔστιν ἐν ἄλλῳ οὐδενὶ ἡ σωτηρία",
+          "significance": "Salvation is in no one else - only in Jesus. The exclusivity of Christ as Savior is foundational."
+        },
+        {
+          "reference": "Romans 1:16",
+          "greek": "δύναμις γὰρ θεοῦ ἐστιν εἰς σωτηρίαν παντὶ τῷ πιστεύοντι",
+          "significance": "The gospel is God's power for salvation to everyone who believes. Salvation is powerful, universal in offer, and received by faith."
+        },
+        {
+          "reference": "Philippians 2:12",
+          "greek": "μετὰ φόβου καὶ τρόμου τὴν ἑαυτῶν σωτηρίαν κατεργάζεσθε",
+          "significance": "Work out your salvation with fear and trembling - salvation received must be lived out. Yet God is at work in you (v. 13)."
+        }
+      ],
+      "theologicalSignificance": "Σωτηρία is comprehensive rescue. It addresses humanity's fundamental problems: guilt before a holy God, bondage to sin's power, alienation from God and others, and subjection to death. God in Christ accomplishes salvation objectively; the Spirit applies it subjectively. Salvation is entirely of grace - we contribute nothing but our sin. Yet salvation transforms - those saved from sin's penalty are being saved from sin's power and will be saved from sin's presence. The already/not yet structure means believers live in hope, pressing toward the full salvation to be revealed.",
+      "relatedWords": [
+        {
+          "greek": "σῴζω",
+          "transliteration": "sōzō",
+          "relationship": "Verb: 'to save, rescue, deliver, heal'"
+        },
+        {
+          "greek": "σωτήρ",
+          "transliteration": "sōtēr",
+          "relationship": "Noun: 'Savior' - title for God and Christ"
+        },
+        {
+          "greek": "σωτήριον",
+          "transliteration": "sōtērion",
+          "relationship": "Adjective/noun: 'saving, salvation'"
+        }
+      ],
+      "tags": ["essential", "pauline", "soteriology"],
+      "volume": 7,
+      "pages": "965-1024"
+    },
+    {
+      "id": "anastasis",
+      "category": "eschatology",
+      "greek": "ἀνάστασις",
+      "transliteration": "anastasis",
+      "strongs": "G386",
+      "shortDef": "resurrection, rising up",
+      "title": "Resurrection: Victory Over Death",
+      "summary": "Ἀνάστασις (from ἀνίστημι, 'to raise up') denotes resurrection from the dead. Christ's resurrection is the foundation of Christian faith and the guarantee of believers' future resurrection. It is not mere resuscitation but transformation to immortal, glorious bodily life.",
+      "classicalGreek": "In classical Greek, ἀνάστασις simply meant 'rising' or 'standing up' - getting up from a seat or bed. It could also mean 'removal' or 'destruction' (causing something to rise and depart). The concept of resurrection from death was foreign to mainstream Greek thought, which viewed the soul's immortality as desirable escape from the body.",
+      "lxxBackground": "The LXX uses ἀνάστασις rarely for resurrection per se, but the concept develops in later OT texts. Daniel 12:2 promises that many sleeping in the dust will awake - some to everlasting life, others to shame. Isaiah 26:19 envisions the dead living, bodies rising. The hope for resurrection emerges especially in response to martyrdom (2 Macc 7).",
+      "intertestamental": "By Jesus' time, resurrection was a major theological issue. Pharisees affirmed bodily resurrection; Sadducees denied it (Mark 12:18; Acts 23:8). The Qumran community apparently believed in resurrection. 2 Maccabees 7 powerfully expresses hope in resurrection for martyrs. 1 Enoch and other apocalyptic texts elaborate resurrection scenarios. Jewish resurrection hope was for bodily, not merely spiritual, existence.",
+      "ntUsage": "Christ's resurrection is the cornerstone of NT faith (1 Cor 15:14, 17). The Gospels narrate the empty tomb and appearances. Paul receives and passes on the tradition (1 Cor 15:3-8). Christ is 'firstfruits' of those who have died (1 Cor 15:20) - His resurrection guarantees ours. The resurrection body is transformed: imperishable, glorious, powerful, spiritual (1 Cor 15:42-44). Jesus is 'the resurrection and the life' (John 11:25). Believers already share in resurrection life spiritually (Rom 6:4; Eph 2:6) while awaiting bodily resurrection at Christ's return.",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 15:20",
+          "greek": "νυνὶ δὲ Χριστὸς ἐγήγερται ἐκ νεκρῶν, ἀπαρχὴ τῶν κεκοιμημένων",
+          "significance": "Christ has been raised as 'firstfruits' - the first sheaf guaranteeing the full harvest. His resurrection ensures ours."
+        },
+        {
+          "reference": "John 11:25-26",
+          "greek": "ἐγώ εἰμι ἡ ἀνάστασις καὶ ἡ ζωή· ὁ πιστεύων εἰς ἐμὲ κἂν ἀποθάνῃ ζήσεται",
+          "significance": "Jesus Himself is the resurrection and life. Resurrection is not just an event but a person - He embodies resurrection power."
+        },
+        {
+          "reference": "Philippians 3:10-11",
+          "greek": "τοῦ γνῶναι αὐτὸν καὶ τὴν δύναμιν τῆς ἀναστάσεως αὐτοῦ",
+          "significance": "Paul's goal: to know Christ and the power of His resurrection. Resurrection power is operative now, transforming believers."
+        }
+      ],
+      "theologicalSignificance": "Ἀνάστασις is God's ultimate answer to death. Christ's resurrection validates His identity and accomplishment - He is declared Son of God with power by resurrection (Rom 1:4). It guarantees justification (Rom 4:25), ensures our future resurrection (1 Cor 15:20-23), and provides present power for holy living (Rom 6:4-11). The resurrection body is not a ghost but transformed physicality - continuous with yet gloriously different from our present bodies. Without resurrection, faith is futile (1 Cor 15:14, 17). With resurrection, death is swallowed up in victory (1 Cor 15:54-57).",
+      "relatedWords": [
+        {
+          "greek": "ἀνίστημι",
+          "transliteration": "anistēmi",
+          "relationship": "Verb: 'to raise up, rise'"
+        },
+        {
+          "greek": "ἐγείρω",
+          "transliteration": "egeirō",
+          "relationship": "Verb: 'to raise, wake up' - also used for resurrection"
+        },
+        {
+          "greek": "ζωή",
+          "transliteration": "zōē",
+          "relationship": "Life - resurrection brings eternal life"
+        }
+      ],
+      "tags": ["essential", "pauline", "johannine", "eschatology"],
+      "volume": 1,
+      "pages": "368-372"
+    },
+    {
+      "id": "diatheke",
+      "category": "covenant",
+      "greek": "διαθήκη",
+      "transliteration": "diathēkē",
+      "strongs": "G1242",
+      "shortDef": "covenant, testament, will",
+      "title": "The New Covenant",
+      "summary": "Διαθήκη is the Greek term for 'covenant' - God's binding commitment to His people. The NT announces a 'new covenant' established by Christ's blood, fulfilling Jeremiah's prophecy and superseding the Mosaic covenant while maintaining continuity with God's promises to Abraham.",
+      "classicalGreek": "In classical Greek, διαθήκη typically meant a 'last will and testament' - a disposition of property that takes effect at death. It differed from συνθήκη (a mutual agreement between parties). The διαθήκη was unilateral - the testator alone determined its terms. This nuance shapes NT usage: God's covenant is His sovereign disposition, not a negotiated contract.",
+      "lxxBackground": "The LXX uses διαθήκη to translate בְּרִית (berit), 'covenant.' Major covenants include: Noah (Gen 9), Abraham (Gen 15, 17), Moses/Sinai (Exod 19-24), and David (2 Sam 7). Jeremiah 31:31-34 promises a 'new covenant' - not like Sinai, but with the law written on hearts and sins forgiven. This prophecy is foundational for NT covenant theology.",
+      "intertestamental": "The Qumran community called themselves 'the community of the new covenant' (or 'renewed covenant'). They believed they were the true covenant people, awaiting God's final intervention. Various texts explored the relationship between old and new covenants, between promise and fulfillment.",
+      "ntUsage": "Jesus institutes the new covenant at the Last Supper: 'This cup is the new covenant in my blood' (Luke 22:20; 1 Cor 11:25). Hebrews develops covenant theology most fully: Jesus is mediator of a 'better covenant' based on better promises (Heb 8:6), established by His blood (Heb 9:15-22). The old covenant is 'obsolete' (Heb 8:13), replaced by the new. Paul contrasts the ministry of the old covenant (letter, death, condemnation) with the new (Spirit, life, righteousness - 2 Cor 3). Yet the Abrahamic covenant, based on promise and received by faith, remains valid (Gal 3).",
+      "keyPassages": [
+        {
+          "reference": "Luke 22:20",
+          "greek": "τοῦτο τὸ ποτήριον ἡ καινὴ διαθήκη ἐν τῷ αἵματί μου",
+          "significance": "Jesus establishes the new covenant at the Last Supper. His blood ratifies what Jeremiah prophesied."
+        },
+        {
+          "reference": "Hebrews 8:6",
+          "greek": "νῦν δὲ διαφορωτέρας τέτυχεν λειτουργίας, ὅσῳ καὶ κρείττονός ἐστιν διαθήκης μεσίτης",
+          "significance": "Jesus has a superior ministry as mediator of a better covenant. The new surpasses the old in every way."
+        },
+        {
+          "reference": "Hebrews 9:15",
+          "greek": "διὰ τοῦτο διαθήκης καινῆς μεσίτης ἐστίν, ὅπως θανάτου γενομένου... τὴν ἐπαγγελίαν λάβωσιν οἱ κεκλημένοι τῆς αἰωνίου κληρονομίας",
+          "significance": "Christ's death redeems transgressions under the old covenant and secures the promised eternal inheritance. Both testamental senses of διαθήκη operate."
+        }
+      ],
+      "theologicalSignificance": "The διαθήκη structure reveals God's sovereign grace in salvation. He initiates, defines terms, and binds Himself. The new covenant fulfills the old without nullifying God's promises. What the Mosaic covenant could not do (bring transformation and forgiveness), the new covenant accomplishes through Christ's blood and Spirit. Believers are ministers of the new covenant (2 Cor 3:6). The Lord's Supper perpetually proclaims covenant reality. Reformed theology rightly emphasizes covenant as the framework for understanding Scripture's unity and the continuity between testaments.",
+      "relatedWords": [
+        {
+          "greek": "διατίθημι",
+          "transliteration": "diatithēmi",
+          "relationship": "Verb: 'to make a covenant, ordain, bequeath'"
+        },
+        {
+          "greek": "ἐπαγγελία",
+          "transliteration": "epangelia",
+          "relationship": "Promise - the content of covenant commitments"
+        },
+        {
+          "greek": "κληρονομία",
+          "transliteration": "klēronomia",
+          "relationship": "Inheritance - what the covenant secures"
+        }
+      ],
+      "tags": ["essential", "hebrews", "covenant", "pauline"],
+      "volume": 2,
+      "pages": "106-134"
+    },
+    {
+      "id": "sarx",
+      "category": "anthropology",
+      "greek": "σάρξ",
+      "transliteration": "sarx",
+      "strongs": "G4561",
+      "shortDef": "flesh (physical body, human nature, sinful nature)",
+      "title": "Flesh: Human Nature Under Sin",
+      "summary": "Σάρξ has multiple meanings: physical flesh/body, human nature in its weakness, and (especially in Paul) humanity in its fallen, sinful condition. The flesh/Spirit contrast is central to Paul's ethics. The Word became σάρξ (John 1:14) - taking genuine human nature, though without sin.",
+      "classicalGreek": "In classical Greek, σάρξ meant the soft tissue of the body, the muscular flesh as opposed to bone. It could refer to the body generally and, by extension, to physical or sensual life. It was a neutral term for physical existence.",
+      "lxxBackground": "The LXX uses σάρξ primarily for בָּשָׂר (basar), which means 'flesh,' 'body,' or 'all living creatures.' It emphasizes human frailty and mortality: 'all flesh is grass' (Isa 40:6). 'Flesh and blood' denotes human nature in its limitation. There is some development toward using flesh for the sinful tendency, but this is more pronounced in the NT.",
+      "intertestamental": "The Qumran texts speak of the 'spirit of flesh' in negative terms. There is growing dualistic tendency, though not Gnostic rejection of matter. The Dead Sea Scrolls show awareness of human weakness and sinfulness often expressed through 'flesh' language. Philo uses σάρξ for the lower, sensual nature.",
+      "ntUsage": "The NT uses σάρξ in multiple senses: (1) Physical body/flesh (Luke 24:39; Heb 5:7). (2) Human nature/existence - the Word became flesh (John 1:14); Christ came in the flesh (1 Tim 3:16). (3) Human weakness and mortality (Gal 2:20: 'the life I now live in the flesh'). (4) The sinful nature in opposition to the Spirit (Gal 5:16-17; Rom 8:5-8). This last usage is distinctively Pauline: the flesh produces sin's works and is hostile to God. Victory comes through the Spirit, not through self-effort. Yet flesh is not inherently evil - Christ came 'in the flesh' (1 John 4:2).",
+      "keyPassages": [
+        {
+          "reference": "John 1:14",
+          "greek": "Καὶ ὁ λόγος σὰρξ ἐγένετο",
+          "significance": "The Word became flesh - genuine human nature. This refutes docetism: Christ took real humanity, not a phantom body."
+        },
+        {
+          "reference": "Romans 8:7-8",
+          "greek": "διότι τὸ φρόνημα τῆς σαρκὸς ἔχθρα εἰς θεόν... οἱ δὲ ἐν σαρκὶ ὄντες θεῷ ἀρέσαι οὐ δύνανται",
+          "significance": "The mind of the flesh is hostility toward God; those in the flesh cannot please God. Flesh here is the sinful nature, not mere physicality."
+        },
+        {
+          "reference": "Galatians 5:16-17",
+          "greek": "πνεύματι περιπατεῖτε καὶ ἐπιθυμίαν σαρκὸς οὐ μὴ τελέσητε. ἡ γὰρ σὰρξ ἐπιθυμεῖ κατὰ τοῦ πνεύματος",
+          "significance": "Walk by the Spirit and you will not fulfill the flesh's desire. Flesh and Spirit are in opposition - this is the battleground of Christian living."
+        }
+      ],
+      "theologicalSignificance": "Paul's use of σάρξ for the sinful nature revolutionizes the term. It is not that physical matter is evil (that would be Gnosticism), but that human nature apart from God's Spirit is inclined to sin. The flesh is humanity in Adam, under sin's power. Believers have crucified the flesh (Gal 5:24) but still war against it. Victory comes not by self-effort (which is itself 'fleshly') but by the Spirit. The incarnation affirms the goodness of created flesh - Christ took flesh and redeems flesh. Resurrection will be bodily, not escape from flesh.",
+      "relatedWords": [
+        {
+          "greek": "σαρκικός",
+          "transliteration": "sarkikos",
+          "relationship": "Adjective: 'fleshly, carnal' - pertaining to the flesh"
+        },
+        {
+          "greek": "σῶμα",
+          "transliteration": "sōma",
+          "relationship": "Body - distinct from but related to flesh"
+        },
+        {
+          "greek": "πνεῦμα",
+          "transliteration": "pneuma",
+          "relationship": "Spirit - opposed to flesh in Paul's ethics"
+        }
+      ],
+      "tags": ["essential", "pauline", "anthropology"],
+      "volume": 7,
+      "pages": "98-151"
+    },
+    {
+      "id": "metanoia",
+      "category": "faith",
+      "greek": "μετάνοια",
+      "transliteration": "metanoia",
+      "strongs": "G3341",
+      "shortDef": "repentance, change of mind",
+      "title": "Repentance: Radical Turnaround",
+      "summary": "Μετάνοια (from μετά, 'after' + νοέω, 'to think') literally means 'afterthought' or 'change of mind.' In biblical usage, it denotes far more than intellectual revision: it is a radical reorientation of life, turning from sin to God. Repentance is essential for salvation and continues throughout the Christian life.",
+      "classicalGreek": "In classical Greek, μετάνοια simply meant 'change of mind' or 'afterthought.' It could refer to regret over a decision but lacked strong moral connotations. It was cognitive rather than moral or religious. The verb μεταμέλομαι (also 'to regret') was more common for emotional regret.",
+      "lxxBackground": "The LXX uses μετάνοια and μετανοέω for שׁוּב (shuv), 'to turn, return.' The prophets called Israel to 'return' to YHWH (Jer 3:12; Hos 6:1). This was not just intellectual change but covenant renewal - turning from idolatry and injustice back to faithful relationship with God. Repentance was corporate as well as individual.",
+      "intertestamental": "Second Temple Judaism developed elaborate penitential practices. The Prayer of Manasseh (in some canons) is a penitential prayer. Sirach 17:24-26 calls sinners to return to God. Qumran emphasized repentance for entry into the community. John the Baptist stands in this tradition, calling for 'a baptism of repentance for forgiveness of sins' (Mark 1:4).",
+      "ntUsage": "John the Baptist and Jesus both begin with 'Repent!' (Matt 3:2; 4:17). Repentance is not optional but essential - without it, one perishes (Luke 13:3, 5). It involves turning from sin (Acts 8:22; Rev 2:5) and turning to God (Acts 26:20). Repentance is a gift from God (Acts 5:31; 11:18; 2 Tim 2:25). It is linked with faith (Mark 1:15; Acts 20:21) and produces appropriate fruit (Matt 3:8; Acts 26:20). The NT holds together human responsibility to repent and divine sovereignty in granting repentance.",
+      "keyPassages": [
+        {
+          "reference": "Mark 1:15",
+          "greek": "μετανοεῖτε καὶ πιστεύετε ἐν τῷ εὐαγγελίῳ",
+          "significance": "Jesus' inaugural proclamation: repent and believe. Repentance and faith are twin requirements for entering the kingdom."
+        },
+        {
+          "reference": "Acts 2:38",
+          "greek": "μετανοήσατε καὶ βαπτισθήτω ἕκαστος ὑμῶν",
+          "significance": "Peter's Pentecost response: repent and be baptized. Repentance is the first step of response to the gospel."
+        },
+        {
+          "reference": "2 Corinthians 7:10",
+          "greek": "ἡ γὰρ κατὰ θεὸν λύπη μετάνοιαν εἰς σωτηρίαν ἀμεταμέλητον ἐργάζεται",
+          "significance": "Godly grief produces repentance leading to salvation without regret. True repentance is wrought by God and leads to life."
+        }
+      ],
+      "theologicalSignificance": "Μετάνοια is the human side of conversion (faith being the other side). It is not mere regret (Judas had that) but radical reorientation. It involves the mind (new understanding of sin and God), the emotions (godly sorrow), and the will (turning from sin to God). Repentance is not a work that earns salvation but the posture of the empty-handed beggar receiving grace. It is both initial (entering the kingdom) and ongoing (the Christian life as continued repentance). Reformation theology captured this: the whole life of believers is one of repentance (Luther's first thesis).",
+      "relatedWords": [
+        {
+          "greek": "μετανοέω",
+          "transliteration": "metanoeō",
+          "relationship": "Verb: 'to repent, change one's mind'"
+        },
+        {
+          "greek": "ἐπιστροφή",
+          "transliteration": "epistrophē",
+          "relationship": "Conversion, turning - complementary term for repentance"
+        },
+        {
+          "greek": "μεταμέλομαι",
+          "transliteration": "metamelomai",
+          "relationship": "To regret, feel remorse - less than true repentance"
+        }
+      ],
+      "tags": ["essential", "synoptic", "pauline", "faith"],
+      "volume": 4,
+      "pages": "975-1008"
+    },
+    {
+      "id": "apolytrosis",
+      "category": "salvation",
+      "greek": "ἀπολύτρωσις",
+      "transliteration": "apolytrōsis",
+      "strongs": "G629",
+      "shortDef": "redemption, release, deliverance",
+      "title": "Redemption: Purchased Freedom",
+      "summary": "Ἀπολύτρωσις denotes redemption through the payment of a ransom price. In Christ, believers are redeemed from sin's slavery, purchased by His blood. Redemption has past, present, and future dimensions: we are redeemed, are being redeemed, and await the redemption of our bodies.",
+      "classicalGreek": "In classical Greek, ἀπολύτρωσις referred to the release of prisoners or slaves through ransom payment (λύτρον). A captive's freedom was purchased at a price. The word group conveyed deliverance through the expenditure of resources - liberation that cost something.",
+      "lxxBackground": "The OT background is crucial. God 'redeemed' Israel from Egyptian slavery (Exod 6:6; Deut 7:8). The גָּאַל (ga'al) system allowed the kinsman-redeemer to purchase back a relative sold into slavery (Lev 25:47-49). The פָּדָה (padah) system involved ransoming the firstborn (Exod 13:13). Israel's identity as redeemed people shapes their relationship with God.",
+      "intertestamental": "Expectations grew for a future redemption greater than the Exodus. God would redeem Israel from exile and oppression. The Psalms of Solomon (8:33; 9:1) pray for this redemption. Some texts spiritualize redemption as liberation from sin, not just foreign powers.",
+      "ntUsage": "The NT announces that God's redemption has come in Christ. Believers have 'redemption through His blood, the forgiveness of sins' (Eph 1:7; Col 1:14). Christ gave Himself as a 'ransom for all' (1 Tim 2:6). We are 'bought with a price' (1 Cor 6:20; 7:23). Redemption is past (accomplished at the cross), present (applied in Christian experience), and future ('the redemption of our bodies' - Rom 8:23). The ransom price is Christ's blood/life (Mark 10:45; 1 Pet 1:18-19).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 1:7",
+          "greek": "ἐν ᾧ ἔχομεν τὴν ἀπολύτρωσιν διὰ τοῦ αἵματος αὐτοῦ, τὴν ἄφεσιν τῶν παραπτωμάτων",
+          "significance": "We HAVE redemption through Christ's blood - present possession. Redemption is further defined as forgiveness of trespasses."
+        },
+        {
+          "reference": "Romans 3:24",
+          "greek": "δικαιούμενοι δωρεὰν τῇ αὐτοῦ χάριτι διὰ τῆς ἀπολυτρώσεως τῆς ἐν Χριστῷ Ἰησοῦ",
+          "significance": "Justified freely by grace through the redemption in Christ Jesus. Redemption is the means of our free justification."
+        },
+        {
+          "reference": "Mark 10:45",
+          "greek": "ὁ υἱὸς τοῦ ἀνθρώπου... δοῦναι τὴν ψυχὴν αὐτοῦ λύτρον ἀντὶ πολλῶν",
+          "significance": "The Son of Man came to give His life as a ransom (λύτρον) for many. Jesus Himself taught His death as ransom payment."
+        }
+      ],
+      "theologicalSignificance": "Ἀπολύτρωσις teaches that salvation costs. We were slaves to sin; Christ purchased our freedom. The price was not silver or gold but His precious blood (1 Pet 1:18-19). This language answers: How can a just God forgive sinners? Through redemption - a price paid, justice satisfied, slaves set free. The question of 'to whom the ransom is paid' may press the metaphor too far, but the point is clear: our liberation required costly sacrifice. Redemption creates obligation: we belong to the One who bought us and should glorify Him (1 Cor 6:20).",
+      "relatedWords": [
+        {
+          "greek": "λύτρον",
+          "transliteration": "lytron",
+          "relationship": "Ransom - the price paid for release"
+        },
+        {
+          "greek": "λυτρόω",
+          "transliteration": "lytroō",
+          "relationship": "Verb: 'to redeem, set free by paying ransom'"
+        },
+        {
+          "greek": "ἀγοράζω",
+          "transliteration": "agorazō",
+          "relationship": "To buy in the marketplace - purchase imagery for redemption"
+        }
+      ],
+      "tags": ["essential", "pauline", "soteriology"],
+      "volume": 4,
+      "pages": "328-356"
+    },
+    {
+      "id": "koinonia",
+      "category": "ecclesiology",
+      "greek": "κοινωνία",
+      "transliteration": "koinōnia",
+      "strongs": "G2842",
+      "shortDef": "fellowship, communion, participation, sharing",
+      "title": "Fellowship: Shared Life in Christ",
+      "summary": "Κοινωνία denotes participation, sharing, or fellowship. It describes believers' relationship with Christ and one another: sharing in Christ's sufferings and glory, participating in the Spirit, and expressing this through mutual care. The Lord's Supper is κοινωνία in Christ's body and blood.",
+      "classicalGreek": "In classical Greek, κοινωνία meant 'partnership,' 'participation,' or 'communion.' It described business partnerships, marriage bonds, and any sharing in common activities or goods. The adjective κοινός meant 'common' - what belongs to all. Κοινωνία emphasized active participation, not mere association.",
+      "lxxBackground": "The LXX uses κοινωνία rarely. However, the concept of Israel as a covenant community sharing in God's blessings underlies the term. The OT emphasizes God's people as a community bound together by shared covenant relationship.",
+      "intertestamental": "The Qumran community practiced radical sharing of possessions and saw themselves as bound together in covenant fellowship. The concept of the 'community' (יַחַד, yachad) as sharing life together provides background for early Christian κοινωνία.",
+      "ntUsage": "Acts 2:42 lists κοινωνία among the marks of the early church. Believers share in Christ (1 Cor 1:9), the Spirit (2 Cor 13:14; Phil 2:1), Christ's sufferings (Phil 3:10), and the gospel (Phil 1:5). This vertical fellowship produces horizontal fellowship - sharing possessions (Acts 2:44-45; 4:32), supporting ministry (Phil 4:15; Gal 6:6), and collecting for the poor (Rom 15:26; 2 Cor 8:4). The Lord's Supper is κοινωνία in Christ's body and blood (1 Cor 10:16). There is also false κοινωνία - with demons (1 Cor 10:20) or darkness (2 Cor 6:14) - which believers must avoid.",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 1:9",
+          "greek": "πιστὸς ὁ θεός, δι᾽ οὗ ἐκλήθητε εἰς κοινωνίαν τοῦ υἱοῦ αὐτοῦ Ἰησοῦ Χριστοῦ",
+          "significance": "Called into fellowship with His Son - participation in Christ is the foundation of all Christian κοινωνία."
+        },
+        {
+          "reference": "1 Corinthians 10:16",
+          "greek": "τὸ ποτήριον τῆς εὐλογίας ὃ εὐλογοῦμεν, οὐχὶ κοινωνία ἐστὶν τοῦ αἵματος τοῦ Χριστοῦ;",
+          "significance": "The cup is participation in Christ's blood; the bread in His body. The Supper is κοινωνία with Christ and one another."
+        },
+        {
+          "reference": "Philippians 2:1-2",
+          "greek": "εἴ τις κοινωνία πνεύματος... πληρώσατέ μου τὴν χαρὰν ἵνα τὸ αὐτὸ φρονῆτε",
+          "significance": "Fellowship in the Spirit should produce unity of mind. Vertical κοινωνία issues in horizontal unity."
+        }
+      ],
+      "theologicalSignificance": "Κοινωνία is not superficial 'fellowship' (coffee and donuts) but profound participation in Christ and one another. It is trinitarian: fellowship with the Father, Son (1 John 1:3), and Spirit (2 Cor 13:14). It is practical: sharing resources with those in need. It is sacramental: participation in Christ through Word and Supper. The church is not merely an organization but an organism, bound together by shared life in Christ. This κοινωνία is both gift (we have been brought into it) and task (we must maintain and express it).",
+      "relatedWords": [
+        {
+          "greek": "κοινωνός",
+          "transliteration": "koinōnos",
+          "relationship": "Noun: 'partner, sharer, participant'"
+        },
+        {
+          "greek": "κοινωνέω",
+          "transliteration": "koinōneō",
+          "relationship": "Verb: 'to share, participate, have fellowship'"
+        },
+        {
+          "greek": "κοινός",
+          "transliteration": "koinos",
+          "relationship": "Adjective: 'common, shared' (or 'unclean' in Jewish usage)"
+        }
+      ],
+      "tags": ["essential", "pauline", "ecclesiology"],
+      "volume": 3,
+      "pages": "789-809"
+    }
+  ]
+}
