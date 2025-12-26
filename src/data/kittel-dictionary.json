@@ -2916,6 +2916,578 @@
       "tags": ["essential", "johannine", "pauline", "eschatology"],
       "volume": 3,
       "pages": "868-898"
+    },
+    {
+      "id": "theos",
+      "category": "other",
+      "greek": "θεός",
+      "transliteration": "theos",
+      "strongs": "G2316",
+      "shortDef": "God, deity, divine being",
+      "title": "God: The One True and Living God",
+      "summary": "Θεός is the fundamental term for God in the NT - the one true God of Israel, Father of Jesus Christ, and Creator of all. The NT both assumes and transforms Jewish monotheism through the revelation of Father, Son, and Spirit.",
+      "classicalGreek": "In classical Greek, θεός referred to any deity in the polytheistic pantheon - Zeus, Athena, Apollo, etc. The word could denote divine beings of various ranks. Greek philosophy moved toward more abstract conceptions: Plato's divine craftsman, Aristotle's unmoved mover. The term carried connotations of power, immortality, and superhuman qualities.",
+      "lxxBackground": "The LXX uses θεός primarily for אֱלֹהִים (Elohim) and אֵל (El). It translates YHWH as κύριος (Lord) rather than θεός. The OT insists on one God (Deut 6:4), Creator (Gen 1:1), covenant-keeper, holy and jealous. 'I am God and there is no other' (Isa 45:22). The living God contrasts with dead idols.",
+      "intertestamental": "Judaism maintained strict monotheism against Hellenistic polytheism. God was increasingly described through attributes and intermediaries (Wisdom, Word, angels) to preserve transcendence. Philo spoke of θεός as the supreme being known through Logos. Apocalyptic emphasized God's sovereignty and coming judgment.",
+      "ntUsage": "God is Father of Jesus Christ (Rom 15:6; 2 Cor 1:3). Jesus is called θεός (John 1:1, 18; 20:28; Rom 9:5; Titus 2:13; Heb 1:8). The Spirit is God (Acts 5:3-4). God is one (1 Cor 8:6; Jas 2:19) yet Father, Son, and Spirit. God is love (1 John 4:8, 16), light (1 John 1:5), Spirit (John 4:24), consuming fire (Heb 12:29). He is faithful (1 Cor 1:9), just (Rom 3:26), merciful (Eph 2:4), and sovereign (Rom 9:18-21).",
+      "keyPassages": [
+        {
+          "reference": "John 1:1",
+          "greek": "Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος",
+          "significance": "The Word was with God and was God - divine identity of the Logos."
+        },
+        {
+          "reference": "1 John 4:8",
+          "greek": "ὁ θεὸς ἀγάπη ἐστίν",
+          "significance": "God is love - essential divine nature revealed in Christ."
+        },
+        {
+          "reference": "John 4:24",
+          "greek": "πνεῦμα ὁ θεός, καὶ τοὺς προσκυνοῦντας αὐτὸν ἐν πνεύματι καὶ ἀληθείᾳ δεῖ προσκυνεῖν",
+          "significance": "God is Spirit - divine nature transcends material limitations."
+        }
+      ],
+      "theologicalSignificance": "The NT transforms Jewish monotheism without abandoning it. The one God exists as Father, Son, and Spirit - not three gods but one divine being in three persons. Jesus shares the divine name, receives worship, and exercises divine prerogatives. Yet 'the Father is greater' (John 14:28) in terms of order, not nature. God is knowable through Christ (John 1:18; 14:9) yet remains transcendent. Christian theology is fundamentally about θεός - who God is and how He has acted in Christ for salvation.",
+      "relatedWords": [
+        {
+          "greek": "θεῖος",
+          "transliteration": "theios",
+          "relationship": "Divine, pertaining to God"
+        },
+        {
+          "greek": "θεότης",
+          "transliteration": "theotēs",
+          "relationship": "Deity, divine nature (Col 2:9)"
+        },
+        {
+          "greek": "θεοσέβεια",
+          "transliteration": "theosebeia",
+          "relationship": "Reverence for God, godliness"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "theology-proper"],
+      "volume": 3,
+      "pages": "65-123"
+    },
+    {
+      "id": "angelos",
+      "category": "other",
+      "greek": "ἄγγελος",
+      "transliteration": "angelos",
+      "strongs": "G32",
+      "shortDef": "angel, messenger, envoy",
+      "title": "Angel: Messengers of the Divine Council",
+      "summary": "Ἄγγελος means 'messenger' - either human or heavenly. Angels are spiritual beings who serve God, deliver messages, execute judgment, and minister to believers. Christ is superior to all angels, and believers will judge them.",
+      "classicalGreek": "In classical Greek, ἄγγελος simply meant 'messenger' or 'envoy' - one sent to deliver a message or perform a task. It applied to human messengers without supernatural connotations. The word comes from ἀγγέλλω ('to announce').",
+      "lxxBackground": "The LXX uses ἄγγελος for מַלְאָךְ (malak) - messenger, angel. The 'angel of the LORD' appears throughout the OT as a special divine messenger, sometimes identified with YHWH Himself (Gen 16:7-13; Ex 3:2-6). Angels form God's heavenly council (Job 1-2; Ps 89:7), worship Him (Ps 103:20), and execute His will.",
+      "intertestamental": "Angelology expanded greatly. Angels received names (Michael, Gabriel, Raphael, Uriel), ranks, and specific functions. 1 Enoch describes elaborate angelic hierarchies. Angels mediated the law (Jub. 1:27-29). Qumran expected angelic warfare. Speculation about angels sometimes bordered on angel worship.",
+      "ntUsage": "Angels announced Christ's birth (Luke 1-2), ministered to Him (Matt 4:11; Luke 22:43), proclaimed His resurrection (Matt 28:2-7), and will accompany His return (Matt 25:31; 2 Thess 1:7). Angels minister to believers (Heb 1:14), observe the church (1 Cor 4:9; 11:10), and rejoice over repentance (Luke 15:10). Christ is superior to angels (Heb 1:4-14). Angel worship is forbidden (Col 2:18; Rev 19:10; 22:8-9). Believers will judge angels (1 Cor 6:3).",
+      "keyPassages": [
+        {
+          "reference": "Hebrews 1:14",
+          "greek": "οὐχὶ πάντες εἰσὶν λειτουργικὰ πνεύματα εἰς διακονίαν ἀποστελλόμενα διὰ τοὺς μέλλοντας κληρονομεῖν σωτηρίαν",
+          "significance": "Ministering spirits sent to serve those inheriting salvation - angelic ministry to believers."
+        },
+        {
+          "reference": "Hebrews 1:4",
+          "greek": "τοσούτῳ κρείττων γενόμενος τῶν ἀγγέλων ὅσῳ διαφορώτερον παρ᾽ αὐτοὺς κεκληρονόμηκεν ὄνομα",
+          "significance": "Christ is superior to angels - the Son's supremacy over all created beings."
+        },
+        {
+          "reference": "2 Thessalonians 1:7",
+          "greek": "ἐν τῇ ἀποκαλύψει τοῦ κυρίου Ἰησοῦ ἀπ᾽ οὐρανοῦ μετ᾽ ἀγγέλων δυνάμεως αὐτοῦ",
+          "significance": "The Lord Jesus revealed from heaven with His mighty angels - eschatological role."
+        }
+      ],
+      "theologicalSignificance": "Angels are real spiritual beings, not myths or metaphors. They serve God and His people but are never to be worshiped. The emphasis on Christ's superiority to angels (Hebrews 1-2) counters any tendency to elevate angels above their proper place. Angels are created, Christ is Creator. Angels worship the Son (Heb 1:6). The 'angel of the LORD' in the OT may be pre-incarnate appearances of Christ. Believers have angelic protection (Matt 18:10) but must not seek angelic revelation apart from Christ (Col 2:18).",
+      "relatedWords": [
+        {
+          "greek": "ἀρχάγγελος",
+          "transliteration": "archangelos",
+          "relationship": "Archangel, chief angel (1 Thess 4:16; Jude 9)"
+        },
+        {
+          "greek": "ἰσάγγελος",
+          "transliteration": "isangelos",
+          "relationship": "Like an angel (Luke 20:36)"
+        },
+        {
+          "greek": "ἀγγέλλω",
+          "transliteration": "angellō",
+          "relationship": "To announce, report"
+        }
+      ],
+      "tags": ["essential", "synoptic", "hebrews", "angelology"],
+      "volume": 1,
+      "pages": "74-87"
+    },
+    {
+      "id": "satanas",
+      "category": "other",
+      "greek": "σατανᾶς",
+      "transliteration": "satanas",
+      "strongs": "G4567",
+      "shortDef": "Satan, adversary, the devil",
+      "title": "Satan: The Adversary and Accuser",
+      "summary": "Σατανᾶς (from Hebrew שָׂטָן, 'adversary') is the personal name of the chief enemy of God and His people. Also called the devil (διάβολος), he tempts, accuses, deceives, and opposes God's purposes - but is defeated through Christ's cross and resurrection.",
+      "classicalGreek": "The term σατανᾶς does not occur in classical Greek. It is a transliteration of the Hebrew שָׂטָן (satan), meaning 'adversary' or 'accuser.' Greek culture had no direct equivalent, though δαίμων (demon) could denote malevolent spiritual beings.",
+      "lxxBackground": "The LXX sometimes transliterates שָׂטָן as σατάν or translates it as διάβολος ('slanderer, accuser'). In Job 1-2, the satan appears as a prosecuting attorney in God's court. In 1 Chronicles 21:1, Satan incites David. Zechariah 3:1-2 shows Satan accusing Joshua the high priest. The OT presents a developing portrait of a personal evil being.",
+      "intertestamental": "Satan's role expanded significantly. He became identified with the serpent of Genesis 3 (Wisdom 2:24). Elaborate demonologies developed, with Satan ruling fallen angels. He was called Belial, Mastema, and other names. Apocalyptic literature depicted cosmic warfare between God and Satan.",
+      "ntUsage": "Satan tempted Jesus (Matt 4:1-11), enters Judas (Luke 22:3; John 13:27), blinds unbelievers (2 Cor 4:4), prowls seeking to devour (1 Pet 5:8), and masquerades as light (2 Cor 11:14). He was defeated at the cross (John 12:31; Col 2:15; Heb 2:14) and will be finally destroyed (Rev 20:10). Believers resist him (Jas 4:7; 1 Pet 5:9) through Christ's power. He is called 'ruler of this world' (John 12:31), 'god of this age' (2 Cor 4:4), and 'prince of the power of the air' (Eph 2:2).",
+      "keyPassages": [
+        {
+          "reference": "1 Peter 5:8",
+          "greek": "ὁ ἀντίδικος ὑμῶν διάβολος ὡς λέων ὠρυόμενος περιπατεῖ ζητῶν τινα καταπιεῖν",
+          "significance": "Your adversary the devil prowls like a roaring lion - Satan's predatory nature."
+        },
+        {
+          "reference": "Hebrews 2:14",
+          "greek": "ἵνα διὰ τοῦ θανάτου καταργήσῃ τὸν τὸ κράτος ἔχοντα τοῦ θανάτου, τοῦτ᾽ ἔστιν τὸν διάβολον",
+          "significance": "Through death He destroyed the one holding the power of death - Satan's defeat."
+        },
+        {
+          "reference": "Revelation 12:9",
+          "greek": "ὁ δράκων ὁ μέγας, ὁ ὄφις ὁ ἀρχαῖος, ὁ καλούμενος Διάβολος καὶ ὁ Σατανᾶς, ὁ πλανῶν τὴν οἰκουμένην ὅλην",
+          "significance": "The ancient serpent, called the devil and Satan, deceiver of the whole world."
+        }
+      ],
+      "theologicalSignificance": "Satan is a real personal being, not merely a symbol of evil. He is powerful but not omnipotent, active but not sovereign. His defeat is accomplished (cross) and will be consummated (return). Believers must neither ignore him nor fear him excessively. Spiritual warfare is real (Eph 6:10-18) but victory is assured in Christ. Satan's primary weapons are deception (lies), accusation (guilt), and temptation (sin). Christ has bound the strong man (Matt 12:29) and given believers authority over all enemy power (Luke 10:19).",
+      "relatedWords": [
+        {
+          "greek": "διάβολος",
+          "transliteration": "diabolos",
+          "relationship": "Devil, slanderer, accuser"
+        },
+        {
+          "greek": "δαιμόνιον",
+          "transliteration": "daimonion",
+          "relationship": "Demon - Satan's subordinate spirits"
+        },
+        {
+          "greek": "πονηρός",
+          "transliteration": "ponēros",
+          "relationship": "The evil one (Matt 13:19; 1 John 5:19)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "johannine", "demonology"],
+      "volume": 7,
+      "pages": "151-163"
+    },
+    {
+      "id": "orge",
+      "category": "other",
+      "greek": "ὀργή",
+      "transliteration": "orgē",
+      "strongs": "G3709",
+      "shortDef": "wrath, anger, indignation",
+      "title": "Wrath: The Holy Response to Sin",
+      "summary": "Ὀργή is God's wrath - His holy, settled opposition to sin. Unlike human anger, divine wrath is not capricious but righteous, not vindictive but just. It is revealed against all ungodliness but averted through Christ's propitiation.",
+      "classicalGreek": "In classical Greek, ὀργή meant 'anger, wrath, passion' - an emotional response to perceived wrong. It was distinguished from θυμός (sudden outburst) as more settled, deliberate anger. Philosophers debated whether anger could ever be virtuous.",
+      "lxxBackground": "The LXX uses ὀργή for several Hebrew words, especially אַף (aph, 'nostril, anger') and חֵמָה (chemah, 'heat, wrath'). God's wrath burns against idolatry (Deut 29:20), injustice (Amos 2:6-16), and covenant-breaking (2 Kings 22:13). Yet God is 'slow to anger' (Ex 34:6) and His wrath is temporary while His mercy endures (Ps 30:5).",
+      "intertestamental": "The 'day of wrath' became a prominent eschatological theme (Zeph 1:15). Divine wrath was understood as the necessary response of holy God to sin. Some texts emphasized present wrath against sinners; others focused on future judgment. Wrath was not arbitrary but connected to covenant violation.",
+      "ntUsage": "God's wrath is revealed against all ungodliness (Rom 1:18). It abides on unbelievers (John 3:36). Jesus saves from coming wrath (1 Thess 1:10; 5:9). The 'day of wrath' approaches (Rom 2:5). Wrath is stored up for the impenitent (Rom 2:5). Christ bore God's wrath as propitiation (Rom 3:25). Believers are not destined for wrath (1 Thess 5:9). Human wrath is generally condemned (Jas 1:20; Eph 4:31), though righteous anger exists (Mark 3:5; Eph 4:26).",
+      "keyPassages": [
+        {
+          "reference": "Romans 1:18",
+          "greek": "Ἀποκαλύπτεται γὰρ ὀργὴ θεοῦ ἀπ᾽ οὐρανοῦ ἐπὶ πᾶσαν ἀσέβειαν καὶ ἀδικίαν ἀνθρώπων",
+          "significance": "God's wrath is revealed from heaven against all ungodliness - present reality."
+        },
+        {
+          "reference": "1 Thessalonians 1:10",
+          "greek": "Ἰησοῦν τὸν ῥυόμενον ἡμᾶς ἐκ τῆς ὀργῆς τῆς ἐρχομένης",
+          "significance": "Jesus who delivers us from the coming wrath - eschatological salvation."
+        },
+        {
+          "reference": "John 3:36",
+          "greek": "ὁ πιστεύων εἰς τὸν υἱὸν ἔχει ζωὴν αἰώνιον· ὁ δὲ ἀπειθῶν τῷ υἱῷ οὐκ ὄψεται ζωήν, ἀλλ᾽ ἡ ὀργὴ τοῦ θεοῦ μένει ἐπ᾽ αὐτόν",
+          "significance": "Whoever does not obey the Son - God's wrath remains on them."
+        }
+      ],
+      "theologicalSignificance": "Divine wrath is not divine spite. It is the holy response of a righteous God to sin. Without wrath, God would be morally indifferent. Wrath is the 'strange work' of God (Isa 28:21) - necessary but not His delight. The cross reveals both wrath and love: God's wrath against sin was poured out on Christ so that His love might embrace sinners. Those in Christ are saved from wrath (Rom 5:9). Those outside Christ remain under wrath. The gospel is urgent because wrath is real.",
+      "relatedWords": [
+        {
+          "greek": "ὀργίζω",
+          "transliteration": "orgizō",
+          "relationship": "To be angry, provoke to anger"
+        },
+        {
+          "greek": "θυμός",
+          "transliteration": "thymos",
+          "relationship": "Wrath, fury - more passionate/sudden"
+        },
+        {
+          "greek": "παροργισμός",
+          "transliteration": "parorgismos",
+          "relationship": "Provocation, anger (Eph 4:26)"
+        }
+      ],
+      "tags": ["essential", "pauline", "johannine", "divine-attributes"],
+      "volume": 5,
+      "pages": "382-447"
+    },
+    {
+      "id": "eleos",
+      "category": "salvation",
+      "greek": "ἔλεος",
+      "transliteration": "eleos",
+      "strongs": "G1656",
+      "shortDef": "mercy, compassion, pity",
+      "title": "Mercy: God's Compassionate Covenant Love",
+      "summary": "Ἔλεος is mercy - God's compassionate response to human misery and need. It reflects the Hebrew חֶסֶד (covenant love) and רַחֲמִים (tender compassion). God is rich in mercy, and His mercies are new every morning.",
+      "classicalGreek": "In classical Greek, ἔλεος meant 'pity, compassion, mercy' - the emotion aroused by undeserved suffering. It was considered a virtue by some philosophers (Aristotle) but weakness by others (Stoics). The word implied response to another's distress.",
+      "lxxBackground": "The LXX uses ἔλεος primarily for חֶסֶד (chesed, 'steadfast love, covenant loyalty') and רַחֲמִים (rachamim, 'tender mercies'). God's חֶסֶד is His covenant faithfulness and loyal love to His people (Ex 34:6; Ps 136). His רַחֲמִים are His tender, motherly compassion (Isa 49:15). 'His mercy endures forever' (Ps 136 refrain).",
+      "intertestamental": "Mercy remained central to Jewish understanding of God. The synagogue liturgy emphasized divine mercy. Sirach 2:18: 'Fall into the hands of the Lord, not into human hands, for as His majesty is, so is His mercy.' Mercy was hoped for at judgment.",
+      "ntUsage": "God is 'rich in mercy' (Eph 2:4) and 'Father of mercies' (2 Cor 1:3). Salvation is 'according to His mercy' (Titus 3:5; 1 Pet 1:3). Jesus showed mercy to the sick and sinful (Matt 9:27; 15:22; 17:15; Luke 17:13). Mercy triumphs over judgment (Jas 2:13). The merciful obtain mercy (Matt 5:7). Paul received mercy as chief of sinners (1 Tim 1:13-16). Gentiles received mercy to provoke Israel (Rom 11:30-32). 'His mercies are new every morning' (Lam 3:22-23, echoed in NT).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 2:4-5",
+          "greek": "ὁ δὲ θεὸς πλούσιος ὢν ἐν ἐλέει, διὰ τὴν πολλὴν ἀγάπην αὐτοῦ... συνεζωοποίησεν τῷ Χριστῷ",
+          "significance": "God, being rich in mercy - mercy as the wellspring of salvation."
+        },
+        {
+          "reference": "Titus 3:5",
+          "greek": "οὐκ ἐξ ἔργων τῶν ἐν δικαιοσύνῃ ἃ ἐποιήσαμεν ἡμεῖς ἀλλὰ κατὰ τὸ αὐτοῦ ἔλεος ἔσωσεν ἡμᾶς",
+          "significance": "Not by works but according to His mercy He saved us - mercy as salvation's basis."
+        },
+        {
+          "reference": "James 2:13",
+          "greek": "κατακαυχᾶται ἔλεος κρίσεως",
+          "significance": "Mercy triumphs over judgment - the primacy of mercy."
+        }
+      ],
+      "theologicalSignificance": "Mercy is not mere emotion but divine action. God's mercy moves Him to save the undeserving. It is rooted in His covenant character - He is faithful to His promises even when His people are faithless. Mercy and grace are related but distinct: grace gives the undeserving good; mercy withholds from the guilty deserved punishment. Both meet in Christ. Receiving mercy transforms: 'Blessed are the merciful, for they shall receive mercy' (Matt 5:7). The church is a community of the mercied who show mercy.",
+      "relatedWords": [
+        {
+          "greek": "ἐλεέω",
+          "transliteration": "eleeō",
+          "relationship": "To have mercy, show compassion"
+        },
+        {
+          "greek": "ἐλεήμων",
+          "transliteration": "eleēmōn",
+          "relationship": "Merciful (Matt 5:7; Heb 2:17)"
+        },
+        {
+          "greek": "οἰκτιρμός",
+          "transliteration": "oiktirmos",
+          "relationship": "Compassion, pity (Rom 12:1; Col 3:12)"
+        }
+      ],
+      "tags": ["essential", "pauline", "synoptic", "divine-attributes"],
+      "volume": 2,
+      "pages": "477-487"
+    },
+    {
+      "id": "sophia",
+      "category": "revelation",
+      "greek": "σοφία",
+      "transliteration": "sophia",
+      "strongs": "G4678",
+      "shortDef": "wisdom, skill, insight",
+      "title": "Wisdom: Divine Understanding Revealed in Christ",
+      "summary": "Σοφία is wisdom - the ability to understand and apply truth rightly. God's wisdom, hidden from the world, is revealed in Christ crucified. The cross is God's wisdom that shames worldly wisdom. Christ Himself is wisdom from God.",
+      "classicalGreek": "In classical Greek, σοφία meant 'skill, cleverness, wisdom' - originally practical skill (craftsmen), then intellectual wisdom (philosophers). Philosophy literally meant 'love of wisdom.' Greek sages sought wisdom through reason and contemplation. Wisdom was humanity's highest achievement.",
+      "lxxBackground": "The LXX uses σοφία for חָכְמָה (chokmah) - wisdom in practical living, understanding of God's ways, and skill in any domain. Wisdom is personified in Proverbs 8 as present at creation, calling humanity. 'The fear of the LORD is the beginning of wisdom' (Prov 9:10). Wisdom literature (Proverbs, Ecclesiastes, Job) explores wisdom's nature and limits.",
+      "intertestamental": "Wisdom speculation flourished. Sirach and Wisdom of Solomon personify Wisdom extensively, sometimes identifying her with Torah. Wisdom was pre-existent, participated in creation, and came to dwell with Israel. This provided background for NT Christology. Hellenistic Judaism (Philo) connected Wisdom with Logos.",
+      "ntUsage": "Christ is 'the wisdom of God' (1 Cor 1:24, 30). The cross is God's wisdom (1 Cor 1:18-25; 2:6-8). God's manifold wisdom is displayed through the church (Eph 3:10). Christ contains 'all treasures of wisdom' (Col 2:3). James distinguishes earthly wisdom from wisdom 'from above' (Jas 3:13-18). Believers should ask God for wisdom (Jas 1:5). The Spirit gives words of wisdom (1 Cor 12:8). Wisdom is needed for godly living (Col 1:9; 4:5).",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 1:23-24",
+          "greek": "ἡμεῖς δὲ κηρύσσομεν Χριστὸν ἐσταυρωμένον... Χριστὸν θεοῦ δύναμιν καὶ θεοῦ σοφίαν",
+          "significance": "We preach Christ crucified - God's power and God's wisdom."
+        },
+        {
+          "reference": "1 Corinthians 1:30",
+          "greek": "ὃς ἐγενήθη σοφία ἡμῖν ἀπὸ θεοῦ",
+          "significance": "Christ became to us wisdom from God - Christ as embodied wisdom."
+        },
+        {
+          "reference": "James 3:17",
+          "greek": "ἡ δὲ ἄνωθεν σοφία πρῶτον μὲν ἁγνή ἐστιν, ἔπειτα εἰρηνική, ἐπιεικής",
+          "significance": "Wisdom from above is first pure, then peaceable, gentle - wisdom's character."
+        }
+      ],
+      "theologicalSignificance": "The cross inverts all human values including wisdom. What the world considers foolish - a crucified Messiah - is God's wisdom. This wisdom was hidden but is now revealed (1 Cor 2:7). Believers don't need worldly credentials to have true wisdom; they have Christ. Yet wisdom must be applied - James emphasizes practical wisdom that produces righteous living. The Spirit enables wisdom (1 Cor 2:10-13). Christians should be 'wise as serpents' (Matt 10:16), walking wisely (Eph 5:15-16), and speaking with wisdom (Col 4:5-6).",
+      "relatedWords": [
+        {
+          "greek": "σοφός",
+          "transliteration": "sophos",
+          "relationship": "Wise, skilled"
+        },
+        {
+          "greek": "σοφίζω",
+          "transliteration": "sophizō",
+          "relationship": "To make wise (2 Tim 3:15)"
+        },
+        {
+          "greek": "φιλοσοφία",
+          "transliteration": "philosophia",
+          "relationship": "Philosophy, love of wisdom (Col 2:8 - warning)"
+        }
+      ],
+      "tags": ["essential", "pauline", "james", "christology"],
+      "volume": 7,
+      "pages": "465-528"
+    },
+    {
+      "id": "phos",
+      "category": "revelation",
+      "greek": "φῶς",
+      "transliteration": "phōs",
+      "strongs": "G5457",
+      "shortDef": "light, radiance, illumination",
+      "title": "Light: The Divine Reality That Exposes and Saves",
+      "summary": "Φῶς is light - both physical illumination and spiritual revelation. God is light; Christ is the light of the world; believers are children of light. Light exposes darkness, reveals truth, and enables sight. Walking in light is walking in fellowship with God.",
+      "classicalGreek": "In classical Greek, φῶς meant 'light' - both literal (daylight, fire) and metaphorical (life, truth, knowledge). Light was associated with divinity, truth, and goodness. Darkness represented ignorance, evil, and death. Greek philosophy often used light/darkness imagery for knowledge/ignorance.",
+      "lxxBackground": "The LXX uses φῶς for אוֹר (or). God's first creative word was 'Let there be light' (Gen 1:3). God Himself is light (Ps 27:1; Isa 60:19-20). His word is a lamp (Ps 119:105). Light symbolizes salvation, joy, and divine favor. The Servant will be 'a light for the nations' (Isa 42:6; 49:6).",
+      "intertestamental": "Light/darkness dualism intensified, especially at Qumran where the 'sons of light' battled 'sons of darkness.' Light represented God's realm; darkness, Satan's. The coming age would be characterized by light. Messianic expectation included the dawn of light.",
+      "ntUsage": "'God is light' (1 John 1:5). Christ is 'the light of the world' (John 8:12; 9:5) and 'the true light' (John 1:9). Believers are 'children of light' (Eph 5:8; 1 Thess 5:5) and 'light of the world' (Matt 5:14). Light exposes evil (John 3:19-21; Eph 5:13). Christians should walk in light (1 John 1:7), wear armor of light (Rom 13:12), and shine as lights (Phil 2:15). The gospel brings light (2 Cor 4:4-6). Heaven needs no sun - God is its light (Rev 21:23; 22:5).",
+      "keyPassages": [
+        {
+          "reference": "John 8:12",
+          "greek": "Ἐγώ εἰμι τὸ φῶς τοῦ κόσμου· ὁ ἀκολουθῶν ἐμοὶ οὐ μὴ περιπατήσῃ ἐν τῇ σκοτίᾳ",
+          "significance": "I am the light of the world - Christ's fundamental self-revelation."
+        },
+        {
+          "reference": "1 John 1:5",
+          "greek": "ὁ θεὸς φῶς ἐστιν καὶ σκοτία ἐν αὐτῷ οὐκ ἔστιν οὐδεμία",
+          "significance": "God is light, and in Him is no darkness at all - absolute divine purity."
+        },
+        {
+          "reference": "Matthew 5:14",
+          "greek": "Ὑμεῖς ἐστε τὸ φῶς τοῦ κόσμου",
+          "significance": "You are the light of the world - believers' mission to illuminate."
+        }
+      ],
+      "theologicalSignificance": "Light represents God's nature - holiness, truth, and life. Darkness represents sin, error, and death. There is no neutral ground. To come to Christ is to come from darkness to light (Acts 26:18; 1 Pet 2:9). Walking in light means living in truth and fellowship with God (1 John 1:7). Light exposes - people love darkness because their deeds are evil (John 3:19). Believers reflect Christ's light to the world. The consummation will be endless light in God's presence.",
+      "relatedWords": [
+        {
+          "greek": "φωτίζω",
+          "transliteration": "phōtizō",
+          "relationship": "To illuminate, enlighten (Heb 6:4; 10:32)"
+        },
+        {
+          "greek": "φωτισμός",
+          "transliteration": "phōtismos",
+          "relationship": "Illumination, light (2 Cor 4:4, 6)"
+        },
+        {
+          "greek": "φωτεινός",
+          "transliteration": "phōteinos",
+          "relationship": "Full of light, bright (Matt 6:22)"
+        }
+      ],
+      "tags": ["essential", "johannine", "synoptic", "divine-attributes"],
+      "volume": 9,
+      "pages": "310-358"
+    },
+    {
+      "id": "skotos",
+      "category": "hamartiology",
+      "greek": "σκότος",
+      "transliteration": "skotos",
+      "strongs": "G4655",
+      "shortDef": "darkness, gloom, evil",
+      "title": "Darkness: The Realm of Sin and Ignorance",
+      "summary": "Σκότος is darkness - the realm opposed to God's light. It represents sin, ignorance, Satan's domain, and spiritual death. Christ came to rescue people from darkness. Believers were once darkness but are now light in the Lord.",
+      "classicalGreek": "In classical Greek, σκότος meant 'darkness, gloom' - absence of light. Metaphorically it represented ignorance, obscurity, and the realm of death. Darkness was associated with fear, the underworld, and the unknown. The contrast with light was fundamental to Greek thought.",
+      "lxxBackground": "The LXX uses σκότος for חֹשֶׁךְ (choshek). Darkness existed before creation (Gen 1:2). The plague of darkness struck Egypt (Ex 10:21-23). Darkness represents judgment (Amos 5:18-20), death (Job 10:21-22), and spiritual blindness (Isa 9:2). Yet God 'forms light and creates darkness' (Isa 45:7) - both are under His sovereignty.",
+      "intertestamental": "Dualistic thinking intensified. At Qumran, the 'sons of light' opposed the 'sons of darkness.' The present age was characterized by darkness; the coming age by light. Satan was 'prince of darkness.' This dualism was ethical and eschatological, not metaphysical - God remained sovereign over darkness.",
+      "ntUsage": "The people in darkness have seen a great light (Matt 4:16). Darkness cannot overcome the light (John 1:5). Evil deeds love darkness (John 3:19). Believers are transferred from darkness to light (Col 1:13; 1 Pet 2:9). We are not of darkness (1 Thess 5:4-5). Don't participate in works of darkness (Eph 5:11). Our struggle is against 'cosmic powers of this darkness' (Eph 6:12). Outer darkness awaits the condemned (Matt 8:12; 22:13; 25:30). Hell is 'blackest darkness' (2 Pet 2:17; Jude 13).",
+      "keyPassages": [
+        {
+          "reference": "Colossians 1:13",
+          "greek": "ὃς ἐρρύσατο ἡμᾶς ἐκ τῆς ἐξουσίας τοῦ σκότους καὶ μετέστησεν εἰς τὴν βασιλείαν τοῦ υἱοῦ",
+          "significance": "He rescued us from the domain of darkness - salvation as transfer of realms."
+        },
+        {
+          "reference": "Ephesians 5:8",
+          "greek": "ἦτε γάρ ποτε σκότος, νῦν δὲ φῶς ἐν κυρίῳ",
+          "significance": "You were once darkness, but now you are light - transformation, not mere location change."
+        },
+        {
+          "reference": "John 3:19",
+          "greek": "ἠγάπησαν οἱ ἄνθρωποι μᾶλλον τὸ σκότος ἢ τὸ φῶς· ἦν γὰρ αὐτῶν πονηρὰ τὰ ἔργα",
+          "significance": "People loved darkness rather than light because their deeds were evil."
+        }
+      ],
+      "theologicalSignificance": "Darkness is not merely absence of light but active opposition to it. People don't merely lack truth; they suppress it (Rom 1:18). Darkness describes both the realm of evil and the character of those in it - 'you were darkness' (Eph 5:8). Conversion is a transfer of citizenship from darkness to light. The 'outer darkness' of judgment is the final state of those who reject the light. Believers must not merely avoid darkness but expose it (Eph 5:11). The cross occurred in darkness (Luke 23:44) as Christ bore humanity's darkness.",
+      "relatedWords": [
+        {
+          "greek": "σκοτία",
+          "transliteration": "skotia",
+          "relationship": "Darkness (especially in John)"
+        },
+        {
+          "greek": "σκοτίζω",
+          "transliteration": "skotizō",
+          "relationship": "To darken (Rom 1:21; 11:10)"
+        },
+        {
+          "greek": "σκοτεινός",
+          "transliteration": "skoteinos",
+          "relationship": "Dark, full of darkness (Matt 6:23)"
+        }
+      ],
+      "tags": ["essential", "johannine", "pauline", "hamartiology"],
+      "volume": 7,
+      "pages": "423-445"
+    },
+    {
+      "id": "presbyteros",
+      "category": "ecclesiology",
+      "greek": "πρεσβύτερος",
+      "transliteration": "presbyteros",
+      "strongs": "G4245",
+      "shortDef": "elder, older person, church leader",
+      "title": "Elder: The Mature Leader of God's People",
+      "summary": "Πρεσβύτερος means 'elder' - originally an older, respected person, then a designated leader. In the church, elders (also called overseers) shepherd God's flock, teach, and exercise pastoral oversight. They must meet specific qualifications and are accountable to Christ, the Chief Shepherd.",
+      "classicalGreek": "In classical Greek, πρεσβύτερος (comparative of πρέσβυς, 'old man') meant 'older' or 'elder.' It designated senior members of a community who naturally commanded respect and often held leadership roles. Age implied wisdom and authority.",
+      "lxxBackground": "The LXX uses πρεσβύτερος for זָקֵן (zaqen, 'elder'). Elders led Israel (Ex 3:16; 4:29), judged disputes (Deut 21:19; 22:15), and represented the people (1 Sam 8:4). The seventy elders assisted Moses (Num 11:16-25). Elders sat at city gates, administered justice, and preserved tradition.",
+      "intertestamental": "Synagogues were governed by elders. The Sanhedrin included elders. Elder governance was the standard pattern for Jewish communities. Elders were respected for their wisdom, experience, and knowledge of tradition. The term became a title more than an age designation.",
+      "ntUsage": "Churches had elders (Acts 14:23; 20:17; Titus 1:5). Elders must be qualified (1 Tim 3:1-7; Titus 1:5-9). They shepherd/oversee (Acts 20:28; 1 Pet 5:1-4), teach (1 Tim 5:17), pray for the sick (Jas 5:14), and lead (1 Tim 5:17; Heb 13:17). 'Elder' and 'overseer' (ἐπίσκοπος) are interchangeable (Acts 20:17, 28; Titus 1:5, 7). Elders should be honored, especially those who labor in preaching (1 Tim 5:17-19). Twenty-four elders surround God's throne (Rev 4:4, 10; 5:8).",
+      "keyPassages": [
+        {
+          "reference": "1 Peter 5:1-2",
+          "greek": "πρεσβυτέρους οὖν ἐν ὑμῖν παρακαλῶ... ποιμάνατε τὸ ἐν ὑμῖν ποίμνιον τοῦ θεοῦ",
+          "significance": "I exhort the elders among you: shepherd God's flock - pastoral responsibility."
+        },
+        {
+          "reference": "Titus 1:5",
+          "greek": "τούτου χάριν ἀπέλιπόν σε ἐν Κρήτῃ, ἵνα... καταστήσῃς κατὰ πόλιν πρεσβυτέρους",
+          "significance": "I left you in Crete to appoint elders in every town - church structure."
+        },
+        {
+          "reference": "Acts 20:28",
+          "greek": "προσέχετε ἑαυτοῖς καὶ παντὶ τῷ ποιμνίῳ, ἐν ᾧ ὑμᾶς τὸ πνεῦμα τὸ ἅγιον ἔθετο ἐπισκόπους",
+          "significance": "The Holy Spirit made you overseers - Spirit-appointed, with shepherding duty."
+        }
+      ],
+      "theologicalSignificance": "Elder leadership is the NT pattern for church governance. Elders are Spirit-appointed (Acts 20:28) but publicly recognized (Acts 14:23; Titus 1:5). They must meet character and ability qualifications - leadership flows from life. The plurality of elders provides shared responsibility and accountability. Elders are under-shepherds serving the Chief Shepherd, Christ (1 Pet 5:4). They will give account for souls (Heb 13:17). The office requires both godly character and teaching ability. Elders lead by example, not domination (1 Pet 5:3).",
+      "relatedWords": [
+        {
+          "greek": "ἐπίσκοπος",
+          "transliteration": "episkopos",
+          "relationship": "Overseer, bishop - same office as elder"
+        },
+        {
+          "greek": "πρεσβυτέριον",
+          "transliteration": "presbyterion",
+          "relationship": "Council of elders (1 Tim 4:14)"
+        },
+        {
+          "greek": "ποιμήν",
+          "transliteration": "poimēn",
+          "relationship": "Shepherd, pastor (Eph 4:11)"
+        }
+      ],
+      "tags": ["essential", "pauline", "petrine", "ecclesiology"],
+      "volume": 6,
+      "pages": "651-683"
+    },
+    {
+      "id": "prophetes",
+      "category": "revelation",
+      "greek": "προφήτης",
+      "transliteration": "prophētēs",
+      "strongs": "G4396",
+      "shortDef": "prophet, spokesperson, revealer",
+      "title": "Prophet: The Spokesperson of God",
+      "summary": "Προφήτης is a prophet - one who speaks forth God's word. OT prophets proclaimed God's message; NT prophets continued this ministry in the church. Christ is the ultimate Prophet. Prophecy must be tested, and all prophecy points to Christ.",
+      "classicalGreek": "In classical Greek, προφήτης (from πρό 'forth' + φημί 'speak') meant one who speaks for a god, an interpreter of divine will. It applied to those who proclaimed oracles at shrines like Delphi. The emphasis was on speaking forth rather than predicting the future.",
+      "lxxBackground": "The LXX uses προφήτης for נָבִיא (nabi) - one called to speak God's word. Moses was the paradigm prophet (Deut 18:15-18). Prophets like Elijah, Isaiah, Jeremiah, and Ezekiel confronted Israel with God's word, called for repentance, announced judgment, and proclaimed hope. 'Thus says the LORD' marked prophetic speech.",
+      "intertestamental": "Prophecy was believed to have ceased after Malachi until the messianic age. The hope remained: 'until a prophet should arise' (1 Macc 4:46; 14:41). John the Baptist was seen as the return of prophetic voice. Prophetic expectation was high at Jesus' time.",
+      "ntUsage": "Jesus was recognized as a prophet (Matt 21:11; Luke 7:16; John 4:19). He is the Prophet like Moses (Acts 3:22-23; 7:37). John the Baptist was a prophet (Matt 11:9). Prophets were foundational to the church (Eph 2:20; 4:11). Prophecy is a spiritual gift (1 Cor 12:10, 28; 14:1-5). Prophets must be tested (1 Cor 14:29; 1 Thess 5:20-21; 1 John 4:1). False prophets exist (Matt 7:15; 24:11, 24; 1 John 4:1). The testimony of Jesus is the spirit of prophecy (Rev 19:10).",
+      "keyPassages": [
+        {
+          "reference": "Deuteronomy 18:15 (quoted in Acts 3:22)",
+          "greek": "προφήτην ὑμῖν ἀναστήσει κύριος ὁ θεὸς ἐκ τῶν ἀδελφῶν ὑμῶν ὡς ἐμέ",
+          "significance": "The Lord will raise up a prophet like me - Christ as the Prophet."
+        },
+        {
+          "reference": "Ephesians 2:20",
+          "greek": "ἐποικοδομηθέντες ἐπὶ τῷ θεμελίῳ τῶν ἀποστόλων καὶ προφητῶν",
+          "significance": "Built on the foundation of apostles and prophets - foundational ministry."
+        },
+        {
+          "reference": "1 Corinthians 14:3",
+          "greek": "ὁ δὲ προφητεύων ἀνθρώποις λαλεῖ οἰκοδομὴν καὶ παράκλησιν καὶ παραμυθίαν",
+          "significance": "The one who prophesies speaks to people for building up, encouragement, consolation."
+        }
+      ],
+      "theologicalSignificance": "Prophets speak God's word - both forth-telling (proclamation) and fore-telling (prediction). Christ is the ultimate Prophet - God's final Word (Heb 1:1-2). OT prophets pointed to Christ; NT prophets proclaim Him. The gift of prophecy continues but is subordinate to Scripture and must be tested. All claimed prophecy must align with apostolic teaching. The prophet's role is not to add new doctrine but to apply and illumine existing revelation. False prophecy is serious; true prophecy builds up the church.",
+      "relatedWords": [
+        {
+          "greek": "προφητεύω",
+          "transliteration": "prophēteuō",
+          "relationship": "To prophesy, speak forth"
+        },
+        {
+          "greek": "προφητεία",
+          "transliteration": "prophēteia",
+          "relationship": "Prophecy, prophetic utterance"
+        },
+        {
+          "greek": "ψευδοπροφήτης",
+          "transliteration": "pseudoprophētēs",
+          "relationship": "False prophet (Matt 7:15; 1 John 4:1)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "pauline", "revelation"],
+      "volume": 6,
+      "pages": "781-861"
+    },
+    {
+      "id": "ouranos",
+      "category": "eschatology",
+      "greek": "οὐρανός",
+      "transliteration": "ouranos",
+      "strongs": "G3772",
+      "shortDef": "heaven, sky, God's dwelling",
+      "title": "Heaven: God's Throne and Believers' Hope",
+      "summary": "Οὐρανός means heaven - the sky above, the realm of God's dwelling, and the final destination of believers. 'Heaven' often stands for God Himself. The kingdom of heaven is at hand; believers' citizenship is in heaven; Christ will return from heaven.",
+      "classicalGreek": "In classical Greek, οὐρανός meant the visible sky, the vault of heaven where the gods dwelt (Olympus). It was personified as the god Ouranos. Greek thought distinguished the earthly realm below from the heavenly realm above, the latter being more divine and eternal.",
+      "lxxBackground": "The LXX uses οὐρανός for שָׁמַיִם (shamayim, always plural in Hebrew). Heaven can mean: (1) the atmosphere/sky (Gen 1:8); (2) the stellar heavens (Gen 1:14-17); (3) God's dwelling place (1 Kings 8:30). 'Heaven and earth' denotes all creation. God is 'in heaven' yet 'heaven of heavens cannot contain Him' (1 Kings 8:27).",
+      "intertestamental": "Elaborate heavenly geography developed - multiple heavens (3, 7, or more), with God's throne in the highest. Paul was caught up to 'third heaven' (2 Cor 12:2). Heaven was the realm of angels, the destination of the righteous dead, and the source of eschatological salvation. The hope of 'entering heaven' solidified.",
+      "ntUsage": "The kingdom of heaven is near (Matt 3:2; 4:17). Our Father is 'in heaven' (Matt 6:9). Treasure should be stored in heaven (Matt 6:20). Names are written in heaven (Luke 10:20). Christ ascended to heaven (Acts 1:11) and will return from there (1 Thess 4:16). Believers' citizenship is in heaven (Phil 3:20), their inheritance kept there (1 Pet 1:4). New heaven and new earth await (2 Pet 3:13; Rev 21:1). Heaven is opened in visions (Acts 7:56; Rev 4:1; 19:11).",
+      "keyPassages": [
+        {
+          "reference": "Matthew 6:9-10",
+          "greek": "Πάτερ ἡμῶν ὁ ἐν τοῖς οὐρανοῖς... ἐλθέτω ἡ βασιλεία σου· γενηθήτω τὸ θέλημά σου, ὡς ἐν οὐρανῷ καὶ ἐπὶ γῆς",
+          "significance": "Our Father in heaven - Your kingdom come, on earth as in heaven."
+        },
+        {
+          "reference": "Philippians 3:20",
+          "greek": "ἡμῶν γὰρ τὸ πολίτευμα ἐν οὐρανοῖς ὑπάρχει, ἐξ οὗ καὶ σωτῆρα ἀπεκδεχόμεθα",
+          "significance": "Our citizenship is in heaven, from which we await a Savior."
+        },
+        {
+          "reference": "Revelation 21:1",
+          "greek": "εἶδον οὐρανὸν καινὸν καὶ γῆν καινήν",
+          "significance": "I saw a new heaven and a new earth - the consummated hope."
+        }
+      ],
+      "theologicalSignificance": "Heaven is both present reality and future hope. God's will is done perfectly there now; we pray for earth to match heaven. Christ is in heaven interceding; believers are seated there spiritually (Eph 2:6). Heaven is not disembodied existence but the realm of God's presence. The final state is not souls going to heaven but heaven coming to earth (Rev 21:2) - the new creation where God dwells with humanity. 'Going to heaven' is intermediate; resurrection in new creation is ultimate. Heaven represents the already of salvation; new heaven and earth the not yet.",
+      "relatedWords": [
+        {
+          "greek": "οὐράνιος",
+          "transliteration": "ouranios",
+          "relationship": "Heavenly (Matt 6:14, 26, 32)"
+        },
+        {
+          "greek": "ἐπουράνιος",
+          "transliteration": "epouranios",
+          "relationship": "Heavenly, in the heavenly realms (Eph 1:3, 20)"
+        },
+        {
+          "greek": "οὐρανόθεν",
+          "transliteration": "ouranothen",
+          "relationship": "From heaven (Acts 14:17; 26:13)"
+        }
+      ],
+      "tags": ["essential", "synoptic", "pauline", "eschatology"],
+      "volume": 5,
+      "pages": "497-543"
     }
   ]
 }
