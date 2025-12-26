@@ -653,6 +653,1798 @@
       },
       "practicalTip": "When you don't know how to pray, remember that the Spirit ἐντυγχάνει (intercedes) for you - He has personal access to the Father and pleads on your behalf. Your weakness in prayer is covered.",
       "tags": ["prayer", "pneumatology", "pauline"]
+    },
+    {
+      "id": "faith-pistis-peitho",
+      "category": "faith",
+      "title": "Words for Faith and Belief",
+      "englishWord": "faith/believe",
+      "introduction": "Greek has related words for faith, belief, and trust that illuminate different aspects of saving faith. Understanding these distinctions enriches our grasp of how we relate to God through Christ.",
+      "words": [
+        {
+          "greek": "πίστις",
+          "transliteration": "pistis",
+          "strongs": "G4102",
+          "shortDef": "faith (trust, conviction, faithfulness)",
+          "nuance": "Faith as a settled conviction, trust that rests on the character of another. Can mean the act of believing, the content of belief, or faithfulness/reliability. The primary NT word for saving faith.",
+          "ntUsage": 243
+        },
+        {
+          "greek": "πιστεύω",
+          "transliteration": "pisteuō",
+          "strongs": "G4100",
+          "shortDef": "to believe (entrust oneself)",
+          "nuance": "The verb form - to believe, to entrust. With εἰς ('into') suggests committing oneself to Christ, not mere intellectual assent. Used 98 times in John's Gospel alone.",
+          "ntUsage": 241
+        },
+        {
+          "greek": "πείθω",
+          "transliteration": "peithō",
+          "strongs": "G3982",
+          "shortDef": "to persuade, be convinced",
+          "nuance": "To persuade or win over, or (in perfect tense) to be persuaded, to have confidence. Emphasizes the process of becoming convinced rather than the state of faith.",
+          "ntUsage": 52
+        },
+        {
+          "greek": "πεποίθησις",
+          "transliteration": "pepoithēsis",
+          "strongs": "G4006",
+          "shortDef": "confidence (settled trust)",
+          "nuance": "Confidence, assurance, trust. The noun form of the perfect of πείθω. Emphasizes the settled state of trust that results from being convinced.",
+          "ntUsage": 6
+        }
+      ],
+      "vineQuote": "Pistis primarily means firm persuasion, a conviction based on hearing. It is used of faith in God or Christ, trust in the person and testimony of God.",
+      "exampleVerse": {
+        "reference": "Hebrews 11:1",
+        "greek": "Ἔστιν δὲ πίστις ἐλπιζομένων ὑπόστασις",
+        "english": "Now faith (pistis) is the substance of things hoped for",
+        "wordHighlighted": "πίστις"
+      },
+      "practicalTip": "πιστεύω εἰς Χριστόν (believe INTO Christ) suggests more than mental assent - it's committing your whole self to Him, like stepping onto a bridge you trust to hold you.",
+      "tags": ["essential", "theological", "johannine"]
+    },
+    {
+      "id": "grace-charis-eleos",
+      "category": "grace",
+      "title": "Words for Grace and Mercy",
+      "englishWord": "grace/mercy",
+      "introduction": "Greek distinguishes between unmerited favor (χάρις), compassion for the miserable (ἔλεος), and kindness in action (χρηστότης). These words together paint the full picture of God's gracious character.",
+      "words": [
+        {
+          "greek": "χάρις",
+          "transliteration": "charis",
+          "strongs": "G5485",
+          "shortDef": "grace (unmerited favor)",
+          "nuance": "Grace, unmerited favor, the free gift of salvation. Emphasizes the giver's generosity and the recipient's unworthiness. The distinctively Christian understanding goes beyond classical Greek usage.",
+          "ntUsage": 156
+        },
+        {
+          "greek": "ἔλεος",
+          "transliteration": "eleos",
+          "strongs": "G1656",
+          "shortDef": "mercy (compassion for the miserable)",
+          "nuance": "Mercy, pity, compassion shown to those in distress or misery. Responds to human need and wretchedness. Often paired with grace - mercy for the miserable, grace for the guilty.",
+          "ntUsage": 27
+        },
+        {
+          "greek": "χρηστότης",
+          "transliteration": "chrēstotēs",
+          "strongs": "G5544",
+          "shortDef": "kindness (goodness in action)",
+          "nuance": "Kindness, goodness, benevolence. Grace and mercy expressed in tangible action. The practical outworking of a gracious disposition.",
+          "ntUsage": 10
+        },
+        {
+          "greek": "οἰκτιρμός",
+          "transliteration": "oiktirmos",
+          "strongs": "G3628",
+          "shortDef": "compassion (deep feeling of pity)",
+          "nuance": "Pity, compassion, the inward feeling of mercy. Often used in the plural to emphasize the depths of divine compassion. More emotional than ἔλεος.",
+          "ntUsage": 5
+        }
+      ],
+      "vineQuote": "Grace and mercy are to be distinguished. Grace is shown to the guilty, mercy to the miserable. Grace meets our guilt, mercy meets our misery.",
+      "exampleVerse": {
+        "reference": "Ephesians 2:4-5",
+        "greek": "διὰ τὴν πολλὴν ἀγάπην αὐτοῦ ἣν ἠγάπησεν ἡμᾶς... χάριτί ἐστε σεσῳσμένοι",
+        "english": "Because of his great love... by grace (charis) you have been saved",
+        "wordHighlighted": "χάρις"
+      },
+      "practicalTip": "We need both χάρις and ἔλεος - grace because we are guilty before God, mercy because we are miserable in our sin. God provides both abundantly in Christ.",
+      "tags": ["essential", "pauline", "salvation"]
+    },
+    {
+      "id": "forgive-aphiemi-charizomai",
+      "category": "forgive",
+      "title": "Words for Forgiveness",
+      "englishWord": "forgive",
+      "introduction": "Greek uses different words for forgiveness, each emphasizing a different aspect - releasing a debt, graciously canceling, or the divine act of pardon. These distinctions enrich our understanding of God's forgiveness.",
+      "words": [
+        {
+          "greek": "ἀφίημι",
+          "transliteration": "aphiēmi",
+          "strongs": "G863",
+          "shortDef": "to send away, release, forgive",
+          "nuance": "To send away, release, let go. When used for forgiveness, emphasizes dismissing the offense as if sending it away. The most common NT word for divine forgiveness.",
+          "ntUsage": 143
+        },
+        {
+          "greek": "χαρίζομαι",
+          "transliteration": "charizomai",
+          "strongs": "G5483",
+          "shortDef": "to forgive graciously (grant freely)",
+          "nuance": "To show grace, forgive freely, grant as a favor. Related to χάρις (grace). Emphasizes the gracious, undeserved nature of forgiveness. Used for forgiving debts and sins.",
+          "ntUsage": 23
+        },
+        {
+          "greek": "πάρεσις",
+          "transliteration": "paresis",
+          "strongs": "G3929",
+          "shortDef": "passing over (temporary suspension)",
+          "nuance": "A passing by, pretermission. Used only in Rom 3:25 for God's temporary passing over of sins before Christ. Distinct from full forgiveness (ἄφεσις).",
+          "ntUsage": 1
+        },
+        {
+          "greek": "ἄφεσις",
+          "transliteration": "aphesis",
+          "strongs": "G859",
+          "shortDef": "forgiveness, release (complete pardon)",
+          "nuance": "Release, pardon, forgiveness. The noun form of ἀφίημι. Complete remission of sins, not just passing over. Often in the phrase 'forgiveness of sins.'",
+          "ntUsage": 17
+        }
+      ],
+      "vineQuote": "Aphiēmi literally means to send away. When applied to sins, it signifies letting them go, dismissing them as if they had never been. Charizomai adds the element of grace - forgiving freely and graciously.",
+      "exampleVerse": {
+        "reference": "Colossians 2:13",
+        "greek": "χαρισάμενος ἡμῖν πάντα τὰ παραπτώματα",
+        "english": "Having forgiven (charizomai) us all our trespasses",
+        "wordHighlighted": "χαρίζομαι"
+      },
+      "practicalTip": "In Ephesians 4:32, we are to forgive (χαρίζομαι) 'as God in Christ forgave you' - freely, graciously, without demanding payment. This is costly forgiveness, not cheap tolerance.",
+      "tags": ["salvation", "pauline", "practical"]
+    },
+    {
+      "id": "holy-hagios-hieros",
+      "category": "holy",
+      "title": "Words for Holy and Sacred",
+      "englishWord": "holy",
+      "introduction": "Greek has several words translated 'holy' or 'sacred,' each with distinct emphases. Understanding these helps us grasp both God's holiness and our calling to be holy.",
+      "words": [
+        {
+          "greek": "ἅγιος",
+          "transliteration": "hagios",
+          "strongs": "G40",
+          "shortDef": "holy (set apart, morally pure)",
+          "nuance": "Set apart for God, morally pure, sacred. The primary NT word for holiness. Emphasizes both separation from the profane and positive dedication to God. Used for God, believers, and sacred things.",
+          "ntUsage": 233
+        },
+        {
+          "greek": "ἱερός",
+          "transliteration": "hieros",
+          "strongs": "G2413",
+          "shortDef": "sacred (pertaining to worship)",
+          "nuance": "Sacred, connected with religious rites and worship. Focuses on external, ceremonial holiness rather than moral purity. Root of 'hierarchy.' Rarely used in NT.",
+          "ntUsage": 2
+        },
+        {
+          "greek": "ὅσιος",
+          "transliteration": "hosios",
+          "strongs": "G3741",
+          "shortDef": "holy (devout, pious, meeting divine standards)",
+          "nuance": "Holy in the sense of meeting divine requirements, devout, pious. Emphasizes conformity to God's will and character. Used of Christ and believers who fulfill their obligations to God.",
+          "ntUsage": 8
+        },
+        {
+          "greek": "ἁγιάζω",
+          "transliteration": "hagiazō",
+          "strongs": "G37",
+          "shortDef": "to sanctify (make holy, set apart)",
+          "nuance": "To make holy, consecrate, sanctify. The verb form of ἅγιος. Can refer to initial sanctification (being set apart) or progressive sanctification (becoming more holy).",
+          "ntUsage": 28
+        }
+      ],
+      "vineQuote": "Hagios fundamentally signifies separated, and hence in Scripture is used of God, who is separated from all moral evil, and of persons and things separated to God.",
+      "exampleVerse": {
+        "reference": "1 Peter 1:15-16",
+        "greek": "ἅγιοι ἔσεσθε, ὅτι ἐγὼ ἅγιος",
+        "english": "Be holy (hagios), for I am holy (hagios)",
+        "wordHighlighted": "ἅγιος"
+      },
+      "practicalTip": "NT holiness (ἅγιος) is not merely ceremonial or external (ἱερός) but moral and personal. We are called to share in God's moral character, not just participate in religious rituals.",
+      "tags": ["essential", "theological", "petrine"]
+    },
+    {
+      "id": "righteous-dikaios-hosios",
+      "category": "righteous",
+      "title": "Words for Righteous",
+      "englishWord": "righteous",
+      "introduction": "Greek distinguishes between righteousness in relation to law (δίκαιος) and piety in relation to God (ὅσιος). Both are essential aspects of Christian character.",
+      "words": [
+        {
+          "greek": "δίκαιος",
+          "transliteration": "dikaios",
+          "strongs": "G1342",
+          "shortDef": "righteous (just, conforming to law)",
+          "nuance": "Righteous, just, upright. Conforming to what is right by divine or human standards. The primary NT term for righteousness. Used both of legal standing before God and of actual conduct.",
+          "ntUsage": 79
+        },
+        {
+          "greek": "δικαιοσύνη",
+          "transliteration": "dikaiosynē",
+          "strongs": "G1343",
+          "shortDef": "righteousness (the quality or state)",
+          "nuance": "Righteousness, justice. The noun form. In Paul, often refers to the righteousness imputed by faith; in James and Matthew, often ethical righteousness in conduct.",
+          "ntUsage": 92
+        },
+        {
+          "greek": "ὅσιος",
+          "transliteration": "hosios",
+          "strongs": "G3741",
+          "shortDef": "holy (pious, devout)",
+          "nuance": "Holy, devout, meeting one's obligations to God. While δίκαιος focuses on conformity to law, ὅσιος emphasizes inner devotion and piety.",
+          "ntUsage": 8
+        },
+        {
+          "greek": "δικαιόω",
+          "transliteration": "dikaioō",
+          "strongs": "G1344",
+          "shortDef": "to justify (declare righteous)",
+          "nuance": "To justify, declare righteous, acquit. The forensic term for God's declaration that sinners are righteous in Christ. The heart of Pauline soteriology.",
+          "ntUsage": 39
+        }
+      ],
+      "vineQuote": "Dikaios denotes right conduct toward men; hosios, piety toward God. The dikaios fulfills his duty to man; the hosios to God.",
+      "exampleVerse": {
+        "reference": "Romans 3:26",
+        "greek": "εἰς τὸ εἶναι αὐτὸν δίκαιον καὶ δικαιοῦντα τὸν ἐκ πίστεως Ἰησοῦ",
+        "english": "So that he might be just (dikaios) and the justifier (dikaioō) of the one who has faith in Jesus",
+        "wordHighlighted": "δίκαιος and δικαιόω"
+      },
+      "practicalTip": "God is both δίκαιος (just, maintaining his righteous standard) and the one who δικαιόω (justifies) sinners. The cross satisfies both - justice is upheld, sinners are declared righteous.",
+      "tags": ["essential", "pauline", "salvation"]
+    },
+    {
+      "id": "truth-aletheia-alethinos",
+      "category": "truth",
+      "title": "Words for Truth",
+      "englishWord": "truth",
+      "introduction": "Greek has several words related to truth, distinguishing between truth as reality, truthful speech, and genuine/authentic things. John especially develops the theological meaning of truth.",
+      "words": [
+        {
+          "greek": "ἀλήθεια",
+          "transliteration": "alētheia",
+          "strongs": "G225",
+          "shortDef": "truth (reality, genuineness)",
+          "nuance": "Truth as opposed to falsehood, reality as opposed to appearance. In John, truth is a theological concept connected to divine revelation and Christ himself. 'The truth shall set you free.'",
+          "ntUsage": 109
+        },
+        {
+          "greek": "ἀληθής",
+          "transliteration": "alēthēs",
+          "strongs": "G227",
+          "shortDef": "true (truthful, genuine)",
+          "nuance": "True, truthful, honest. Describes a person who speaks truth or a statement that accords with reality. Emphasizes the correspondence with fact.",
+          "ntUsage": 26
+        },
+        {
+          "greek": "ἀληθινός",
+          "transliteration": "alēthinos",
+          "strongs": "G228",
+          "shortDef": "true (real, genuine, authentic)",
+          "nuance": "True in the sense of real, genuine, authentic. Not a copy or counterfeit but the original reality. Used of God as the true God, Christ as the true light, and the heavenly tabernacle as the true sanctuary.",
+          "ntUsage": 28
+        },
+        {
+          "greek": "ἀληθῶς",
+          "transliteration": "alēthōs",
+          "strongs": "G230",
+          "shortDef": "truly (in truth, really)",
+          "nuance": "Truly, really, indeed. The adverb form, confirming the reality or certainty of something. 'Truly this was the Son of God.'",
+          "ntUsage": 18
+        }
+      ],
+      "vineQuote": "Alēthēs denotes true as opposed to false. Alēthinos denotes real, genuine, ideal, as opposed to what is fictitious, counterfeit, or merely typical.",
+      "exampleVerse": {
+        "reference": "John 14:6",
+        "greek": "ἐγώ εἰμι ἡ ὁδὸς καὶ ἡ ἀλήθεια καὶ ἡ ζωή",
+        "english": "I am the way, the truth (alētheia), and the life",
+        "wordHighlighted": "ἀλήθεια"
+      },
+      "practicalTip": "Christ is ἀλήθεια (truth/reality) and ἀληθινός (the genuine, authentic one). False christs are counterfeits; Jesus is the real thing. All truth ultimately connects to Him.",
+      "tags": ["essential", "johannine", "christological"]
+    },
+    {
+      "id": "wisdom-sophia-phronesis",
+      "category": "wisdom",
+      "title": "Words for Wisdom",
+      "englishWord": "wisdom",
+      "introduction": "Greek distinguishes between speculative wisdom (σοφία), practical wisdom (φρόνησις), and understanding (σύνεσις). These distinctions help us understand what Scripture means by true wisdom.",
+      "words": [
+        {
+          "greek": "σοφία",
+          "transliteration": "sophia",
+          "strongs": "G4678",
+          "shortDef": "wisdom (insight into truth)",
+          "nuance": "Wisdom, insight into the nature of things, especially the wisdom of God. In Paul, contrasted with worldly wisdom. Can refer to wisdom as a divine attribute or as a gift to believers.",
+          "ntUsage": 51
+        },
+        {
+          "greek": "φρόνησις",
+          "transliteration": "phronēsis",
+          "strongs": "G5428",
+          "shortDef": "prudence (practical wisdom)",
+          "nuance": "Prudence, practical wisdom, the ability to discern the proper course of action. Wisdom applied to daily decisions and moral choices. Less philosophical than σοφία.",
+          "ntUsage": 2
+        },
+        {
+          "greek": "σύνεσις",
+          "transliteration": "synesis",
+          "strongs": "G4907",
+          "shortDef": "understanding (putting things together)",
+          "nuance": "Understanding, intelligence, the ability to put things together mentally. From συν (together) + ἵημι (send). The capacity to comprehend relationships between ideas.",
+          "ntUsage": 7
+        },
+        {
+          "greek": "γνῶσις",
+          "transliteration": "gnōsis",
+          "strongs": "G1108",
+          "shortDef": "knowledge (acquired understanding)",
+          "nuance": "Knowledge, especially as acquired through learning or experience. In 1 Corinthians, sometimes used negatively of knowledge that puffs up without love. Distinguished from wisdom.",
+          "ntUsage": 29
+        }
+      ],
+      "vineQuote": "Sophia is insight into the true nature of things. Phronesis is the ability to discern modes of action with a view to their results. Synesis is understanding, the capacity to bring things together.",
+      "exampleVerse": {
+        "reference": "Colossians 1:9",
+        "greek": "πληρωθῆτε τὴν ἐπίγνωσιν τοῦ θελήματος αὐτοῦ ἐν πάσῃ σοφίᾳ καὶ συνέσει πνευματικῇ",
+        "english": "Be filled with the knowledge of his will in all spiritual wisdom (sophia) and understanding (synesis)",
+        "wordHighlighted": "σοφία and σύνεσις"
+      },
+      "practicalTip": "We need both σοφία (seeing truth) and φρόνησις (applying it wisely). Knowledge without practical wisdom leads to pride; practical wisdom without truth leads to pragmatism.",
+      "tags": ["practical", "pauline", "wisdom"]
+    },
+    {
+      "id": "fear-phobos-deilia",
+      "category": "fear",
+      "title": "Words for Fear",
+      "englishWord": "fear",
+      "introduction": "Greek distinguishes between reverential awe (εὐλάβεια), fear that may be good or bad (φόβος), and cowardly fear (δειλία). The fear of the Lord is fundamentally different from sinful terror.",
+      "words": [
+        {
+          "greek": "φόβος",
+          "transliteration": "phobos",
+          "strongs": "G5401",
+          "shortDef": "fear (awe or terror)",
+          "nuance": "Fear, terror, or reverential awe. The most general word for fear. Can be negative (sinful fear) or positive (godly fear). Context determines whether it's healthy reverence or unhealthy terror.",
+          "ntUsage": 47
+        },
+        {
+          "greek": "εὐλάβεια",
+          "transliteration": "eulabeia",
+          "strongs": "G2124",
+          "shortDef": "godly fear (reverent caution)",
+          "nuance": "Godly fear, reverence, pious caution. Always used positively for proper reverence toward God. From εὖ (well) + λαμβάνω (take) - handling sacred things with care.",
+          "ntUsage": 2
+        },
+        {
+          "greek": "δειλία",
+          "transliteration": "deilia",
+          "strongs": "G1167",
+          "shortDef": "cowardice (timidity)",
+          "nuance": "Cowardice, timidity, fearfulness. Always used negatively in the NT. The opposite of the boldness believers should have. 'God has not given us a spirit of fear (δειλία).'",
+          "ntUsage": 1
+        },
+        {
+          "greek": "φοβέομαι",
+          "transliteration": "phobeomai",
+          "strongs": "G5399",
+          "shortDef": "to fear (be afraid, revere)",
+          "nuance": "To fear, be afraid, or reverence. The verb form of φόβος. Used both for unhealthy fear ('fear not') and proper reverence for God ('fear God').",
+          "ntUsage": 95
+        }
+      ],
+      "vineQuote": "Eulabeia is godly fear, the caution and carefulness that comes from a right view of God. Deilia is cowardice, a sinful fear that shrinks from difficulty or danger.",
+      "exampleVerse": {
+        "reference": "2 Timothy 1:7",
+        "greek": "οὐ γὰρ ἔδωκεν ἡμῖν ὁ θεὸς πνεῦμα δειλίας",
+        "english": "For God gave us not a spirit of fear (deilia)",
+        "wordHighlighted": "δειλία"
+      },
+      "practicalTip": "The 'fear of the Lord' (φόβος θεοῦ) is not δειλία (cowardice) but εὐλάβεια (reverence). It's the awe of a child before a loving Father, not the terror of a criminal before a judge.",
+      "tags": ["essential", "practical", "wisdom"]
+    },
+    {
+      "id": "joy-chara-agalliasis",
+      "category": "joy",
+      "title": "Words for Joy and Rejoicing",
+      "englishWord": "joy",
+      "introduction": "Greek has several words for joy and gladness, ranging from quiet contentment to exuberant celebration. NT joy is distinctive - it persists through suffering and is rooted in relationship with God.",
+      "words": [
+        {
+          "greek": "χαρά",
+          "transliteration": "chara",
+          "strongs": "G5479",
+          "shortDef": "joy (deep-seated gladness)",
+          "nuance": "Joy, gladness, delight. The primary NT word for joy. Related to χάρις (grace). A deep-seated gladness that doesn't depend on circumstances. A fruit of the Spirit.",
+          "ntUsage": 59
+        },
+        {
+          "greek": "χαίρω",
+          "transliteration": "chairō",
+          "strongs": "G5463",
+          "shortDef": "to rejoice (be glad)",
+          "nuance": "To rejoice, be glad, hail. The verb form of χαρά. Often used as a greeting ('Greetings!'). Commanded even in suffering - 'Rejoice in the Lord always.'",
+          "ntUsage": 74
+        },
+        {
+          "greek": "ἀγαλλίασις",
+          "transliteration": "agalliasis",
+          "strongs": "G20",
+          "shortDef": "exultation (wild, exuberant joy)",
+          "nuance": "Exultation, exuberant joy, intense gladness. More demonstrative than χαρά. Often associated with worship and the presence of God. Root meaning suggests 'leaping for joy.'",
+          "ntUsage": 5
+        },
+        {
+          "greek": "εὐφροσύνη",
+          "transliteration": "euphrosynē",
+          "strongs": "G2167",
+          "shortDef": "gladness (mirth, festive joy)",
+          "nuance": "Gladness, mirth, joyfulness. Often associated with feasting and celebration. The outward expression of a glad heart. From εὖ (well) + φρήν (mind).",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Chara is joy in the deeper sense, more related to character. Agalliasis is exultation, the joyful expression of gladness. Euphrosynē is festive, merry joy.",
+      "exampleVerse": {
+        "reference": "1 Peter 1:8",
+        "greek": "ἀγαλλιᾶσθε χαρᾷ ἀνεκλαλήτῳ καὶ δεδοξασμένῃ",
+        "english": "You rejoice (agalliaō) with joy (chara) inexpressible and full of glory",
+        "wordHighlighted": "ἀγαλλιάω and χαρά"
+      },
+      "practicalTip": "NT joy is not mere happiness (dependent on happenings) but χαρά rooted in God. Paul commands joy (Phil 4:4) - it's a choice rooted in relationship, not a feeling dependent on circumstances.",
+      "tags": ["fruit", "essential", "practical"]
+    },
+    {
+      "id": "peace-eirene-hesychia",
+      "category": "peace",
+      "title": "Words for Peace",
+      "englishWord": "peace",
+      "introduction": "Greek distinguishes between peace as harmony with God and others (εἰρήνη) and quietness of spirit or behavior (ἡσυχία). The Hebrew 'shalom' deeply influences the NT concept of peace.",
+      "words": [
+        {
+          "greek": "εἰρήνη",
+          "transliteration": "eirēnē",
+          "strongs": "G1515",
+          "shortDef": "peace (harmony, well-being)",
+          "nuance": "Peace, harmony, tranquility. In the NT, infused with the OT concept of shalom - total well-being, not just absence of conflict. Peace with God through Christ; peace among believers.",
+          "ntUsage": 92
+        },
+        {
+          "greek": "ἡσυχία",
+          "transliteration": "hēsychia",
+          "strongs": "G2271",
+          "shortDef": "quietness (tranquil demeanor)",
+          "nuance": "Quietness, stillness, a quiet spirit. More about demeanor than relationship. The quiet confidence of trusting God rather than anxious striving.",
+          "ntUsage": 4
+        },
+        {
+          "greek": "εἰρηνεύω",
+          "transliteration": "eirēneuō",
+          "strongs": "G1514",
+          "shortDef": "to be at peace (live peaceably)",
+          "nuance": "To live at peace, be reconciled. The verb form calling believers to pursue harmony with others. 'If possible, so far as it depends on you, live peaceably with all.'",
+          "ntUsage": 4
+        },
+        {
+          "greek": "εἰρηνοποιός",
+          "transliteration": "eirēnopoios",
+          "strongs": "G1518",
+          "shortDef": "peacemaker",
+          "nuance": "A peacemaker, one who makes peace. Used only in Matt 5:9, 'Blessed are the peacemakers.' Not passive peacekeeping but active reconciliation.",
+          "ntUsage": 1
+        }
+      ],
+      "vineQuote": "Eirēnē in the NT sense includes more than absence of war. It embraces all that makes for a person's highest good, reflecting the OT shalom.",
+      "exampleVerse": {
+        "reference": "Romans 5:1",
+        "greek": "δικαιωθέντες οὖν ἐκ πίστεως εἰρήνην ἔχομεν πρὸς τὸν θεόν",
+        "english": "Having been justified by faith, we have peace (eirēnē) with God",
+        "wordHighlighted": "εἰρήνη"
+      },
+      "practicalTip": "εἰρήνη with God (Rom 5:1) is the foundation for the εἰρήνη of God (Phil 4:7). We must first be reconciled to God, then His peace guards our hearts.",
+      "tags": ["fruit", "essential", "pauline"]
+    },
+    {
+      "id": "hope-elpis-apekdechomai",
+      "category": "hope",
+      "title": "Words for Hope",
+      "englishWord": "hope",
+      "introduction": "Greek ἐλπίς differs from English 'hope.' While we often use 'hope' for uncertain wishes, biblical hope is confident expectation based on God's promises. Other words add nuances of eager anticipation.",
+      "words": [
+        {
+          "greek": "ἐλπίς",
+          "transliteration": "elpis",
+          "strongs": "G1680",
+          "shortDef": "hope (confident expectation)",
+          "nuance": "Hope, confident expectation. Not wishful thinking but assured anticipation based on God's character and promises. One of the three abiding virtues (faith, hope, love).",
+          "ntUsage": 53
+        },
+        {
+          "greek": "ἐλπίζω",
+          "transliteration": "elpizō",
+          "strongs": "G1679",
+          "shortDef": "to hope (trust, expect)",
+          "nuance": "To hope, expect, trust. The verb form. Can be used with εἰς or ἐπί to show the object of hope. 'We have set our hope on the living God.'",
+          "ntUsage": 31
+        },
+        {
+          "greek": "ἀπεκδέχομαι",
+          "transliteration": "apekdechomai",
+          "strongs": "G553",
+          "shortDef": "to wait eagerly (expect intently)",
+          "nuance": "To await eagerly, expect with stretched-out head. Compound word intensifying the idea of expectation. Used for waiting for Christ's return and the resurrection.",
+          "ntUsage": 8
+        },
+        {
+          "greek": "προσδοκάω",
+          "transliteration": "prosdokaō",
+          "strongs": "G4328",
+          "shortDef": "to expect (look forward to)",
+          "nuance": "To expect, look forward to, wait for. Can be positive (expecting good) or negative (dreading evil). General expectation without the intensity of ἀπεκδέχομαι.",
+          "ntUsage": 16
+        }
+      ],
+      "vineQuote": "Elpis is not a mere wish but confident expectation. In the NT it is always directed toward God and the blessings He promises.",
+      "exampleVerse": {
+        "reference": "Romans 8:24-25",
+        "greek": "τῇ γὰρ ἐλπίδι ἐσώθημεν... δι᾽ ὑπομονῆς ἀπεκδεχόμεθα",
+        "english": "For in hope (elpis) we were saved... we wait eagerly (apekdechomai) for it with patience",
+        "wordHighlighted": "ἐλπίς and ἀπεκδέχομαι"
+      },
+      "practicalTip": "Biblical ἐλπίς is not 'I hope it doesn't rain' but 'I know God will keep His promises.' Our hope has a sure foundation - Christ's resurrection guarantees our future.",
+      "tags": ["essential", "eschatology", "pauline"]
+    },
+    {
+      "id": "wrath-orge-thymos",
+      "category": "wrath",
+      "title": "Words for Anger and Wrath",
+      "englishWord": "anger/wrath",
+      "introduction": "Greek distinguishes between settled indignation (ὀργή) and passionate outburst (θυμός). Both are attributed to God, yet without the sinful elements of human anger.",
+      "words": [
+        {
+          "greek": "ὀργή",
+          "transliteration": "orgē",
+          "strongs": "G3709",
+          "shortDef": "wrath (settled indignation)",
+          "nuance": "Wrath, anger, indignation. A settled disposition of righteous indignation rather than a sudden outburst. God's ὀργή is His consistent opposition to sin. Slow to develop but persistent.",
+          "ntUsage": 36
+        },
+        {
+          "greek": "θυμός",
+          "transliteration": "thymos",
+          "strongs": "G2372",
+          "shortDef": "wrath (passionate outburst)",
+          "nuance": "Wrath, passion, hot anger. More sudden and explosive than ὀργή. Associated with boiling emotions. In humans, often sinful; in God, the consuming fire of judgment.",
+          "ntUsage": 18
+        },
+        {
+          "greek": "ἀγανάκτησις",
+          "transliteration": "aganaktēsis",
+          "strongs": "G24",
+          "shortDef": "indignation (vexation)",
+          "nuance": "Indignation, vexation at something wrong. Righteous frustration at injustice or misunderstanding. The disciples' indignation at the anointing woman (Mark 14:4).",
+          "ntUsage": 1
+        },
+        {
+          "greek": "παροργισμός",
+          "transliteration": "parorgismos",
+          "strongs": "G3950",
+          "shortDef": "provocation to anger",
+          "nuance": "Provocation to anger, the state of being angered. Used in Eph 4:26 - 'do not let the sun go down on your parorgismos.' Anger that has been provoked.",
+          "ntUsage": 1
+        }
+      ],
+      "vineQuote": "Thumos indicates a more agitated condition of the feelings, an outburst of wrath from inward indignation. Orgē suggests a more settled or abiding condition of mind.",
+      "exampleVerse": {
+        "reference": "Romans 1:18",
+        "greek": "Ἀποκαλύπτεται γὰρ ὀργὴ θεοῦ ἀπ᾽ οὐρανοῦ",
+        "english": "For the wrath (orgē) of God is revealed from heaven",
+        "wordHighlighted": "ὀργή"
+      },
+      "practicalTip": "God's ὀργή is not petty irritation but settled opposition to evil. We can be angry (ὀργίζεσθε) without sin (Eph 4:26) when our anger reflects God's holy opposition to injustice.",
+      "tags": ["theological", "pauline", "attributes"]
+    },
+    {
+      "id": "send-apostello-pempo",
+      "category": "send",
+      "title": "Words for Send",
+      "englishWord": "send",
+      "introduction": "Greek distinguishes between sending with a commission (ἀποστέλλω) and simply dispatching someone (πέμπω). This distinction illuminates the nature of Jesus' mission and apostolic authority.",
+      "words": [
+        {
+          "greek": "ἀποστέλλω",
+          "transliteration": "apostellō",
+          "strongs": "G649",
+          "shortDef": "to send (with commission, authority)",
+          "nuance": "To send forth with a commission, dispatch with authority and purpose. The root of 'apostle.' Emphasizes the authority of the sender and the mission of the one sent.",
+          "ntUsage": 132
+        },
+        {
+          "greek": "πέμπω",
+          "transliteration": "pempō",
+          "strongs": "G3992",
+          "shortDef": "to send (dispatch)",
+          "nuance": "To send, dispatch. More general than ἀποστέλλω, without the same emphasis on commission or authority. Often interchangeable but lacking the official, commissioned sense.",
+          "ntUsage": 79
+        },
+        {
+          "greek": "ἐκβάλλω",
+          "transliteration": "ekballō",
+          "strongs": "G1544",
+          "shortDef": "to send out (thrust forth)",
+          "nuance": "To cast out, thrust forth, send out. Stronger than simple sending - implies urgency or force. Used for casting out demons and for the Spirit 'driving' Jesus into the wilderness.",
+          "ntUsage": 81
+        },
+        {
+          "greek": "ἐξαποστέλλω",
+          "transliteration": "exapostellō",
+          "strongs": "G1821",
+          "shortDef": "to send away (intensified)",
+          "nuance": "Intensified form of ἀποστέλλω - to send forth, send away. Often used for God sending the Spirit or sending prophets. Emphasizes the origin (from God) and purpose.",
+          "ntUsage": 13
+        }
+      ],
+      "vineQuote": "Apostellō stresses the commission, the relation of the one sent to the sender. Pempō stresses simply the sending, without the same emphasis on the nature of the mission.",
+      "exampleVerse": {
+        "reference": "John 20:21",
+        "greek": "καθὼς ἀπέσταλκέν με ὁ πατήρ, κἀγὼ πέμπω ὑμᾶς",
+        "english": "As the Father has sent (apostellō) me, even so I am sending (pempō) you",
+        "wordHighlighted": "ἀποστέλλω and πέμπω"
+      },
+      "practicalTip": "Jesus was ἀπεσταλμένος - sent with full authority from the Father. An 'apostle' (ἀπόστολος) carries the sender's authority. We too are sent - with Christ's commission and authority.",
+      "tags": ["essential", "johannine", "mission"]
+    },
+    {
+      "id": "receive-lambano-dechomai",
+      "category": "receive",
+      "title": "Words for Receive",
+      "englishWord": "receive",
+      "introduction": "Greek distinguishes between taking/receiving actively (λαμβάνω) and welcoming/accepting (δέχομαι). A third word (παραλαμβάνω) emphasizes receiving something passed on. These nuances appear throughout the NT.",
+      "words": [
+        {
+          "greek": "λαμβάνω",
+          "transliteration": "lambanō",
+          "strongs": "G2983",
+          "shortDef": "to take, receive (grasp)",
+          "nuance": "To take, receive, grasp. The most common word for receiving. Emphasizes the action of the recipient in taking hold of what is offered. Active reception.",
+          "ntUsage": 258
+        },
+        {
+          "greek": "δέχομαι",
+          "transliteration": "dechomai",
+          "strongs": "G1209",
+          "shortDef": "to receive (welcome, accept)",
+          "nuance": "To receive by way of welcome, accept deliberately and readily. Implies hospitality and positive response. Used for receiving guests, the gospel, and the kingdom.",
+          "ntUsage": 56
+        },
+        {
+          "greek": "παραλαμβάνω",
+          "transliteration": "paralambanō",
+          "strongs": "G3880",
+          "shortDef": "to receive (take alongside, inherit)",
+          "nuance": "To take to oneself, receive from another, take along. Often used for receiving tradition or teaching passed down. Paul 'received' (παρέλαβον) the gospel tradition.",
+          "ntUsage": 49
+        },
+        {
+          "greek": "ἀποδέχομαι",
+          "transliteration": "apodechomai",
+          "strongs": "G588",
+          "shortDef": "to receive gladly (welcome warmly)",
+          "nuance": "To accept with approval, receive gladly. Intensified form of δέχομαι. Emphasizes the warmth and joy of reception. The Bereans 'received the word with all eagerness.'",
+          "ntUsage": 7
+        }
+      ],
+      "vineQuote": "Dechomai suggests a favorable reception, a deliberate and ready acceptance. Lambanō is more neutral, simply indicating the act of receiving or taking.",
+      "exampleVerse": {
+        "reference": "1 Corinthians 15:3",
+        "greek": "παρέδωκα γὰρ ὑμῖν ἐν πρώτοις ὃ καὶ παρέλαβον",
+        "english": "For I delivered to you what I also received (paralambanō)",
+        "wordHighlighted": "παραλαμβάνω"
+      },
+      "practicalTip": "Paul παρέλαβεν (received as tradition) the gospel and παρέδωκεν (passed on) to others. We too are links in the chain - faithfully receiving and transmitting the apostolic faith.",
+      "tags": ["pauline", "tradition", "gospel"]
+    },
+    {
+      "id": "work-ergazomai-poieo",
+      "category": "work",
+      "title": "Words for Work and Do",
+      "englishWord": "work/do",
+      "introduction": "Greek has several words for working and doing, each with distinct nuances. Understanding these helps clarify passages about faith and works, and about Christian service.",
+      "words": [
+        {
+          "greek": "ἐργάζομαι",
+          "transliteration": "ergazomai",
+          "strongs": "G2038",
+          "shortDef": "to work (labor, perform)",
+          "nuance": "To work, labor, perform work. Emphasizes labor and effort in accomplishing something. Related to ἔργον (work, deed). Used for working for wages and for spiritual labor.",
+          "ntUsage": 41
+        },
+        {
+          "greek": "ποιέω",
+          "transliteration": "poieō",
+          "strongs": "G4160",
+          "shortDef": "to do, make (create, accomplish)",
+          "nuance": "To do, make, create. The most general word for doing. Emphasizes the product or result rather than the process. God 'made' (ἐποίησεν) heaven and earth.",
+          "ntUsage": 568
+        },
+        {
+          "greek": "πράσσω",
+          "transliteration": "prassō",
+          "strongs": "G4238",
+          "shortDef": "to practice (do habitually)",
+          "nuance": "To practice, do habitually, accomplish. More ethical than ποιέω - often used for practicing good or evil. Emphasizes the ongoing nature of the action.",
+          "ntUsage": 39
+        },
+        {
+          "greek": "κατεργάζομαι",
+          "transliteration": "katergazomai",
+          "strongs": "G2716",
+          "shortDef": "to work out (accomplish fully)",
+          "nuance": "To work out, accomplish, bring about. Intensified form of ἐργάζομαι. Suggests completing or achieving something. 'Work out your salvation' (Phil 2:12).",
+          "ntUsage": 22
+        }
+      ],
+      "vineQuote": "Poieō and prassō differ in that poieō implies a single act, while prassō suggests repeated or continuous practice. Prassō often has an ethical quality absent from poieō.",
+      "exampleVerse": {
+        "reference": "Philippians 2:12-13",
+        "greek": "τὴν ἑαυτῶν σωτηρίαν κατεργάζεσθε... θεὸς γάρ ἐστιν ὁ ἐνεργῶν ἐν ὑμῖν",
+        "english": "Work out (katergazomai) your own salvation... for it is God who works (energeō) in you",
+        "wordHighlighted": "κατεργάζομαι and ἐνεργέω"
+      },
+      "practicalTip": "We κατεργάζομαι (work out) our salvation because God ἐνεργέω (works in) us. Divine sovereignty and human responsibility work together - we labor because He empowers.",
+      "tags": ["essential", "pauline", "practical"]
+    },
+    {
+      "id": "follow-akoloutheo-mimeomai",
+      "category": "follow",
+      "title": "Words for Follow",
+      "englishWord": "follow",
+      "introduction": "Greek has different words for following - physical accompaniment, discipleship, and imitation. These distinctions illuminate what it means to follow Christ.",
+      "words": [
+        {
+          "greek": "ἀκολουθέω",
+          "transliteration": "akoloutheō",
+          "strongs": "G190",
+          "shortDef": "to follow (accompany, be a disciple)",
+          "nuance": "To follow, accompany as a disciple. The primary discipleship word. Originally meant following on the same road. Used for following Jesus physically and spiritually.",
+          "ntUsage": 90
+        },
+        {
+          "greek": "μιμέομαι",
+          "transliteration": "mimeomai",
+          "strongs": "G3401",
+          "shortDef": "to imitate (mimic, copy)",
+          "nuance": "To imitate, follow as an example. Not mere external copying but deep emulation. Root of 'mimic.' Paul says 'imitate me as I imitate Christ.'",
+          "ntUsage": 4
+        },
+        {
+          "greek": "ἐπακολουθέω",
+          "transliteration": "epakoloutheō",
+          "strongs": "G1872",
+          "shortDef": "to follow closely (track)",
+          "nuance": "To follow closely, track. Intensified form of ἀκολουθέω. Used for following doctrine (1 Tim 4:6) and for sins following after judgment.",
+          "ntUsage": 4
+        },
+        {
+          "greek": "συνακολουθέω",
+          "transliteration": "synakoloutheō",
+          "strongs": "G4870",
+          "shortDef": "to follow together (accompany)",
+          "nuance": "To follow together with, accompany. Compound with συν (together). Emphasizes companionship in following. The women 'followed with' Jesus from Galilee.",
+          "ntUsage": 3
+        }
+      ],
+      "vineQuote": "Akoloutheō is the characteristic word of discipleship in the Gospels. It signifies following as a disciple, with the thought of cleaving to the one followed.",
+      "exampleVerse": {
+        "reference": "Mark 1:17",
+        "greek": "δεῦτε ὀπίσω μου, καὶ ποιήσω ὑμᾶς γενέσθαι ἁλιεῖς ἀνθρώπων",
+        "english": "Follow (after) me, and I will make you fishers of men",
+        "wordHighlighted": "ὀπίσω (behind, after)"
+      },
+      "practicalTip": "Discipleship is both ἀκολουθέω (following Jesus) and μιμέομαι (imitating Him). We walk where He walked and become like Him as we do. Following produces transformation.",
+      "tags": ["discipleship", "synoptic", "practical"]
+    },
+    {
+      "id": "think-logizomai-phroneo",
+      "category": "think",
+      "title": "Words for Think and Consider",
+      "englishWord": "think",
+      "introduction": "Greek has multiple words for thinking, each emphasizing different mental activities - calculating, setting the mind, reasoning, and supposing. Paul especially uses these to describe the transformed mind.",
+      "words": [
+        {
+          "greek": "λογίζομαι",
+          "transliteration": "logizomai",
+          "strongs": "G3049",
+          "shortDef": "to reckon, count, consider",
+          "nuance": "To reckon, calculate, consider as. Originally a commercial term for counting or calculating. Used for imputing righteousness and for deliberate mental consideration.",
+          "ntUsage": 40
+        },
+        {
+          "greek": "φρονέω",
+          "transliteration": "phroneō",
+          "strongs": "G5426",
+          "shortDef": "to set the mind on (be minded)",
+          "nuance": "To think, be minded, set the mind on. More than momentary thought - a settled disposition or mindset. 'Set your minds on things above.' The direction of one's thinking.",
+          "ntUsage": 26
+        },
+        {
+          "greek": "νομίζω",
+          "transliteration": "nomizō",
+          "strongs": "G3543",
+          "shortDef": "to suppose (assume, think customarily)",
+          "nuance": "To suppose, assume, think according to custom. From νόμος (custom, law). Often introduces a supposition that may be mistaken. 'Do not think that I came to abolish the Law.'",
+          "ntUsage": 15
+        },
+        {
+          "greek": "ἡγέομαι",
+          "transliteration": "hēgeomai",
+          "strongs": "G2233",
+          "shortDef": "to consider (regard, account)",
+          "nuance": "To consider, regard, count. Often used for deliberate evaluation. Paul 'considers' all things loss compared to Christ. Root of 'hegemony' - leading thought.",
+          "ntUsage": 28
+        }
+      ],
+      "vineQuote": "Logizomai involves the bringing together of different reasons to make a decision. Phroneō implies the direction of the mind, the bent of the thoughts.",
+      "exampleVerse": {
+        "reference": "Philippians 4:8",
+        "greek": "ὅσα ἐστὶν ἀληθῆ... ταῦτα λογίζεσθε",
+        "english": "Whatever is true... think (logizomai) about these things",
+        "wordHighlighted": "λογίζομαι"
+      },
+      "practicalTip": "Paul commands us to λογίζομαι (deliberately calculate and consider) what is true, noble, right. We choose what occupies our minds. Transformed thinking is intentional, not accidental.",
+      "tags": ["pauline", "practical", "sanctification"]
+    },
+    {
+      "id": "judge-krino-anakrino",
+      "category": "judge",
+      "title": "Words for Judge",
+      "englishWord": "judge",
+      "introduction": "Greek distinguishes between different kinds of judging - making distinctions, examining, condemning, and the final eschatological judgment. Understanding these clarifies when judgment is appropriate.",
+      "words": [
+        {
+          "greek": "κρίνω",
+          "transliteration": "krinō",
+          "strongs": "G2919",
+          "shortDef": "to judge (distinguish, decide)",
+          "nuance": "To judge, distinguish, decide. The basic word for judging. Can be neutral (making necessary distinctions), positive (judicial decision), or negative (condemning). Context determines the nuance.",
+          "ntUsage": 114
+        },
+        {
+          "greek": "ἀνακρίνω",
+          "transliteration": "anakrinō",
+          "strongs": "G350",
+          "shortDef": "to examine (investigate carefully)",
+          "nuance": "To examine, investigate, question. Thorough investigation before judgment. The Bereans 'examined' the Scriptures. Used for judicial examination.",
+          "ntUsage": 16
+        },
+        {
+          "greek": "διακρίνω",
+          "transliteration": "diakrinō",
+          "strongs": "G1252",
+          "shortDef": "to discern (distinguish between)",
+          "nuance": "To separate, distinguish, discern. Making distinctions between things. Discerning spirits, discerning the body. Also used for doubting (being divided in mind).",
+          "ntUsage": 19
+        },
+        {
+          "greek": "κατακρίνω",
+          "transliteration": "katakrinō",
+          "strongs": "G2632",
+          "shortDef": "to condemn (judge against)",
+          "nuance": "To condemn, pass sentence against. Intensified form of κρίνω with κατά (against). Always negative - judging adversely. 'There is now no condemnation for those in Christ.'",
+          "ntUsage": 18
+        }
+      ],
+      "vineQuote": "Krinō primarily denotes to distinguish, select, choose; hence to determine, to decide judicially. Katakrinō denotes to give judgment against, to condemn.",
+      "exampleVerse": {
+        "reference": "1 Corinthians 2:15",
+        "greek": "ὁ δὲ πνευματικὸς ἀνακρίνει μὲν πάντα",
+        "english": "The spiritual person examines (anakrinō) all things",
+        "wordHighlighted": "ἀνακρίνω"
+      },
+      "practicalTip": "Not all 'judging' is forbidden. We must διακρίνω (discern) between truth and error, ἀνακρίνω (examine) teaching. What's forbidden is κατακρίνω (condemning) others hypocritically.",
+      "tags": ["essential", "pauline", "practical"]
+    },
+    {
+      "id": "hear-akouo-hypakouo",
+      "category": "hear",
+      "title": "Words for Hear and Listen",
+      "englishWord": "hear",
+      "introduction": "Greek distinguishes between mere physical hearing (ἀκούω), obedient hearing (ὑπακούω), and answered prayer (εἰσακούω). True biblical 'hearing' involves response and obedience.",
+      "words": [
+        {
+          "greek": "ἀκούω",
+          "transliteration": "akouō",
+          "strongs": "G191",
+          "shortDef": "to hear (perceive sound)",
+          "nuance": "To hear, listen, understand. The basic word for hearing. Can be physical hearing or attentive listening. Root of 'acoustic.' 'He who has ears to hear, let him hear.'",
+          "ntUsage": 428
+        },
+        {
+          "greek": "ὑπακούω",
+          "transliteration": "hypakouō",
+          "strongs": "G5219",
+          "shortDef": "to obey (hear under, respond)",
+          "nuance": "To obey, hearken, answer the door. Compound: ὑπό (under) + ἀκούω (hear). Hearing that submits to what is heard. Obedience as the proper response to hearing God's word.",
+          "ntUsage": 21
+        },
+        {
+          "greek": "εἰσακούω",
+          "transliteration": "eisakouō",
+          "strongs": "G1522",
+          "shortDef": "to hear and answer (heed prayer)",
+          "nuance": "To hear with favor, answer prayer. Compound: εἰς (into) + ἀκούω (hear). God 'hearing' in the sense of granting the request. 'Your prayer has been heard.'",
+          "ntUsage": 5
+        },
+        {
+          "greek": "παρακούω",
+          "transliteration": "parakouō",
+          "strongs": "G3878",
+          "shortDef": "to mishear (overhear, disobey)",
+          "nuance": "To hear carelessly, mishear, refuse to listen. Can mean overhearing accidentally or deliberately not heeding. 'If he refuses to listen (parakouō) to them, tell the church.'",
+          "ntUsage": 3
+        }
+      ],
+      "vineQuote": "Akouo denotes hearing; the perception of sound. Hypakouo signifies to hearken submissively, to obey. The connection between hearing and obeying is fundamental in Scripture.",
+      "exampleVerse": {
+        "reference": "Romans 10:17",
+        "greek": "ἄρα ἡ πίστις ἐξ ἀκοῆς, ἡ δὲ ἀκοὴ διὰ ῥήματος Χριστοῦ",
+        "english": "So faith comes from hearing (akoē), and hearing through the word of Christ",
+        "wordHighlighted": "ἀκοή (noun from ἀκούω)"
+      },
+      "practicalTip": "In Hebrew thought (influencing NT Greek), 'hearing' implies obedience. The Shema says 'Hear, O Israel' - meaning 'Listen and obey.' True hearing (ἀκούω) leads to obedience (ὑπακούω).",
+      "tags": ["essential", "practical", "obedience"]
+    },
+    {
+      "id": "speak-lego-laleo",
+      "category": "speak",
+      "title": "Words for Speak and Say",
+      "englishWord": "speak/say",
+      "introduction": "Greek distinguishes between speaking with emphasis on content (λέγω) and speaking with emphasis on the act of utterance (λαλέω). Other words add nuances of proclaiming and declaring.",
+      "words": [
+        {
+          "greek": "λέγω",
+          "transliteration": "legō",
+          "strongs": "G3004",
+          "shortDef": "to say (with content emphasis)",
+          "nuance": "To say, speak, tell. Emphasizes the content of what is said - the meaning, the message. Related to λόγος. 'Jesus said' typically uses λέγω when the content matters.",
+          "ntUsage": 2354
+        },
+        {
+          "greek": "λαλέω",
+          "transliteration": "laleō",
+          "strongs": "G2980",
+          "shortDef": "to speak (the act of speaking)",
+          "nuance": "To speak, utter, talk. Emphasizes the act of speaking rather than the content. Often used for inspired utterance or ordinary conversation. 'He who speaks in a tongue.'",
+          "ntUsage": 296
+        },
+        {
+          "greek": "φημί",
+          "transliteration": "phēmi",
+          "strongs": "G5346",
+          "shortDef": "to affirm (declare, say)",
+          "nuance": "To affirm, assert, say. Often introduces direct speech, especially in replies. 'He said' in the sense of making an affirmation or reply. More formal than λέγω.",
+          "ntUsage": 66
+        },
+        {
+          "greek": "ἀποφθέγγομαι",
+          "transliteration": "apophtheggomai",
+          "strongs": "G669",
+          "shortDef": "to speak forth (utter boldly)",
+          "nuance": "To speak forth, utter clearly and boldly. Used for inspired prophetic speech. The disciples at Pentecost 'spoke forth' as the Spirit gave utterance.",
+          "ntUsage": 3
+        }
+      ],
+      "vineQuote": "Lego affirms the purport of what is said; laleo marks the act of speaking. Lego is more for the matter, laleo for the manner of discourse.",
+      "exampleVerse": {
+        "reference": "John 12:49",
+        "greek": "ὁ πέμψας με πατὴρ αὐτός μοι ἐντολὴν δέδωκεν τί εἴπω καὶ τί λαλήσω",
+        "english": "The Father who sent me has given me a command - what to say (eipō) and how to speak (laleō)",
+        "wordHighlighted": "εἴπω (from λέγω) and λαλήσω"
+      },
+      "practicalTip": "In John 12:49, Jesus distinguishes what to say (content) and how to speak (manner). Both matter in Christian witness - we need the right message delivered in the right way.",
+      "tags": ["johannine", "practical", "speech"]
+    },
+    {
+      "id": "save-sozo-ryomai",
+      "category": "save",
+      "title": "Words for Save and Rescue",
+      "englishWord": "save",
+      "introduction": "Greek has several words for salvation and deliverance, each emphasizing different aspects - rescue from danger, redemption through payment, and preservation. Together they paint a full picture of what God has done for us.",
+      "words": [
+        {
+          "greek": "σῴζω",
+          "transliteration": "sōzō",
+          "strongs": "G4982",
+          "shortDef": "to save (deliver, preserve)",
+          "nuance": "To save, deliver, make whole, preserve. The primary NT word for salvation. Can refer to physical healing, rescue from danger, or spiritual salvation. Comprehensive deliverance.",
+          "ntUsage": 106
+        },
+        {
+          "greek": "ῥύομαι",
+          "transliteration": "rhyomai",
+          "strongs": "G4506",
+          "shortDef": "to rescue (snatch from danger)",
+          "nuance": "To rescue, deliver, snatch from danger. Emphasizes the act of rescue from peril or evil. 'Deliver us from evil' uses this word. More dramatic than σῴζω.",
+          "ntUsage": 17
+        },
+        {
+          "greek": "λυτρόω",
+          "transliteration": "lytroō",
+          "strongs": "G3084",
+          "shortDef": "to redeem (ransom, buy back)",
+          "nuance": "To redeem, ransom, buy back. From λύτρον (ransom price). Emphasizes the payment made to secure release. Christ 'redeemed' us with His blood.",
+          "ntUsage": 3
+        },
+        {
+          "greek": "ἐλευθερόω",
+          "transliteration": "eleutheroō",
+          "strongs": "G1659",
+          "shortDef": "to set free (liberate)",
+          "nuance": "To set free, liberate. Emphasizes the resulting freedom rather than the means of deliverance. 'The truth shall set you free.' From bondage to liberty.",
+          "ntUsage": 7
+        }
+      ],
+      "vineQuote": "Sōzō is the comprehensive word for salvation in all its aspects. Rhyomai emphasizes deliverance from danger. Lytroō emphasizes the price paid for redemption.",
+      "exampleVerse": {
+        "reference": "Titus 3:5",
+        "greek": "ἔσωσεν ἡμᾶς... διὰ λουτροῦ παλιγγενεσίας",
+        "english": "He saved (sōzō) us... through the washing of regeneration",
+        "wordHighlighted": "σῴζω"
+      },
+      "practicalTip": "Salvation is comprehensive: σῴζω (saved from sin's penalty and power), ῥύομαι (rescued from Satan's grip), λυτρόω (redeemed by Christ's blood), ἐλευθερόω (freed for new life).",
+      "tags": ["essential", "salvation", "pauline"]
+    },
+    {
+      "id": "preach-kerysso-euangelizo",
+      "category": "preach",
+      "title": "Words for Preach and Proclaim",
+      "englishWord": "preach",
+      "introduction": "Greek distinguishes between herald-proclamation (κηρύσσω), gospel-announcement (εὐαγγελίζω), and teaching (διδάσκω). These represent different aspects of Christian ministry.",
+      "words": [
+        {
+          "greek": "κηρύσσω",
+          "transliteration": "kēryssō",
+          "strongs": "G2784",
+          "shortDef": "to herald, proclaim (as a herald)",
+          "nuance": "To herald, proclaim as a public crier. The herald (κῆρυξ) proclaimed the king's message with authority. Emphasizes the authoritative announcement of the message, not the messenger's own ideas.",
+          "ntUsage": 61
+        },
+        {
+          "greek": "εὐαγγελίζω",
+          "transliteration": "euangelizō",
+          "strongs": "G2097",
+          "shortDef": "to announce good news (evangelize)",
+          "nuance": "To announce good news, preach the gospel. From εὖ (good) + ἄγγελος (messenger). Emphasizes the content as good news. Root of 'evangelize.'",
+          "ntUsage": 54
+        },
+        {
+          "greek": "διδάσκω",
+          "transliteration": "didaskō",
+          "strongs": "G1321",
+          "shortDef": "to teach (instruct)",
+          "nuance": "To teach, instruct. More systematic than preaching - explaining, training, building understanding. Root of 'didactic.' Jesus 'taught' in synagogues.",
+          "ntUsage": 97
+        },
+        {
+          "greek": "καταγγέλλω",
+          "transliteration": "katangellō",
+          "strongs": "G2605",
+          "shortDef": "to proclaim (announce thoroughly)",
+          "nuance": "To proclaim, announce publicly and thoroughly. Intensified form emphasizing complete and open proclamation. Paul 'proclaimed' Christ in the synagogues.",
+          "ntUsage": 18
+        }
+      ],
+      "vineQuote": "Kēryssō is to proclaim as a herald; it suggests formality, gravity, authority. Euangelizō is to announce glad tidings. Didaskō is to instruct in doctrine.",
+      "exampleVerse": {
+        "reference": "Romans 10:14",
+        "greek": "πῶς δὲ ἀκούσωσιν χωρὶς κηρύσσοντος;",
+        "english": "How are they to hear without someone preaching (kēryssō)?",
+        "wordHighlighted": "κηρύσσω"
+      },
+      "practicalTip": "Effective ministry includes κηρύσσω (authoritative proclamation), εὐαγγελίζω (good news announcement), and διδάσκω (systematic teaching). Herald the truth, share the good news, build understanding.",
+      "tags": ["essential", "mission", "ministry"]
+    },
+    {
+      "id": "worship-proskyneo-latreuo",
+      "category": "worship",
+      "title": "Words for Worship",
+      "englishWord": "worship",
+      "introduction": "Greek has several words for worship, from prostrating before deity (προσκυνέω) to rendering religious service (λατρεύω) to reverential fear (σέβομαι). Each illuminates an aspect of true worship.",
+      "words": [
+        {
+          "greek": "προσκυνέω",
+          "transliteration": "proskyneō",
+          "strongs": "G4352",
+          "shortDef": "to worship (prostrate, bow down)",
+          "nuance": "To worship, bow down, prostrate oneself. The most common NT word for worship. From πρός (toward) + κυνέω (kiss). Expressing homage and reverence, especially to deity.",
+          "ntUsage": 60
+        },
+        {
+          "greek": "λατρεύω",
+          "transliteration": "latreuō",
+          "strongs": "G3000",
+          "shortDef": "to serve (render religious service)",
+          "nuance": "To serve, render religious service or homage. Worship expressed through service. The whole of Christian life as worship-service. Root of 'liturgy.'",
+          "ntUsage": 21
+        },
+        {
+          "greek": "σέβομαι",
+          "transliteration": "sebomai",
+          "strongs": "G4576",
+          "shortDef": "to revere (worship with awe)",
+          "nuance": "To revere, worship with devotion. Emphasizes the attitude of reverent awe. Often used for Gentile 'God-fearers' who worshiped the true God without full conversion.",
+          "ntUsage": 10
+        },
+        {
+          "greek": "λειτουργέω",
+          "transliteration": "leitourgeō",
+          "strongs": "G3008",
+          "shortDef": "to minister (public service)",
+          "nuance": "To minister, perform public service. Originally civic duty, then priestly service. Root of 'liturgy.' Worship as public service rendered to God.",
+          "ntUsage": 3
+        }
+      ],
+      "vineQuote": "Proskyneō denotes an act of homage or reverence to God. Latreuō adds the thought of service. True worship involves both attitude (proskyneō) and action (latreuō).",
+      "exampleVerse": {
+        "reference": "John 4:24",
+        "greek": "πνεῦμα ὁ θεός, καὶ τοὺς προσκυνοῦντας αὐτὸν ἐν πνεύματι καὶ ἀληθείᾳ δεῖ προσκυνεῖν",
+        "english": "God is spirit, and those who worship (proskyneō) him must worship in spirit and truth",
+        "wordHighlighted": "προσκυνέω"
+      },
+      "practicalTip": "Worship is both προσκυνέω (bowing in homage) and λατρεύω (serving in life). Sunday worship continues in Monday service. All of life is λατρεία - worship-service to God (Rom 12:1).",
+      "tags": ["essential", "johannine", "worship"]
+    },
+    {
+      "id": "repent-metanoeo-metamelomai",
+      "category": "repent",
+      "title": "Words for Repent",
+      "englishWord": "repent",
+      "introduction": "Greek distinguishes between genuine repentance (μετανοέω) involving a complete change of mind and life, and mere regret (μεταμέλομαι). This distinction is crucial for understanding biblical conversion.",
+      "words": [
+        {
+          "greek": "μετανοέω",
+          "transliteration": "metanoeō",
+          "strongs": "G3340",
+          "shortDef": "to repent (change of mind/life)",
+          "nuance": "To repent, change one's mind and purpose. From μετά (change) + νοέω (think). A complete transformation of thought and direction. The repentance that leads to salvation.",
+          "ntUsage": 34
+        },
+        {
+          "greek": "μετάνοια",
+          "transliteration": "metanoia",
+          "strongs": "G3341",
+          "shortDef": "repentance (change of mind)",
+          "nuance": "Repentance, a change of mind. The noun form. Not mere emotion but a fundamental reorientation of thought, attitude, and life direction. 'Repentance unto life.'",
+          "ntUsage": 24
+        },
+        {
+          "greek": "μεταμέλομαι",
+          "transliteration": "metamelomai",
+          "strongs": "G3338",
+          "shortDef": "to regret (feel remorse)",
+          "nuance": "To regret, feel remorse, have second thoughts. Different from μετανοέω - refers to the emotional response of regret without necessarily implying life change. Judas 'regretted' betraying Jesus.",
+          "ntUsage": 6
+        },
+        {
+          "greek": "ἐπιστρέφω",
+          "transliteration": "epistrephō",
+          "strongs": "G1994",
+          "shortDef": "to turn (convert, return)",
+          "nuance": "To turn, turn around, convert. Often paired with μετανοέω - repent (change mind) and turn (change direction). Emphasizes the action of turning to God.",
+          "ntUsage": 36
+        }
+      ],
+      "vineQuote": "Metanoeo signifies to change one's mind or purpose, always in the NT involving a change for the better. Metamelomai signifies to regret, to experience an emotional change.",
+      "exampleVerse": {
+        "reference": "2 Corinthians 7:10",
+        "greek": "ἡ γὰρ κατὰ θεὸν λύπη μετάνοιαν εἰς σωτηρίαν ἀμεταμέλητον ἐργάζεται",
+        "english": "Godly sorrow produces repentance (metanoia) leading to salvation without regret (ametamelēton)",
+        "wordHighlighted": "μετάνοια and ἀμεταμέλητος"
+      },
+      "practicalTip": "Judas μεταμέλομαι (regretted) but did not μετανοέω (repent). Peter wept bitterly and μετανοέω - his life changed. True repentance isn't just feeling sorry; it's a complete turnaround.",
+      "tags": ["essential", "salvation", "synoptic"]
+    },
+    {
+      "id": "body-soma-sarx",
+      "category": "body",
+      "title": "Words for Body and Flesh",
+      "englishWord": "body/flesh",
+      "introduction": "Greek distinguishes between the body as an organized whole (σῶμα) and flesh as material substance (σάρξ). In Paul, σάρξ often has a theological sense of sinful human nature.",
+      "words": [
+        {
+          "greek": "σῶμα",
+          "transliteration": "sōma",
+          "strongs": "G4983",
+          "shortDef": "body (organized whole)",
+          "nuance": "Body as an organized, living whole. Can refer to the physical body, the resurrection body, or metaphorically to the church as the 'body of Christ.' Generally neutral or positive.",
+          "ntUsage": 142
+        },
+        {
+          "greek": "σάρξ",
+          "transliteration": "sarx",
+          "strongs": "G4561",
+          "shortDef": "flesh (physical or sinful nature)",
+          "nuance": "Flesh, either literally (physical tissue) or theologically (the sinful nature). In Paul, often the principle of sin operating in unredeemed humanity. 'The flesh lusts against the Spirit.'",
+          "ntUsage": 147
+        },
+        {
+          "greek": "μέλος",
+          "transliteration": "melos",
+          "strongs": "G3196",
+          "shortDef": "member (part of body)",
+          "nuance": "A member or part of the body. Used for body parts and for members of the church body. 'We are members one of another.'",
+          "ntUsage": 34
+        },
+        {
+          "greek": "σκεῦος",
+          "transliteration": "skeuos",
+          "strongs": "G4632",
+          "shortDef": "vessel (container, instrument)",
+          "nuance": "A vessel, container, instrument. Metaphorically for the body as a container of the soul or as an instrument for use. 'We have this treasure in earthen vessels.'",
+          "ntUsage": 23
+        }
+      ],
+      "vineQuote": "Sarx is the material of the body, soma is the body itself as an organized whole. In Paul, sarx often denotes mere human nature, especially in its weakness or sinfulness.",
+      "exampleVerse": {
+        "reference": "Romans 8:13",
+        "greek": "εἰ γὰρ κατὰ σάρκα ζῆτε, μέλλετε ἀποθνῄσκειν",
+        "english": "For if you live according to the flesh (sarx), you will die",
+        "wordHighlighted": "σάρξ"
+      },
+      "practicalTip": "The body (σῶμα) is not evil - it will be resurrected. But the 'flesh' (σάρξ) as sinful nature must be put to death. We honor our bodies while crucifying our flesh.",
+      "tags": ["essential", "pauline", "anthropology"]
+    },
+    {
+      "id": "spirit-pneuma-psyche",
+      "category": "spirit",
+      "title": "Words for Spirit and Soul",
+      "englishWord": "spirit/soul",
+      "introduction": "Greek distinguishes between spirit (πνεῦμα) and soul (ψυχή). While related, they emphasize different aspects of the inner person. Understanding this illuminates NT anthropology.",
+      "words": [
+        {
+          "greek": "πνεῦμα",
+          "transliteration": "pneuma",
+          "strongs": "G4151",
+          "shortDef": "spirit (breath, spirit, Spirit)",
+          "nuance": "Spirit, breath, wind. Can refer to the Holy Spirit, the human spirit, evil spirits, or the breath of life. The human spirit is the God-conscious aspect that relates to the divine.",
+          "ntUsage": 379
+        },
+        {
+          "greek": "ψυχή",
+          "transliteration": "psychē",
+          "strongs": "G5590",
+          "shortDef": "soul (life, self, personality)",
+          "nuance": "Soul, life, self. The seat of feelings, desires, and personality. The life that can be lost (Matt 16:25) or the inner person. Root of 'psychology.'",
+          "ntUsage": 103
+        },
+        {
+          "greek": "νοῦς",
+          "transliteration": "nous",
+          "strongs": "G3563",
+          "shortDef": "mind (intellect, understanding)",
+          "nuance": "Mind, intellect, understanding. The faculty of thinking and reasoning. The renewed mind transforms behavior (Rom 12:2). Can be darkened by sin or enlightened by the Spirit.",
+          "ntUsage": 24
+        },
+        {
+          "greek": "καρδία",
+          "transliteration": "kardia",
+          "strongs": "G2588",
+          "shortDef": "heart (center of being)",
+          "nuance": "Heart, the center and seat of physical and spiritual life. Includes mind, will, and emotions. In Hebrew thought, the heart is the whole inner person, not just emotions.",
+          "ntUsage": 156
+        }
+      ],
+      "vineQuote": "Pneuma is that part of man which is related to God. Psyche is the seat of personality and natural life. The spirit is God-conscious, the soul is self-conscious.",
+      "exampleVerse": {
+        "reference": "1 Thessalonians 5:23",
+        "greek": "ὁλόκληρον ὑμῶν τὸ πνεῦμα καὶ ἡ ψυχὴ καὶ τὸ σῶμα",
+        "english": "Your whole spirit (pneuma) and soul (psychē) and body (sōma)",
+        "wordHighlighted": "πνεῦμα, ψυχή, and σῶμα"
+      },
+      "practicalTip": "God renews our πνεῦμα (spirit - our connection to Him), transforms our νοῦς (mind - our thinking), heals our ψυχή (soul - our emotions), and will resurrect our σῶμα (body).",
+      "tags": ["essential", "anthropology", "pauline"]
+    },
+    {
+      "id": "remain-meno-diameno",
+      "category": "remain",
+      "title": "Words for Remain and Abide",
+      "englishWord": "remain/abide",
+      "introduction": "Greek has several words for remaining and continuing. In John especially, 'abiding' (μένω) becomes a key concept for the believer's relationship with Christ.",
+      "words": [
+        {
+          "greek": "μένω",
+          "transliteration": "menō",
+          "strongs": "G3306",
+          "shortDef": "to remain, abide (stay, dwell)",
+          "nuance": "To remain, stay, abide, dwell. The key Johannine word for the believer's union with Christ. Not temporary lodging but permanent residence. 'Abide in me, and I in you.'",
+          "ntUsage": 118
+        },
+        {
+          "greek": "διαμένω",
+          "transliteration": "diamenō",
+          "strongs": "G1265",
+          "shortDef": "to continue (remain throughout)",
+          "nuance": "To remain throughout, continue permanently. Intensified form of μένω. Emphasizes duration and persistence through time. 'Your years will never end.'",
+          "ntUsage": 5
+        },
+        {
+          "greek": "ἐπιμένω",
+          "transliteration": "epimenō",
+          "strongs": "G1961",
+          "shortDef": "to persist (stay on, continue in)",
+          "nuance": "To stay on, persist, continue in. Remaining with purpose and determination. 'Shall we continue in sin?' The perseverance aspect of remaining.",
+          "ntUsage": 16
+        },
+        {
+          "greek": "ὑπομένω",
+          "transliteration": "hypomenō",
+          "strongs": "G5278",
+          "shortDef": "to endure (remain under pressure)",
+          "nuance": "To endure, remain under, persevere. Remaining steadfast under trial. From ὑπό (under) + μένω. 'He who endures to the end will be saved.'",
+          "ntUsage": 17
+        }
+      ],
+      "vineQuote": "Meno denotes to remain, abide, whether in a place or in a state. It is the characteristic word in John for the mutual indwelling of the Father, Son, and believers.",
+      "exampleVerse": {
+        "reference": "John 15:4",
+        "greek": "μείνατε ἐν ἐμοί, κἀγὼ ἐν ὑμῖν",
+        "english": "Abide (menō) in me, and I in you",
+        "wordHighlighted": "μένω"
+      },
+      "practicalTip": "John uses μένω 40 times! Salvation isn't just a moment but a permanent dwelling. We μένω (remain in Christ), διαμένω (continue consistently), ὑπομένω (endure through trials).",
+      "tags": ["essential", "johannine", "practical"]
+    },
+    {
+      "id": "destroy-apollymi-katalyo",
+      "category": "destroy",
+      "title": "Words for Destroy",
+      "englishWord": "destroy",
+      "introduction": "Greek has several words for destruction, from perishing eternally to demolishing structures. These distinctions clarify passages about eternal punishment and the temporary nature of created things.",
+      "words": [
+        {
+          "greek": "ἀπόλλυμι",
+          "transliteration": "apollymi",
+          "strongs": "G622",
+          "shortDef": "to destroy, perish (ruin completely)",
+          "nuance": "To destroy, lose, perish. Can be active (destroy something) or middle (perish). Used for eternal destruction and for losing something valuable. 'Fear him who can destroy both soul and body.'",
+          "ntUsage": 92
+        },
+        {
+          "greek": "καταλύω",
+          "transliteration": "katalyō",
+          "strongs": "G2647",
+          "shortDef": "to destroy (demolish, dissolve)",
+          "nuance": "To dissolve, demolish, destroy by taking apart. Used for destroying the temple, abolishing law, or lodging (loosing one's pack). Breaking down structures.",
+          "ntUsage": 17
+        },
+        {
+          "greek": "φθείρω",
+          "transliteration": "phtheirō",
+          "strongs": "G5351",
+          "shortDef": "to corrupt, ruin (moral decay)",
+          "nuance": "To corrupt, destroy through corruption. Emphasizes the process of decay and ruin. Used for moral and physical corruption. 'Bad company corrupts good morals.'",
+          "ntUsage": 9
+        },
+        {
+          "greek": "ὄλεθρος",
+          "transliteration": "olethros",
+          "strongs": "G3639",
+          "shortDef": "destruction (ruin, death)",
+          "nuance": "Ruin, destruction, death. The noun for destruction. Not annihilation but ruination. 'Sudden destruction' comes upon those who say 'peace and safety.'",
+          "ntUsage": 4
+        }
+      ],
+      "vineQuote": "Apollymi signifies to destroy utterly. The idea is not extinction but ruin, loss, not of being but of well-being. Eternal destruction is eternal ruin.",
+      "exampleVerse": {
+        "reference": "Matthew 10:28",
+        "greek": "φοβεῖσθε τὸν δυνάμενον καὶ ψυχὴν καὶ σῶμα ἀπολέσαι ἐν γεέννῃ",
+        "english": "Fear him who can destroy (apollymi) both soul and body in hell",
+        "wordHighlighted": "ἀπόλλυμι"
+      },
+      "practicalTip": "ἀπόλλυμι doesn't mean annihilation but ruin. The 'lost' (ἀπολωλότα) sheep exists but is ruined. Hell is not ceasing to exist but eternal ruin - existing apart from all good.",
+      "tags": ["eschatology", "theological", "synoptic"]
+    },
+    {
+      "id": "glory-doxa-time",
+      "category": "glory",
+      "title": "Words for Glory and Honor",
+      "englishWord": "glory/honor",
+      "introduction": "Greek distinguishes between divine glory/radiance (δόξα), honor/value (τιμή), and praise (αἶνος). These help us understand both God's nature and our calling to glorify Him.",
+      "words": [
+        {
+          "greek": "δόξα",
+          "transliteration": "doxa",
+          "strongs": "G1391",
+          "shortDef": "glory (radiance, majesty, praise)",
+          "nuance": "Glory, splendor, radiance. God's glory is His manifested perfections. Can mean reputation, praise, or the visible manifestation of divine majesty. Root of 'doxology.'",
+          "ntUsage": 166
+        },
+        {
+          "greek": "τιμή",
+          "transliteration": "timē",
+          "strongs": "G5092",
+          "shortDef": "honor (value, respect, price)",
+          "nuance": "Honor, value, respect. The recognition of worth. Also used for price (we were bought with a 'price'). 'Honor your father and mother.'",
+          "ntUsage": 41
+        },
+        {
+          "greek": "δοξάζω",
+          "transliteration": "doxazō",
+          "strongs": "G1392",
+          "shortDef": "to glorify (honor, magnify)",
+          "nuance": "To glorify, honor, magnify. The verb form of δόξα. Used for glorifying God and for the Father glorifying the Son. Making known the glory that exists.",
+          "ntUsage": 61
+        },
+        {
+          "greek": "αἶνος",
+          "transliteration": "ainos",
+          "strongs": "G136",
+          "shortDef": "praise (expressed commendation)",
+          "nuance": "Praise, commendation. Specifically verbal expression of praise. Related to αἰνέω (to praise). 'Out of the mouth of infants you have perfected praise.'",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Doxa denotes the manifested excellence of God's character. The glory of God is what He is essentially. To glorify God is to acknowledge His glory.",
+      "exampleVerse": {
+        "reference": "John 17:5",
+        "greek": "δόξασόν με σύ, πάτερ, παρὰ σεαυτῷ τῇ δόξῃ ᾗ εἶχον πρὸ τοῦ τὸν κόσμον εἶναι παρὰ σοί",
+        "english": "Glorify (doxazō) me in your presence with the glory (doxa) I had with you before the world began",
+        "wordHighlighted": "δοξάζω and δόξα"
+      },
+      "practicalTip": "We δοξάζω (glorify) God not by adding to His δόξα (glory) - that's impossible. We glorify Him by acknowledging, displaying, and praising the glory that already belongs to Him.",
+      "tags": ["essential", "johannine", "worship"]
+    },
+    {
+      "id": "appear-phaino-phaneroo",
+      "category": "appear",
+      "title": "Words for Appear and Manifest",
+      "englishWord": "appear/manifest",
+      "introduction": "Greek distinguishes between shining forth (φαίνω), being made manifest (φανερόω), and a visible appearance (ἐπιφάνεια). These illuminate passages about Christ's incarnation and return.",
+      "words": [
+        {
+          "greek": "φαίνω",
+          "transliteration": "phainō",
+          "strongs": "G5316",
+          "shortDef": "to shine, appear (become visible)",
+          "nuance": "To shine, give light, appear, become visible. Emphasizes the shining forth of what was hidden. The light 'shines' in the darkness. Root of 'phenomenon.'",
+          "ntUsage": 31
+        },
+        {
+          "greek": "φανερόω",
+          "transliteration": "phaneroō",
+          "strongs": "G5319",
+          "shortDef": "to manifest (make visible, reveal)",
+          "nuance": "To make manifest, reveal, make known what was hidden. More intentional than φαίνω - actively revealing something. Christ was 'manifested' to take away sins.",
+          "ntUsage": 49
+        },
+        {
+          "greek": "ἐπιφάνεια",
+          "transliteration": "epiphaneia",
+          "strongs": "G2015",
+          "shortDef": "appearing (manifestation, epiphany)",
+          "nuance": "Appearing, manifestation, visible arrival. A technical term for Christ's visible appearances. Root of 'epiphany.' Used for both His first and second comings.",
+          "ntUsage": 6
+        },
+        {
+          "greek": "ἀποκαλύπτω",
+          "transliteration": "apokalyptō",
+          "strongs": "G601",
+          "shortDef": "to reveal (uncover, disclose)",
+          "nuance": "To uncover, reveal, disclose. From ἀπό (away) + καλύπτω (cover). Removing the veil to reveal what was hidden. Root of 'apocalypse.' Divine revelation.",
+          "ntUsage": 26
+        }
+      ],
+      "vineQuote": "Phaino is to shine, to become evident. Phaneroo is to make manifest, to make clear. Apokalypto is to uncover, to reveal what has been concealed.",
+      "exampleVerse": {
+        "reference": "1 John 3:2",
+        "greek": "οὔπω ἐφανερώθη τί ἐσόμεθα... ὅταν φανερωθῇ, ὅμοιοι αὐτῷ ἐσόμεθα",
+        "english": "What we will be has not yet been made manifest (phaneroō); when he appears (phaneroō), we shall be like him",
+        "wordHighlighted": "φανερόω"
+      },
+      "practicalTip": "Christ's ἐπιφάνεια (appearing) will φανερόω (manifest) what we truly are. Our transformation isn't uncertain - it's simply not yet visible. When He appears, we appear with Him in glory.",
+      "tags": ["eschatology", "johannine", "christological"]
+    },
+    {
+      "id": "call-kaleo-krazo",
+      "category": "call",
+      "title": "Words for Call",
+      "englishWord": "call",
+      "introduction": "Greek distinguishes between calling by name (καλέω), crying out (κράζω), and calling upon for help (ἐπικαλέω). These nuances illuminate God's calling of believers and our calling upon Him.",
+      "words": [
+        {
+          "greek": "καλέω",
+          "transliteration": "kaleō",
+          "strongs": "G2564",
+          "shortDef": "to call (name, invite, summon)",
+          "nuance": "To call, name, invite, summon. God's effectual calling of believers to salvation. 'Called according to His purpose.' Also for naming ('His name shall be called Jesus').",
+          "ntUsage": 148
+        },
+        {
+          "greek": "κράζω",
+          "transliteration": "krazō",
+          "strongs": "G2896",
+          "shortDef": "to cry out (shout, scream)",
+          "nuance": "To cry out, shout, scream. Strong vocal expression, often in distress or prayer. 'Abba, Father' cry of the Spirit. The blind man 'cried out' to Jesus.",
+          "ntUsage": 55
+        },
+        {
+          "greek": "ἐπικαλέω",
+          "transliteration": "epikaleō",
+          "strongs": "G1941",
+          "shortDef": "to call upon (invoke, appeal)",
+          "nuance": "To call upon, invoke, appeal to. Calling on a name for help or witness. 'Whoever calls on the name of the Lord will be saved.' Paul 'appealed' to Caesar.",
+          "ntUsage": 30
+        },
+        {
+          "greek": "προσκαλέω",
+          "transliteration": "proskaleō",
+          "strongs": "G4341",
+          "shortDef": "to summon (call to oneself)",
+          "nuance": "To call to oneself, summon. Jesus 'calling' disciples to Himself. More personal than simple καλέω - inviting into relationship.",
+          "ntUsage": 29
+        }
+      ],
+      "vineQuote": "Kaleō is to call, to invite. Epikaleō is to call upon, to invoke for aid or witness. God's calling (klēsis) of believers is His effectual summons to salvation.",
+      "exampleVerse": {
+        "reference": "Romans 10:13",
+        "greek": "πᾶς γὰρ ὃς ἂν ἐπικαλέσηται τὸ ὄνομα κυρίου σωθήσεται",
+        "english": "Everyone who calls on (epikaleō) the name of the Lord will be saved",
+        "wordHighlighted": "ἐπικαλέω"
+      },
+      "practicalTip": "God καλέω (calls) us to salvation; we ἐπικαλέω (call upon) His name for salvation. His call is effectual, enabling our response. We call because He first called.",
+      "tags": ["essential", "salvation", "pauline"]
+    },
+    {
+      "id": "confess-homologeo-exomologeo",
+      "category": "confess",
+      "title": "Words for Confess",
+      "englishWord": "confess",
+      "introduction": "Greek has different words for confession, from public acknowledgment (ὁμολογέω) to grateful confession (ἐξομολογέω). Both are essential to Christian faith and practice.",
+      "words": [
+        {
+          "greek": "ὁμολογέω",
+          "transliteration": "homologeō",
+          "strongs": "G3670",
+          "shortDef": "to confess (acknowledge openly)",
+          "nuance": "To confess, profess, acknowledge. From ὁμός (same) + λέγω (speak) - to say the same thing. Public profession of faith or acknowledgment of sin. 'If you confess with your mouth.'",
+          "ntUsage": 23
+        },
+        {
+          "greek": "ἐξομολογέω",
+          "transliteration": "exomologeō",
+          "strongs": "G1843",
+          "shortDef": "to confess fully (praise, acknowledge)",
+          "nuance": "To confess openly, acknowledge, praise. Intensified form with ἐκ. Often used for praise and thanksgiving, or for full confession of sins. 'Every tongue shall confess.'",
+          "ntUsage": 10
+        },
+        {
+          "greek": "ὁμολογία",
+          "transliteration": "homologia",
+          "strongs": "G3671",
+          "shortDef": "confession (profession)",
+          "nuance": "Confession, profession. The noun form - our stated faith, our public declaration. 'Hold fast the confession of our hope.' The content of what we confess.",
+          "ntUsage": 6
+        }
+      ],
+      "vineQuote": "Homologeō signifies to speak the same thing, to agree, to confess. It involves the confession of facts, of faith, and of sins. Exomologeō adds the thought of open, full acknowledgment.",
+      "exampleVerse": {
+        "reference": "Romans 10:9",
+        "greek": "ἐὰν ὁμολογήσῃς ἐν τῷ στόματί σου κύριον Ἰησοῦν",
+        "english": "If you confess (homologeō) with your mouth that Jesus is Lord",
+        "wordHighlighted": "ὁμολογέω"
+      },
+      "practicalTip": "ὁμολογέω means to say the same thing as God - about our sin (agreeing it's wrong) and about Christ (agreeing He is Lord). Confession aligns our words with God's truth.",
+      "tags": ["salvation", "practical", "pauline"]
+    },
+    {
+      "id": "sign-semeion-teras",
+      "category": "sign",
+      "title": "Words for Sign and Miracle",
+      "englishWord": "sign/miracle",
+      "introduction": "Greek uses different words for miraculous events, each emphasizing a different aspect - the significance (σημεῖον), the wonder (τέρας), or the power (δύναμις). John especially emphasizes signs that point to Christ.",
+      "words": [
+        {
+          "greek": "σημεῖον",
+          "transliteration": "sēmeion",
+          "strongs": "G4592",
+          "shortDef": "sign (significant indicator)",
+          "nuance": "A sign, token, indication. Emphasizes the meaning and significance of the miraculous event. John's Gospel calls Jesus' miracles 'signs' - they point to His identity and mission.",
+          "ntUsage": 77
+        },
+        {
+          "greek": "τέρας",
+          "transliteration": "teras",
+          "strongs": "G5059",
+          "shortDef": "wonder (marvel, portent)",
+          "nuance": "A wonder, marvel, portent. Emphasizes the astonishing nature of the event. Almost always paired with σημεῖον ('signs and wonders'). The emotional response of amazement.",
+          "ntUsage": 16
+        },
+        {
+          "greek": "δύναμις",
+          "transliteration": "dynamis",
+          "strongs": "G1411",
+          "shortDef": "mighty work (power, miracle)",
+          "nuance": "Power, might, miracle. When used for miracles, emphasizes the power displayed. 'Mighty works' done by Jesus. The synoptic Gospels prefer this term.",
+          "ntUsage": 120
+        },
+        {
+          "greek": "θαῦμα",
+          "transliteration": "thauma",
+          "strongs": "G2295",
+          "shortDef": "wonder (astonishment)",
+          "nuance": "Wonder, marvel, astonishment. The response of amazement to something extraordinary. 'No wonder' = θαυμαστόν. Related to θαυμάζω (to marvel).",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Semeion emphasizes the significance of the miracle as pointing to something beyond itself. Teras emphasizes the wonder it evokes. Dynamis emphasizes the power displayed.",
+      "exampleVerse": {
+        "reference": "John 20:30-31",
+        "greek": "πολλὰ μὲν οὖν καὶ ἄλλα σημεῖα ἐποίησεν ὁ Ἰησοῦς... ταῦτα δὲ γέγραπται ἵνα πιστεύ[σ]ητε",
+        "english": "Jesus did many other signs (sēmeion)... but these are written so that you may believe",
+        "wordHighlighted": "σημεῖον"
+      },
+      "practicalTip": "John uses σημεῖα (signs) because miracles are meant to point beyond themselves to Christ. If we marvel at the power (δύναμις) but miss the significance (σημεῖον), we've missed the point.",
+      "tags": ["johannine", "synoptic", "christological"]
+    },
+    {
+      "id": "clothing-himation-endyma",
+      "category": "clothing",
+      "title": "Words for Clothing and Garments",
+      "englishWord": "clothing",
+      "introduction": "Greek uses different words for clothing, from outer garments to undergarments to robes. These distinctions clarify passages about dress and the metaphorical 'putting on' of virtues.",
+      "words": [
+        {
+          "greek": "ἱμάτιον",
+          "transliteration": "himation",
+          "strongs": "G2440",
+          "shortDef": "garment (outer cloak)",
+          "nuance": "An outer garment, cloak, robe. The general word for clothing, often the outer robe. Soldiers cast lots for Jesus' ἱμάτιον. Also used metaphorically for spiritual covering.",
+          "ntUsage": 60
+        },
+        {
+          "greek": "χιτών",
+          "transliteration": "chitōn",
+          "strongs": "G5509",
+          "shortDef": "tunic (inner garment)",
+          "nuance": "A tunic, the inner garment worn next to the skin. 'If someone takes your χιτών, give him your ἱμάτιον also' - offering both inner and outer garments.",
+          "ntUsage": 11
+        },
+        {
+          "greek": "στολή",
+          "transliteration": "stolē",
+          "strongs": "G4749",
+          "shortDef": "robe (long flowing garment)",
+          "nuance": "A long robe, stately garment. Often worn by those of dignity or authority. The prodigal son received the 'best robe.' Scribes who love to walk in long robes.",
+          "ntUsage": 9
+        },
+        {
+          "greek": "ἔνδυμα",
+          "transliteration": "endyma",
+          "strongs": "G1742",
+          "shortDef": "clothing (what is put on)",
+          "nuance": "Clothing, what is put on. From ἐνδύω (to put on). General term for apparel. 'Take no thought for... what you shall put on.'",
+          "ntUsage": 8
+        }
+      ],
+      "vineQuote": "Himation is the outer garment, the cloak. Chitōn is the inner garment, the tunic. Together they represent complete clothing.",
+      "exampleVerse": {
+        "reference": "Colossians 3:12",
+        "greek": "ἐνδύσασθε οὖν... σπλάγχνα οἰκτιρμοῦ",
+        "english": "Put on (endyō) then... compassionate hearts",
+        "wordHighlighted": "ἐνδύω (the verb 'to clothe')"
+      },
+      "practicalTip": "When Paul says 'put on' (ἐνδύω) Christ or virtues, he uses clothing language. Just as we deliberately dress each morning, we deliberately clothe ourselves with Christ-like character.",
+      "tags": ["pauline", "practical", "metaphorical"]
+    },
+    {
+      "id": "test-peirazo-dokimazo",
+      "category": "test",
+      "title": "Words for Test and Temptation",
+      "englishWord": "test/tempt",
+      "introduction": "Greek distinguishes between testing with intent to prove (δοκιμάζω) and testing with intent to entice to sin (πειράζω). God tests but never tempts to evil.",
+      "words": [
+        {
+          "greek": "πειράζω",
+          "transliteration": "peirazō",
+          "strongs": "G3985",
+          "shortDef": "to test, tempt (try, prove)",
+          "nuance": "To test, try, tempt. Can be neutral (testing to prove) or negative (tempting to sin). Satan 'tempts' to evil; God 'tests' to strengthen. Context determines which.",
+          "ntUsage": 38
+        },
+        {
+          "greek": "δοκιμάζω",
+          "transliteration": "dokimazō",
+          "strongs": "G1381",
+          "shortDef": "to test, examine (approve after testing)",
+          "nuance": "To test, examine, prove by testing. Always with the expectation of approval. Testing metals to prove their genuineness. 'Test everything; hold fast what is good.'",
+          "ntUsage": 22
+        },
+        {
+          "greek": "πειρασμός",
+          "transliteration": "peirasmos",
+          "strongs": "G3986",
+          "shortDef": "trial, temptation (testing experience)",
+          "nuance": "Trial, temptation, testing. The noun form of πειράζω. Can refer to trials that strengthen faith or temptations that entice to sin. 'Lead us not into temptation.'",
+          "ntUsage": 21
+        },
+        {
+          "greek": "δοκιμή",
+          "transliteration": "dokimē",
+          "strongs": "G1382",
+          "shortDef": "proof (approved character)",
+          "nuance": "Proof, test, approved character. The result of testing - proven character. 'Suffering produces endurance, and endurance produces proven character.'",
+          "ntUsage": 7
+        }
+      ],
+      "vineQuote": "Peirazo may be used in a good sense, to try or test, and in a bad sense, to tempt, to solicit to sin. Dokimazo is always used in a good sense, to prove with a view to approval.",
+      "exampleVerse": {
+        "reference": "James 1:13-14",
+        "greek": "ὁ θεὸς ἀπείραστός ἐστιν κακῶν, πειράζει δὲ αὐτὸς οὐδένα",
+        "english": "God cannot be tempted (apeirastos) with evil, and he himself tempts (peirazō) no one",
+        "wordHighlighted": "πειράζω"
+      },
+      "practicalTip": "James clarifies: God δοκιμάζω (tests to prove) but never πειράζω (tempts to sin). Trials strengthen; temptations entice. The same situation may be God's test and Satan's temptation.",
+      "tags": ["essential", "james", "practical"]
+    },
+    {
+      "id": "reward-misthos-antapodoma",
+      "category": "reward",
+      "title": "Words for Reward",
+      "englishWord": "reward",
+      "introduction": "Greek distinguishes between wages earned (μισθός), recompense returned (ἀνταπόδομα), and gracious gifts (χάρισμα). These clarify the relationship between works, rewards, and grace.",
+      "words": [
+        {
+          "greek": "μισθός",
+          "transliteration": "misthos",
+          "strongs": "G3408",
+          "shortDef": "wages, reward (due payment)",
+          "nuance": "Wages, hire, reward. Payment for work done. Used both for literal wages and for divine rewards. 'Great is your reward in heaven.' The laborer deserves his wages.",
+          "ntUsage": 29
+        },
+        {
+          "greek": "μισθαποδοσία",
+          "transliteration": "misthapodosia",
+          "strongs": "G3405",
+          "shortDef": "recompense (reward or punishment)",
+          "nuance": "Recompense, the paying back of wages, reward or punishment. Can be positive or negative depending on what is deserved. God is a rewarder of those who seek Him.",
+          "ntUsage": 3
+        },
+        {
+          "greek": "ἀνταπόδομα",
+          "transliteration": "antapodoma",
+          "strongs": "G468",
+          "shortDef": "recompense (return for action)",
+          "nuance": "Recompense, requital, what is paid back. From ἀντί (in return) + ἀποδίδωμι (pay). Something given in return for what was done.",
+          "ntUsage": 2
+        },
+        {
+          "greek": "βραβεῖον",
+          "transliteration": "brabeion",
+          "strongs": "G1017",
+          "shortDef": "prize (athletic award)",
+          "nuance": "The prize awarded to victors in games. Paul uses athletic imagery: 'Run in such a way as to get the prize.' The crown awaiting faithful runners.",
+          "ntUsage": 2
+        }
+      ],
+      "vineQuote": "Misthos denotes wages, the payment due for work done. It is used of the reward which God bestows, or will bestow, upon His servants.",
+      "exampleVerse": {
+        "reference": "1 Corinthians 9:24",
+        "greek": "οὕτως τρέχετε ἵνα καταλάβητε τὸ βραβεῖον",
+        "english": "Run in such a way that you may obtain the prize (brabeion)",
+        "wordHighlighted": "βραβεῖον"
+      },
+      "practicalTip": "Salvation is a gift (χάρισμα), not μισθός (wages). But within salvation, faithful service receives μισθός (reward). We cannot earn salvation, but we can earn crowns.",
+      "tags": ["pauline", "eschatology", "practical"]
     }
   ]
 }
