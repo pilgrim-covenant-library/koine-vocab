@@ -3017,6 +3017,260 @@
         "johannine",
         "soteriology"
       ]
+    },
+    {
+      "id": "witness-martys-martyria-martyrion",
+      "category": "witness",
+      "title": "Words for Witness/Testimony",
+      "englishWord": "witness/testimony",
+      "introduction": "Greek has several related words for witness and testimony. Understanding their distinctions helps grasp the NT emphasis on eyewitness testimony, the church's mission to testify, and ultimately, martyrdom - witness unto death.",
+      "words": [
+        {
+          "greek": "μάρτυς",
+          "transliteration": "martys",
+          "strongs": "G3144",
+          "shortDef": "witness (the person who testifies)",
+          "nuance": "The person who bears witness - one who has firsthand knowledge and testifies to what they have seen or known. The apostles were 'witnesses' to the resurrection (Acts 1:8, 22). Later developed into 'martyr' - one who witnesses to Christ even unto death (Acts 22:20; Rev 2:13).",
+          "ntUsage": 35
+        },
+        {
+          "greek": "μαρτυρία",
+          "transliteration": "martyria",
+          "strongs": "G3141",
+          "shortDef": "witness, testimony (the content or act)",
+          "nuance": "The testimony itself - the content of what is witnessed or the act of witnessing. John's Gospel emphasizes Jesus' 'testimony' and God's testimony about the Son (John 1:7; 5:31-36; 1 John 5:9-11). The testimony establishes truth.",
+          "ntUsage": 37
+        },
+        {
+          "greek": "μαρτύριον",
+          "transliteration": "martyrion",
+          "strongs": "G3142",
+          "shortDef": "testimony, witness, proof, evidence",
+          "nuance": "Testimony as proof or evidence - often with the sense of testimony that serves as evidence against or for someone. Used for the gospel witness 'as a testimony to all nations' (Matt 24:14). Also refers to the 'tabernacle of testimony' (Acts 7:44).",
+          "ntUsage": 19
+        },
+        {
+          "greek": "μαρτυρέω",
+          "transliteration": "martyreō",
+          "strongs": "G3140",
+          "shortDef": "to bear witness, testify",
+          "nuance": "The verb form - to give testimony, to bear witness. Especially prominent in John's Gospel: John the Baptist 'came to bear witness' (John 1:7-8); Jesus bears witness to what He has seen (John 3:11, 32); the Spirit will 'bear witness' (John 15:26).",
+          "ntUsage": 76
+        }
+      ],
+      "vineQuote": "Martys denotes one who can or does give evidence concerning facts; martyria is the testimony given; martyrion is testimony with special reference to its evidential value.",
+      "exampleVerse": {
+        "reference": "Acts 1:8",
+        "greek": "ἔσεσθέ μου μάρτυρες ἔν τε Ἰερουσαλὴμ... καὶ ἕως ἐσχάτου τῆς γῆς",
+        "english": "You will be my witnesses in Jerusalem... to the ends of the earth.",
+        "wordHighlighted": "μάρτυς"
+      },
+      "practicalTip": "The connection between 'witness' and 'martyr' is not accidental. Early Christians understood that bearing faithful witness might require dying for that testimony. When you see 'witness' in the NT, consider: What has this person seen? What are they willing to stake on it?",
+      "tags": [
+        "essential",
+        "mission",
+        "johannine"
+      ]
+    },
+    {
+      "id": "servant-doulos-diakonos-hyperetes-leitourgos",
+      "category": "servant",
+      "title": "Words for Servant/Slave",
+      "englishWord": "servant/slave/minister",
+      "introduction": "Greek distinguishes different types of service. Some emphasize bondage to a master, others table service, others official assistance, still others sacred ministry. These distinctions illuminate NT teaching on Christian service and ministry roles.",
+      "words": [
+        {
+          "greek": "δοῦλος",
+          "transliteration": "doulos",
+          "strongs": "G1401",
+          "shortDef": "slave, bondservant (owned by a master)",
+          "nuance": "The most complete form of servitude - one who belongs entirely to another. Not merely hired but owned. Paul calls himself 'slave of Christ' (Rom 1:1; Phil 1:1). Believers are 'slaves of righteousness' (Rom 6:18) or 'slaves of sin' (Rom 6:17). Emphasizes total belonging and obedience.",
+          "ntUsage": 126
+        },
+        {
+          "greek": "διάκονος",
+          "transliteration": "diakonos",
+          "strongs": "G1249",
+          "shortDef": "servant, minister, deacon (one who serves)",
+          "nuance": "Originally one who serves at table, then more broadly any servant or minister. Less emphasis on bondage, more on active service. Used for church office 'deacon' (Phil 1:1; 1 Tim 3:8). Christ came 'not to be served but to serve' (διακονῆσαι, Mark 10:45). The root of 'deacon' and 'diaconate.'",
+          "ntUsage": 29
+        },
+        {
+          "greek": "ὑπηρέτης",
+          "transliteration": "hypēretēs",
+          "strongs": "G5257",
+          "shortDef": "assistant, attendant, helper (under orders)",
+          "nuance": "Literally an 'under-rower' (one rowing in a ship's lower tier), hence one who serves under another's direction. An attendant who carries out orders. Used for synagogue attendant (Luke 4:20), officers of the court (Matt 26:58), and ministers of the word (Luke 1:2; Acts 26:16).",
+          "ntUsage": 20
+        },
+        {
+          "greek": "λειτουργός",
+          "transliteration": "leitourgos",
+          "strongs": "G3011",
+          "shortDef": "minister, public servant (sacred or civic)",
+          "nuance": "One who performs public service, especially religious service. Used for priests (Heb 8:2), angels (Heb 1:7), governmental authorities (Rom 13:6), and Paul's ministry (Rom 15:16). The root of 'liturgy.' Emphasizes official, often sacred, service.",
+          "ntUsage": 5
+        }
+      ],
+      "vineQuote": "Doulos is one whose will is swallowed up in the will of another; diakonos is one who renders service; hypēretēs is one who acts under direction; leitourgos performs sacred or public duty.",
+      "exampleVerse": {
+        "reference": "Mark 10:43-44",
+        "greek": "ὃς ἂν θέλῃ μέγας γενέσθαι ἐν ὑμῖν ἔσται ὑμῶν διάκονος, καὶ ὃς ἂν θέλῃ ἐν ὑμῖν εἶναι πρῶτος ἔσται πάντων δοῦλος",
+        "english": "Whoever wants to be great must be your servant (diakonos), and whoever wants to be first must be slave (doulos) of all.",
+        "wordHighlighted": "διάκονος and δοῦλος"
+      },
+      "practicalTip": "When Paul calls himself 'slave of Christ' (δοῦλος Χριστοῦ), he uses the strongest term - total belonging. When Scripture speaks of 'deacons' (διάκονοι), it emphasizes active service. Note which word is used to understand the type of service intended.",
+      "tags": [
+        "essential",
+        "ministry",
+        "ethics"
+      ]
+    },
+    {
+      "id": "power-dynamis-exousia-ischys-kratos",
+      "category": "power",
+      "title": "Words for Power/Authority",
+      "englishWord": "power/authority/strength",
+      "introduction": "English 'power' covers several Greek concepts: inherent ability, delegated authority, physical strength, and sovereign might. These distinctions illuminate NT teaching about God's power, Christ's authority, and the power available to believers.",
+      "words": [
+        {
+          "greek": "δύναμις",
+          "transliteration": "dynamis",
+          "strongs": "G1411",
+          "shortDef": "power, ability, mighty work, miracle",
+          "nuance": "Inherent power or ability - the capacity to do something. The power resident in someone or something. Used for God's power (Rom 1:16, 20), the power of Christ's resurrection (Phil 3:10), miracles ('powers,' Matt 11:20), and the power the Spirit gives believers (Acts 1:8). Root of 'dynamite' and 'dynamic.'",
+          "ntUsage": 120
+        },
+        {
+          "greek": "ἐξουσία",
+          "transliteration": "exousia",
+          "strongs": "G1849",
+          "shortDef": "authority, right, power (delegated or inherent)",
+          "nuance": "The right or authority to do something - often delegated. Jesus taught with authority (Matt 7:29), gave disciples authority over demons (Luke 9:1), and declared 'all authority in heaven and earth is given to me' (Matt 28:18). Used for governmental authorities (Rom 13:1-3). Emphasizes legitimate right, not just ability.",
+          "ntUsage": 102
+        },
+        {
+          "greek": "ἰσχύς",
+          "transliteration": "ischys",
+          "strongs": "G2479",
+          "shortDef": "strength, might, force (physical or otherwise)",
+          "nuance": "Strength as possessed, especially physical strength or forceful might. 'Love the Lord with all your strength' (Mark 12:30). God's 'mighty strength' (Eph 1:19; 6:10). The strength exerted in action.",
+          "ntUsage": 10
+        },
+        {
+          "greek": "κράτος",
+          "transliteration": "kratos",
+          "strongs": "G2904",
+          "shortDef": "might, dominion, ruling power",
+          "nuance": "Sovereign might, ruling power, dominion. Used almost exclusively of God in NT: 'the might of His glory' (Col 1:11), 'to Him be... dominion forever' (1 Pet 5:11; Jude 25). Emphasizes supreme, conquering power. Root of '-cracy' words (democracy, theocracy).",
+          "ntUsage": 12
+        }
+      ],
+      "vineQuote": "Dynamis is ability or capability; exousia is the right to exercise power; ischys is strength as an endowment; kratos is the manifestation of power in ruling.",
+      "exampleVerse": {
+        "reference": "Ephesians 1:19-21",
+        "greek": "τὸ ὑπερβάλλον μέγεθος τῆς δυνάμεως αὐτοῦ... κατὰ τὴν ἐνέργειαν τοῦ κράτους τῆς ἰσχύος αὐτοῦ... ὑπεράνω πάσης... ἐξουσίας",
+        "english": "The surpassing greatness of His power (dynamis)... according to the working of His mighty (kratos) strength (ischys)... far above all... authority (exousia).",
+        "wordHighlighted": "δύναμις, κράτος, ἰσχύς, ἐξουσία"
+      },
+      "practicalTip": "When promised 'power' (δύναμις) in Acts 1:8, it's enabling ability from the Spirit. When Jesus claims 'authority' (ἐξουσία) in Matt 28:18, it's rightful rule. Distinguish: Are you lacking ability (δύναμις) or authority (ἐξουσία)? God supplies both.",
+      "tags": [
+        "essential",
+        "spirit",
+        "christology"
+      ]
+    },
+    {
+      "id": "temple-hieron-naos",
+      "category": "temple",
+      "title": "Words for Temple/Sanctuary",
+      "englishWord": "temple/sanctuary",
+      "introduction": "Greek distinguishes the temple complex as a whole from the sanctuary proper. This distinction is crucial for understanding 'your body is a temple' - which word is used? - and for grasping the significance of the veil being torn.",
+      "words": [
+        {
+          "greek": "ἱερόν",
+          "transliteration": "hieron",
+          "strongs": "G2411",
+          "shortDef": "temple (the entire sacred precinct)",
+          "nuance": "The whole temple area including all the courts - the Court of Gentiles, Court of Women, etc. The public, accessible areas where teaching occurred. Jesus 'cleansed the temple' (ἱερόν, Matt 21:12) and taught in the temple (Matt 26:55). This is where people gathered.",
+          "ntUsage": 71
+        },
+        {
+          "greek": "ναός",
+          "transliteration": "naos",
+          "strongs": "G3485",
+          "shortDef": "sanctuary, inner shrine (the sacred dwelling)",
+          "nuance": "The sanctuary proper - the sacred inner structure containing the Holy Place and Most Holy Place. Where God dwells. Only priests entered the Holy Place; only the high priest entered the Most Holy Place once yearly. Zechariah served in the ναός (Luke 1:9). The veil of the ναός was torn (Matt 27:51). Believers are the ναός of the Holy Spirit (1 Cor 3:16; 6:19).",
+          "ntUsage": 45
+        }
+      ],
+      "vineQuote": "Hieron denotes the entire building with its precincts, naos the inner sanctuary where God dwells. When Paul says the body is a temple (naos), he means God's dwelling-place, not merely a sacred precinct.",
+      "exampleVerse": {
+        "reference": "1 Corinthians 6:19",
+        "greek": "τὸ σῶμα ὑμῶν ναὸς τοῦ ἐν ὑμῖν ἁγίου πνεύματός ἐστιν",
+        "english": "Your body is a sanctuary (naos) of the Holy Spirit who is in you.",
+        "wordHighlighted": "ναός"
+      },
+      "practicalTip": "When Paul says 'your body is a temple (ναός),' he uses the word for the sacred sanctuary - God's dwelling place. You are not merely part of a religious complex but the very dwelling of God's Spirit. This elevates the body's significance immensely.",
+      "tags": [
+        "essential",
+        "spirit",
+        "ecclesiology"
+      ]
+    },
+    {
+      "id": "clean-pure-katharos-hagnos-eilikrines",
+      "category": "clean",
+      "title": "Words for Clean/Pure",
+      "englishWord": "clean/pure",
+      "introduction": "Greek has several words for cleanness and purity, each with distinct emphasis. Some stress ceremonial cleanness, others moral purity, still others sincerity or transparency. These illuminate NT teaching on holiness and integrity.",
+      "words": [
+        {
+          "greek": "καθαρός",
+          "transliteration": "katharos",
+          "strongs": "G2513",
+          "shortDef": "clean, pure (ceremonially or morally)",
+          "nuance": "The general word for clean or pure - free from contamination, whether ritual or moral. 'Blessed are the pure in heart' (Matt 5:8). 'You are already clean because of the word' (John 15:3). Used for ceremonial cleanness (Luke 11:41) and moral purity. The root of 'catharsis.'",
+          "ntUsage": 27
+        },
+        {
+          "greek": "ἁγνός",
+          "transliteration": "hagnos",
+          "strongs": "G53",
+          "shortDef": "pure, holy, chaste (morally innocent)",
+          "nuance": "Moral purity especially in the sense of chastity and innocence - free from defilement. Related to ἅγιος (holy). Used for sexual purity (2 Cor 11:2; 1 Tim 5:22), pure motives (Phil 1:17), and the wisdom from above (Jas 3:17). Emphasizes moral innocence.",
+          "ntUsage": 8
+        },
+        {
+          "greek": "εἰλικρινής",
+          "transliteration": "eilikrinēs",
+          "strongs": "G1506",
+          "shortDef": "sincere, pure (judged by sunlight)",
+          "nuance": "Pure in the sense of transparent, sincere, unmixed. Possibly from εἵλη (sunlight) + κρίνω (judge) - what stands the test of being examined in sunlight, revealing no flaws or mixture. Used for sincere faith (Phil 1:10) and pure minds (2 Pet 3:1). Emphasizes genuineness.",
+          "ntUsage": 2
+        },
+        {
+          "greek": "ἀμίαντος",
+          "transliteration": "amiantos",
+          "strongs": "G283",
+          "shortDef": "undefiled, unstained (free from contamination)",
+          "nuance": "Negation of 'defiled' - that which has no stain or contamination. Used for the undefiled marriage bed (Heb 13:4), undefiled religion (Jas 1:27), and Christ as undefiled high priest (Heb 7:26). Emphasizes freedom from pollution.",
+          "ntUsage": 4
+        }
+      ],
+      "vineQuote": "Katharos is the general term for clean; hagnos emphasizes moral purity and chastity; eilikrinēs stresses sincerity and genuineness tested by light; amiantos denotes freedom from pollution or stain.",
+      "exampleVerse": {
+        "reference": "Matthew 5:8",
+        "greek": "μακάριοι οἱ καθαροὶ τῇ καρδίᾳ, ὅτι αὐτοὶ τὸν θεὸν ὄψονται",
+        "english": "Blessed are the pure (katharos) in heart, for they will see God.",
+        "wordHighlighted": "καθαρός"
+      },
+      "practicalTip": "When examining your heart, consider: Is it καθαρός (clean from contamination)? Is it ἁγνός (morally innocent)? Is it εἰλικρινής (genuine when examined in light)? Each word probes a different aspect of purity.",
+      "tags": [
+        "essential",
+        "ethics",
+        "holiness"
+      ]
     }
   ]
 }

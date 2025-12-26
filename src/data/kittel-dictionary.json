@@ -5358,6 +5358,348 @@
       ],
       "volume": 3,
       "pages": "563-592"
+    },
+    {
+      "id": "martyria",
+      "category": "faith",
+      "greek": "μαρτυρία",
+      "transliteration": "martyria",
+      "strongs": "G3141",
+      "shortDef": "witness, testimony, evidence",
+      "title": "Witness: The Testimony That Creates Faith",
+      "summary": "Μαρτυρία is testimony or witness - the evidence given to establish truth. In the NT, it becomes central to gospel proclamation: the apostles are witnesses to Christ's resurrection, and believers bear witness to what God has done. The term develops into 'martyrdom' - witness unto death.",
+      "classicalGreek": "In classical Greek, μαρτυρία was legal terminology - the testimony given in court to establish facts. A μάρτυς (witness) was one who could testify to what they had seen or known firsthand. The testimony's validity depended on the witness's reliability and direct knowledge.",
+      "lxxBackground": "The LXX uses μαρτυρία and related words for Hebrew עֵד (ed) and עֵדוּת (edut) - witness, testimony. God's law is His 'testimony' (Ps 19:7; 119:88). The tabernacle is the 'tent of testimony' (Num 1:50). False witness is prohibited (Ex 20:16; Deut 19:16-18). God Himself is witness (Gen 31:50; Jer 29:23).",
+      "intertestamental": "In Second Temple Judaism, the 'two or three witnesses' requirement (Deut 19:15) was carefully applied. The Qumran community regulated testimony in their courts. Martyrdom theology developed - faithful witnesses to Torah sometimes died rather than compromise, becoming 'martyrs' in the later sense.",
+      "ntUsage": "John's Gospel emphasizes witness: John the Baptist 'came for testimony' (John 1:7); Jesus' works bear witness (John 5:36); the Father witnesses (John 5:37); Scripture witnesses (John 5:39). The apostles are 'witnesses' to the resurrection (Acts 1:8, 22; 2:32; 3:15). 1 John speaks of God's testimony concerning His Son (1 John 5:9-11). Revelation calls Jesus 'the faithful witness' (Rev 1:5; 3:14). The two witnesses prophesy (Rev 11:3). By the second century, μάρτυς came to mean specifically one who died for the faith - a 'martyr.'",
+      "keyPassages": [
+        {
+          "reference": "John 1:7",
+          "greek": "οὗτος ἦλθεν εἰς μαρτυρίαν, ἵνα μαρτυρήσῃ περὶ τοῦ φωτός",
+          "significance": "John came for testimony, to bear witness about the Light - witness creates faith."
+        },
+        {
+          "reference": "Acts 1:8",
+          "greek": "ἔσεσθέ μου μάρτυρες",
+          "significance": "You will be my witnesses - the apostolic mission defined as testimony."
+        },
+        {
+          "reference": "1 John 5:9",
+          "greek": "ἡ μαρτυρία τοῦ θεοῦ μείζων ἐστίν",
+          "significance": "God's testimony is greater - divine witness establishes truth about the Son."
+        }
+      ],
+      "theologicalSignificance": "Μαρτυρία grounds Christian epistemology in testimony. Faith comes through witness - we believe because of apostolic testimony to Christ (John 17:20; 1 John 1:1-3). This testimony is not mere opinion but eyewitness evidence of historical events, supremely the resurrection. God Himself bears witness through the Spirit (1 John 5:6-8). The church's mission is fundamentally μαρτυρία - bearing witness to Christ. When witness requires death, the testimony becomes most powerful. The 'blood of the martyrs is the seed of the church' because faithful witness unto death demonstrates conviction's reality.",
+      "relatedWords": [
+        {
+          "greek": "μάρτυς",
+          "transliteration": "martys",
+          "relationship": "Witness, one who testifies (Acts 1:8; Rev 2:13)"
+        },
+        {
+          "greek": "μαρτυρέω",
+          "transliteration": "martyreō",
+          "relationship": "To witness, testify, bear witness (John 1:7, 8)"
+        },
+        {
+          "greek": "μαρτύριον",
+          "transliteration": "martyrion",
+          "relationship": "Testimony, witness, proof (Matt 24:14)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "johannine",
+        "mission",
+        "apologetics"
+      ],
+      "volume": 4,
+      "pages": "474-514"
+    },
+    {
+      "id": "paraklesis",
+      "category": "pneumatology",
+      "greek": "παράκλησις",
+      "transliteration": "paraklēsis",
+      "strongs": "G3874",
+      "shortDef": "encouragement, exhortation, comfort, consolation",
+      "title": "Consolation: The Ministry of Encouragement",
+      "summary": "Παράκλησις encompasses encouragement, exhortation, and comfort - the full ministry of coming alongside others. It connects to παράκλητος (Paraclete), the Holy Spirit's title. God is 'the God of all comfort,' and believers share in this ministry of consolation.",
+      "classicalGreek": "In classical Greek, παράκλησις meant a calling to one's side, hence summoning (especially for help), exhortation, or encouragement. It could denote the act of appealing, urging, or encouraging. The word carried connotations of strengthening someone for a task or comforting in distress.",
+      "lxxBackground": "The LXX uses παράκλησις and παρακαλέω for Hebrew נחם (nacham) - to comfort, console. Isaiah's 'Comfort, comfort my people' (Isa 40:1) uses παρακαλεῖτε. The messianic hope includes the 'consolation of Israel' (Isa 57:18; 66:11). God comforts His people as a mother comforts her child (Isa 66:13).",
+      "intertestamental": "Second Temple Judaism anticipated messianic consolation. Simeon waited for 'the consolation of Israel' (Luke 2:25 - παράκλησιν τοῦ Ἰσραήλ). The rabbis spoke of the 'Comforter' (Menachem) as a messianic title. Comfort in suffering was a major theme given persecution and exile.",
+      "ntUsage": "2 Corinthians 1:3-7 is the key passage: God is 'the Father of mercies and God of all comfort (παρακλήσεως), who comforts us in all our affliction.' Believers then comfort others with the comfort they received. Romans 15:4-5 says Scripture gives παράκλησις. Acts uses the term for prophetic/apostolic encouragement (Acts 4:36 - Barnabas means 'son of encouragement'; Acts 13:15; 15:31). Hebrews 6:18 speaks of 'strong encouragement.' The ministry of παράκλησις includes exhortation to faithfulness (Heb 12:5; 13:22) as well as comfort in sorrow.",
+      "keyPassages": [
+        {
+          "reference": "2 Corinthians 1:3-4",
+          "greek": "ὁ θεὸς πάσης παρακλήσεως, ὁ παρακαλῶν ἡμᾶς ἐπὶ πάσῃ τῇ θλίψει ἡμῶν",
+          "significance": "God of all comfort who comforts us in all affliction - divine comfort as source and model."
+        },
+        {
+          "reference": "Luke 2:25",
+          "greek": "προσδεχόμενος παράκλησιν τοῦ Ἰσραήλ",
+          "significance": "Waiting for the consolation of Israel - messianic hope as comfort fulfilled in Christ."
+        },
+        {
+          "reference": "Acts 4:36",
+          "greek": "Βαρναβᾶς, ὅ ἐστιν μεθερμηνευόμενον υἱὸς παρακλήσεως",
+          "significance": "Son of encouragement - character defined by ministry of comfort/exhortation."
+        }
+      ],
+      "theologicalSignificance": "Παράκλησις reveals a God who draws near to comfort His afflicted people. The messianic age is characterized by divine consolation (Isa 40:1; Luke 2:25). The Holy Spirit as Παράκλητος (John 14-16) embodies this ministry - coming alongside to strengthen, guide, and comfort. Believers receive comfort not as an end but as equipment for ministry: 'comfort others with the comfort we have received' (2 Cor 1:4). The word's range - from tender consolation to urgent exhortation - shows that true encouragement sometimes comforts the afflicted and sometimes afflicts the comfortable. Barnabas as 'son of παράκλησις' models this ministry.",
+      "relatedWords": [
+        {
+          "greek": "παρακαλέω",
+          "transliteration": "parakaleō",
+          "relationship": "To call alongside, comfort, exhort, encourage (2 Cor 1:4)"
+        },
+        {
+          "greek": "παράκλητος",
+          "transliteration": "paraklētos",
+          "relationship": "Advocate, Helper, Comforter - title of the Holy Spirit (John 14:16, 26)"
+        },
+        {
+          "greek": "παραμυθία",
+          "transliteration": "paramythia",
+          "relationship": "Comfort, consolation (more tender than παράκλησις) (1 Cor 14:3)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "spirit",
+        "ministry",
+        "2-corinthians"
+      ],
+      "volume": 5,
+      "pages": "773-799"
+    },
+    {
+      "id": "eirene",
+      "category": "salvation",
+      "greek": "εἰρήνη",
+      "transliteration": "eirēnē",
+      "strongs": "G1515",
+      "shortDef": "peace, harmony, wholeness, well-being",
+      "title": "Peace: Shalom in Greek Dress",
+      "summary": "Εἰρήνη translates Hebrew שָׁלוֹם (shalom), encompassing far more than absence of conflict. It means wholeness, well-being, right relationships, and flourishing. Christ is 'our peace' who reconciles enemies to God and to each other, creating one new humanity.",
+      "classicalGreek": "In classical Greek, εἰρήνη primarily meant the opposite of war - a state of peace between nations or cessation of hostilities. It could extend to public order, tranquility, and harmonious relationships. The Greek concept was largely negative - the absence of conflict rather than positive flourishing.",
+      "lxxBackground": "The LXX uses εἰρήνη to translate שָׁלוֹם (shalom), dramatically expanding the word's meaning. Hebrew shalom is positive wholeness: health, prosperity, security, good relationships, and covenant blessing. 'Peace' is how Israelites greeted each other, blessed departing guests, and described the messianic age. The Aaronic benediction concludes with peace (Num 6:26). The messianic prince brings peace (Isa 9:6-7). 'Peace, peace to the far and near' (Isa 57:19).",
+      "intertestamental": "Second Temple Judaism longed for the peace of the messianic age. The Qumran community anticipated eschatological peace after the final war. Rabbinic literature praised peace as the vessel containing all blessings. 'Great is peace, for all blessings are contained in it.'",
+      "ntUsage": "The angels announce 'peace on earth' at Christ's birth (Luke 2:14). Jesus says 'Peace I leave with you' (John 14:27) and greets disciples with 'Peace be with you' (John 20:19, 21). Paul's letters open with 'grace and peace.' Romans 5:1 declares 'we have peace with God through our Lord Jesus Christ' - reconciliation accomplished. Ephesians 2:14-17 proclaims Christ 'is our peace' who broke down the dividing wall, reconciling Jew and Gentile, creating one new humanity, preaching 'peace to you who were far off and peace to those who were near.' The fruit of the Spirit includes peace (Gal 5:22). Believers are to 'pursue peace' (Heb 12:14; Rom 14:19) and 'live in peace' (2 Cor 13:11).",
+      "keyPassages": [
+        {
+          "reference": "Ephesians 2:14",
+          "greek": "αὐτὸς γάρ ἐστιν ἡ εἰρήνη ἡμῶν",
+          "significance": "He Himself is our peace - Christ doesn't just bring peace, He IS peace, embodying reconciliation."
+        },
+        {
+          "reference": "Romans 5:1",
+          "greek": "εἰρήνην ἔχομεν πρὸς τὸν θεόν",
+          "significance": "We have peace with God - justification ends the state of enmity, establishing reconciled relationship."
+        },
+        {
+          "reference": "John 14:27",
+          "greek": "εἰρήνην ἀφίημι ὑμῖν, εἰρήνην τὴν ἐμὴν δίδωμι ὑμῖν",
+          "significance": "My peace I give you - Christ's unique peace, different from the world's, based on His finished work."
+        }
+      ],
+      "theologicalSignificance": "Εἰρήνη in the NT carries the full freight of Hebrew shalom. It is not mere tranquility but comprehensive well-being rooted in right relationship with God. Sin creates enmity with God (Rom 5:10; 8:7); the gospel announces peace through Christ's blood (Col 1:20). This vertical peace with God (Rom 5:1) creates horizontal peace among believers (Eph 4:3) and even with enemies where possible (Rom 12:18). The 'God of peace' (Rom 15:33; 16:20; Phil 4:9) will ultimately crush Satan and establish eternal shalom. Until then, Christ's peace guards believers' hearts (Phil 4:7) amid a hostile world.",
+      "relatedWords": [
+        {
+          "greek": "εἰρηνεύω",
+          "transliteration": "eirēneuō",
+          "relationship": "To be at peace, live in peace (Mark 9:50; Rom 12:18)"
+        },
+        {
+          "greek": "εἰρηνοποιέω",
+          "transliteration": "eirēnopoieō",
+          "relationship": "To make peace (Col 1:20)"
+        },
+        {
+          "greek": "εἰρηνοποιός",
+          "transliteration": "eirēnopoios",
+          "relationship": "Peacemaker (Matt 5:9)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "pauline",
+        "salvation",
+        "reconciliation"
+      ],
+      "volume": 2,
+      "pages": "400-420"
+    },
+    {
+      "id": "telos",
+      "category": "eschatology",
+      "greek": "τέλος",
+      "transliteration": "telos",
+      "strongs": "G5056",
+      "shortDef": "end, goal, completion, fulfillment, outcome",
+      "title": "The End: Goal, Fulfillment, and Consummation",
+      "summary": "Τέλος means both 'end' (termination) and 'goal' (purpose/completion). This dual meaning is theologically rich: history moves toward its telos; Christ is the telos of the law; the telos of faith is salvation. The end is not mere cessation but fulfillment of purpose.",
+      "classicalGreek": "In classical Greek, τέλος had a range of meanings: end or termination; goal or purpose; completion or fulfillment; the highest point or perfection; tax or toll (as completion of obligation). Aristotle used it philosophically for the final cause - the purpose for which something exists. The τέλος of an acorn is an oak tree.",
+      "lxxBackground": "The LXX uses τέλος for various Hebrew terms, especially קֵץ (qets - end) and תַּכְלִית (taklit - end, purpose). 'The end of the matter' (Eccl 12:13). Daniel speaks of 'the time of the end' (Dan 8:17; 11:35, 40; 12:4, 9). The Psalms use τέλος in superscriptions (Ps 4:1; 5:1, etc.) - possibly meaning 'for the choir director' or 'to the end.'",
+      "intertestamental": "Apocalyptic literature developed 'end-time' (eschaton) theology extensively. 4 Ezra, 2 Baruch, and other texts describe 'the end' when God intervenes decisively. The Qumran community believed they lived in the 'last days' before the end.",
+      "ntUsage": "Jesus speaks of 'the end' (τέλος) of the age (Matt 24:6, 14). Paul says 'the end' comes when Christ delivers the kingdom to the Father (1 Cor 15:24). Romans 6:21-22 contrasts outcomes: 'the end of those things is death' versus 'the outcome is eternal life.' Most significantly, Romans 10:4 declares 'Christ is the τέλος of the law' - meaning both that Christ ends the law's condemning function and that Christ is the goal toward which the law always pointed. 1 Peter 1:9 speaks of 'the τέλος of your faith - the salvation of your souls.' James 5:11 points to 'the τέλος of the Lord' in Job's story - God's ultimate purpose. 1 Timothy 1:5 says 'the τέλος of the commandment is love.'",
+      "keyPassages": [
+        {
+          "reference": "Romans 10:4",
+          "greek": "τέλος γὰρ νόμου Χριστὸς εἰς δικαιοσύνην παντὶ τῷ πιστεύοντι",
+          "significance": "Christ is the telos of the law - both its termination and its fulfillment/goal."
+        },
+        {
+          "reference": "1 Peter 1:9",
+          "greek": "κομιζόμενοι τὸ τέλος τῆς πίστεως ὑμῶν σωτηρίαν ψυχῶν",
+          "significance": "Obtaining the outcome/goal of faith - salvation as faith's intended destination."
+        },
+        {
+          "reference": "1 Corinthians 15:24",
+          "greek": "εἶτα τὸ τέλος, ὅταν παραδιδῷ τὴν βασιλείαν τῷ θεῷ",
+          "significance": "Then the end - eschatological consummation when Christ delivers the kingdom."
+        }
+      ],
+      "theologicalSignificance": "Τέλος teaches that history has purpose and direction. God is working toward a goal - not mere termination but glorious completion. Christ as the τέλος of the law (Rom 10:4) means the law finds its fulfillment in Him; those in Christ have reached what the law aimed at. Eschatologically, 'the end' is not destruction but consummation - the completion of God's redemptive purposes. The τέλος of faith is salvation (1 Pet 1:9) - faith has a destination. This gives Christian hope its teleological character: we are heading somewhere, toward the telos God has appointed. 'He who began a good work will bring it to completion' (Phil 1:6).",
+      "relatedWords": [
+        {
+          "greek": "τελέω",
+          "transliteration": "teleō",
+          "relationship": "To complete, finish, accomplish (John 19:30 'It is finished')"
+        },
+        {
+          "greek": "τέλειος",
+          "transliteration": "teleios",
+          "relationship": "Complete, perfect, mature (Matt 5:48; Jas 1:4)"
+        },
+        {
+          "greek": "τελειόω",
+          "transliteration": "teleioō",
+          "relationship": "To make perfect, complete, bring to goal (Heb 2:10; 5:9)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "eschatology",
+        "pauline",
+        "law"
+      ],
+      "volume": 8,
+      "pages": "49-87"
+    },
+    {
+      "id": "sophia",
+      "category": "revelation",
+      "greek": "σοφία",
+      "transliteration": "sophia",
+      "strongs": "G4678",
+      "shortDef": "wisdom, skill, insight, divine wisdom",
+      "title": "Wisdom: Christ the Power and Wisdom of God",
+      "summary": "Σοφία is wisdom - not merely intellectual knowledge but practical insight for living well. In the OT, personified Wisdom participates in creation. Paul radically declares Christ to be 'the wisdom of God' - God's wise plan that appears foolish to the world but accomplishes salvation.",
+      "classicalGreek": "In classical Greek, σοφία meant skill or expertise in any craft, then broadened to wisdom in general - sound judgment, practical intelligence, and philosophical insight. The σοφός (wise person) possessed knowledge and the ability to apply it well. Greek philosophy sought σοφία as the highest pursuit (philo-sophia = love of wisdom).",
+      "lxxBackground": "The LXX uses σοφία for חָכְמָה (chokmah) - wisdom. Proverbs, Job, and Ecclesiastes explore wisdom extensively. Wisdom is 'the beginning of knowledge' (Prov 1:7); 'better than gold' (Prov 16:16). Most striking is personified Wisdom in Proverbs 8: present at creation (8:22-31), calling people to life (8:1-21). The Wisdom of Solomon develops this: Wisdom as divine emanation, the 'fashioner of all things' (Wis 7:22), who delivers God's people (Wis 10).",
+      "intertestamental": "Second Temple Judaism highly developed Wisdom theology. Sirach (Ecclesiasticus) identifies Wisdom with Torah (Sir 24). The Wisdom of Solomon presents Wisdom as cosmic mediator. Some scholars see the roots of NT Christology here - divine Wisdom providing a category for understanding Christ's pre-existence and role in creation.",
+      "ntUsage": "Paul dramatically proclaims 'Christ the power of God and the wisdom of God' (1 Cor 1:24). The cross appears foolish but is God's wisdom (1 Cor 1:18-25). In Christ 'are hidden all the treasures of wisdom and knowledge' (Col 2:3). James distinguishes earthly wisdom from 'wisdom from above' (Jas 3:13-17). Revelation praises the Lamb: 'Worthy is the Lamb... to receive... wisdom' (Rev 5:12). Jesus as a child 'grew in wisdom' (Luke 2:52) and astounded hearers with wisdom (Matt 13:54). Yet Jesus is 'greater than Solomon' (Matt 12:42). Stephen was 'full of wisdom' (Acts 6:3, 10). Paul prays believers receive 'a spirit of wisdom' (Eph 1:17).",
+      "keyPassages": [
+        {
+          "reference": "1 Corinthians 1:24",
+          "greek": "Χριστὸν θεοῦ δύναμιν καὶ θεοῦ σοφίαν",
+          "significance": "Christ is God's power and God's wisdom - the crucified Messiah embodies divine wisdom."
+        },
+        {
+          "reference": "Colossians 2:3",
+          "greek": "ἐν ᾧ εἰσιν πάντες οἱ θησαυροὶ τῆς σοφίας καὶ γνώσεως ἀπόκρυφοι",
+          "significance": "In Christ all treasures of wisdom are hidden - no need to seek wisdom elsewhere."
+        },
+        {
+          "reference": "James 3:17",
+          "greek": "ἡ δὲ ἄνωθεν σοφία πρῶτον μὲν ἁγνή ἐστιν",
+          "significance": "Wisdom from above is first pure - divine wisdom has distinctive character."
+        }
+      ],
+      "theologicalSignificance": "Σοφία in the NT reaches its apex in Christology. The Wisdom tradition of Proverbs 8, which personified Wisdom as God's agent in creation, finds its fulfillment in Christ. He is not merely wise but is Wisdom itself (1 Cor 1:24, 30). The cross, which appears foolish to human wisdom, is actually God's supremely wise plan for salvation. This inverts worldly values: God's 'foolishness' is wiser than human wisdom (1 Cor 1:25). Christians receive wisdom through Christ and the Spirit (1 Cor 2:6-16; Eph 1:17; Col 1:9). True wisdom manifests in godly living (Jas 3:13-17), not merely intellectual attainment.",
+      "relatedWords": [
+        {
+          "greek": "σοφός",
+          "transliteration": "sophos",
+          "relationship": "Wise, skilled, learned (Matt 11:25; 1 Cor 1:19-20)"
+        },
+        {
+          "greek": "σοφίζω",
+          "transliteration": "sophizō",
+          "relationship": "To make wise (2 Tim 3:15); to devise cleverly (2 Pet 1:16)"
+        },
+        {
+          "greek": "φιλοσοφία",
+          "transliteration": "philosophia",
+          "relationship": "Philosophy, love of wisdom (Col 2:8 - negatively)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "christology",
+        "1-corinthians",
+        "creation"
+      ],
+      "volume": 7,
+      "pages": "465-528"
+    },
+    {
+      "id": "doxa",
+      "category": "worship",
+      "greek": "δόξα",
+      "transliteration": "doxa",
+      "strongs": "G1391",
+      "shortDef": "glory, splendor, honor, radiance, praise",
+      "title": "Glory: The Radiant Weight of Divine Presence",
+      "summary": "Δόξα means glory - the visible manifestation of God's excellence, the radiant splendor of His presence. The Hebrew כָּבוֹד (kabod) means 'weight' or 'heaviness' - God's glory is His substantial, impressive reality. Christ reveals the Father's glory; believers are being transformed into His glorious image.",
+      "classicalGreek": "In classical Greek, δόξα meant opinion, reputation, or the honor/glory that comes from others' estimation. It was the good reputation or fame that a person enjoyed. This is quite different from the OT sense of divine radiance, which the NT adopts through the LXX.",
+      "lxxBackground": "The LXX uses δόξα to translate כָּבוֹד (kabod) - glory, honor, weight. God's glory is His manifest presence: the cloud filling the tabernacle (Ex 40:34-35), the glory departing the temple (Ezek 10-11), the glory returning (Ezek 43:1-5). 'The whole earth is full of His glory' (Isa 6:3). God will not give His glory to another (Isa 42:8; 48:11). The glory of the LORD will be revealed (Isa 40:5).",
+      "intertestamental": "Second Temple Judaism developed glory theology carefully, especially regarding theophanies. The Targums speak of the 'glory of the Shekinah.' Apocalyptic visions describe heavenly glory (1 Enoch, 4 Ezra). The Qumran Hodayot praise God's glory. Glory becomes almost a circumlocution for God's presence.",
+      "ntUsage": "The shepherds see 'the glory of the Lord' (Luke 2:9). Jesus' transfiguration reveals His glory (Luke 9:32). John declares: 'We have seen his glory' (John 1:14) - the incarnate Word manifests divine glory. Jesus' miracles are 'signs' revealing glory (John 2:11). The cross is paradoxically Jesus' glorification (John 12:23; 13:31; 17:1). Paul speaks of 'the glory of God in the face of Jesus Christ' (2 Cor 4:6). Believers are being transformed 'from glory to glory' (2 Cor 3:18). The ultimate hope is sharing Christ's glory (Rom 8:17-18; Col 3:4). Doxologies praise God's glory forever (Rom 11:36; 16:27; Eph 3:21; Phil 4:20).",
+      "keyPassages": [
+        {
+          "reference": "John 1:14",
+          "greek": "ἐθεασάμεθα τὴν δόξαν αὐτοῦ, δόξαν ὡς μονογενοῦς παρὰ πατρός",
+          "significance": "We have seen His glory - the incarnation makes divine glory visible in human flesh."
+        },
+        {
+          "reference": "2 Corinthians 3:18",
+          "greek": "τὴν αὐτὴν εἰκόνα μεταμορφούμεθα ἀπὸ δόξης εἰς δόξαν",
+          "significance": "Being transformed from glory to glory - sanctification as progressive glorification."
+        },
+        {
+          "reference": "Romans 8:18",
+          "greek": "οὐκ ἄξια τὰ παθήματα τοῦ νῦν καιροῦ πρὸς τὴν μέλλουσαν δόξαν ἀποκαλυφθῆναι",
+          "significance": "Present sufferings not worth comparing with coming glory - eschatological hope."
+        }
+      ],
+      "theologicalSignificance": "Δόξα is perhaps the most God-centered word in Scripture. All things exist for God's glory (Rom 11:36; 1 Cor 10:31). The goal of salvation is 'the praise of His glory' (Eph 1:6, 12, 14). Sin is falling short of God's glory (Rom 3:23); salvation restores the glory-relationship. Christ is 'the radiance of God's glory' (Heb 1:3) - seeing Him, we see the Father's glory. The Spirit transforms believers into Christ's glorious image (2 Cor 3:18). Eschatology culminates in glory: 'When Christ who is your life appears, you also will appear with Him in glory' (Col 3:4). Worship is giving God the glory due His name - the δόξα that acknowledges His infinite worth.",
+      "relatedWords": [
+        {
+          "greek": "δοξάζω",
+          "transliteration": "doxazō",
+          "relationship": "To glorify, honor, praise (John 17:1; Rom 8:30)"
+        },
+        {
+          "greek": "ἔνδοξος",
+          "transliteration": "endoxos",
+          "relationship": "Glorious, splendid (Eph 5:27)"
+        },
+        {
+          "greek": "δοξολογία",
+          "transliteration": "doxologia",
+          "relationship": "Doxology, expression of praise (Rom 16:27)"
+        }
+      ],
+      "tags": [
+        "essential",
+        "worship",
+        "christology",
+        "eschatology"
+      ],
+      "volume": 2,
+      "pages": "232-255"
     }
   ]
 }
