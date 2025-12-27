@@ -1,0 +1,48 @@
+{
+  "packageId": "com.pilgrimcovenant.koinegreek",
+  "host": "koine-vocab.vercel.app",
+  "name": "Koine Greek Vocab",
+  "launcherName": "Koine Greek",
+  "display": "standalone",
+  "themeColor": "#16a34a",
+  "navigationColor": "#16a34a",
+  "navigationColorDark": "#15803d",
+  "navigationDividerColor": "#16a34a",
+  "navigationDividerColorDark": "#15803d",
+  "backgroundColor": "#ffffff",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://koine-vocab.vercel.app/icons/icon-512.png",
+  "maskableIconUrl": "https://koine-vocab.vercel.app/icons/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "koine-greek"
+  },
+  "appVersionCode": 1,
+  "appVersionName": "1.0.0",
+  "shortcuts": [
+    {
+      "name": "Flashcards",
+      "shortName": "Cards",
+      "url": "/learn/flashcards",
+      "chosenIconUrl": "https://koine-vocab.vercel.app/icons/icon-192.png"
+    },
+    {
+      "name": "Quiz Mode",
+      "shortName": "Quiz",
+      "url": "/learn/quiz",
+      "chosenIconUrl": "https://koine-vocab.vercel.app/icons/icon-192.png"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://koine-vocab.vercel.app/manifest.json",
+  "fallbackType": "customtabs",
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://koine-vocab.vercel.app/",
+  "minSdkVersion": 19,
+  "orientation": "portrait",
+  "fingerprints": []
+}
