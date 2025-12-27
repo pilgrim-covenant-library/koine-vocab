@@ -21,20 +21,7 @@
   },
   "appVersionCode": 1,
   "appVersionName": "1.0.0",
-  "shortcuts": [
-    {
-      "name": "Flashcards",
-      "shortName": "Cards",
-      "url": "/learn/flashcards",
-      "chosenIconUrl": "https://koine-vocab.vercel.app/icons/icon-192.png"
-    },
-    {
-      "name": "Quiz Mode",
-      "shortName": "Quiz",
-      "url": "/learn/quiz",
-      "chosenIconUrl": "https://koine-vocab.vercel.app/icons/icon-192.png"
-    }
-  ],
+  "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://koine-vocab.vercel.app/manifest.json",
   "fallbackType": "customtabs",
@@ -42,7 +29,7 @@
   "isChromeOSOnly": false,
   "isMetaQuest": false,
   "fullScopeUrl": "https://koine-vocab.vercel.app/",
-  "minSdkVersion": 19,
+  "minSdkVersion": 21,
   "orientation": "portrait",
   "fingerprints": []
 }

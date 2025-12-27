@@ -1,0 +1,13 @@
+# Android build output
+output/
+*.apk
+*.aab
+*.idsig
+app-release-aligned.apk
+
+# Signing keystore (keep secure and backed up separately!)
+android.keystore
+
+# Build scripts (not needed for distribution)
+build-twa.js
+init_bubblewrap.py
