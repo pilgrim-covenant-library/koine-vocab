@@ -482,6 +482,8 @@ export const useUserStore = create<UserState>()(
       // Custom serialization for Date objects with data validation
       storage: {
         getItem: (name) => {
+          // Check if we're in a browser environment
+          if (typeof window === 'undefined') return null;
           try {
             const str = localStorage.getItem(name);
             if (!str) return null;
@@ -543,6 +545,8 @@ export const useUserStore = create<UserState>()(
           }
         },
         setItem: (name, value) => {
+          // Check if we're in a browser environment
+          if (typeof window === 'undefined') return;
           try {
             const serialized = JSON.stringify(value);
 
@@ -586,6 +590,8 @@ export const useUserStore = create<UserState>()(
           }
         },
         removeItem: (name) => {
+          // Check if we're in a browser environment
+          if (typeof window === 'undefined') return;
           try {
             localStorage.removeItem(name);
           } catch (error) {

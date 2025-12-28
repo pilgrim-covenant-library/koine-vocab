@@ -93,6 +93,7 @@ export default function QuizPage() {
   const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, selectedPOS, selectedCategories, checkAndUnlockAchievements, recordSession } = useUserStore();
   const {
     isActive,
+    mode,
     startSession,
     endSession,
     words,
@@ -165,6 +166,26 @@ export default function QuizPage() {
   useEffect(() => {
     if (!mounted) return;
 
+    // If there's an active session from a different mode, end it first
+    if (isActive && mode !== 'quiz') {
+      endSession();
+      return; // The effect will re-run after endSession updates isActive
+    }
+
+    // If we already have an active quiz session, just mark as initialized
+    if (isActive && mode === 'quiz') {
+      // Regenerate questions from existing session words
+      if (words.length > 0 && questions.length === 0) {
+        const allWords = vocabularyData.words as VocabularyWord[];
+        const generatedQuestions = words.map((word) =>
+          generateQuizQuestion(word, allWords)
+        );
+        setQuestions(generatedQuestions);
+      }
+      setSessionInitialized(true);
+      return;
+    }
+
     if (!isActive) {
       // Get words for this session, filtered by selected tiers
       const dueWords = getDueWords();
@@ -218,7 +239,7 @@ export default function QuizPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
+  }, [mounted, isActive, mode, words, questions.length, getDueWords, progress, initializeWord, startSession, endSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
 
   const currentQuestion = questions[currentIndex];
   const sessionProgress = getProgress();

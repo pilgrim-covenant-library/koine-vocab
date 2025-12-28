@@ -27,6 +27,7 @@ export default function TypingPage() {
   const { stats, progress, reviewWord, initializeWord, getDueWords, sessionLength, selectedTiers, selectedPOS, selectedCategories, checkAndUnlockAchievements, recordSession } = useUserStore();
   const {
     isActive,
+    mode,
     startSession,
     endSession,
     words,
@@ -100,6 +101,18 @@ export default function TypingPage() {
   useEffect(() => {
     if (!mounted) return;
 
+    // If there's an active session from a different mode, end it first
+    if (isActive && mode !== 'typing') {
+      endSession();
+      return; // The effect will re-run after endSession updates isActive
+    }
+
+    // If we already have an active typing session, just mark as initialized
+    if (isActive && mode === 'typing') {
+      setSessionInitialized(true);
+      return;
+    }
+
     if (!isActive) {
       // Get words for this session, filtered by selected tiers
       const dueWords = getDueWords();
@@ -142,7 +155,7 @@ export default function TypingPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
+  }, [mounted, isActive, mode, getDueWords, progress, initializeWord, startSession, endSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
 
   // Focus input when moving to next word
   useEffect(() => {

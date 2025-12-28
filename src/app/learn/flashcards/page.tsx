@@ -35,6 +35,7 @@ export default function FlashcardsPage() {
     useUserStore();
   const {
     isActive,
+    mode,
     startSession,
     endSession,
     words,
@@ -118,6 +119,18 @@ export default function FlashcardsPage() {
   useEffect(() => {
     if (!mounted) return;
 
+    // If there's an active session from a different mode, end it first
+    if (isActive && mode !== 'flashcard') {
+      endSession();
+      return; // The effect will re-run after endSession updates isActive
+    }
+
+    // If we already have an active flashcard session, just mark as initialized
+    if (isActive && mode === 'flashcard') {
+      setSessionInitialized(true);
+      return;
+    }
+
     if (!isActive) {
       // Filter function for tier, POS, and category
       const matchesFilters = (w: VocabularyWord): boolean => {
@@ -170,7 +183,7 @@ export default function FlashcardsPage() {
 
       setSessionInitialized(true);
     }
-  }, [mounted, isActive, getDueWords, progress, initializeWord, startSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
+  }, [mounted, isActive, mode, getDueWords, progress, initializeWord, startSession, endSession, sessionLength, selectedTiers, selectedPOS, selectedCategories]);
 
   const currentWord = words[currentIndex] as VocabularyWord | undefined;
   const currentProgress = currentWord ? getWordProgress(currentWord.id) : null;
