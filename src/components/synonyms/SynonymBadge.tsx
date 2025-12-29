@@ -21,7 +21,7 @@ import { cn } from '@/lib/utils';
 import { SYNONYM_CATEGORIES, type SynonymCategory } from '@/types';
 
 interface SynonymBadgeProps {
-  category: SynonymCategory;
+  category: SynonymCategory | string; // Accept any string for extended categories in JSON
   size?: 'sm' | 'md';
   showIcon?: boolean;
   className?: string;
@@ -71,19 +71,27 @@ export function SynonymBadge({
   showIcon = true,
   className,
 }: SynonymBadgeProps) {
-  const info = SYNONYM_CATEGORIES[category];
+  // Handle unknown categories by falling back to 'other'
+  const normalizedCategory: SynonymCategory =
+    category in SYNONYM_CATEGORIES ? category : 'other';
+  const info = SYNONYM_CATEGORIES[normalizedCategory];
+
+  // For display, capitalize the original category if unknown
+  const displayLabel = category in SYNONYM_CATEGORIES
+    ? info.label
+    : category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
     <span
       className={cn(
         'inline-flex items-center gap-1.5 rounded-full font-medium',
-        categoryColors[category],
+        categoryColors[normalizedCategory],
         size === 'sm' ? 'px-2.5 py-0.5 text-xs' : 'px-3 py-1 text-sm',
         className
       )}
     >
-      {showIcon && categoryIcons[category]}
-      <span>{info.label}</span>
+      {showIcon && categoryIcons[normalizedCategory]}
+      <span>{displayLabel}</span>
     </span>
   );
 }

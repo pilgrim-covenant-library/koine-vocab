@@ -25,13 +25,27 @@ export default function SynonymsPage() {
     setViewedGroups(viewed);
   }, []);
 
+  // Valid categories from the type system
+  const validCategories: (SynonymCategory | 'all')[] = [
+    'all', 'love', 'know', 'see', 'ask', 'pray', 'sin', 'power',
+    'new', 'time', 'life', 'word', 'temple', 'world', 'another', 'servant', 'other'
+  ];
+
+  // Helper to normalize category - unknown categories map to 'other'
+  const normalizeCategory = (cat: string): SynonymCategory => {
+    if (validCategories.includes(cat as SynonymCategory)) {
+      return cat as SynonymCategory;
+    }
+    return 'other';
+  };
+
   // Filter and sort synonym groups
   const filteredGroups = useMemo(() => {
     let result = synonymGroups;
 
-    // Filter by category
+    // Filter by category (using normalized categories)
     if (activeCategory !== 'all') {
-      result = result.filter((g) => g.category === activeCategory);
+      result = result.filter((g) => normalizeCategory(g.category) === activeCategory);
     }
 
     // Filter by search
@@ -84,7 +98,8 @@ export default function SynonymsPage() {
       other: 0,
     };
     synonymGroups.forEach((g) => {
-      counts[g.category]++;
+      const normalizedCat = normalizeCategory(g.category);
+      counts[normalizedCat]++;
     });
     return counts;
   }, []);
