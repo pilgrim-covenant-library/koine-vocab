@@ -8,7 +8,6 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
 import { StreakFire } from '@/components/StreakFire';
 import { ProgressRing } from '@/components/ProgressRing';
-import { Onboarding } from '@/components/Onboarding';
 import { DailyQuests } from '@/components/DailyQuests';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -18,22 +17,10 @@ import vocabularyData from '@/data/vocabulary.json';
 export default function Dashboard() {
   const { stats, getDueWords, getLearnedWordsCount, dailyGoal, todayReviews, progress } = useUserStore();
   const [mounted, setMounted] = useState(false);
-  const [showOnboarding, setShowOnboarding] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Check if user is new and hasn't seen onboarding
-    const hasSeenOnboarding = localStorage.getItem('koine-onboarding-complete');
-    const isNewUser = Object.keys(progress).length === 0 && stats.totalReviews === 0;
-    if (isNewUser && !hasSeenOnboarding) {
-      setShowOnboarding(true);
-    }
-  }, [progress, stats.totalReviews]);
-
-  const handleOnboardingComplete = () => {
-    localStorage.setItem('koine-onboarding-complete', 'true');
-    setShowOnboarding(false);
-  };
+  }, []);
 
   if (!mounted) {
     return <DashboardSkeleton />;
@@ -55,15 +42,6 @@ export default function Dashboard() {
   };
 
   return (
-    <>
-      {/* Onboarding for new users */}
-      {showOnboarding && (
-        <Onboarding
-          onComplete={handleOnboardingComplete}
-          onSkip={handleOnboardingComplete}
-        />
-      )}
-
       <div className="min-h-screen">
         {/* Header */}
         <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
@@ -303,7 +281,6 @@ export default function Dashboard() {
         </section>
       </main>
     </div>
-    </>
   );
 }
 
