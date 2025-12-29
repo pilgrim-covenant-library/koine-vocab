@@ -2,16 +2,19 @@
 
 import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, BookCopy, Search, X } from 'lucide-react';
+import { ArrowLeft, BookCopy, Search, X, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { SynonymCard, SynonymCardSkeleton, SynonymCategoryTabs } from '@/components/synonyms';
+import { SectionErrorBoundary } from '@/components/ErrorBoundary';
 import { storage } from '@/lib/utils';
 import synonymsData from '@/data/vine-synonyms.json';
 import type { SynonymGroup, SynonymCategory } from '@/types';
 
-// Type assertion for imported JSON
-const synonymGroups = synonymsData.synonymGroups as SynonymGroup[];
+// Type assertion for imported JSON with defensive check
+const synonymGroups: SynonymGroup[] = Array.isArray(synonymsData?.synonymGroups)
+  ? (synonymsData.synonymGroups as SynonymGroup[])
+  : [];
 
 export default function SynonymsPage() {
   const [mounted, setMounted] = useState(false);
@@ -21,8 +24,14 @@ export default function SynonymsPage() {
 
   useEffect(() => {
     setMounted(true);
-    const viewed = storage.get<string[]>('synonyms-viewed', []);
-    setViewedGroups(viewed);
+    try {
+      const viewed = storage.get<string[]>('synonyms-viewed', []);
+      // Defensive: ensure viewed is an array
+      setViewedGroups(Array.isArray(viewed) ? viewed : []);
+    } catch (error) {
+      console.error('Failed to load viewed synonyms:', error);
+      setViewedGroups([]);
+    }
   }, []);
 
   // Valid categories from the type system
@@ -171,28 +180,38 @@ export default function SynonymsPage() {
           />
         </div>
 
-        {/* Synonym Groups Grid */}
-        {filteredGroups.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">No synonym groups found matching your criteria.</p>
-            <Button
-              variant="ghost"
-              onClick={() => {
-                setSearch('');
-                setActiveCategory('all');
-              }}
-              className="mt-2"
-            >
-              Clear filters
-            </Button>
-          </div>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {filteredGroups.map((group) => (
-              <SynonymCard key={group.id} group={group} />
-            ))}
-          </div>
-        )}
+        {/* Synonym Groups Grid - wrapped in error boundary */}
+        <SectionErrorBoundary sectionName="Synonym Groups">
+          {synonymGroups.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="flex justify-center mb-4">
+                <AlertCircle className="w-12 h-12 text-muted-foreground" />
+              </div>
+              <p className="text-muted-foreground">Synonym data is currently unavailable.</p>
+              <p className="text-sm text-muted-foreground mt-1">Please try refreshing the page.</p>
+            </div>
+          ) : filteredGroups.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No synonym groups found matching your criteria.</p>
+              <Button
+                variant="ghost"
+                onClick={() => {
+                  setSearch('');
+                  setActiveCategory('all');
+                }}
+                className="mt-2"
+              >
+                Clear filters
+              </Button>
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2">
+              {filteredGroups.map((group, index) => (
+                <SynonymCard key={group?.id || `group-${index}`} group={group} />
+              ))}
+            </div>
+          )}
+        </SectionErrorBoundary>
       </main>
     </div>
   );

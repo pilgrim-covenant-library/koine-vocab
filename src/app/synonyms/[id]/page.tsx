@@ -3,41 +3,51 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { ArrowLeft, ChevronLeft, ChevronRight, Share2, BookOpen } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Share2, BookOpen, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { SynonymBadge, SynonymDisplay } from '@/components/synonyms';
+import { SectionErrorBoundary } from '@/components/ErrorBoundary';
 import { storage } from '@/lib/utils';
 import synonymsData from '@/data/vine-synonyms.json';
 import type { SynonymGroup } from '@/types';
 
-// Type assertion for imported JSON
-const synonymGroups = synonymsData.synonymGroups as SynonymGroup[];
+// Type assertion for imported JSON with defensive check
+const synonymGroups: SynonymGroup[] = Array.isArray(synonymsData?.synonymGroups)
+  ? (synonymsData.synonymGroups as SynonymGroup[])
+  : [];
 
 export default function SynonymDetailPage() {
   const params = useParams();
   const [mounted, setMounted] = useState(false);
 
-  const groupId = params.id as string;
-  const group = synonymGroups.find((g) => g.id === groupId);
+  // Defensive: safely extract groupId from params
+  const groupId = typeof params?.id === 'string' ? params.id : '';
+  const group = groupId ? synonymGroups.find((g) => g?.id === groupId) : null;
 
-  // Find adjacent groups for navigation
-  const currentIndex = synonymGroups.findIndex((g) => g.id === groupId);
+  // Find adjacent groups for navigation (with defensive checks)
+  const currentIndex = groupId ? synonymGroups.findIndex((g) => g?.id === groupId) : -1;
   const prevGroup = currentIndex > 0 ? synonymGroups[currentIndex - 1] : null;
-  const nextGroup = currentIndex < synonymGroups.length - 1 ? synonymGroups[currentIndex + 1] : null;
+  const nextGroup = currentIndex >= 0 && currentIndex < synonymGroups.length - 1
+    ? synonymGroups[currentIndex + 1]
+    : null;
 
   // Mark group as viewed
   useEffect(() => {
     setMounted(true);
 
-    if (group) {
-      const viewed = storage.get<string[]>('synonyms-viewed', []);
-      if (!viewed.includes(group.id)) {
-        const updated = [...viewed, group.id];
-        storage.set('synonyms-viewed', updated);
+    if (group?.id) {
+      try {
+        const viewed = storage.get<string[]>('synonyms-viewed', []);
+        if (!viewed.includes(group.id)) {
+          const updated = [...viewed, group.id];
+          storage.set('synonyms-viewed', updated);
+        }
+      } catch (error) {
+        console.error('Failed to update viewed synonyms:', error);
       }
     }
-  }, [group]);
+  }, [group?.id]);
 
   // Handle share
   const handleShare = async () => {
@@ -140,8 +150,10 @@ export default function SynonymDetailPage() {
           ))}
         </div>
 
-        {/* Full Display */}
-        <SynonymDisplay group={group} />
+        {/* Full Display - wrapped in error boundary */}
+        <SectionErrorBoundary sectionName="Synonym Details">
+          <SynonymDisplay group={group} />
+        </SectionErrorBoundary>
 
         {/* Tags */}
         <section className="mt-8">

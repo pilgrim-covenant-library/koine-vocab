@@ -106,3 +106,81 @@ export function useErrorHandler() {
     });
   }, []);
 }
+
+/**
+ * Smaller inline error fallback for less critical errors in sections
+ */
+export function InlineError({ message, onRetry }: { message?: string; onRetry?: () => void }) {
+  return (
+    <div className="flex items-center justify-between gap-2 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-200 text-sm">
+      <div className="flex items-center gap-2">
+        <AlertTriangle className="w-4 h-4 shrink-0" />
+        <span>{message || 'Unable to load this content.'}</span>
+      </div>
+      {onRetry && (
+        <button
+          onClick={onRetry}
+          className="p-1 hover:bg-amber-100 dark:hover:bg-amber-900/40 rounded"
+        >
+          <RefreshCw className="w-4 h-4" />
+        </button>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Section-level error boundary for wrapping feature sections
+ * Shows a more compact error message that doesn't take over the whole screen
+ */
+export class SectionErrorBoundary extends React.Component<
+  { children: React.ReactNode; sectionName?: string },
+  ErrorBoundaryState
+> {
+  constructor(props: { children: React.ReactNode; sectionName?: string }) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error(`Error in ${this.props.sectionName || 'section'}:`, error, errorInfo);
+  }
+
+  handleRetry = () => {
+    this.setState({ hasError: false, error: null });
+  };
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <Card className="border-l-4 border-l-amber-500">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                <div>
+                  <h4 className="font-medium text-foreground">
+                    {this.props.sectionName ? `${this.props.sectionName} ` : ''}Error
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    This section encountered a problem loading.
+                  </p>
+                </div>
+              </div>
+              <Button variant="ghost" size="sm" onClick={this.handleRetry}>
+                <RefreshCw className="w-4 h-4 mr-1" />
+                Retry
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      );
+    }
+
+    return this.props.children;
+  }
+}

@@ -1,20 +1,42 @@
 'use client';
 
 import Link from 'next/link';
-import { ChevronRight, BookOpen } from 'lucide-react';
+import { ChevronRight, BookOpen, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/Card';
 import { SynonymBadge } from './SynonymBadge';
 import type { SynonymGroup } from '@/types';
 
 interface SynonymCardProps {
-  group: SynonymGroup;
+  group: SynonymGroup | null | undefined;
   className?: string;
 }
 
 export function SynonymCard({ group, className }: SynonymCardProps) {
+  // Defensive: handle null/undefined group
+  if (!group) {
+    return (
+      <Card className={cn('opacity-50', className)}>
+        <CardContent className="p-4 sm:p-5">
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <AlertCircle className="w-4 h-4" />
+            <span className="text-sm">Content unavailable</span>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  // Defensive: ensure required fields exist with fallbacks
+  const groupId = group.id || 'unknown';
+  const category = group.category || 'other';
+  const title = group.title || 'Untitled Group';
+  const englishWord = group.englishWord || '—';
+  const words = Array.isArray(group.words) ? group.words : [];
+  const introduction = group.introduction || '';
+
   return (
-    <Link href={`/synonyms/${group.id}`} className="block group">
+    <Link href={`/synonyms/${groupId}`} className="block group">
       <Card
         className={cn(
           'transition-all duration-200',
@@ -26,46 +48,52 @@ export function SynonymCard({ group, className }: SynonymCardProps) {
         <CardContent className="p-4 sm:p-5">
           {/* Header: Category Badge */}
           <div className="flex items-center justify-between gap-2 mb-3">
-            <SynonymBadge category={group.category} size="sm" />
+            <SynonymBadge category={category} size="sm" />
             <span className="text-xs text-muted-foreground">
-              {group.words.length} words
+              {words.length} word{words.length !== 1 ? 's' : ''}
             </span>
           </div>
 
           {/* Title */}
           <h3 className="font-semibold text-lg text-foreground mb-2">
-            {group.title}
+            {title}
           </h3>
 
           {/* English Word */}
           <div className="flex items-center gap-2 mb-3">
             <BookOpen className="w-4 h-4 text-muted-foreground" />
             <span className="text-sm text-muted-foreground">
-              English: <span className="font-medium text-foreground">{group.englishWord}</span>
+              English: <span className="font-medium text-foreground">{englishWord}</span>
             </span>
           </div>
 
           {/* Greek Words Preview */}
-          <div className="flex flex-wrap gap-2 mb-3">
-            {group.words.slice(0, 3).map((word) => (
-              <span
-                key={word.strongs}
-                className="px-2 py-1 bg-muted/50 rounded text-sm font-greek"
-              >
-                {word.greek}
-              </span>
-            ))}
-            {group.words.length > 3 && (
-              <span className="px-2 py-1 text-sm text-muted-foreground">
-                +{group.words.length - 3} more
-              </span>
-            )}
-          </div>
+          {words.length > 0 ? (
+            <div className="flex flex-wrap gap-2 mb-3">
+              {words.slice(0, 3).map((word, index) => (
+                <span
+                  key={word?.strongs || `word-${index}`}
+                  className="px-2 py-1 bg-muted/50 rounded text-sm font-greek"
+                >
+                  {word?.greek || '—'}
+                </span>
+              ))}
+              {words.length > 3 && (
+                <span className="px-2 py-1 text-sm text-muted-foreground">
+                  +{words.length - 3} more
+                </span>
+              )}
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground mb-3">No words available</p>
+          )}
 
           {/* Introduction */}
-          <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
-            {group.introduction}
-          </p>
+          {introduction && (
+            <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+              {introduction}
+            </p>
+          )}
 
           {/* Read More Indicator */}
           <div className="flex items-center justify-end text-sm text-primary font-medium group-hover:text-primary/80">

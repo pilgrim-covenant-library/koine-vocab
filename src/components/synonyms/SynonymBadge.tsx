@@ -72,14 +72,17 @@ export function SynonymBadge({
   className,
 }: SynonymBadgeProps) {
   // Handle unknown categories by falling back to 'other'
+  // Type guard to safely narrow the category type
   const normalizedCategory: SynonymCategory =
-    category in SYNONYM_CATEGORIES ? category : 'other';
+    (category in SYNONYM_CATEGORIES) ? (category as SynonymCategory) : 'other';
   const info = SYNONYM_CATEGORIES[normalizedCategory];
 
   // For display, capitalize the original category if unknown
-  const displayLabel = category in SYNONYM_CATEGORIES
-    ? info.label
-    : category.charAt(0).toUpperCase() + category.slice(1);
+  // Defensive: ensure info exists before accessing label
+  const displayLabel = info?.label
+    ?? (typeof category === 'string' && category.length > 0
+        ? category.charAt(0).toUpperCase() + category.slice(1)
+        : 'Other');
 
   return (
     <span
