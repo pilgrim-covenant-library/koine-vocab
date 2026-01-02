@@ -12,6 +12,7 @@ interface FlashCardProps {
   onFlip?: () => void;
   className?: string;
   blindMode?: boolean;
+  isTransitioning?: boolean;
 }
 
 export function FlashCard({
@@ -20,6 +21,7 @@ export function FlashCard({
   onFlip,
   className,
   blindMode = false,
+  isTransitioning = false,
 }: FlashCardProps) {
   const [localFlipped, setLocalFlipped] = useState(false);
   const flipped = isFlipped !== undefined ? isFlipped : localFlipped;
@@ -36,6 +38,7 @@ export function FlashCard({
     <div
       className={cn(
         'flip-card w-full max-w-md h-72 cursor-pointer',
+        isTransitioning && 'flip-card-transitioning',
         className
       )}
       onClick={handleClick}
@@ -54,7 +57,7 @@ export function FlashCard({
         <div className="flip-card-front">
           <div
             className={cn(
-              'h-full rounded-2xl border-2 bg-card shadow-lg',
+              'h-full rounded-2xl border-2 bg-card shadow-lg flip-card-content',
               'flex flex-col items-center justify-center p-8',
               'transition-shadow hover:shadow-xl'
             )}
@@ -103,7 +106,7 @@ export function FlashCard({
         <div className="flip-card-back">
           <div
             className={cn(
-              'h-full rounded-2xl border-2 bg-card shadow-lg',
+              'h-full rounded-2xl border-2 bg-card shadow-lg flip-card-content',
               'flex flex-col items-center justify-center p-6',
               'transition-shadow hover:shadow-xl overflow-y-auto'
             )}

@@ -58,6 +58,7 @@ export interface SRSCard {
   easeFactor: number;
   interval: number;
   repetitions: number;
+  learningStep?: number; // Current step in learning phase (0-3), undefined = graduated
 }
 
 export interface SRSResult extends SRSCard {
@@ -71,6 +72,7 @@ export interface WordProgress {
   interval: number;
   repetitions: number;
   maxRepetitions: number; // Tracks highest repetition count ever reached (for stable "learned" status)
+  learningStep?: number; // Current step in learning phase (0-3), undefined = graduated to SM-2
   nextReview: Date;
   lastReview: Date | null;
   lastQuality: number;

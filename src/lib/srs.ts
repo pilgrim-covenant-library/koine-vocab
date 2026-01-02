@@ -3,10 +3,25 @@ import type { SRSCard, SRSResult, WordProgress } from '@/types';
 /**
  * SM-2 Spaced Repetition Algorithm
  * Based on the SuperMemo SM-2 algorithm with modern enhancements
+ *
+ * Includes a "learning phase" for new cards with sub-day intervals:
+ * - Learning steps: 1 minute → 10 minutes → 1 hour → 4 hours
+ * - After graduating from learning phase, cards enter standard SM-2 with 1-day intervals
  */
 
 const DEFAULT_EASE_FACTOR = 2.5;
 const MIN_EASE_FACTOR = 1.3;
+
+// Learning phase intervals in minutes
+// These short intervals help cement new words into short-term memory
+const LEARNING_STEPS_MINUTES = [1, 10, 60, 240]; // 1m, 10m, 1hr, 4hr
+
+/**
+ * Check if a card is in learning phase
+ */
+export function isInLearningPhase(card: SRSCard): boolean {
+  return card.learningStep !== undefined && card.learningStep < LEARNING_STEPS_MINUTES.length;
+}
 
 /**
  * Calculate the next review date based on quality rating
@@ -20,7 +35,7 @@ export function calculateNextReview(
   quality: number,
   intervalModifier: number = 1.0
 ): SRSResult {
-  let { easeFactor, interval, repetitions } = card;
+  let { easeFactor, interval, repetitions, learningStep } = card;
 
   // Handle NaN quality - treat as incorrect response (quality 1)
   if (isNaN(quality) || quality === null || quality === undefined) {
@@ -30,20 +45,56 @@ export function calculateNextReview(
   // Clamp quality to 0-5
   quality = Math.max(0, Math.min(5, Math.round(quality)));
 
-  if (quality >= 3) {
-    // Correct response
-    if (repetitions === 0) {
-      interval = Math.max(1, Math.round(1 * intervalModifier));
-    } else if (repetitions === 1) {
-      interval = Math.max(1, Math.round(6 * intervalModifier));
+  const nextReview = new Date();
+
+  // Check if card is in learning phase
+  if (isInLearningPhase(card)) {
+    if (quality >= 3) {
+      // Correct during learning - advance to next step
+      learningStep = (learningStep ?? 0) + 1;
+
+      if (learningStep >= LEARNING_STEPS_MINUTES.length) {
+        // Graduated from learning phase - enter standard SM-2
+        learningStep = undefined;
+        repetitions = 1;
+        interval = Math.max(1, Math.round(1 * intervalModifier)); // 1 day
+        nextReview.setDate(nextReview.getDate() + interval);
+        nextReview.setHours(0, 0, 0, 0);
+      } else {
+        // Still in learning - set next review in minutes
+        const minutesUntilNext = LEARNING_STEPS_MINUTES[learningStep];
+        nextReview.setMinutes(nextReview.getMinutes() + minutesUntilNext);
+        interval = 0; // Signal that this is sub-day interval
+      }
     } else {
-      interval = Math.max(1, Math.round(interval * easeFactor * intervalModifier));
+      // Incorrect during learning - reset to first learning step
+      learningStep = 0;
+      const minutesUntilNext = LEARNING_STEPS_MINUTES[0];
+      nextReview.setMinutes(nextReview.getMinutes() + minutesUntilNext);
+      interval = 0;
     }
-    repetitions += 1;
   } else {
-    // Incorrect - reset to beginning
-    repetitions = 0;
-    interval = 1;
+    // Standard SM-2 algorithm for graduated cards
+    if (quality >= 3) {
+      // Correct response
+      if (repetitions === 0) {
+        interval = Math.max(1, Math.round(1 * intervalModifier));
+      } else if (repetitions === 1) {
+        interval = Math.max(1, Math.round(6 * intervalModifier));
+      } else {
+        interval = Math.max(1, Math.round(interval * easeFactor * intervalModifier));
+      }
+      repetitions += 1;
+      nextReview.setDate(nextReview.getDate() + interval);
+      nextReview.setHours(0, 0, 0, 0); // Start of day
+    } else {
+      // Incorrect - reset to learning phase
+      learningStep = 0;
+      repetitions = 0;
+      interval = 0;
+      const minutesUntilNext = LEARNING_STEPS_MINUTES[0];
+      nextReview.setMinutes(nextReview.getMinutes() + minutesUntilNext);
+    }
   }
 
   // Update ease factor using SM-2 formula
@@ -54,16 +105,12 @@ export function calculateNextReview(
   const MAX_EASE_FACTOR = 3.0;
   easeFactor = Math.max(MIN_EASE_FACTOR, Math.min(MAX_EASE_FACTOR, easeFactor));
 
-  // Calculate next review date
-  const nextReview = new Date();
-  nextReview.setDate(nextReview.getDate() + interval);
-  nextReview.setHours(0, 0, 0, 0); // Start of day
-
-  return { easeFactor, interval, repetitions, nextReview };
+  return { easeFactor, interval, repetitions, learningStep, nextReview };
 }
 
 /**
  * Create initial progress for a new word
+ * New words start in learning phase at step 0
  */
 export function createInitialProgress(wordId: string): WordProgress {
   const now = new Date();
@@ -73,6 +120,7 @@ export function createInitialProgress(wordId: string): WordProgress {
     interval: 0,
     repetitions: 0,
     maxRepetitions: 0,
+    learningStep: 0, // Start in learning phase
     nextReview: now,
     lastReview: null,
     lastQuality: 0,
@@ -94,6 +142,7 @@ export function updateWordProgress(
       easeFactor: progress.easeFactor,
       interval: progress.interval,
       repetitions: progress.repetitions,
+      learningStep: progress.learningStep,
     },
     quality,
     intervalModifier
@@ -104,6 +153,7 @@ export function updateWordProgress(
     easeFactor: result.easeFactor,
     interval: result.interval,
     repetitions: result.repetitions,
+    learningStep: result.learningStep,
     maxRepetitions: Math.max(progress.maxRepetitions || 0, result.repetitions),
     nextReview: result.nextReview,
     lastReview: new Date(),
@@ -184,21 +234,38 @@ export function getButtonIntervals(
         easeFactor: progress.easeFactor,
         interval: progress.interval,
         repetitions: progress.repetitions,
+        learningStep: progress.learningStep,
       },
       quality,
       intervalModifier
     );
-    intervals[button] = formatInterval(result.interval);
+
+    // For learning phase cards, show time until next review
+    if (result.learningStep !== undefined) {
+      const minutesUntilNext = LEARNING_STEPS_MINUTES[result.learningStep];
+      intervals[button] = formatMinutes(minutesUntilNext);
+    } else {
+      intervals[button] = formatInterval(result.interval);
+    }
   }
 
   return intervals;
 }
 
 /**
- * Format interval as human-readable string
+ * Format minutes as human-readable string
+ */
+function formatMinutes(minutes: number): string {
+  if (minutes < 60) return `${minutes}m`;
+  const hours = Math.round(minutes / 60);
+  return `${hours}h`;
+}
+
+/**
+ * Format interval (in days) as human-readable string
  */
 function formatInterval(days: number): string {
-  if (days === 0) return '<1d';
+  if (days === 0) return '<1m'; // Learning phase
   if (days === 1) return '1d';
   if (days < 7) return `${days}d`;
   if (days < 30) return `${Math.round(days / 7)}w`;

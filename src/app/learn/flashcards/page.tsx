@@ -43,6 +43,7 @@ export default function FlashcardsPage() {
     isFlipped,
     flipCard,
     nextWord,
+    rateCard,
     recordXP,
     getProgress,
     getSessionStats,
@@ -58,6 +59,7 @@ export default function FlashcardsPage() {
   const [unlockedAchievements, setUnlockedAchievements] = useState<Achievement[]>([]);
   const [showUndo, setShowUndo] = useState(false);
   const [undoTimeLeft, setUndoTimeLeft] = useState(0);
+  const [isCardTransitioning, setIsCardTransitioning] = useState(false);
 
   // Cloud sync state
   const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
@@ -192,10 +194,13 @@ export default function FlashcardsPage() {
 
   const handleRate = useCallback(
     (quality: number) => {
-      if (!currentWord) return;
+      if (!currentWord || isCardTransitioning) return;
 
       // Review the word and get XP
       const { xpGained, leveledUp } = reviewWord(currentWord.id, quality);
+
+      // Record the review in session store (updates stats like correct count)
+      rateCard(quality);
 
       // Show XP gain animation and record in session
       if (xpGained > 0) {
@@ -210,7 +215,15 @@ export default function FlashcardsPage() {
 
       // Move to next word or end session
       if (currentIndex < words.length - 1) {
-        nextWord();
+        // Smooth transition: fade out content, then move to next card
+        setIsCardTransitioning(true);
+        setTimeout(() => {
+          nextWord();
+          // Brief delay to let React render the new content, then fade in
+          setTimeout(() => {
+            setIsCardTransitioning(false);
+          }, 50);
+        }, 150);
       } else {
         // Session complete - check for achievements
         const stats = getSessionStats();
@@ -226,7 +239,7 @@ export default function FlashcardsPage() {
         setSessionComplete(true);
       }
     },
-    [currentWord, currentIndex, words.length, reviewWord, nextWord, recordXP, getSessionStats, checkAndUnlockAchievements]
+    [currentWord, currentIndex, words.length, reviewWord, rateCard, nextWord, recordXP, getSessionStats, checkAndUnlockAchievements, isCardTransitioning]
   );
 
   // Undo countdown timer
@@ -410,12 +423,12 @@ export default function FlashcardsPage() {
                 </p>
                 <p className="text-3xl font-bold text-purple-500">{sessionStats.accuracy}%</p>
               </div>
-              <div className="flex gap-3">
-                <Button variant="outline" onClick={handleRestart} className="flex-1">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button variant="outline" onClick={handleRestart} className="flex-1 min-w-[120px]">
                   <RotateCcw className="w-4 h-4 mr-2" />
                   Study More
                 </Button>
-                <Button onClick={handleEndSession} className="flex-1">
+                <Button onClick={handleEndSession} className="flex-1 min-w-[120px]">
                   Done
                 </Button>
               </div>
@@ -437,25 +450,25 @@ export default function FlashcardsPage() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between mb-2">
-            {/* Sync status indicator */}
-            <div className="w-10 flex items-center justify-start">
+          <div className="flex items-center justify-between gap-4 mb-2">
+            {/* Sync status indicator - balanced width with right button */}
+            <div className="w-10 h-10 flex items-center justify-center shrink-0">
               {user && syncStatus !== 'idle' && (
                 <div className="flex items-center gap-1" title={
                   syncStatus === 'syncing' ? 'Saving to cloud...' :
                   syncStatus === 'synced' ? 'Saved to cloud' :
                   'Sync failed - data saved locally'
                 }>
-                  {syncStatus === 'syncing' && <Loader2 className="w-3.5 h-3.5 animate-spin text-primary" />}
-                  {syncStatus === 'synced' && <Cloud className="w-3.5 h-3.5 text-green-500" />}
-                  {syncStatus === 'error' && <CloudOff className="w-3.5 h-3.5 text-orange-500" />}
+                  {syncStatus === 'syncing' && <Loader2 className="w-4 h-4 animate-spin text-primary" />}
+                  {syncStatus === 'synced' && <Cloud className="w-4 h-4 text-green-500" />}
+                  {syncStatus === 'error' && <CloudOff className="w-4 h-4 text-orange-500" />}
                 </div>
               )}
             </div>
-            <span className="text-sm font-medium">
+            <span className="text-sm font-medium text-center flex-1">
               {sessionProgress.current} / {sessionProgress.total}
             </span>
-            <Button variant="ghost" size="icon" onClick={handleEndSession} aria-label="Exit session">
+            <Button variant="ghost" size="icon" onClick={handleEndSession} aria-label="Exit session" className="shrink-0">
               <X className="w-5 h-5" />
             </Button>
           </div>
@@ -516,6 +529,7 @@ export default function FlashcardsPage() {
             onFlip={flipCard}
             className="mb-6"
             blindMode={blindMode}
+            isTransitioning={isCardTransitioning}
           />
         )}
 
