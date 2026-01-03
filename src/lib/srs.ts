@@ -165,11 +165,25 @@ export function updateWordProgress(
 
 /**
  * Check if a word is due for review
+ * For learning phase cards (interval=0), compare exact time
+ * For graduated cards, compare dates only
  */
 export function isDue(progress: WordProgress): boolean {
   const now = new Date();
-  now.setHours(0, 0, 0, 0);
-  return progress.nextReview <= now;
+
+  // Learning phase cards have interval=0 and need sub-day precision
+  if (progress.interval === 0 || progress.learningStep !== undefined) {
+    return progress.nextReview <= now;
+  }
+
+  // Graduated cards compare at day level (midnight comparison)
+  const todayMidnight = new Date(now);
+  todayMidnight.setHours(0, 0, 0, 0);
+
+  const reviewDate = new Date(progress.nextReview);
+  reviewDate.setHours(0, 0, 0, 0);
+
+  return reviewDate <= todayMidnight;
 }
 
 /**

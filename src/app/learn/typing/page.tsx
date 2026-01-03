@@ -212,11 +212,11 @@ export default function TypingPage() {
       nextWord();
     } else {
       // Session complete - check for achievements
-      const stats = getSessionStats();
+      const sessionStatsData = getSessionStats();
       const sessionData = {
-        reviews: stats.total,
+        reviews: sessionStatsData.total,
         duration: Date.now() - (useSessionStore.getState().startTime || Date.now()),
-        isPerfect: stats.accuracy === 100,
+        isPerfect: sessionStatsData.accuracy === 100,
       };
       const newAchievements = checkAndUnlockAchievements(sessionData);
       if (newAchievements.length > 0) {

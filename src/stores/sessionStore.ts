@@ -333,8 +333,27 @@ export const useSessionStore = create<SessionState>()(
         xpEarned: state.xpEarned,
         currentStreak: state.currentStreak,
         bestStreak: state.bestStreak,
-        // Don't persist: startTime, lastWordTime, isFlipped, showResult, selectedAnswer, typedAnswer
+        // Also persist startTime to enable accurate duration calculation on rehydration
+        startTime: state.startTime,
+        // Don't persist: lastWordTime, isFlipped, showResult, selectedAnswer, typedAnswer
       }),
+      // Validate rehydrated state to prevent corruption issues
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          // If session was interrupted (rehydrated with isActive=true), initialize lastWordTime
+          if (state.isActive && !state.startTime) {
+            state.startTime = Date.now();
+          }
+          // Ensure currentIndex is within bounds
+          if (state.currentIndex >= state.words.length) {
+            state.currentIndex = Math.max(0, state.words.length - 1);
+          }
+          // Ensure reviews array is valid
+          if (!Array.isArray(state.reviews)) {
+            state.reviews = [];
+          }
+        }
+      },
     }
   )
 );

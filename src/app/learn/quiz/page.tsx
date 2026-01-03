@@ -22,6 +22,16 @@ function generateQuizQuestion(
   word: VocabularyWord,
   allWords: VocabularyWord[]
 ): QuizQuestion {
+  // Defensive guard: ensure we have valid word and allWords
+  if (!word || !word.gloss || !Array.isArray(allWords) || allWords.length === 0) {
+    // Return a safe fallback question
+    return {
+      word: word || { id: '', greek: '', transliteration: '', gloss: 'Unknown', definition: '', partOfSpeech: 'noun', frequency: 0, tier: 1, strongs: '' } as VocabularyWord,
+      options: [word?.gloss || 'Unknown', 'Option A', 'Option B', 'Option C'],
+      correctIndex: 0,
+    };
+  }
+
   // Get all unique glosses excluding the correct answer
   const allGlosses = new Set(allWords.map((w) => w.gloss));
   allGlosses.delete(word.gloss);
@@ -281,11 +291,11 @@ export default function QuizPage() {
       nextWord();
     } else {
       // Session complete - check for achievements
-      const stats = getSessionStats();
+      const sessionStatsData = getSessionStats();
       const sessionData = {
-        reviews: stats.total,
+        reviews: sessionStatsData.total,
         duration: Date.now() - (useSessionStore.getState().startTime || Date.now()),
-        isPerfect: stats.accuracy === 100,
+        isPerfect: sessionStatsData.accuracy === 100,
       };
       const newAchievements = checkAndUnlockAchievements(sessionData);
       if (newAchievements.length > 0) {
