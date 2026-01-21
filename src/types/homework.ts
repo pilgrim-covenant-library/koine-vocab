@@ -1,6 +1,10 @@
 // Homework Type Definitions
 
+// HW1 Section IDs (5 sections)
 export type SectionId = 1 | 2 | 3 | 4 | 5;
+
+// HW2 Section IDs (5 sections)
+export type HW2SectionId = 1 | 2 | 3 | 4 | 5;
 
 export type QuestionType = 'transliteration' | 'verse' | 'mcq';
 
@@ -33,6 +37,7 @@ export interface MCQQuestion extends BaseQuestion {
   type: 'mcq';
   question: string;
   greek?: string;      // Optional Greek text to display
+  vocabHelp?: string;  // Vocabulary glosses for unfamiliar words
   options: string[];
   correctIndex: number;
   explanation: string;
@@ -134,7 +139,7 @@ export const createInitialHomework1Progress = (): Homework1Progress => ({
   totalPossible: 80,
 });
 
-// Section metadata
+// Section metadata for HW1
 export const SECTION_META: Record<SectionId, SectionMeta> = {
   1: {
     id: 1,
@@ -170,6 +175,110 @@ export const SECTION_META: Record<SectionId, SectionMeta> = {
     description: 'Parse all forms of the Greek definite article (ὁ, ἡ, τό)',
     questionCount: 24,
     helpPage: '/homework/help/article-paradigm',
+  },
+};
+
+// =============================================================================
+// HOMEWORK 2 TYPES
+// =============================================================================
+
+// HW2 Section progress (reuses SectionProgress interface with HW2SectionId)
+export interface HW2SectionProgress {
+  sectionId: HW2SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 2 progress
+export interface Homework2Progress {
+  id: 'hw2';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW2SectionId, HW2SectionProgress>;
+  currentSection: HW2SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW2 Section metadata
+export interface HW2SectionMeta {
+  id: HW2SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW2 section state
+export const createInitialHW2SectionProgress = (
+  sectionId: HW2SectionId,
+  totalQuestions: number
+): HW2SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework2Progress = (): Homework2Progress => ({
+  id: 'hw2',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW2SectionProgress(1, 24),  // 24 masculine noun questions (2nd decl: λόγος, ἄνθρωπος, θεός)
+    2: createInitialHW2SectionProgress(2, 24),  // 24 feminine noun questions
+    3: createInitialHW2SectionProgress(3, 24),  // 24 neuter noun questions (2nd decl: ἔργον, τέκνον, εὐαγγέλιον)
+    4: createInitialHW2SectionProgress(4, 24),  // 24 personal pronoun questions
+    5: createInitialHW2SectionProgress(5, 20),  // 20 preposition questions
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 136,
+});
+
+// Section metadata for HW2
+export const HW2_SECTION_META: Record<HW2SectionId, HW2SectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Masculine Nouns',
+    description: 'Parse 2nd declension masculine noun forms (λόγος, ἄνθρωπος, θεός)',
+    questionCount: 24,
+    helpPage: '/homework/help/noun-paradigms',
+  },
+  2: {
+    id: 2,
+    title: 'Feminine Nouns',
+    description: 'Parse eta, alpha-pure, and alpha-impure feminine noun forms',
+    questionCount: 24,
+    helpPage: '/homework/help/noun-paradigms',
+  },
+  3: {
+    id: 3,
+    title: 'Neuter Nouns',
+    description: 'Parse 2nd declension neuter noun forms (ἔργον, τέκνον, εὐαγγέλιον)',
+    questionCount: 24,
+    helpPage: '/homework/help/noun-paradigms',
+  },
+  4: {
+    id: 4,
+    title: 'Personal Pronouns',
+    description: 'Parse 1st, 2nd, and 3rd person pronoun forms',
+    questionCount: 24,
+    helpPage: '/homework/help/pronouns',
+  },
+  5: {
+    id: 5,
+    title: 'Prepositions',
+    description: 'Learn 16 Greek prepositions: meanings, usage, and distinctions',
+    questionCount: 40,
+    helpPage: '/homework/help/prepositions',
   },
 };
 // Homework submission for teacher dashboard
