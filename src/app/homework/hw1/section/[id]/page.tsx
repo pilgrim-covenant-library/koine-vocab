@@ -35,7 +35,6 @@ export default function SectionPage() {
     completeHomework,
     getSectionProgress,
     getAnswer,
-    canAccessSection,
     syncToCloud,
   } = useHomeworkStore();
 
@@ -66,19 +65,15 @@ export default function SectionPage() {
     ? getAnswer(sectionId, currentQuestion.id)
     : undefined;
 
-  // Check access and validate section ID
+  // Validate section ID and start section
   useEffect(() => {
     if (!isValidSectionId) {
       console.warn(`Invalid section ID: ${params.id}`);
       router.replace('/homework/hw1');
       return;
     }
-    if (!canAccessSection(sectionId)) {
-      router.replace('/homework/hw1');
-    } else {
-      startSection(sectionId);
-    }
-  }, [sectionId, isValidSectionId, params.id, canAccessSection, startSection, router]);
+    startSection(sectionId);
+  }, [sectionId, isValidSectionId, params.id, startSection, router]);
 
   // Sync immediately on tab close/navigation to prevent data loss
   useEffect(() => {

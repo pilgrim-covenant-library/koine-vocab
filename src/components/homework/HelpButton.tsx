@@ -2,9 +2,9 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { HelpCircle, Book, Type, FileText, Table, ChevronRight } from 'lucide-react';
+import { HelpCircle, Book, Type, FileText, Table, ChevronRight, Users, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { SectionId } from '@/types/homework';
+import type { SectionId, HW2SectionId } from '@/types/homework';
 
 interface HelpLink {
   href: string;
@@ -13,7 +13,8 @@ interface HelpLink {
   icon: React.ReactNode;
 }
 
-const helpLinks: HelpLink[] = [
+// HW1 Help links
+const hw1HelpLinks: HelpLink[] = [
   {
     href: '/homework/help/transliteration',
     label: 'Transliteration Guide',
@@ -40,8 +41,39 @@ const helpLinks: HelpLink[] = [
   },
 ];
 
-// Map sections to most relevant help pages
-const sectionHelpMap: Record<SectionId, string[]> = {
+// HW2 Help links
+const hw2HelpLinks: HelpLink[] = [
+  {
+    href: '/homework/help/noun-paradigms',
+    label: 'Noun Paradigms',
+    description: 'All noun declension patterns',
+    icon: <Table className="w-4 h-4" />,
+  },
+  {
+    href: '/homework/help/pronouns',
+    label: 'Personal Pronouns',
+    description: '1st, 2nd, and 3rd person forms',
+    icon: <Users className="w-4 h-4" />,
+  },
+  {
+    href: '/homework/help/prepositions',
+    label: 'Prepositions',
+    description: 'Greek prepositions and cases',
+    icon: <MapPin className="w-4 h-4" />,
+  },
+  {
+    href: '/homework/help/greek-cases',
+    label: 'Greek Cases',
+    description: 'The five case functions',
+    icon: <FileText className="w-4 h-4" />,
+  },
+];
+
+// Legacy export for backwards compatibility
+const helpLinks = hw1HelpLinks;
+
+// Map HW1 sections to most relevant help pages
+const hw1SectionHelpMap: Record<SectionId, string[]> = {
   1: ['/homework/help/transliteration'],
   2: ['/homework/help/transliteration'],
   3: ['/homework/help/grammar-terms'],
@@ -49,12 +81,25 @@ const sectionHelpMap: Record<SectionId, string[]> = {
   5: ['/homework/help/article-paradigm'],
 };
 
+// Map HW2 sections to most relevant help pages
+const hw2SectionHelpMap: Record<HW2SectionId, string[]> = {
+  1: ['/homework/help/noun-paradigms'],  // Masculine nouns
+  2: ['/homework/help/noun-paradigms'],  // Feminine nouns
+  3: ['/homework/help/noun-paradigms'],  // Neuter nouns
+  4: ['/homework/help/pronouns'],         // Personal pronouns
+  5: ['/homework/help/prepositions'],     // Prepositions
+};
+
+// Legacy alias
+const sectionHelpMap = hw1SectionHelpMap;
+
 interface HelpButtonProps {
-  currentSection?: SectionId;
+  currentSection?: SectionId | HW2SectionId;
+  homeworkId?: 'hw1' | 'hw2';
   className?: string;
 }
 
-export function HelpButton({ currentSection, className }: HelpButtonProps) {
+export function HelpButton({ currentSection, homeworkId = 'hw1', className }: HelpButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -70,11 +115,15 @@ export function HelpButton({ currentSection, className }: HelpButtonProps) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Select help links and map based on homework ID
+  const currentHelpLinks = homeworkId === 'hw2' ? hw2HelpLinks : hw1HelpLinks;
+  const currentSectionHelpMap = homeworkId === 'hw2' ? hw2SectionHelpMap : hw1SectionHelpMap;
+
   // Get recommended links based on current section
-  const recommendedHrefs = currentSection ? sectionHelpMap[currentSection] : [];
+  const recommendedHrefs = currentSection ? currentSectionHelpMap[currentSection as SectionId] : [];
 
   // Sort links: recommended first, then others
-  const sortedLinks = [...helpLinks].sort((a, b) => {
+  const sortedLinks = [...currentHelpLinks].sort((a, b) => {
     const aRecommended = recommendedHrefs.includes(a.href);
     const bRecommended = recommendedHrefs.includes(b.href);
     if (aRecommended && !bRecommended) return -1;
@@ -161,10 +210,16 @@ export function HelpButton({ currentSection, className }: HelpButtonProps) {
 }
 
 // Fixed position wrapper for use in pages
-export function FloatingHelpButton({ currentSection }: { currentSection?: SectionId }) {
+export function FloatingHelpButton({
+  currentSection,
+  homeworkId = 'hw1'
+}: {
+  currentSection?: SectionId | HW2SectionId;
+  homeworkId?: 'hw1' | 'hw2';
+}) {
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      <HelpButton currentSection={currentSection} />
+      <HelpButton currentSection={currentSection} homeworkId={homeworkId} />
     </div>
   );
 }

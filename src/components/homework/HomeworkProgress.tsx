@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, Circle, Lock } from 'lucide-react';
+import { Check, Circle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { SectionId } from '@/types/homework';
 import { SECTION_META } from '@/types/homework';
@@ -48,8 +48,6 @@ export function HomeworkProgress({
               >
                 {status === 'completed' ? (
                   <Check className="w-5 h-5" />
-                ) : !isAccessible ? (
-                  <Lock className="w-4 h-4" />
                 ) : (
                   <span className="text-sm font-medium">{sectionId}</span>
                 )}

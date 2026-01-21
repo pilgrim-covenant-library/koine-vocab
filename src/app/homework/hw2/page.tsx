@@ -9,48 +9,48 @@ import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
 import { useAuthStore } from '@/stores/authStore';
 import { HomeworkProgress } from '@/components/homework/HomeworkProgress';
-import { SECTION_META, type SectionId } from '@/types/homework';
+import { HW2_SECTION_META, type HW2SectionId } from '@/types/homework';
 import { cn } from '@/lib/utils';
 
-function Homework1Content() {
+function Homework2Content() {
   const router = useRouter();
   const { user } = useAuthStore();
   const {
-    homework1,
-    startHomework,
-    canAccessSection,
-    getOverallProgress,
-    loadFromCloud,
-    syncToCloud,
+    homework2,
+    startHomework2,
+    canAccessSection2,
+    getOverallProgress2,
+    loadFromCloud2,
+    syncToCloud2,
   } = useHomeworkStore();
 
   const [isLoading, setIsLoading] = useState(true);
-  const progress = getOverallProgress();
-  const sections: SectionId[] = [1, 2, 3, 4, 5];
+  const progress = getOverallProgress2();
+  const sections: HW2SectionId[] = [1, 2, 3, 4, 5];
 
   // Load from cloud and start homework on mount
   useEffect(() => {
     const initializeHomework = async () => {
       if (user) {
         // Try to load progress from cloud first
-        await loadFromCloud(user.uid);
+        await loadFromCloud2(user.uid);
       }
 
       // Start homework if not started
-      if (homework1.status === 'not_started') {
-        startHomework();
+      if (homework2.status === 'not_started') {
+        startHomework2();
       }
 
       // Sync initial state to cloud
       if (user) {
-        await syncToCloud(user.uid);
+        await syncToCloud2(user.uid);
       }
 
       setIsLoading(false);
     };
 
     initializeHomework();
-  }, [user, homework1.status, startHomework, loadFromCloud, syncToCloud]);
+  }, [user, homework2.status, startHomework2, loadFromCloud2, syncToCloud2]);
 
   if (isLoading) {
     return (
@@ -63,23 +63,23 @@ function Homework1Content() {
     );
   }
 
-  const handleSectionClick = (sectionId: SectionId) => {
-    if (canAccessSection(sectionId)) {
-      router.push(`/homework/hw1/section/${sectionId}`);
+  const handleSectionClick = (sectionId: HW2SectionId) => {
+    if (canAccessSection2(sectionId)) {
+      router.push(`/homework/hw2/section/${sectionId}`);
     }
   };
 
   const handleContinue = () => {
     // Find the first incomplete section
     for (const sectionId of sections) {
-      const section = homework1.sections[sectionId];
+      const section = homework2.sections[sectionId];
       if (section.status !== 'completed') {
-        router.push(`/homework/hw1/section/${sectionId}`);
+        router.push(`/homework/hw2/section/${sectionId}`);
         return;
       }
     }
     // All complete, go to completion page
-    router.push('/homework/hw1/complete');
+    router.push('/homework/hw2/complete');
   };
 
   return (
@@ -95,7 +95,7 @@ function Homework1Content() {
             <span className="text-sm">Back to Homework</span>
           </Link>
           <Link
-            href="/homework/help/transliteration"
+            href="/homework/help/noun-paradigms"
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <HelpCircle className="w-4 h-4" />
@@ -109,13 +109,13 @@ function Homework1Content() {
         <div className="space-y-8">
           {/* Title section */}
           <div className="text-center space-y-2">
-            <h1 className="text-3xl font-bold">Homework 1</h1>
+            <h1 className="text-3xl font-bold">Homework 2</h1>
             <p className="text-lg text-muted-foreground">
-              Greek Alphabet Foundations
+              Noun Declensions, Pronouns & Prepositions
             </p>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-              This homework is designed for students who have just learned the Greek
-              alphabet. Complete all 5 sections to finish.
+              This homework covers noun paradigms across all three declensions,
+              personal pronouns, and common Greek prepositions with their cases.
             </p>
           </div>
 
@@ -131,12 +131,12 @@ function Homework1Content() {
             </CardHeader>
             <CardContent>
               <HomeworkProgress
-                currentSection={homework1.currentSection}
+                currentSection={homework2.currentSection}
                 sectionStatuses={Object.fromEntries(
-                  sections.map((id) => [id, homework1.sections[id].status])
-                ) as Record<SectionId, 'not_started' | 'in_progress' | 'completed'>}
+                  sections.map((id) => [id, homework2.sections[id].status])
+                ) as Record<HW2SectionId, 'not_started' | 'in_progress' | 'completed'>}
                 onSectionClick={handleSectionClick}
-                canAccess={canAccessSection}
+                canAccess={canAccessSection2}
               />
             </CardContent>
           </Card>
@@ -146,8 +146,8 @@ function Homework1Content() {
             <h2 className="text-xl font-semibold">Sections</h2>
             <div className="grid gap-4">
               {sections.map((sectionId) => {
-                const meta = SECTION_META[sectionId];
-                const section = homework1.sections[sectionId];
+                const meta = HW2_SECTION_META[sectionId];
+                const section = homework2.sections[sectionId];
 
                 return (
                   <Card
@@ -222,7 +222,7 @@ function Homework1Content() {
           {/* Action buttons */}
           <div className="flex justify-center gap-4">
             {progress.completed === 5 ? (
-              <Link href="/homework/hw1/complete">
+              <Link href="/homework/hw2/complete">
                 <Button size="lg" className="gap-2">
                   <CheckCircle className="w-5 h-5" />
                   View Results
@@ -242,6 +242,6 @@ function Homework1Content() {
 }
 
 // Allow anyone to access homework (cloud sync still works if logged in)
-export default function Homework1Page() {
-  return <Homework1Content />;
+export default function Homework2Page() {
+  return <Homework2Content />;
 }
