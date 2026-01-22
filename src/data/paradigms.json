@@ -148,6 +148,44 @@
         }
       }
     },
+    "first_feminine_alpha_impure": {
+      "name": "1st Declension Feminine (α impure/xi)",
+      "example": "δόξα",
+      "meaning": "glory",
+      "note": "Stems ending in ε, ι, or ρ retain α throughout; others (like ξ) shift to η in genitive/dative singular",
+      "endings": {
+        "singular": {
+          "nominative": "-α",
+          "genitive": "-ης",
+          "dative": "-ῃ",
+          "accusative": "-αν",
+          "vocative": "-α"
+        },
+        "plural": {
+          "nominative": "-αι",
+          "genitive": "-ων",
+          "dative": "-αις",
+          "accusative": "-ας",
+          "vocative": "-αι"
+        }
+      },
+      "forms": {
+        "singular": {
+          "nominative": "δόξα",
+          "genitive": "δόξης",
+          "dative": "δόξῃ",
+          "accusative": "δόξαν",
+          "vocative": "δόξα"
+        },
+        "plural": {
+          "nominative": "δόξαι",
+          "genitive": "δοξῶν",
+          "dative": "δόξαις",
+          "accusative": "δόξας",
+          "vocative": "δόξαι"
+        }
+      }
+    },
     "first_masculine": {
       "name": "1st Declension Masculine",
       "example": "μαθητής",

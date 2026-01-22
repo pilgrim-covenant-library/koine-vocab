@@ -5,6 +5,7 @@ import { createInitialStats, updateStreak, awardXP, calculateLevel } from '@/lib
 import { createInitialProgress, updateWordProgress, isDue } from '@/lib/srs';
 import { checkAchievements, ACHIEVEMENTS } from '@/lib/achievements';
 import { sanitizeProgress, sanitizeUserStats, sanitizeStudyHistory, migrateLastReviewDate } from '@/lib/dataValidation';
+import { getCommonNTVocabIds, COMMON_VOCAB_COUNT } from '@/lib/commonVocab';
 import vocabularyData from '@/data/vocabulary.json';
 
 // Snapshot of state before a review (for undo functionality)
@@ -117,6 +118,8 @@ export interface UserState {
   isLeech: (wordId: string) => boolean;
   // Blind mode toggle
   setBlindMode: (enabled: boolean) => void;
+  // Common NT Vocab progress
+  getCommonVocabProgress: () => { learned: number; total: number; percentage: number };
 }
 
 export const useUserStore = create<UserState>()(
@@ -475,6 +478,17 @@ export const useUserStore = create<UserState>()(
 
       setBlindMode: (enabled: boolean) => {
         set({ blindMode: enabled });
+      },
+
+      getCommonVocabProgress: () => {
+        const { progress } = get();
+        const commonIds = getCommonNTVocabIds();
+        // A word is "learned" if it has been reviewed at least once (repetitions >= 1)
+        const learned = Object.values(progress).filter(
+          (p) => commonIds.has(p.wordId) && p.repetitions >= 1
+        ).length;
+        const percentage = Math.round((learned / COMMON_VOCAB_COUNT) * 100);
+        return { learned, total: COMMON_VOCAB_COUNT, percentage };
       },
     }),
     {

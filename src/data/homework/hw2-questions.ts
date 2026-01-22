@@ -70,12 +70,16 @@ const createPronounQuestion = (
   person: string,
   caseStr: string,
   number: string,
-  gender?: string
+  gender?: string,
+  thirdPersonOnly?: boolean
 ): MCQQuestion => {
-  // Format: "1st Person Genitive Singular" or "3rd Person Genitive Singular Masculine"
-  const correctAnswer = gender
-    ? `${person} ${caseStr} ${number} ${gender}`
-    : `${person} ${caseStr} ${number}`;
+  // For thirdPersonOnly mode (e.g., αὐτός): omit person label since it's always 3rd person
+  // Format: "Genitive Singular Masculine" instead of "3rd Person Genitive Singular Masculine"
+  const correctAnswer = thirdPersonOnly
+    ? `${caseStr} ${number} ${gender}`
+    : gender
+      ? `${person} ${caseStr} ${number} ${gender}`
+      : `${person} ${caseStr} ${number}`;
 
   const persons = ['1st Person', '2nd Person', '3rd Person'];
   const cases = ['Nominative', 'Genitive', 'Dative', 'Accusative'];
@@ -84,8 +88,20 @@ const createPronounQuestion = (
 
   const wrongOptions: string[] = [];
 
-  if (gender) {
-    // 3rd person: include gender
+  if (thirdPersonOnly && gender) {
+    // 3rd person only mode: vary only case, number, gender (no person variations)
+    for (const c of cases) {
+      for (const n of numbers) {
+        for (const g of genders) {
+          const option = `${c} ${n} ${g}`;
+          if (option !== correctAnswer && wrongOptions.length < 12) {
+            wrongOptions.push(option);
+          }
+        }
+      }
+    }
+  } else if (gender) {
+    // 3rd person with person labels: include gender
     for (const p of persons) {
       for (const c of cases) {
         for (const n of numbers) {
@@ -128,7 +144,7 @@ const createPronounQuestion = (
     options,
     correctIndex,
     explanation: `${greek} is ${correctAnswer.toLowerCase()}.`,
-    category: person.toLowerCase().replace(' ', '-'),
+    category: thirdPersonOnly ? 'autos' : person.toLowerCase().replace(' ', '-'),
   };
 };
 
@@ -245,39 +261,39 @@ const section3QuestionsBase: MCQQuestion[] = [
 
 // =============================================================================
 // SECTION 4: Personal Pronouns (24 questions)
-// 1st Person (ἐγώ) + 2nd Person (σύ) + 3rd Person (αὐτός/αὐτή/αὐτό)
+// 3rd Person αὐτός - all 24 forms (3 genders × 4 cases × 2 numbers)
 // =============================================================================
 
 const section4QuestionsBase: MCQQuestion[] = [
-  // 1st Person Pronoun - ἐγώ (8 forms)
-  createPronounQuestion('s4-q1', 'ἐγώ', '1st Person', 'Nominative', 'Singular'),
-  createPronounQuestion('s4-q2', 'ἐμοῦ / μου', '1st Person', 'Genitive', 'Singular'),
-  createPronounQuestion('s4-q3', 'ἐμοί / μοι', '1st Person', 'Dative', 'Singular'),
-  createPronounQuestion('s4-q4', 'ἐμέ / με', '1st Person', 'Accusative', 'Singular'),
-  createPronounQuestion('s4-q5', 'ἡμεῖς', '1st Person', 'Nominative', 'Plural'),
-  createPronounQuestion('s4-q6', 'ἡμῶν', '1st Person', 'Genitive', 'Plural'),
-  createPronounQuestion('s4-q7', 'ἡμῖν', '1st Person', 'Dative', 'Plural'),
-  createPronounQuestion('s4-q8', 'ἡμᾶς', '1st Person', 'Accusative', 'Plural'),
+  // Masculine (8 forms) - thirdPersonOnly=true since αὐτός is exclusively 3rd person
+  createPronounQuestion('s4-q1', 'αὐτός', '3rd Person', 'Nominative', 'Singular', 'Masculine', true),
+  createPronounQuestion('s4-q2', 'αὐτοῦ', '3rd Person', 'Genitive', 'Singular', 'Masculine', true),
+  createPronounQuestion('s4-q3', 'αὐτῷ', '3rd Person', 'Dative', 'Singular', 'Masculine', true),
+  createPronounQuestion('s4-q4', 'αὐτόν', '3rd Person', 'Accusative', 'Singular', 'Masculine', true),
+  createPronounQuestion('s4-q5', 'αὐτοί', '3rd Person', 'Nominative', 'Plural', 'Masculine', true),
+  createPronounQuestion('s4-q6', 'αὐτῶν', '3rd Person', 'Genitive', 'Plural', 'Masculine', true),
+  createPronounQuestion('s4-q7', 'αὐτοῖς', '3rd Person', 'Dative', 'Plural', 'Masculine', true),
+  createPronounQuestion('s4-q8', 'αὐτούς', '3rd Person', 'Accusative', 'Plural', 'Masculine', true),
 
-  // 2nd Person Pronoun - σύ (8 forms)
-  createPronounQuestion('s4-q9', 'σύ', '2nd Person', 'Nominative', 'Singular'),
-  createPronounQuestion('s4-q10', 'σοῦ / σου', '2nd Person', 'Genitive', 'Singular'),
-  createPronounQuestion('s4-q11', 'σοί / σοι', '2nd Person', 'Dative', 'Singular'),
-  createPronounQuestion('s4-q12', 'σέ / σε', '2nd Person', 'Accusative', 'Singular'),
-  createPronounQuestion('s4-q13', 'ὑμεῖς', '2nd Person', 'Nominative', 'Plural'),
-  createPronounQuestion('s4-q14', 'ὑμῶν', '2nd Person', 'Genitive', 'Plural'),
-  createPronounQuestion('s4-q15', 'ὑμῖν', '2nd Person', 'Dative', 'Plural'),
-  createPronounQuestion('s4-q16', 'ὑμᾶς', '2nd Person', 'Accusative', 'Plural'),
+  // Feminine (8 forms)
+  createPronounQuestion('s4-q9', 'αὐτή', '3rd Person', 'Nominative', 'Singular', 'Feminine', true),
+  createPronounQuestion('s4-q10', 'αὐτῆς', '3rd Person', 'Genitive', 'Singular', 'Feminine', true),
+  createPronounQuestion('s4-q11', 'αὐτῇ', '3rd Person', 'Dative', 'Singular', 'Feminine', true),
+  createPronounQuestion('s4-q12', 'αὐτήν', '3rd Person', 'Accusative', 'Singular', 'Feminine', true),
+  createPronounQuestion('s4-q13', 'αὐταί', '3rd Person', 'Nominative', 'Plural', 'Feminine', true),
+  createPronounQuestion('s4-q14', 'αὐτῶν', '3rd Person', 'Genitive', 'Plural', 'Feminine', true),
+  createPronounQuestion('s4-q15', 'αὐταῖς', '3rd Person', 'Dative', 'Plural', 'Feminine', true),
+  createPronounQuestion('s4-q16', 'αὐτάς', '3rd Person', 'Accusative', 'Plural', 'Feminine', true),
 
-  // 3rd Person Pronoun - αὐτός (Masculine, 8 forms - sampling key ones)
-  createPronounQuestion('s4-q17', 'αὐτός', '3rd Person', 'Nominative', 'Singular', 'Masculine'),
-  createPronounQuestion('s4-q18', 'αὐτοῦ', '3rd Person', 'Genitive', 'Singular', 'Masculine'),
-  createPronounQuestion('s4-q19', 'αὐτήν', '3rd Person', 'Accusative', 'Singular', 'Feminine'),
-  createPronounQuestion('s4-q20', 'αὐτῆς', '3rd Person', 'Genitive', 'Singular', 'Feminine'),
-  createPronounQuestion('s4-q21', 'αὐτό', '3rd Person', 'Nominative', 'Singular', 'Neuter'),
-  createPronounQuestion('s4-q22', 'αὐτοί', '3rd Person', 'Nominative', 'Plural', 'Masculine'),
-  createPronounQuestion('s4-q23', 'αὐτῶν', '3rd Person', 'Genitive', 'Plural', 'Masculine'),
-  createPronounQuestion('s4-q24', 'αὐτά', '3rd Person', 'Nominative', 'Plural', 'Neuter'),
+  // Neuter (8 forms)
+  createPronounQuestion('s4-q17', 'αὐτό', '3rd Person', 'Nominative', 'Singular', 'Neuter', true),
+  createPronounQuestion('s4-q18', 'αὐτοῦ', '3rd Person', 'Genitive', 'Singular', 'Neuter', true),
+  createPronounQuestion('s4-q19', 'αὐτῷ', '3rd Person', 'Dative', 'Singular', 'Neuter', true),
+  createPronounQuestion('s4-q20', 'αὐτό', '3rd Person', 'Accusative', 'Singular', 'Neuter', true),
+  createPronounQuestion('s4-q21', 'αὐτά', '3rd Person', 'Nominative', 'Plural', 'Neuter', true),
+  createPronounQuestion('s4-q22', 'αὐτῶν', '3rd Person', 'Genitive', 'Plural', 'Neuter', true),
+  createPronounQuestion('s4-q23', 'αὐτοῖς', '3rd Person', 'Dative', 'Plural', 'Neuter', true),
+  createPronounQuestion('s4-q24', 'αὐτά', '3rd Person', 'Accusative', 'Plural', 'Neuter', true),
 ];
 
 // =============================================================================
