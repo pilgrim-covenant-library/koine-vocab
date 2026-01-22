@@ -3,6 +3,56 @@ import type { VocabularyWord } from '@/types';
 
 const allWords = vocabularyData.words as VocabularyWord[];
 
+// =============================================================================
+// LRU CACHE - Caches expensive word relation computations
+// =============================================================================
+// Since vocabulary data is static, we can cache results indefinitely.
+// LRU eviction prevents unbounded memory growth.
+
+class LRUCache<K, V> {
+  private cache = new Map<K, V>();
+  private maxSize: number;
+
+  constructor(maxSize: number) {
+    this.maxSize = maxSize;
+  }
+
+  get(key: K): V | undefined {
+    if (!this.cache.has(key)) return undefined;
+
+    // Move to end (most recently used)
+    const value = this.cache.get(key)!;
+    this.cache.delete(key);
+    this.cache.set(key, value);
+    return value;
+  }
+
+  set(key: K, value: V): void {
+    // Delete if exists to refresh position
+    if (this.cache.has(key)) {
+      this.cache.delete(key);
+    } else if (this.cache.size >= this.maxSize) {
+      // Evict oldest (first) entry
+      const firstKey = this.cache.keys().next().value;
+      if (firstKey !== undefined) {
+        this.cache.delete(firstKey);
+      }
+    }
+    this.cache.set(key, value);
+  }
+
+  has(key: K): boolean {
+    return this.cache.has(key);
+  }
+}
+
+// Cache for word relations - 100 entries should cover active study sessions
+const relationsCache = new LRUCache<string, WordRelations>(100);
+
+// Pre-computed word lookup Map for O(1) access
+const wordById = new Map<string, VocabularyWord>();
+allWords.forEach(w => wordById.set(w.id, w));
+
 // Find words with similar meanings (based on shared words in gloss)
 export function findSimilarMeaning(word: VocabularyWord, limit = 5): VocabularyWord[] {
   const glossWords = word.gloss.toLowerCase().split(/[,;\s]+/).filter(w => w.length > 2);
@@ -78,15 +128,24 @@ export interface WordRelations {
 }
 
 export function getWordRelations(word: VocabularyWord): WordRelations {
-  return {
+  // Check cache first
+  const cached = relationsCache.get(word.id);
+  if (cached) return cached;
+
+  // Compute relations
+  const relations: WordRelations = {
     similarMeaning: findSimilarMeaning(word),
     sameCategory: findSameCategory(word),
     relatedRoot: findRelatedRoot(word),
     similarFrequency: findSimilarFrequency(word),
   };
+
+  // Cache the result
+  relationsCache.set(word.id, relations);
+  return relations;
 }
 
-// Find word by ID
+// Find word by ID - O(1) lookup using pre-computed Map
 export function findWordById(id: string): VocabularyWord | undefined {
-  return allWords.find(w => w.id === id);
+  return wordById.get(id);
 }

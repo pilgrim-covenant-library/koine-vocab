@@ -1,5 +1,6 @@
 'use client';
 
+import { memo, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import type { VocabularyWord, WordMorphology } from '@/types';
 
@@ -123,16 +124,19 @@ function deriveMorphology(word: VocabularyWord): Partial<WordMorphology> {
   return derived;
 }
 
-export function MorphologyDisplay({ word, className, compact = false }: MorphologyDisplayProps) {
+// Memoized to prevent re-renders and expensive deriveMorphology recalculations
+export const MorphologyDisplay = memo(function MorphologyDisplay({ word, className, compact = false }: MorphologyDisplayProps) {
   const posInfo = POS_LABELS[word.partOfSpeech] || {
     abbr: word.partOfSpeech,
     label: word.partOfSpeech,
     color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
   };
 
-  // Merge explicit morphology with derived morphology
-  const derivedMorph = deriveMorphology(word);
-  const morph = { ...derivedMorph, ...word.morphology };
+  // Memoize the expensive morphology derivation - only recalculate when word changes
+  const morph = useMemo(() => {
+    const derivedMorph = deriveMorphology(word);
+    return { ...derivedMorph, ...word.morphology };
+  }, [word]);
 
   // Build morphology tags
   const tags: { label: string; title: string }[] = [];
@@ -265,7 +269,7 @@ export function MorphologyDisplay({ word, className, compact = false }: Morpholo
       </div>
     </div>
   );
-}
+});
 
 // Simplified badge for inline use
 export function PartOfSpeechBadge({

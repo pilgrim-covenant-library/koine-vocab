@@ -8,6 +8,39 @@ import { sanitizeProgress, sanitizeUserStats, sanitizeStudyHistory, migrateLastR
 import { getCommonNTVocabIds, COMMON_VOCAB_COUNT } from '@/lib/commonVocab';
 import vocabularyData from '@/data/vocabulary.json';
 
+// =============================================================================
+// DEBOUNCED LOCALSTORAGE - Non-blocking writes for better UI performance
+// =============================================================================
+let pendingWrite: { name: string; value: unknown } | null = null;
+let writeScheduled = false;
+
+function scheduleWrite(name: string, value: unknown) {
+  pendingWrite = { name, value };
+
+  if (writeScheduled) return;
+  writeScheduled = true;
+
+  // Use requestIdleCallback for non-blocking writes, fallback to setTimeout
+  const scheduleIdle = typeof requestIdleCallback !== 'undefined'
+    ? requestIdleCallback
+    : (cb: () => void) => setTimeout(cb, 50);
+
+  scheduleIdle(() => {
+    writeScheduled = false;
+    if (!pendingWrite) return;
+
+    const { name: n, value: v } = pendingWrite;
+    pendingWrite = null;
+
+    try {
+      const serialized = JSON.stringify(v);
+      localStorage.setItem(n, serialized);
+    } catch (error) {
+      console.error('Failed to save to localStorage:', error);
+    }
+  });
+}
+
 // Snapshot of state before a review (for undo functionality)
 interface ReviewSnapshot {
   wordId: string;
@@ -122,6 +155,83 @@ export interface UserState {
   getCommonVocabProgress: () => { learned: number; total: number; percentage: number };
 }
 
+// =============================================================================
+// GRANULAR SELECTORS - Use these to avoid unnecessary re-renders
+// =============================================================================
+// These selectors subscribe only to specific slices of state, preventing
+// cascading re-renders when unrelated state changes.
+
+/** Select only user stats - use when you only need XP, level, streak, etc. */
+export const useUserStats = () => useUserStore((state) => state.stats);
+
+/** Select only the progress object */
+export const useUserProgress = () => useUserStore((state) => state.progress);
+
+/** Select only daily goal setting */
+export const useDailyGoal = () => useUserStore((state) => state.dailyGoal);
+
+/** Select only session length setting */
+export const useSessionLength = () => useUserStore((state) => state.sessionLength);
+
+/** Select only today's review count */
+export const useTodayReviews = () => useUserStore((state) => state.todayReviews);
+
+/** Select only selected tiers */
+export const useSelectedTiers = () => useUserStore((state) => state.selectedTiers);
+
+/** Select only selected POS filters */
+export const useSelectedPOS = () => useUserStore((state) => state.selectedPOS);
+
+/** Select only selected category filters */
+export const useSelectedCategories = () => useUserStore((state) => state.selectedCategories);
+
+/** Select only SRS mode */
+export const useSrsMode = () => useUserStore((state) => state.srsMode);
+
+/** Select only blind mode setting */
+export const useBlindMode = () => useUserStore((state) => state.blindMode);
+
+/** Select only study history */
+export const useStudyHistory = () => useUserStore((state) => state.studyHistory);
+
+/** Select only session history */
+export const useSessionHistory = () => useUserStore((state) => state.sessionHistory);
+
+// =============================================================================
+// Action-only selectors (no state, just actions - never cause re-renders)
+// =============================================================================
+export const useUserActions = () => useUserStore((state) => ({
+  initializeWord: state.initializeWord,
+  reviewWord: state.reviewWord,
+  undoLastReview: state.undoLastReview,
+  canUndo: state.canUndo,
+  getWordProgress: state.getWordProgress,
+  getDueWords: state.getDueWords,
+  getLearnedWordsCount: state.getLearnedWordsCount,
+  getInProgressWordsCount: state.getInProgressWordsCount,
+  setDailyGoal: state.setDailyGoal,
+  setSessionLength: state.setSessionLength,
+  setSelectedTiers: state.setSelectedTiers,
+  setSelectedPOS: state.setSelectedPOS,
+  setSelectedCategories: state.setSelectedCategories,
+  resetDailyCount: state.resetDailyCount,
+  unlockAchievement: state.unlockAchievement,
+  addXP: state.addXP,
+  checkAndUnlockAchievements: state.checkAndUnlockAchievements,
+  getStudyHistory: state.getStudyHistory,
+  recordSession: state.recordSession,
+  getSessionHistory: state.getSessionHistory,
+  setSrsMode: state.setSrsMode,
+  getIntervalModifier: state.getIntervalModifier,
+  getLeeches: state.getLeeches,
+  isLeech: state.isLeech,
+  setBlindMode: state.setBlindMode,
+  getCommonVocabProgress: state.getCommonVocabProgress,
+}));
+
+// =============================================================================
+// MAIN STORE
+// =============================================================================
 export const useUserStore = create<UserState>()(
   persist(
     (set, get) => ({
@@ -561,47 +671,10 @@ export const useUserStore = create<UserState>()(
         setItem: (name, value) => {
           // Check if we're in a browser environment
           if (typeof window === 'undefined') return;
-          try {
-            const serialized = JSON.stringify(value);
 
-            // Check quota before writing (rough estimate)
-            const estimatedSize = serialized.length * 2; // UTF-16 chars = 2 bytes each
-            const QUOTA_WARNING_THRESHOLD = 5 * 1024 * 1024; // 5MB
-
-            if (estimatedSize > QUOTA_WARNING_THRESHOLD) {
-              console.warn(`localStorage data approaching quota limit: ${(estimatedSize / 1024 / 1024).toFixed(2)}MB`);
-            }
-
-            localStorage.setItem(name, serialized);
-          } catch (error) {
-            if (error instanceof Error) {
-              if (error.name === 'QuotaExceededError') {
-                console.error('localStorage quota exceeded');
-                // Try to clean up old backups to free space
-                try {
-                  const keysToRemove: string[] = [];
-                  for (let i = 0; i < localStorage.length; i++) {
-                    const key = localStorage.key(i);
-                    if (key && key.includes('_corrupted_')) {
-                      keysToRemove.push(key);
-                    }
-                  }
-                  keysToRemove.forEach((key) => localStorage.removeItem(key));
-                  console.log(`Cleaned up ${keysToRemove.length} old backup(s)`);
-
-                  // Retry write after cleanup
-                  localStorage.setItem(name, JSON.stringify(value));
-                } catch (retryError) {
-                  console.error('Failed to save even after cleanup:', retryError);
-                  // TODO: Show user notification about storage full
-                  throw retryError;
-                }
-              } else {
-                console.error('Failed to save to localStorage:', error);
-                throw error;
-              }
-            }
-          }
+          // Use debounced write for non-blocking UI
+          // This batches rapid writes and uses requestIdleCallback
+          scheduleWrite(name, value);
         },
         removeItem: (name) => {
           // Check if we're in a browser environment

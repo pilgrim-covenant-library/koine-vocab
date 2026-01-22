@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { cn } from '@/lib/utils';
 import { GreekWord } from './GreekWord';
 import { MorphologyDisplay } from './MorphologyDisplay';
@@ -15,7 +15,8 @@ interface FlashCardProps {
   isTransitioning?: boolean;
 }
 
-export function FlashCard({
+// Memoized to prevent re-renders when parent state changes but props don't
+export const FlashCard = memo(function FlashCard({
   word,
   isFlipped = false,
   onFlip,
@@ -131,4 +132,4 @@ export function FlashCard({
       </div>
     </div>
   );
-}
+});

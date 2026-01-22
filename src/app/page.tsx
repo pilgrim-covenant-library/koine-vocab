@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem, BookHeart, BookCopy, Library, Crown } from 'lucide-react';
-import { useUserStore } from '@/stores/userStore';
+import { useUserStats, useUserProgress, useDailyGoal, useTodayReviews, useUserActions } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
 import { StreakFire } from '@/components/StreakFire';
@@ -14,33 +14,72 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 
+// =============================================================================
+// PRE-COMPUTED TIER DATA - Computed once at module load, not on every render
+// =============================================================================
+// This eliminates filtering 1,700 words × 5 tiers on every dashboard render
+
+const TIER_WORD_IDS: Record<number, Set<string>> = {};
+const TIER_TOTALS: Record<number, number> = {};
+
+// Pre-compute tier word Sets once when module loads
+[1, 2, 3, 4, 5].forEach(tier => {
+  const tierWords = vocabularyData.words.filter(w => w.tier === tier);
+  TIER_WORD_IDS[tier] = new Set(tierWords.map(w => w.id));
+  TIER_TOTALS[tier] = tierWords.length;
+});
+
+// Static tier metadata - defined once outside component
+const TIER_COLORS: Record<number, string> = {
+  1: 'bg-emerald-500',
+  2: 'bg-blue-500',
+  3: 'bg-amber-500',
+  4: 'bg-orange-500',
+  5: 'bg-red-500',
+};
+
+const TIER_LABELS: Record<number, string> = {
+  1: 'Essential',
+  2: 'High Freq',
+  3: 'Medium',
+  4: 'Lower',
+  5: 'Advanced',
+};
+
 export default function Dashboard() {
-  const { stats, getDueWords, getLearnedWordsCount, dailyGoal, todayReviews, progress, getCommonVocabProgress } = useUserStore();
+  // Use granular selectors to minimize re-renders
+  const stats = useUserStats();
+  const progress = useUserProgress();
+  const dailyGoal = useDailyGoal();
+  const todayReviews = useTodayReviews();
+  const { getDueWords, getLearnedWordsCount, getCommonVocabProgress } = useUserActions();
+
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <DashboardSkeleton />;
-  }
-
-  const dueCount = getDueWords().length;
-  const learnedCount = getLearnedWordsCount();
+  // Memoize expensive calculations
+  const dueCount = useMemo(() => getDueWords().length, [getDueWords]);
+  const learnedCount = useMemo(() => getLearnedWordsCount(), [getLearnedWordsCount]);
   const totalWords = vocabularyData.words.length;
   const dailyProgress = Math.min(100, Math.round((todayReviews / dailyGoal) * 100));
-  const commonVocabProgress = getCommonVocabProgress();
+  const commonVocabProgress = useMemo(() => getCommonVocabProgress(), [getCommonVocabProgress]);
 
-  // Calculate per-tier progress (words with 5+ max repetitions are "learned")
-  const getTierProgress = (tier: number) => {
-    const tierWords = vocabularyData.words.filter((w) => w.tier === tier);
-    const tierWordIds = new Set(tierWords.map((w) => w.id));
+  // Memoized tier progress calculation using pre-computed tier word Sets
+  // This avoids filtering 1,700 words × 5 tiers on every render
+  const getTierProgress = useCallback((tier: number) => {
+    const tierWordIds = TIER_WORD_IDS[tier];
     const learnedInTier = Object.values(progress).filter(
       (p) => tierWordIds.has(p.wordId) && (p.maxRepetitions || p.repetitions) >= 5
     ).length;
-    return { learned: learnedInTier, total: tierWords.length };
-  };
+    return { learned: learnedInTier, total: TIER_TOTALS[tier] };
+  }, [progress]);
+
+  if (!mounted) {
+    return <DashboardSkeleton />;
+  }
 
   return (
       <div className="min-h-screen">
@@ -356,7 +395,7 @@ function LearningModeCard({
   );
 }
 
-// Tier progress bar component
+// Tier progress bar component - uses pre-defined TIER_COLORS and TIER_LABELS
 function TierProgressBar({
   tier,
   learned,
@@ -368,27 +407,11 @@ function TierProgressBar({
   total: number;
   progress: number;
 }) {
-  const tierColors = {
-    1: 'bg-emerald-500',
-    2: 'bg-blue-500',
-    3: 'bg-amber-500',
-    4: 'bg-orange-500',
-    5: 'bg-red-500',
-  };
-
-  const tierLabels = {
-    1: 'Essential',
-    2: 'High Freq',
-    3: 'Medium',
-    4: 'Lower',
-    5: 'Advanced',
-  };
-
   return (
     <div>
       <div className="flex justify-between text-sm mb-1">
         <span>
-          Tier {tier}: {tierLabels[tier as keyof typeof tierLabels]}
+          Tier {tier}: {TIER_LABELS[tier]}
         </span>
         <span className="text-muted-foreground">
           {learned}/{total}
@@ -396,7 +419,7 @@ function TierProgressBar({
       </div>
       <div className="h-2 bg-muted/50 dark:bg-muted/30 rounded-full overflow-hidden">
         <div
-          className={cn('h-full transition-all duration-500', tierColors[tier as keyof typeof tierColors])}
+          className={cn('h-full transition-all duration-500', TIER_COLORS[tier])}
           style={{ width: `${progress}%` }}
         />
       </div>

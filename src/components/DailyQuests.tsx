@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { BookOpen, Target, Star, Flame, Award, Zap, GraduationCap, Library, Gift, Check } from 'lucide-react';
 import { useQuestStore } from '@/stores/questStore';
 import { useUserStore } from '@/stores/userStore';
@@ -124,7 +124,8 @@ interface QuestItemProps {
   claimed: boolean;
 }
 
-function QuestItem({ quest, progress, completed, claimed }: QuestItemProps) {
+// Memoized to prevent re-renders when other quests update
+const QuestItem = memo(function QuestItem({ quest, progress, completed, claimed }: QuestItemProps) {
   const IconComponent = ICON_MAP[quest.icon] || Star;
   const percentage = Math.min((progress / quest.target) * 100, 100);
 
@@ -198,7 +199,7 @@ function QuestItem({ quest, progress, completed, claimed }: QuestItemProps) {
       </div>
     </div>
   );
-}
+});
 
 function QuestsSkeleton() {
   return (

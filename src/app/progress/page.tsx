@@ -13,7 +13,7 @@ import {
   Calendar,
   Zap,
 } from 'lucide-react';
-import { useUserStore } from '@/stores/userStore';
+import { useUserStats, useUserProgress, useUserActions } from '@/stores/userStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { StudyHeatmap } from '@/components/StudyHeatmap';
@@ -21,10 +21,45 @@ import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 import type { VocabularyWord } from '@/types';
 
+// =============================================================================
+// PRE-COMPUTED LOOKUPS - Computed once at module load for O(1) access
+// =============================================================================
+
+const allWords = vocabularyData.words as VocabularyWord[];
+
+// Map for O(1) word lookups by ID (instead of repeated .find() calls)
+const wordById = new Map<string, VocabularyWord>();
+allWords.forEach(w => wordById.set(w.id, w));
+
+// Pre-computed tier data
+const TIER_WORD_IDS: Record<number, string[]> = {};
+[1, 2, 3, 4, 5].forEach(tier => {
+  TIER_WORD_IDS[tier] = allWords.filter(w => w.tier === tier).map(w => w.id);
+});
+
+const TIER_TOTALS: Record<number, number> = {};
+[1, 2, 3, 4, 5].forEach(tier => {
+  TIER_TOTALS[tier] = allWords.filter(w => w.tier === tier).length;
+});
+
+const TIER_LABELS = ['Essential', 'High Freq', 'Medium', 'Lower Freq', 'Advanced'];
+
+const TIER_COLORS: Record<number, string> = {
+  1: 'bg-emerald-500',
+  2: 'bg-blue-500',
+  3: 'bg-amber-500',
+  4: 'bg-orange-500',
+  5: 'bg-red-500',
+};
+
 export default function ProgressPage() {
   const router = useRouter();
-  const { stats, progress, dailyGoal, getStudyHistory } = useUserStore();
-  const studyHistory = getStudyHistory();
+  // Use granular selectors to minimize re-renders
+  const stats = useUserStats();
+  const progress = useUserProgress();
+  const { getStudyHistory } = useUserActions();
+
+  const studyHistory = useMemo(() => getStudyHistory(), [getStudyHistory]);
   const [activeTab, setActiveTab] = useState<'overview' | 'weak' | 'mastered'>('overview');
   const [mounted, setMounted] = useState(false);
 
@@ -32,9 +67,8 @@ export default function ProgressPage() {
     setMounted(true);
   }, []);
 
-  // Calculate statistics
+  // Calculate statistics - optimized with pre-computed lookups
   const analytics = useMemo(() => {
-    const allWords = vocabularyData.words as VocabularyWord[];
     const progressEntries = Object.entries(progress);
 
     // Words by status
@@ -42,19 +76,18 @@ export default function ProgressPage() {
     const learning = progressEntries.filter(([, p]) => p.interval > 0 && p.interval < 21).length;
     const newWords = allWords.length - progressEntries.length;
 
-    // Words by tier
+    // Words by tier - using pre-computed tier totals
     const tierCounts = [1, 2, 3, 4, 5].map(tier => {
-      const tierWords = allWords.filter(w => w.tier === tier);
-      const studied = tierWords.filter(w => progress[w.id]).length;
-      return { tier, total: tierWords.length, studied };
+      const tierWordIds = TIER_WORD_IDS[tier];
+      const studied = tierWordIds.filter(id => progress[id]).length;
+      return { tier, total: TIER_TOTALS[tier], studied };
     });
 
-    // Weak words (low accuracy or frequently missed)
+    // Weak words - using O(1) Map lookup instead of .find()
     const weakWords = progressEntries
       .map(([wordId, p]) => {
-        const word = allWords.find(w => w.id === wordId);
+        const word = wordById.get(wordId); // O(1) lookup
         if (!word) return null;
-        // Calculate accuracy from review history
         const accuracy = p.timesReviewed > 0
           ? Math.round((p.timesCorrect / p.timesReviewed) * 100)
           : 0;
@@ -65,10 +98,10 @@ export default function ProgressPage() {
       .sort((a, b) => a.accuracy - b.accuracy)
       .slice(0, 10);
 
-    // Mastered words (high accuracy, long interval)
+    // Mastered words - using O(1) Map lookup
     const masteredWords = progressEntries
       .map(([wordId, p]) => {
-        const word = allWords.find(w => w.id === wordId);
+        const word = wordById.get(wordId); // O(1) lookup
         if (!word) return null;
         const accuracy = p.timesReviewed > 0
           ? Math.round((p.timesCorrect / p.timesReviewed) * 100)
@@ -87,12 +120,12 @@ export default function ProgressPage() {
       ? Math.round((totalCorrect / totalReviews) * 100)
       : 0;
 
-    // Part of speech analysis
+    // Part of speech analysis - using O(1) Map lookup
     const partsOfSpeech = ['noun', 'verb', 'adjective', 'adverb', 'preposition', 'conjunction', 'particle', 'pronoun', 'article'];
     const posStats = partsOfSpeech.map(pos => {
       const posWords = progressEntries
         .filter(([wordId]) => {
-          const word = allWords.find(w => w.id === wordId);
+          const word = wordById.get(wordId); // O(1) lookup
           return word?.partOfSpeech?.toLowerCase().includes(pos);
         });
       const total = posWords.length;
@@ -102,10 +135,15 @@ export default function ProgressPage() {
       return { pos, total, reviews, accuracy };
     }).filter(p => p.reviews >= 5).sort((a, b) => a.accuracy - b.accuracy);
 
-    // Tier accuracy analysis
+    // Tier accuracy analysis - using pre-computed tier word IDs
+    const tierWordIdSets = [1, 2, 3, 4, 5].reduce((acc, tier) => {
+      acc[tier] = new Set(TIER_WORD_IDS[tier]);
+      return acc;
+    }, {} as Record<number, Set<string>>);
+
     const tierStats = tierCounts.map(({ tier, total, studied }) => {
-      const tierWordIds = allWords.filter(w => w.tier === tier).map(w => w.id);
-      const tierProgress = progressEntries.filter(([wordId]) => tierWordIds.includes(wordId));
+      const tierWordIdSet = tierWordIdSets[tier];
+      const tierProgress = progressEntries.filter(([wordId]) => tierWordIdSet.has(wordId));
       const correct = tierProgress.reduce((sum, [, p]) => sum + p.timesCorrect, 0);
       const reviews = tierProgress.reduce((sum, [, p]) => sum + p.timesReviewed, 0);
       const accuracy = reviews > 0 ? Math.round((correct / reviews) * 100) : 0;
@@ -134,16 +172,6 @@ export default function ProgressPage() {
       weakestTier,
     };
   }, [progress]);
-
-  const tierColors = {
-    1: 'bg-emerald-500',
-    2: 'bg-blue-500',
-    3: 'bg-amber-500',
-    4: 'bg-orange-500',
-    5: 'bg-red-500',
-  };
-
-  const tierLabels = ['Essential', 'High Freq', 'Medium', 'Lower Freq', 'Advanced'];
 
   if (!mounted) {
     return <ProgressSkeleton />;
@@ -261,12 +289,12 @@ export default function ProgressPage() {
             {analytics.tierCounts.map(({ tier, total, studied }) => (
               <div key={tier}>
                 <div className="flex justify-between text-sm mb-1">
-                  <span>Tier {tier}: {tierLabels[tier - 1]}</span>
+                  <span>Tier {tier}: {TIER_LABELS[tier - 1]}</span>
                   <span className="text-muted-foreground">{studied} / {total}</span>
                 </div>
                 <div className="h-2 bg-muted rounded-full overflow-hidden">
                   <div
-                    className={cn('h-full transition-all', tierColors[tier as keyof typeof tierColors])}
+                    className={cn('h-full transition-all', TIER_COLORS[tier])}
                     style={{ width: `${(studied / total) * 100}%` }}
                   />
                 </div>
@@ -305,7 +333,7 @@ export default function ProgressPage() {
               {analytics.weakestTier && (
                 <div className="flex items-center justify-between p-3 rounded-lg bg-background border">
                   <div>
-                    <p className="font-medium">Tier {analytics.weakestTier.tier}: {tierLabels[analytics.weakestTier.tier - 1]}</p>
+                    <p className="font-medium">Tier {analytics.weakestTier.tier}: {TIER_LABELS[analytics.weakestTier.tier - 1]}</p>
                     <p className="text-xs text-muted-foreground">
                       {analytics.weakestTier.studied} of {analytics.weakestTier.total} words studied
                     </p>

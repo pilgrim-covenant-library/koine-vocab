@@ -64,7 +64,9 @@ export default function FlashcardsPage() {
   // Cloud sync state
   const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
   const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const lastSyncedProgressRef = useRef<string>('');
+  // Track sync state with a simple counter instead of expensive JSON.stringify comparison
+  const lastSyncedVersionRef = useRef<number>(0);
+  const currentVersionRef = useRef<number>(0);
 
   // Initialize session on mount
   useEffect(() => {
@@ -72,14 +74,12 @@ export default function FlashcardsPage() {
   }, []);
 
   // Debounced cloud sync for learning progress
+  // Uses version counter instead of expensive JSON.stringify comparison
   useEffect(() => {
     if (!user || !isActive) return;
 
-    // Convert progress to JSON string for comparison
-    const currentProgressStr = JSON.stringify({ progress, stats });
-
-    // Only sync if progress has actually changed
-    if (currentProgressStr === lastSyncedProgressRef.current) {
+    // Only sync if version has changed (incremented on each review)
+    if (currentVersionRef.current === lastSyncedVersionRef.current) {
       return;
     }
 
@@ -87,6 +87,8 @@ export default function FlashcardsPage() {
     if (syncTimeoutRef.current) {
       clearTimeout(syncTimeoutRef.current);
     }
+
+    const versionToSync = currentVersionRef.current;
 
     // Set new timeout for debounced sync (30 seconds for batching)
     syncTimeoutRef.current = setTimeout(async () => {
@@ -97,7 +99,7 @@ export default function FlashcardsPage() {
           stats,
           lastSynced: new Date(),
         });
-        lastSyncedProgressRef.current = currentProgressStr;
+        lastSyncedVersionRef.current = versionToSync;
         setSyncStatus('synced');
 
         // Reset to idle after 2 seconds
@@ -195,6 +197,9 @@ export default function FlashcardsPage() {
   const handleRate = useCallback(
     (quality: number) => {
       if (!currentWord || isCardTransitioning) return;
+
+      // Increment version counter for cloud sync tracking (avoids expensive JSON.stringify)
+      currentVersionRef.current += 1;
 
       // Review the word and get XP
       const { xpGained, leveledUp } = reviewWord(currentWord.id, quality);

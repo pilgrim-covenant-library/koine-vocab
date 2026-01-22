@@ -130,7 +130,9 @@ export default function QuizPage() {
   // Cloud sync state
   const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
   const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const lastSyncedProgressRef = useRef<string>('');
+  // Track sync state with a simple counter instead of expensive JSON.stringify comparison
+  const lastSyncedVersionRef = useRef<number>(0);
+  const currentVersionRef = useRef<number>(0);
 
   // Initialize session on mount
   useEffect(() => {
@@ -138,15 +140,18 @@ export default function QuizPage() {
   }, []);
 
   // Debounced cloud sync for learning progress
+  // Uses version counter instead of expensive JSON.stringify comparison
   useEffect(() => {
     if (!user || !isActive) return;
 
-    const currentProgressStr = JSON.stringify({ progress, stats });
-    if (currentProgressStr === lastSyncedProgressRef.current) return;
+    // Only sync if version has changed
+    if (currentVersionRef.current === lastSyncedVersionRef.current) return;
 
     if (syncTimeoutRef.current) {
       clearTimeout(syncTimeoutRef.current);
     }
+
+    const versionToSync = currentVersionRef.current;
 
     syncTimeoutRef.current = setTimeout(async () => {
       try {
@@ -156,7 +161,7 @@ export default function QuizPage() {
           stats,
           lastSynced: new Date(),
         });
-        lastSyncedProgressRef.current = currentProgressStr;
+        lastSyncedVersionRef.current = versionToSync;
         setSyncStatus('synced');
         setTimeout(() => setSyncStatus('idle'), 2000);
       } catch (error) {
@@ -271,6 +276,9 @@ export default function QuizPage() {
       console.error('Invalid answer index:', selectedAnswer);
       return;
     }
+
+    // Increment version counter for cloud sync tracking (avoids expensive JSON.stringify)
+    currentVersionRef.current += 1;
 
     const isCorrect = selectedAnswer === currentQuestion.correctIndex;
     submitQuizAnswer(isCorrect);

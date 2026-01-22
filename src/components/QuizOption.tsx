@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { cn } from '@/lib/utils';
 import { Check, X } from 'lucide-react';
 
@@ -12,7 +13,8 @@ interface QuizOptionProps {
   onSelect: () => void;
 }
 
-export function QuizOption({
+// Memoized to prevent re-renders when other quiz state changes
+export const QuizOption = memo(function QuizOption({
   label,
   index,
   selected,
@@ -72,4 +74,4 @@ export function QuizOption({
       <span className="flex-1 font-medium">{label}</span>
     </button>
   );
-}
+});
