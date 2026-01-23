@@ -176,7 +176,6 @@ export const XP_REWARDS = {
   correctTyping: 20,
   translationBase: 30, // Base XP for translation, multiplied by score/10
   perfectSession: 50,
-  dailyGoalMet: 100,
   newWordLearned: 25,
 } as const;
 

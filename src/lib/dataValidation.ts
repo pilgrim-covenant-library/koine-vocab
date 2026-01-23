@@ -315,14 +315,6 @@ export function needsDataMigration(data: unknown): boolean {
 
   const stateObj = state as Record<string, unknown>;
 
-  // Check for old date format in lastReviewDate
-  if (stateObj.lastReviewDate && typeof stateObj.lastReviewDate === 'string') {
-    // Old format used toDateString() which produces "Day Mon DD YYYY"
-    if (/^[A-Z][a-z]{2}\s/.test(stateObj.lastReviewDate)) {
-      return true;
-    }
-  }
-
   // Check for corrupted progress entries
   const progress = stateObj.progress as Record<string, WordProgress> | undefined;
   if (progress) {
@@ -334,31 +326,6 @@ export function needsDataMigration(data: unknown): boolean {
   }
 
   return false;
-}
-
-/**
- * Migrate old date format to new ISO format
- */
-export function migrateLastReviewDate(date: string | null): string | null {
-  if (!date) return null;
-
-  // Already in ISO format
-  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    return date;
-  }
-
-  // Try to parse and convert
-  try {
-    const parsed = new Date(date);
-    if (!isNaN(parsed.getTime())) {
-      return parsed.toISOString().split('T')[0];
-    }
-  } catch {
-    // Fall through
-  }
-
-  // Can't migrate, return null to reset
-  return null;
 }
 
 // =============================================================================
