@@ -4,7 +4,7 @@ import type { UserStats, WordProgress, Achievement, SemanticCategory, PartOfSpee
 import { createInitialStats, updateStreak, awardXP, calculateLevel } from '@/lib/xp';
 import { createInitialProgress, updateWordProgress, isDue } from '@/lib/srs';
 import { checkAchievements, ACHIEVEMENTS } from '@/lib/achievements';
-import { sanitizeProgress, sanitizeUserStats, sanitizeStudyHistory, migrateLastReviewDate } from '@/lib/dataValidation';
+import { sanitizeProgress, sanitizeUserStats, sanitizeStudyHistory } from '@/lib/dataValidation';
 import { getCommonNTVocabIds, COMMON_VOCAB_COUNT } from '@/lib/commonVocab';
 import vocabularyData from '@/data/vocabulary.json';
 
@@ -596,14 +596,17 @@ export const useUserStore = create<UserState>()(
               data.state.stats = sanitizeUserStats(data.state.stats);
             }
 
-            // Migrate old date format for lastReviewDate
-            if (data.state?.lastReviewDate) {
-              data.state.lastReviewDate = migrateLastReviewDate(data.state.lastReviewDate);
-            }
-
             // Sanitize study history
             if (data.state?.studyHistory) {
               data.state.studyHistory = sanitizeStudyHistory(data.state.studyHistory);
+            }
+
+            // Clean up removed fields from old localStorage data (daily quests feature was removed)
+            if (data.state) {
+              delete data.state.dailyGoal;
+              delete data.state.todayReviews;
+              delete data.state.lastReviewDate;
+              delete data.state.dailyGoalAwardedToday;
             }
 
             return data;
