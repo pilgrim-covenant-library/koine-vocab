@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { useShallow } from 'zustand/shallow';
 import type { UserStats, WordProgress, Achievement, SemanticCategory, PartOfSpeech } from '@/types';
 import { createInitialStats, updateStreak, awardXP, calculateLevel } from '@/lib/xp';
 import { createInitialProgress, updateWordProgress, isDue } from '@/lib/srs';
@@ -183,32 +184,34 @@ export const useSessionHistory = () => useUserStore((state) => state.sessionHist
 // =============================================================================
 // Action-only selectors (no state, just actions - never cause re-renders)
 // =============================================================================
-export const useUserActions = () => useUserStore((state) => ({
-  initializeWord: state.initializeWord,
-  reviewWord: state.reviewWord,
-  undoLastReview: state.undoLastReview,
-  canUndo: state.canUndo,
-  getWordProgress: state.getWordProgress,
-  getDueWords: state.getDueWords,
-  getLearnedWordsCount: state.getLearnedWordsCount,
-  getInProgressWordsCount: state.getInProgressWordsCount,
-  setSessionLength: state.setSessionLength,
-  setSelectedTiers: state.setSelectedTiers,
-  setSelectedPOS: state.setSelectedPOS,
-  setSelectedCategories: state.setSelectedCategories,
-  unlockAchievement: state.unlockAchievement,
-  addXP: state.addXP,
-  checkAndUnlockAchievements: state.checkAndUnlockAchievements,
-  getStudyHistory: state.getStudyHistory,
-  recordSession: state.recordSession,
-  getSessionHistory: state.getSessionHistory,
-  setSrsMode: state.setSrsMode,
-  getIntervalModifier: state.getIntervalModifier,
-  getLeeches: state.getLeeches,
-  isLeech: state.isLeech,
-  setBlindMode: state.setBlindMode,
-  getCommonVocabProgress: state.getCommonVocabProgress,
-}));
+export const useUserActions = () => useUserStore(
+  useShallow((state) => ({
+    initializeWord: state.initializeWord,
+    reviewWord: state.reviewWord,
+    undoLastReview: state.undoLastReview,
+    canUndo: state.canUndo,
+    getWordProgress: state.getWordProgress,
+    getDueWords: state.getDueWords,
+    getLearnedWordsCount: state.getLearnedWordsCount,
+    getInProgressWordsCount: state.getInProgressWordsCount,
+    setSessionLength: state.setSessionLength,
+    setSelectedTiers: state.setSelectedTiers,
+    setSelectedPOS: state.setSelectedPOS,
+    setSelectedCategories: state.setSelectedCategories,
+    unlockAchievement: state.unlockAchievement,
+    addXP: state.addXP,
+    checkAndUnlockAchievements: state.checkAndUnlockAchievements,
+    getStudyHistory: state.getStudyHistory,
+    recordSession: state.recordSession,
+    getSessionHistory: state.getSessionHistory,
+    setSrsMode: state.setSrsMode,
+    getIntervalModifier: state.getIntervalModifier,
+    getLeeches: state.getLeeches,
+    isLeech: state.isLeech,
+    setBlindMode: state.setBlindMode,
+    getCommonVocabProgress: state.getCommonVocabProgress,
+  }))
+);
 
 // =============================================================================
 // MAIN STORE
