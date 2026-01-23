@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { X, RotateCcw, Keyboard, Undo2, Eye, EyeOff, Cloud, CloudOff, Loader2 } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
-import { useQuestStore } from '@/stores/questStore';
 import { useAuthStore } from '@/stores/authStore';
 import { syncProgressToCloud } from '@/lib/firebase';
 import { FlashCard } from '@/components/FlashCard';
@@ -231,10 +230,12 @@ export default function FlashcardsPage() {
         }, 150);
       } else {
         // Session complete - check for achievements
+        // Capture startTime BEFORE ending session to avoid race condition
+        const sessionStartTime = useSessionStore.getState().startTime;
         const sessionStatsData = getSessionStats();
         const sessionData = {
           reviews: sessionStatsData.total,
-          duration: Date.now() - (useSessionStore.getState().startTime || Date.now()),
+          duration: sessionStartTime ? Date.now() - sessionStartTime : 0,
           isPerfect: sessionStatsData.accuracy === 100,
         };
         const newAchievements = checkAndUnlockAchievements(sessionData);
@@ -311,8 +312,6 @@ export default function FlashcardsPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isFlipped, sessionComplete, flipCard, handleRate, showUndo, handleUndo]);
 
-  const { recordReviewCount, recordSessionAccuracy, recordPerfectSession } = useQuestStore();
-
   const handleEndSession = async () => {
     const summary = endSession();
 
@@ -327,13 +326,6 @@ export default function FlashcardsPage() {
         xpEarned: summary.xpEarned,
         isPerfect: summary.isPerfect,
       });
-
-      // Update quest progress
-      recordReviewCount(summary.wordsReviewed);
-      recordSessionAccuracy(summary.accuracy);
-      if (summary.isPerfect) {
-        recordPerfectSession();
-      }
     }
 
     // Final sync to cloud before exiting (immediate, no debounce)

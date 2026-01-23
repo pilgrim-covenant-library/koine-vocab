@@ -3,12 +3,11 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import { BookOpen, Brain, Keyboard, Trophy, Settings, ChevronRight, Languages, TrendingUp, BookType, ClipboardList, Gem, BookHeart, BookCopy, Library, Crown } from 'lucide-react';
-import { useUserStats, useUserProgress, useDailyGoal, useTodayReviews, useUserActions } from '@/stores/userStore';
+import { useUserStats, useUserProgress, useUserActions } from '@/stores/userStore';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { XPBar } from '@/components/XPBar';
 import { StreakFire } from '@/components/StreakFire';
 import { ProgressRing } from '@/components/ProgressRing';
-import { DailyQuests } from '@/components/DailyQuests';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
@@ -50,8 +49,6 @@ export default function Dashboard() {
   // Use granular selectors to minimize re-renders
   const stats = useUserStats();
   const progress = useUserProgress();
-  const dailyGoal = useDailyGoal();
-  const todayReviews = useTodayReviews();
   const { getDueWords, getLearnedWordsCount, getCommonVocabProgress } = useUserActions();
 
   const [mounted, setMounted] = useState(false);
@@ -64,7 +61,6 @@ export default function Dashboard() {
   const dueCount = useMemo(() => getDueWords().length, [getDueWords]);
   const learnedCount = useMemo(() => getLearnedWordsCount(), [getLearnedWordsCount]);
   const totalWords = vocabularyData.words.length;
-  const dailyProgress = Math.min(100, Math.round((todayReviews / dailyGoal) * 100));
   const commonVocabProgress = useMemo(() => getCommonVocabProgress(), [getCommonVocabProgress]);
 
   // Memoized tier progress calculation using pre-computed tier word Sets
@@ -128,35 +124,6 @@ export default function Dashboard() {
             </div>
             <div className="text-sm text-muted-foreground">Accuracy</div>
           </Card>
-        </section>
-
-        {/* Daily Goal Progress */}
-        <section className="mb-8">
-          <Card>
-            <CardContent className="py-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-semibold">Daily Goal</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {todayReviews} / {dailyGoal} reviews
-                  </p>
-                </div>
-                <ProgressRing
-                  progress={dailyProgress}
-                  size={60}
-                  strokeWidth={5}
-                  color={dailyProgress >= 100 ? 'stroke-emerald-500' : 'stroke-primary'}
-                >
-                  <span className="text-sm font-bold">{dailyProgress}%</span>
-                </ProgressRing>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Daily Quests */}
-        <section className="mb-8">
-          <DailyQuests />
         </section>
 
         {/* Start Review CTA */}

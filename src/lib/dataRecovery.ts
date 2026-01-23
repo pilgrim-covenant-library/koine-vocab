@@ -233,13 +233,7 @@ function recoverUserStoreState(state: any): any {
   }
 
   // Recover settings with defaults
-  recovered.dailyGoal = typeof state.dailyGoal === 'number' ? state.dailyGoal : 20;
   recovered.sessionLength = typeof state.sessionLength === 'number' ? state.sessionLength : 20;
-  recovered.todayReviews = typeof state.todayReviews === 'number' ? state.todayReviews : 0;
-  recovered.lastReviewDate = typeof state.lastReviewDate === 'string' ? state.lastReviewDate : null;
-  recovered.dailyGoalAwardedToday = typeof state.dailyGoalAwardedToday === 'boolean'
-    ? state.dailyGoalAwardedToday
-    : false;
 
   // Recover tier/POS/category selections
   recovered.selectedTiers = Array.isArray(state.selectedTiers)

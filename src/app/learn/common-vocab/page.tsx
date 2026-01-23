@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { X, RotateCcw, ChevronRight, Trophy, ThumbsUp, Zap, Keyboard, Cloud, CloudOff, Loader2, Crown } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { useSessionStore } from '@/stores/sessionStore';
-import { useQuestStore } from '@/stores/questStore';
 import { useAuthStore } from '@/stores/authStore';
 import { syncProgressToCloud } from '@/lib/firebase';
 import { getCommonNTVocab } from '@/lib/commonVocab';
@@ -120,21 +119,27 @@ export default function CommonVocabQuizPage() {
 
   const [syncStatus, setSyncStatus] = useState<'idle' | 'syncing' | 'synced' | 'error'>('idle');
   const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const lastSyncedProgressRef = useRef<string>('');
+  // Track sync state with a simple counter instead of expensive JSON.stringify comparison
+  const lastSyncedVersionRef = useRef<number>(0);
+  const currentVersionRef = useRef<number>(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  // Debounced cloud sync for learning progress
+  // Uses version counter instead of expensive JSON.stringify comparison
   useEffect(() => {
     if (!user || !isActive) return;
 
-    const currentProgressStr = JSON.stringify({ progress, stats });
-    if (currentProgressStr === lastSyncedProgressRef.current) return;
+    // Only sync if version has changed (incremented on each review)
+    if (currentVersionRef.current === lastSyncedVersionRef.current) return;
 
     if (syncTimeoutRef.current) {
       clearTimeout(syncTimeoutRef.current);
     }
+
+    const versionToSync = currentVersionRef.current;
 
     syncTimeoutRef.current = setTimeout(async () => {
       try {
@@ -144,7 +149,7 @@ export default function CommonVocabQuizPage() {
           stats,
           lastSynced: new Date(),
         });
-        lastSyncedProgressRef.current = currentProgressStr;
+        lastSyncedVersionRef.current = versionToSync;
         setSyncStatus('synced');
         setTimeout(() => setSyncStatus('idle'), 2000);
       } catch (error) {
@@ -253,6 +258,9 @@ export default function CommonVocabQuizPage() {
       return;
     }
 
+    // Increment version counter for cloud sync tracking (avoids expensive JSON.stringify)
+    currentVersionRef.current += 1;
+
     const isCorrect = selectedAnswer === currentQuestion.correctIndex;
     submitQuizAnswer(isCorrect);
 
@@ -270,10 +278,12 @@ export default function CommonVocabQuizPage() {
     if (currentIndex < words.length - 1) {
       nextWord();
     } else {
+      // Capture startTime BEFORE ending session to avoid race condition
+      const sessionStartTime = useSessionStore.getState().startTime;
       const sessionStatsData = getSessionStats();
       const sessionData = {
         reviews: sessionStatsData.total,
-        duration: Date.now() - (useSessionStore.getState().startTime || Date.now()),
+        duration: sessionStartTime ? Date.now() - sessionStartTime : 0,
         isPerfect: sessionStatsData.accuracy === 100,
       };
       const newAchievements = checkAndUnlockAchievements(sessionData);
@@ -283,8 +293,6 @@ export default function CommonVocabQuizPage() {
       setSessionComplete(true);
     }
   }, [currentIndex, words.length, nextWord, getSessionStats, checkAndUnlockAchievements]);
-
-  const { recordReviewCount, recordSessionAccuracy, recordPerfectSession } = useQuestStore();
 
   const handleEndSession = async () => {
     const summary = endSession();
@@ -299,12 +307,6 @@ export default function CommonVocabQuizPage() {
         xpEarned: summary.xpEarned,
         isPerfect: summary.isPerfect,
       });
-
-      recordReviewCount(summary.wordsReviewed);
-      recordSessionAccuracy(summary.accuracy);
-      if (summary.isPerfect) {
-        recordPerfectSession();
-      }
     }
 
     if (user && summary.wordsReviewed > 0) {

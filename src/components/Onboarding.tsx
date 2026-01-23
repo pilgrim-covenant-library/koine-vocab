@@ -36,7 +36,7 @@ const STEPS = [
   {
     icon: Trophy,
     title: 'Track Your Progress',
-    description: 'Earn XP, level up, and unlock achievements. Stay motivated with streaks and daily goals.',
+    description: 'Earn XP, level up, and unlock achievements. Stay motivated with streaks and study milestones.',
     color: 'text-emerald-500',
     bgColor: 'bg-emerald-500/10',
   },

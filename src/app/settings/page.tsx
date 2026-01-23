@@ -32,10 +32,9 @@ import { cn } from '@/lib/utils';
 export default function SettingsPage() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const { dailyGoal, setDailyGoal, sessionLength, setSessionLength, stats, progress, srsMode, setSrsMode, selectedTiers, setSelectedTiers, selectedPOS, setSelectedPOS, selectedCategories, setSelectedCategories } = useUserStore();
+  const { sessionLength, setSessionLength, stats, progress, srsMode, setSrsMode, selectedTiers, setSelectedTiers, selectedPOS, setSelectedPOS, selectedCategories, setSelectedCategories } = useUserStore();
   const { user, signOut, isLoading: authLoading } = useAuthStore();
   const [mounted, setMounted] = useState(false);
-  const [localDailyGoal, setLocalDailyGoal] = useState(dailyGoal);
   const [localSessionLength, setLocalSessionLength] = useState(sessionLength);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [audioEnabled, setAudioEnabled] = useState(true);
@@ -61,11 +60,6 @@ export default function SettingsPage() {
     }
   };
 
-  const handleDailyGoalChange = (value: number) => {
-    setLocalDailyGoal(value);
-    setDailyGoal(value);
-  };
-
   const handleSessionLengthChange = (value: number) => {
     setLocalSessionLength(value);
     setSessionLength(value);
@@ -81,7 +75,6 @@ export default function SettingsPage() {
     const data = {
       stats,
       progress,
-      dailyGoal,
       exportedAt: new Date().toISOString(),
     };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -142,11 +135,6 @@ export default function SettingsPage() {
           },
         };
 
-        // If dailyGoal is in the import, update it too
-        if (typeof data.dailyGoal === 'number') {
-          newState.state.dailyGoal = data.dailyGoal;
-        }
-
         // Save to localStorage
         localStorage.setItem('koine-user-store', JSON.stringify(newState));
 
@@ -191,8 +179,6 @@ export default function SettingsPage() {
   if (!mounted) {
     return <SettingsSkeleton />;
   }
-
-  const dailyGoalOptions = [5, 10, 15, 20, 30, 50];
 
   return (
     <div className="min-h-screen">
@@ -274,32 +260,6 @@ export default function SettingsPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Daily Goal */}
-            <div>
-              <label className="text-sm font-medium text-muted-foreground mb-3 block">
-                Daily Review Goal
-              </label>
-              <div className="grid grid-cols-3 gap-2">
-                {dailyGoalOptions.map((goal) => (
-                  <button
-                    key={goal}
-                    onClick={() => handleDailyGoalChange(goal)}
-                    className={cn(
-                      'py-3 px-4 rounded-xl border-2 transition-all font-medium',
-                      localDailyGoal === goal
-                        ? 'border-primary bg-primary/5 text-primary'
-                        : 'border-border hover:border-muted-foreground/50'
-                    )}
-                  >
-                    {goal}
-                  </button>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground mt-2">
-                Complete {localDailyGoal} reviews daily to maintain your streak
-              </p>
-            </div>
-
             {/* Session Length */}
             <div>
               <label className="text-sm font-medium text-muted-foreground mb-3 block">
