@@ -57,13 +57,15 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
               <p className="text-muted-foreground mb-6">
                 An unexpected error occurred. Your progress has been saved.
               </p>
-              {this.state.error && (
-                <details className="mb-4 text-left" open>
+              {process.env.NODE_ENV === 'development' && this.state.error && (
+                <details className="mb-4 text-left">
                   <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
                     Error details
                   </summary>
                   <pre className="mt-2 p-3 bg-muted rounded-lg text-xs overflow-auto max-h-32">
                     {this.state.error.message}
+                    {'\n\n'}
+                    {this.state.error.stack}
                   </pre>
                 </details>
               )}
