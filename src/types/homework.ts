@@ -236,11 +236,11 @@ export const createInitialHomework2Progress = (): Homework2Progress => ({
     2: createInitialHW2SectionProgress(2, 24),  // 24 feminine noun questions
     3: createInitialHW2SectionProgress(3, 24),  // 24 neuter noun questions (2nd decl: ἔργον, τέκνον, εὐαγγέλιον)
     4: createInitialHW2SectionProgress(4, 24),  // 24 personal pronoun questions
-    5: createInitialHW2SectionProgress(5, 20),  // 20 preposition questions
+    5: createInitialHW2SectionProgress(5, 40),  // 40 preposition questions
   },
   currentSection: 1,
   totalScore: 0,
-  totalPossible: 136,
+  totalPossible: 156,
 });
 
 // Section metadata for HW2

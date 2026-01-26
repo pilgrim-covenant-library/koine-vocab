@@ -735,7 +735,26 @@ export const useHomeworkStore = create<HomeworkState>()(
     }),
     {
       name: 'koine-homework-store',
-      version: 2, // Bump version for HW2 addition
+      version: 4, // Bump version for all sections question count fix
+      migrate: (persistedState: unknown, version: number) => {
+        const state = persistedState as { homework2?: Homework2Progress };
+
+        if (version < 4 && state.homework2) {
+          // Fix all section totalQuestions to match actual question counts
+          const correctCounts: Record<HW2SectionId, number> = {
+            1: 24, 2: 24, 3: 24, 4: 24, 5: 40
+          };
+          for (const [id, count] of Object.entries(correctCounts)) {
+            const sectionId = Number(id) as HW2SectionId;
+            if (state.homework2.sections[sectionId].totalQuestions !== count) {
+              state.homework2.sections[sectionId].totalQuestions = count;
+            }
+          }
+          // Ensure totalPossible is correct (24+24+24+24+40 = 156)
+          state.homework2.totalPossible = 156;
+        }
+        return state as HomeworkState;
+      },
       partialize: (state) => ({
         homework1: state.homework1,
         homework2: state.homework2,

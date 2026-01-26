@@ -312,7 +312,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ἐν',
-    options: shuffleArray(['in, on, among', 'from, out of', 'into, to, for', 'through, on account of']),
+    options: ['in, on, among', 'from, out of', 'into, to, for', 'through, on account of'],
     correctIndex: 0,
     explanation: 'ἐν means "in, on, among" - used for location or sphere.',
     category: 'meaning',
@@ -322,7 +322,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'εἰς',
-    options: shuffleArray(['into, to, for', 'in, on, among', 'from, away from', 'with, after']),
+    options: ['into, to, for', 'in, on, among', 'from, away from', 'with, after'],
     correctIndex: 0,
     explanation: 'εἰς means "into, to, for" - indicates motion toward.',
     category: 'meaning',
@@ -332,7 +332,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ἐκ / ἐξ',
-    options: shuffleArray(['from, out of', 'into, to', 'on, upon', 'with']),
+    options: ['from, out of', 'into, to', 'on, upon', 'with'],
     correctIndex: 0,
     explanation: 'ἐκ/ἐξ means "from, out of" - indicates source or origin.',
     category: 'meaning',
@@ -342,7 +342,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ἀπό',
-    options: shuffleArray(['from, away from', 'to, toward', 'in, among', 'through']),
+    options: ['from, away from', 'to, toward', 'in, among', 'through'],
     correctIndex: 0,
     explanation: 'ἀπό means "from, away from" - indicates separation.',
     category: 'meaning',
@@ -352,7 +352,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'πρός',
-    options: shuffleArray(['to, toward, with', 'from, away', 'in, on', 'under']),
+    options: ['to, toward, with', 'from, away', 'in, on', 'under'],
     correctIndex: 0,
     explanation: 'πρός means "to, toward, with" - indicates direction or relation.',
     category: 'meaning',
@@ -362,7 +362,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'διά',
-    options: shuffleArray(['through, on account of', 'around, about', 'above, over', 'before']),
+    options: ['through, on account of', 'around, about', 'above, over', 'before'],
     correctIndex: 0,
     explanation: 'διά means "through" or "on account of" depending on context.',
     category: 'meaning',
@@ -372,7 +372,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'μετά',
-    options: shuffleArray(['with, after', 'before, in front of', 'under', 'against']),
+    options: ['with, after', 'before, in front of', 'under', 'against'],
     correctIndex: 0,
     explanation: 'μετά means "with" or "after" depending on context.',
     category: 'meaning',
@@ -382,7 +382,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ἐπί',
-    options: shuffleArray(['on, upon, over', 'under, below', 'beside', 'without']),
+    options: ['on, upon, over', 'under, below', 'beside', 'without'],
     correctIndex: 0,
     explanation: 'ἐπί means "on, upon, at, over" - very versatile preposition.',
     category: 'meaning',
@@ -392,7 +392,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ὑπό',
-    options: shuffleArray(['by, under', 'over, above', 'beside', 'around']),
+    options: ['by, under', 'over, above', 'beside', 'around'],
     correctIndex: 0,
     explanation: 'ὑπό means "by" (agency) or "under."',
     category: 'meaning',
@@ -402,7 +402,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'σύν',
-    options: shuffleArray(['with', 'without', 'against', 'before']),
+    options: ['with', 'without', 'against', 'before'],
     correctIndex: 0,
     explanation: 'σύν means "with" - indicates accompaniment or association.',
     category: 'meaning',
@@ -414,7 +414,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'παρά',
-    options: shuffleArray(['beside, from, contrary to', 'through, by means of', 'under, below', 'over, above']),
+    options: ['beside, from, contrary to', 'through, by means of', 'under, below', 'over, above'],
     correctIndex: 0,
     explanation: 'παρά means "beside, from (the side of), alongside, contrary to."',
     category: 'meaning',
@@ -424,7 +424,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'περί',
-    options: shuffleArray(['about, concerning, around', 'through, on account of', 'under, by', 'into, to']),
+    options: ['about, concerning, around', 'through, on account of', 'under, by', 'into, to'],
     correctIndex: 0,
     explanation: 'περί means "about, concerning, around."',
     category: 'meaning',
@@ -434,7 +434,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'κατά',
-    options: shuffleArray(['down, according to, against', 'up, above, over', 'beside, near', 'with, together']),
+    options: ['down, according to, against', 'up, above, over', 'beside, near', 'with, together'],
     correctIndex: 0,
     explanation: 'κατά means "down, according to, against, throughout."',
     category: 'meaning',
@@ -444,7 +444,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ὑπέρ',
-    options: shuffleArray(['over, above, on behalf of', 'under, below, by', 'beside, near', 'against, opposite']),
+    options: ['over, above, on behalf of', 'under, below, by', 'beside, near', 'against, opposite'],
     correctIndex: 0,
     explanation: 'ὑπέρ means "over, above, on behalf of, for."',
     category: 'meaning',
@@ -454,7 +454,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'ἀντί',
-    options: shuffleArray(['instead of, in place of', 'with, together', 'after, behind', 'beside, near']),
+    options: ['instead of, in place of', 'with, together', 'after, behind', 'beside, near'],
     correctIndex: 0,
     explanation: 'ἀντί means "instead of, in place of, for."',
     category: 'meaning',
@@ -464,7 +464,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     type: 'mcq',
     question: 'What does this preposition mean?',
     greek: 'πρό',
-    options: shuffleArray(['before, in front of', 'after, behind', 'beside, near', 'under, below']),
+    options: ['before, in front of', 'after, behind', 'beside, near', 'under, below'],
     correctIndex: 0,
     explanation: 'πρό means "before, in front of" (in time or place).',
     category: 'meaning',
@@ -479,7 +479,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q17',
     type: 'mcq',
     question: 'Which preposition means "in" or "among"?',
-    options: shuffleArray(['ἐν', 'εἰς', 'ἐκ', 'ἀπό']),
+    options: ['ἐν', 'εἰς', 'ἐκ', 'ἀπό'],
     correctIndex: 0,
     explanation: 'ἐν means "in, on, among" - used for location.',
     category: 'usage',
@@ -488,7 +488,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q18',
     type: 'mcq',
     question: 'Which preposition indicates motion "into" something?',
-    options: shuffleArray(['εἰς', 'ἐν', 'ἐκ', 'πρός']),
+    options: ['εἰς', 'ἐν', 'ἐκ', 'πρός'],
     correctIndex: 0,
     explanation: 'εἰς means "into, to, for" - indicates motion toward.',
     category: 'usage',
@@ -497,7 +497,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q19',
     type: 'mcq',
     question: 'Which preposition means "out of" or "from" (source)?',
-    options: shuffleArray(['ἐκ / ἐξ', 'ἀπό', 'διά', 'ὑπό']),
+    options: ['ἐκ / ἐξ', 'ἀπό', 'διά', 'ὑπό'],
     correctIndex: 0,
     explanation: 'ἐκ/ἐξ means "from, out of" - indicates source or origin.',
     category: 'usage',
@@ -506,7 +506,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q20',
     type: 'mcq',
     question: 'Which preposition means "away from" (separation)?',
-    options: shuffleArray(['ἀπό', 'ἐκ', 'πρός', 'μετά']),
+    options: ['ἀπό', 'ἐκ', 'πρός', 'μετά'],
     correctIndex: 0,
     explanation: 'ἀπό means "from, away from" - indicates separation.',
     category: 'usage',
@@ -515,7 +515,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q21',
     type: 'mcq',
     question: 'Which preposition means "toward" or "to" (direction)?',
-    options: shuffleArray(['πρός', 'ἀπό', 'ἐν', 'σύν']),
+    options: ['πρός', 'ἀπό', 'ἐν', 'σύν'],
     correctIndex: 0,
     explanation: 'πρός means "to, toward, with" - indicates direction.',
     category: 'usage',
@@ -524,7 +524,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q22',
     type: 'mcq',
     question: 'Which preposition means "through" or "on account of"?',
-    options: shuffleArray(['διά', 'μετά', 'ἐπί', 'ὑπό']),
+    options: ['διά', 'μετά', 'ἐπί', 'ὑπό'],
     correctIndex: 0,
     explanation: 'διά means "through" or "on account of" depending on context.',
     category: 'usage',
@@ -533,7 +533,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q23',
     type: 'mcq',
     question: 'Which preposition can mean both "with" and "after"?',
-    options: shuffleArray(['μετά', 'σύν', 'πρός', 'ἐπί']),
+    options: ['μετά', 'σύν', 'πρός', 'ἐπί'],
     correctIndex: 0,
     explanation: 'μετά means "with" or "after" depending on context.',
     category: 'usage',
@@ -542,7 +542,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q24',
     type: 'mcq',
     question: 'Which preposition means "on," "upon," or "over"?',
-    options: shuffleArray(['ἐπί', 'ὑπό', 'διά', 'μετά']),
+    options: ['ἐπί', 'ὑπό', 'διά', 'μετά'],
     correctIndex: 0,
     explanation: 'ἐπί means "on, upon, over."',
     category: 'usage',
@@ -551,7 +551,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q25',
     type: 'mcq',
     question: 'Which preposition indicates agency ("by") or means "under"?',
-    options: shuffleArray(['ὑπό', 'ἐπί', 'διά', 'σύν']),
+    options: ['ὑπό', 'ἐπί', 'διά', 'σύν'],
     correctIndex: 0,
     explanation: 'ὑπό means "by" (agency) or "under."',
     category: 'usage',
@@ -560,7 +560,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q26',
     type: 'mcq',
     question: 'Which preposition means "with" (accompaniment)?',
-    options: shuffleArray(['σύν', 'μετά', 'πρός', 'ἐπί']),
+    options: ['σύν', 'μετά', 'πρός', 'ἐπί'],
     correctIndex: 0,
     explanation: 'σύν means "with" - indicates accompaniment.',
     category: 'usage',
@@ -571,7 +571,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q27',
     type: 'mcq',
     question: 'Which preposition means "beside" or "from the side of"?',
-    options: shuffleArray(['παρά', 'περί', 'πρός', 'πρό']),
+    options: ['παρά', 'περί', 'πρός', 'πρό'],
     correctIndex: 0,
     explanation: 'παρά means "beside, from (the side of), alongside."',
     category: 'usage',
@@ -580,7 +580,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q28',
     type: 'mcq',
     question: 'Which preposition means "about" or "concerning"?',
-    options: shuffleArray(['περί', 'παρά', 'διά', 'κατά']),
+    options: ['περί', 'παρά', 'διά', 'κατά'],
     correctIndex: 0,
     explanation: 'περί means "about, concerning, around."',
     category: 'usage',
@@ -589,7 +589,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q29',
     type: 'mcq',
     question: 'Which preposition means "according to" or "down"?',
-    options: shuffleArray(['κατά', 'ἀνά', 'μετά', 'ἐπί']),
+    options: ['κατά', 'ἀνά', 'μετά', 'ἐπί'],
     correctIndex: 0,
     explanation: 'κατά means "down, according to, against, throughout."',
     category: 'usage',
@@ -598,7 +598,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q30',
     type: 'mcq',
     question: 'Which preposition means "on behalf of" or "over"?',
-    options: shuffleArray(['ὑπέρ', 'ὑπό', 'ἐπί', 'περί']),
+    options: ['ὑπέρ', 'ὑπό', 'ἐπί', 'περί'],
     correctIndex: 0,
     explanation: 'ὑπέρ means "over, above, on behalf of."',
     category: 'usage',
@@ -607,7 +607,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q31',
     type: 'mcq',
     question: 'Which preposition means "instead of" or "in place of"?',
-    options: shuffleArray(['ἀντί', 'μετά', 'πρό', 'σύν']),
+    options: ['ἀντί', 'μετά', 'πρό', 'σύν'],
     correctIndex: 0,
     explanation: 'ἀντί means "instead of, in place of."',
     category: 'usage',
@@ -616,7 +616,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     id: 's5-q32',
     type: 'mcq',
     question: 'Which preposition means "before" (in time or place)?',
-    options: shuffleArray(['πρό', 'μετά', 'πρός', 'παρά']),
+    options: ['πρό', 'μετά', 'πρός', 'παρά'],
     correctIndex: 0,
     explanation: 'πρό means "before, in front of."',
     category: 'usage',
@@ -632,7 +632,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: '_____ ἀρχῇ ἦν ὁ λόγος',
     vocabHelp: 'ἀρχή = beginning; ἦν = was; λόγος = word',
-    options: shuffleArray(['ἐν', 'εἰς', 'ἐκ', 'ἀπό']),
+    options: ['ἐν', 'εἰς', 'ἐκ', 'ἀπό'],
     correctIndex: 0,
     explanation: 'John 1:1 — ἐν ἀρχῇ (in the beginning). ἐν indicates sphere/location, not motion.',
     category: 'nt-context',
@@ -643,7 +643,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: 'πᾶς ὁ πιστεύων _____ αὐτόν',
     vocabHelp: 'πᾶς = everyone; πιστεύων = believing; αὐτόν = him',
-    options: shuffleArray(['εἰς', 'ἐν', 'πρός', 'μετά']),
+    options: ['εἰς', 'ἐν', 'πρός', 'μετά'],
     correctIndex: 0,
     explanation: 'John 3:16 — πιστεύων εἰς αὐτόν (believing into him). εἰς shows the direction of faith.',
     category: 'nt-context',
@@ -654,7 +654,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: 'δικαιούμενοι _____ τῆς ἀπολυτρώσεως',
     vocabHelp: 'δικαιούμενοι = being justified; ἀπολύτρωσις = redemption',
-    options: shuffleArray(['διά', 'ἐκ', 'ὑπό', 'ἀπό']),
+    options: ['διά', 'ἐκ', 'ὑπό', 'ἀπό'],
     correctIndex: 0,
     explanation: 'Romans 3:24 — διὰ τῆς ἀπολυτρώσεως (through the redemption). διά + genitive = means/agency.',
     category: 'nt-context',
@@ -665,7 +665,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: 'φωνὴ _____ τῶν οὐρανῶν',
     vocabHelp: 'φωνή = voice; οὐρανός = heaven',
-    options: shuffleArray(['ἐκ', 'ἀπό', 'ἐν', 'διά']),
+    options: ['ἐκ', 'ἀπό', 'ἐν', 'διά'],
     correctIndex: 0,
     explanation: 'Matthew 3:17 — φωνὴ ἐκ τῶν οὐρανῶν (a voice out of the heavens). ἐκ indicates source/origin.',
     category: 'nt-context',
@@ -676,7 +676,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: 'ἦλθεν Ἰησοῦς _____ Ναζαρέτ',
     vocabHelp: 'ἦλθεν = came; Ναζαρέτ = Nazareth',
-    options: shuffleArray(['ἀπό', 'ἐκ', 'παρά', 'διά']),
+    options: ['ἀπό', 'ἐκ', 'παρά', 'διά'],
     correctIndex: 0,
     explanation: 'Mark 1:9 — ἀπὸ Ναζαρέτ (from Nazareth). ἀπό indicates separation/departure from a place.',
     category: 'nt-context',
@@ -687,7 +687,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: 'ὁ λόγος σὰρξ ἐγένετο καὶ ἐσκήνωσεν _____ ἡμῶν',
     vocabHelp: 'σάρξ = flesh; ἐγένετο = became; ἐσκήνωσεν = dwelt/tabernacled',
-    options: shuffleArray(['μετά', 'σύν', 'ἐν', 'παρά']),
+    options: ['μετά', 'σύν', 'ἐν', 'παρά'],
     correctIndex: 0,
     explanation: "John 1:14 — ἐσκήνωσεν μεθ' ἡμῶν (dwelt with us). μετά + genitive = accompaniment.",
     category: 'nt-context',
@@ -698,7 +698,7 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: "εἰ ὁ θεὸς _____ ἡμῶν, τίς καθ' ἡμῶν;",
     vocabHelp: 'εἰ = if; θεός = God; τίς = who?; καθ\' = against',
-    options: shuffleArray(['ὑπέρ', 'ὑπό', 'περί', 'μετά']),
+    options: ['ὑπέρ', 'ὑπό', 'περί', 'μετά'],
     correctIndex: 0,
     explanation: 'Romans 8:31 — ὁ θεὸς ὑπὲρ ἡμῶν (God is for us). ὑπέρ = on behalf of, for.',
     category: 'nt-context',
@@ -709,78 +709,23 @@ const section5QuestionsBase: MCQQuestion[] = [
     question: 'Fill in the blank with the correct preposition:',
     greek: 'οὐκ _____ ἄρτῳ μόνῳ ζήσεται ὁ ἄνθρωπος',
     vocabHelp: 'ἄρτος = bread; μόνος = alone; ζήσεται = will live; ἄνθρωπος = man',
-    options: shuffleArray(['ἐπί', 'ἐν', 'διά', 'μετά']),
+    options: ['ἐπί', 'ἐν', 'διά', 'μετά'],
     correctIndex: 0,
     explanation: "Matthew 4:4 — ἐπ' ἄρτῳ μόνῳ (upon bread alone). ἐπί + dative = basis/upon.",
     category: 'nt-context',
   },
 ];
 
-// Fix the correctIndex for section 5 questions (since shuffleArray changes order)
-const fixPrepositionQuestions = (questions: MCQQuestion[]): MCQQuestion[] => {
-  return questions.map(q => {
-    // For questions that have a known correct answer pattern
-    const correctAnswers: Record<string, string> = {
-      // Part A: Meaning identification (16 questions)
-      's5-q1': 'in, on, among',
-      's5-q2': 'into, to, for',
-      's5-q3': 'from, out of',
-      's5-q4': 'from, away from',
-      's5-q5': 'to, toward, with',
-      's5-q6': 'through, on account of',
-      's5-q7': 'with, after',
-      's5-q8': 'on, upon, over',
-      's5-q9': 'by, under',
-      's5-q10': 'with',
-      's5-q11': 'beside, from, contrary to',
-      's5-q12': 'about, concerning, around',
-      's5-q13': 'down, according to, against',
-      's5-q14': 'over, above, on behalf of',
-      's5-q15': 'instead of, in place of',
-      's5-q16': 'before, in front of',
-      // Part B: Fill-in-the-blank (16 questions)
-      's5-q17': 'ἐν',
-      's5-q18': 'εἰς',
-      's5-q19': 'ἐκ / ἐξ',
-      's5-q20': 'ἀπό',
-      's5-q21': 'πρός',
-      's5-q22': 'διά',
-      's5-q23': 'μετά',
-      's5-q24': 'ἐπί',
-      's5-q25': 'ὑπό',
-      's5-q26': 'σύν',
-      's5-q27': 'παρά',
-      's5-q28': 'περί',
-      's5-q29': 'κατά',
-      's5-q30': 'ὑπέρ',
-      's5-q31': 'ἀντί',
-      's5-q32': 'πρό',
-      // Part C: NT fill-in-the-blank questions (8 questions)
-      's5-q33': 'ἐν',     // John 1:1 - ἐν ἀρχῇ
-      's5-q34': 'εἰς',    // John 3:16 - πιστεύων εἰς
-      's5-q35': 'διά',    // Romans 3:24 - διὰ τῆς ἀπολυτρώσεως
-      's5-q36': 'ἐκ',     // Matthew 3:17 - ἐκ τῶν οὐρανῶν
-      's5-q37': 'ἀπό',    // Mark 1:9 - ἀπὸ Ναζαρέτ
-      's5-q38': 'μετά',   // John 1:14 - μεθ' ἡμῶν
-      's5-q39': 'ὑπέρ',   // Romans 8:31 - ὑπὲρ ἡμῶν
-      's5-q40': 'ἐπί',    // Matthew 4:4 - ἐπ' ἄρτῳ
-    };
-
-    const correctAnswer = correctAnswers[q.id];
-    if (correctAnswer) {
-      const correctIndex = q.options.findIndex(opt => opt === correctAnswer);
-      return { ...q, correctIndex: correctIndex >= 0 ? correctIndex : 0 };
-    }
-    return q;
-  });
-};
-
-// Export the questions with randomized order
-export const section1Questions: MCQQuestion[] = shuffleArray(section1QuestionsBase);
-export const section2Questions: MCQQuestion[] = shuffleArray(section2QuestionsBase);
-export const section3Questions: MCQQuestion[] = shuffleArray(section3QuestionsBase);
-export const section4Questions: MCQQuestion[] = shuffleArray(section4QuestionsBase);
-export const section5Questions: MCQQuestion[] = fixPrepositionQuestions(shuffleArray(section5QuestionsBase));
+// Export the questions in stable order (no shuffling)
+// NOTE: Shuffling was removed because it caused SSR/hydration mismatches.
+// The shuffle ran at module import time, producing different orderings on
+// server vs client, which broke navigation (answers stored by question ID
+// wouldn't match after hydration changed the index→question mapping).
+export const section1Questions: MCQQuestion[] = section1QuestionsBase;
+export const section2Questions: MCQQuestion[] = section2QuestionsBase;
+export const section3Questions: MCQQuestion[] = section3QuestionsBase;
+export const section4Questions: MCQQuestion[] = section4QuestionsBase;
+export const section5Questions: MCQQuestion[] = section5QuestionsBase;
 
 // =============================================================================
 // HELPER: Get questions for a section
