@@ -1,16 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, CheckCircle, Clock, Lock, PlayCircle } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Clock, PlayCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
 import { cn } from '@/lib/utils';
 
 export default function HomeworkPage() {
-  const { homework1, homework2, getOverallProgress, getOverallProgress2 } = useHomeworkStore();
+  const { homework1, homework2, homework3, homework4, homework5, getOverallProgress, getOverallProgress2, getOverallProgress3, getOverallProgress4, getOverallProgress5 } = useHomeworkStore();
   const progress = getOverallProgress();
   const progress2 = getOverallProgress2();
+  const progress3 = getOverallProgress3();
+  const progress4 = getOverallProgress4();
+  const progress5 = getOverallProgress5();
 
   const getStatusIcon = () => {
     switch (homework1.status) {
@@ -349,24 +352,444 @@ export default function HomeworkPage() {
             </CardContent>
           </Card>
 
-          {/* Future homeworks placeholder */}
-          <Card className="opacity-50">
+          {/* Homework 3 Card */}
+          <Card className="overflow-hidden">
+            <div
+              className={cn(
+                'h-2',
+                homework3.status === 'completed'
+                  ? 'bg-green-500'
+                  : homework3.status === 'in_progress'
+                  ? 'bg-primary'
+                  : 'bg-muted'
+              )}
+              style={{
+                width:
+                  homework3.status === 'completed'
+                    ? '100%'
+                    : `${progress3.percentage}%`,
+              }}
+            />
             <CardHeader>
-              <div className="flex items-center gap-3">
-                <Lock className="w-6 h-6 text-muted-foreground" />
-                <div>
-                  <CardTitle className="text-xl text-muted-foreground">
-                    Homework 3
-                  </CardTitle>
-                  <CardDescription>Coming Soon</CardDescription>
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  {homework3.status === 'completed' ? (
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                  ) : homework3.status === 'in_progress' ? (
+                    <Clock className="w-6 h-6 text-primary" />
+                  ) : (
+                    <BookOpen className="w-6 h-6 text-muted-foreground" />
+                  )}
+                  <div>
+                    <CardTitle className="text-xl">Homework 3</CardTitle>
+                    <CardDescription>
+                      Greek Verb Conjugations
+                    </CardDescription>
+                  </div>
                 </div>
+                <span
+                  className={cn(
+                    'px-2.5 py-0.5 rounded-full text-xs font-medium',
+                    homework3.status === 'completed' &&
+                      'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+                    homework3.status === 'in_progress' &&
+                      'bg-primary/10 text-primary',
+                    homework3.status === 'not_started' &&
+                      'bg-muted text-muted-foreground'
+                  )}
+                >
+                  {homework3.status === 'completed'
+                    ? 'Completed'
+                    : homework3.status === 'in_progress'
+                    ? 'In Progress'
+                    : 'Not Started'}
+                </span>
               </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                More homework assignments will be added as you progress in your
-                Greek studies.
+                For students learning Greek verb morphology. This homework covers:
               </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    1
+                  </span>
+                  Present Active Indicative (λύω)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    2
+                  </span>
+                  Imperfect Active Indicative (λύω)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    3
+                  </span>
+                  Present Active Indicative (εἰμί)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    4
+                  </span>
+                  Imperfect Active Indicative (εἰμί)
+                </li>
+                <li className="flex items-center gap-2 sm:col-span-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    5
+                  </span>
+                  First Aorist Active Indicative (λύω)
+                </li>
+              </ul>
+
+              {/* Progress indicator */}
+              {homework3.status !== 'not_started' && (
+                <div className="pt-2 border-t">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">
+                      Sections completed
+                    </span>
+                    <span className="font-medium">
+                      {progress3.completed}/5
+                    </span>
+                  </div>
+                  {homework3.status === 'completed' && (
+                    <div className="flex items-center justify-between text-sm mt-1">
+                      <span className="text-muted-foreground">Score</span>
+                      <span className="font-medium">
+                        {homework3.totalScore}/{homework3.totalPossible} (
+                        {Math.round(
+                          (homework3.totalScore / homework3.totalPossible) * 100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Action button */}
+              <div className="pt-2">
+                {homework3.status === 'completed' ? (
+                  <Link href="/homework/hw3/complete">
+                    <Button className="gap-2">
+                      <CheckCircle className="w-4 h-4" />
+                      View Results
+                    </Button>
+                  </Link>
+                ) : homework3.status === 'in_progress' ? (
+                  <Link href="/homework/hw3">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Continue
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/homework/hw3">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Start
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Homework 4 Card */}
+          <Card className="overflow-hidden">
+            <div
+              className={cn(
+                'h-2',
+                homework4.status === 'completed'
+                  ? 'bg-green-500'
+                  : homework4.status === 'in_progress'
+                  ? 'bg-primary'
+                  : 'bg-muted'
+              )}
+              style={{
+                width:
+                  homework4.status === 'completed'
+                    ? '100%'
+                    : `${progress4.percentage}%`,
+              }}
+            />
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  {homework4.status === 'completed' ? (
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                  ) : homework4.status === 'in_progress' ? (
+                    <Clock className="w-6 h-6 text-primary" />
+                  ) : (
+                    <BookOpen className="w-6 h-6 text-muted-foreground" />
+                  )}
+                  <div>
+                    <CardTitle className="text-xl">Homework 4</CardTitle>
+                    <CardDescription>
+                      Future Tense, Participles, Pronouns & Conjunctions
+                    </CardDescription>
+                  </div>
+                </div>
+                <span
+                  className={cn(
+                    'px-2.5 py-0.5 rounded-full text-xs font-medium',
+                    homework4.status === 'completed' &&
+                      'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+                    homework4.status === 'in_progress' &&
+                      'bg-primary/10 text-primary',
+                    homework4.status === 'not_started' &&
+                      'bg-muted text-muted-foreground'
+                  )}
+                >
+                  {homework4.status === 'completed'
+                    ? 'Completed'
+                    : homework4.status === 'in_progress'
+                    ? 'In Progress'
+                    : 'Not Started'}
+                </span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                For students learning advanced Greek grammar. This homework covers:
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    1
+                  </span>
+                  Future Active Indicative (λύω)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    2
+                  </span>
+                  Present Active Participles
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    3
+                  </span>
+                  1st Aorist Active Participles
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    4
+                  </span>
+                  Personal Pronouns (1st & 2nd)
+                </li>
+                <li className="flex items-center gap-2 sm:col-span-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    5
+                  </span>
+                  Conjunctions
+                </li>
+              </ul>
+
+              {/* Progress indicator */}
+              {homework4.status !== 'not_started' && (
+                <div className="pt-2 border-t">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">
+                      Sections completed
+                    </span>
+                    <span className="font-medium">
+                      {progress4.completed}/5
+                    </span>
+                  </div>
+                  {homework4.status === 'completed' && (
+                    <div className="flex items-center justify-between text-sm mt-1">
+                      <span className="text-muted-foreground">Score</span>
+                      <span className="font-medium">
+                        {homework4.totalScore}/{homework4.totalPossible} (
+                        {Math.round(
+                          (homework4.totalScore / homework4.totalPossible) * 100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Action button */}
+              <div className="pt-2">
+                {homework4.status === 'completed' ? (
+                  <Link href="/homework/hw4/complete">
+                    <Button className="gap-2">
+                      <CheckCircle className="w-4 h-4" />
+                      View Results
+                    </Button>
+                  </Link>
+                ) : homework4.status === 'in_progress' ? (
+                  <Link href="/homework/hw4">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Continue
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/homework/hw4">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Start
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Homework 5 Card */}
+          <Card className="overflow-hidden">
+            <div
+              className={cn(
+                'h-2',
+                homework5.status === 'completed'
+                  ? 'bg-green-500'
+                  : homework5.status === 'in_progress'
+                  ? 'bg-primary'
+                  : 'bg-muted'
+              )}
+              style={{
+                width:
+                  homework5.status === 'completed'
+                    ? '100%'
+                    : `${progress5.percentage}%`,
+              }}
+            />
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  {homework5.status === 'completed' ? (
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                  ) : homework5.status === 'in_progress' ? (
+                    <Clock className="w-6 h-6 text-primary" />
+                  ) : (
+                    <BookOpen className="w-6 h-6 text-muted-foreground" />
+                  )}
+                  <div>
+                    <CardTitle className="text-xl">Homework 5</CardTitle>
+                    <CardDescription>
+                      Imperative Mood, Passive & Middle Voice, ἔρχομαι & Future Tense
+                    </CardDescription>
+                  </div>
+                </div>
+                <span
+                  className={cn(
+                    'px-2.5 py-0.5 rounded-full text-xs font-medium',
+                    homework5.status === 'completed' &&
+                      'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+                    homework5.status === 'in_progress' &&
+                      'bg-primary/10 text-primary',
+                    homework5.status === 'not_started' &&
+                      'bg-muted text-muted-foreground'
+                  )}
+                >
+                  {homework5.status === 'completed'
+                    ? 'Completed'
+                    : homework5.status === 'in_progress'
+                    ? 'In Progress'
+                    : 'Not Started'}
+                </span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                For students learning Greek voice and mood distinctions. This homework covers:
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    1
+                  </span>
+                  Imperative Mood (λύω)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    2
+                  </span>
+                  Passive Voice (λύω)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    3
+                  </span>
+                  Middle Voice (λύω)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    4
+                  </span>
+                  ἔρχομαι
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    5
+                  </span>
+                  Future Tense (λύω + εἰμί)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    6
+                  </span>
+                  Verse Practice
+                </li>
+              </ul>
+
+              {/* Progress indicator */}
+              {homework5.status !== 'not_started' && (
+                <div className="pt-2 border-t">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">
+                      Sections completed
+                    </span>
+                    <span className="font-medium">
+                      {progress5.completed}/6
+                    </span>
+                  </div>
+                  {homework5.status === 'completed' && (
+                    <div className="flex items-center justify-between text-sm mt-1">
+                      <span className="text-muted-foreground">Score</span>
+                      <span className="font-medium">
+                        {homework5.totalScore}/{homework5.totalPossible} (
+                        {Math.round(
+                          (homework5.totalScore / homework5.totalPossible) * 100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Action button */}
+              <div className="pt-2">
+                {homework5.status === 'completed' ? (
+                  <Link href="/homework/hw5/complete">
+                    <Button className="gap-2">
+                      <CheckCircle className="w-4 h-4" />
+                      View Results
+                    </Button>
+                  </Link>
+                ) : homework5.status === 'in_progress' ? (
+                  <Link href="/homework/hw5">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Continue
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/homework/hw5">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Start
+                    </Button>
+                  </Link>
+                )}
+              </div>
             </CardContent>
           </Card>
         </div>

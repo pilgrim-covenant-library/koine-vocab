@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { ArrowLeft, BookOpen, Brain, Keyboard, ChevronRight, Check, Zap } from 'lucide-react';
+import { Home, BookOpen, Brain, Keyboard, ChevronRight, Check, Zap, Crown } from 'lucide-react';
 import { useUserStore } from '@/stores/userStore';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -10,7 +9,6 @@ import { cn } from '@/lib/utils';
 import vocabularyData from '@/data/vocabulary.json';
 
 export default function LearnPage() {
-  const router = useRouter();
   const { selectedTiers, setSelectedTiers } = useUserStore();
 
   const toggleTier = (tier: number) => {
@@ -60,9 +58,11 @@ export default function LearnPage() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 py-3 flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => router.back()}>
-            <ArrowLeft className="w-5 h-5" />
-          </Button>
+          <Link href="/">
+            <Button variant="ghost" size="icon">
+              <Home className="w-5 h-5" />
+            </Button>
+          </Link>
           <h1 className="text-lg font-semibold">Choose Learning Mode</h1>
         </div>
       </header>
@@ -116,12 +116,19 @@ export default function LearnPage() {
           </h2>
           <div className="grid grid-cols-1 gap-3">
             <LearningModeCard
+              href="/learn/common-vocab"
+              icon={<Crown className="w-6 h-6" />}
+              title="Common NT Vocab"
+              description="Master the 300 most frequently used words in the New Testament."
+              color="bg-amber-500"
+              recommended
+            />
+            <LearningModeCard
               href="/learn/flashcards"
               icon={<BookOpen className="w-6 h-6" />}
               title="Flashcards"
               description="Classic spaced repetition with flip cards. Rate how well you knew each word."
               color="bg-emerald-500"
-              recommended
             />
             <LearningModeCard
               href="/learn/quiz"

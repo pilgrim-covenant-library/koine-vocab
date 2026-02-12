@@ -1,8 +1,38 @@
 'use client';
 
+import { memo, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
+
+// Memoized progress dots to prevent re-render on every state change
+interface ProgressDotsProps {
+  total: number;
+  current: number;
+}
+
+const ProgressDots = memo(function ProgressDots({ total, current }: ProgressDotsProps) {
+  // Generate array once based on total
+  const dots = useMemo(() => Array.from({ length: total }), [total]);
+
+  return (
+    <>
+      {dots.map((_, i) => (
+        <div
+          key={i}
+          className={cn(
+            'w-1.5 h-1.5 rounded-full transition-colors',
+            i === current
+              ? 'bg-primary'
+              : i < current
+              ? 'bg-green-500'
+              : 'bg-muted-foreground/30'
+          )}
+        />
+      ))}
+    </>
+  );
+});
 
 interface SectionNavigationProps {
   currentIndex: number;
@@ -47,21 +77,9 @@ export function SectionNavigation({
         <span className="text-sm text-muted-foreground">
           Question {currentIndex + 1} of {totalQuestions}
         </span>
-        {/* Progress dots */}
+        {/* Progress dots - memoized component */}
         <div className="hidden sm:flex items-center gap-1">
-          {Array.from({ length: totalQuestions }).map((_, i) => (
-            <div
-              key={i}
-              className={cn(
-                'w-1.5 h-1.5 rounded-full transition-colors',
-                i === currentIndex
-                  ? 'bg-primary'
-                  : i < currentIndex
-                  ? 'bg-green-500'
-                  : 'bg-muted-foreground/30'
-              )}
-            />
-          ))}
+          <ProgressDots total={totalQuestions} current={currentIndex} />
         </div>
       </div>
 

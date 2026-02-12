@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CheckCircle, Clock, HelpCircle, Loader2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, Clock, HelpCircle, Loader2, RotateCcw } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
@@ -22,6 +22,7 @@ function Homework1Content() {
     getOverallProgress,
     loadFromCloud,
     syncToCloud,
+    resetSection,
   } = useHomeworkStore();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -80,6 +81,11 @@ function Homework1Content() {
     }
     // All complete, go to completion page
     router.push('/homework/hw1/complete');
+  };
+
+  const handleRedoSection = (sectionId: SectionId) => {
+    resetSection(sectionId);
+    router.push(`/homework/hw1/section/${sectionId}`);
   };
 
   return (
@@ -208,6 +214,21 @@ function Homework1Content() {
                             </div>
                           )}
                         </div>
+
+                        {/* Redo button for completed sections */}
+                        {section.status === 'completed' && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleRedoSection(sectionId);
+                            }}
+                          >
+                            <RotateCcw className="w-4 h-4 mr-1" />
+                            Redo
+                          </Button>
+                        )}
 
                         {/* Arrow */}
                         <ArrowRight className="w-5 h-5 text-muted-foreground" />

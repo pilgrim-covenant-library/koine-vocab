@@ -324,13 +324,17 @@ export function onAuthChange(callback: (user: User | null) => void): () => void 
 // Homework Progress Sync Functions
 // =============================================================================
 
-import type { Homework1Progress, SectionProgress, SectionId, HomeworkSubmission } from '@/types/homework';
+import type { Homework1Progress, Homework2Progress, Homework3Progress, SectionProgress, SectionId, HomeworkSubmission } from '@/types/homework';
+
+// Union type for all homework progress types
+type HomeworkProgress = Homework1Progress | Homework2Progress | Homework3Progress;
 
 // Type for Firestore-serializable homework data
 interface FirestoreHomeworkProgress {
-  id: 'hw1';
+  id: 'hw1' | 'hw2' | 'hw3';
   status: 'not_started' | 'in_progress' | 'completed';
-  sections: Record<string, SectionProgress>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  sections: Record<string, any>;
   currentSection: number;
   startedAt?: number;
   completedAt?: number;
@@ -345,7 +349,7 @@ interface FirestoreHomeworkProgress {
 export async function syncHomeworkToCloud(
   uid: string,
   homeworkId: string,
-  progress: Homework1Progress
+  progress: HomeworkProgress
 ): Promise<void> {
   if (!firestore) throw new Error('Firebase not initialized');
 
@@ -353,9 +357,11 @@ export async function syncHomeworkToCloud(
     const docRef = doc(firestore, 'homework', uid, 'assignments', homeworkId);
 
     // Convert sections Record to plain object for Firestore
-    const sectionsData: Record<string, SectionProgress> = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sectionsData: Record<string, any> = {};
     for (const key in progress.sections) {
-      sectionsData[key] = progress.sections[key as unknown as SectionId];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      sectionsData[key] = (progress.sections as Record<string, any>)[key];
     }
 
     const data: FirestoreHomeworkProgress = {
@@ -380,7 +386,7 @@ export async function syncHomeworkToCloud(
 export async function getHomeworkFromCloud(
   uid: string,
   homeworkId: string
-): Promise<Homework1Progress | null> {
+): Promise<HomeworkProgress | null> {
   if (!firestore) throw new Error('Firebase not initialized');
 
   return retryOperation(async () => {
@@ -390,25 +396,23 @@ export async function getHomeworkFromCloud(
     if (docSnap.exists()) {
       const data = docSnap.data();
 
-      // Convert sections back to proper Record type
-      const sections: Record<SectionId, SectionProgress> = {
-        1: data.sections['1'] || data.sections[1],
-        2: data.sections['2'] || data.sections[2],
-        3: data.sections['3'] || data.sections[3],
-        4: data.sections['4'] || data.sections[4],
-        5: data.sections['5'] || data.sections[5],
-      };
+      // Convert sections back to proper Record type (handles both string and numeric keys)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const sections: Record<number, any> = {};
+      for (let i = 1; i <= 5; i++) {
+        sections[i] = data.sections[String(i)] || data.sections[i];
+      }
 
       return {
         id: data.id,
         status: data.status,
         sections,
-        currentSection: data.currentSection as SectionId,
+        currentSection: data.currentSection,
         startedAt: data.startedAt,
         completedAt: data.completedAt,
         totalScore: data.totalScore,
         totalPossible: data.totalPossible,
-      };
+      } as HomeworkProgress;
     }
 
     return null;
@@ -420,15 +424,23 @@ export async function getHomeworkFromCloud(
  */
 export async function getStudentHomework(
   studentUid: string
-): Promise<{ hw1?: Homework1Progress }> {
+): Promise<{ hw1?: Homework1Progress; hw2?: Homework2Progress; hw3?: Homework3Progress }> {
   if (!firestore) throw new Error('Firebase not initialized');
 
-  const result: { hw1?: Homework1Progress } = {};
+  const result: { hw1?: Homework1Progress; hw2?: Homework2Progress; hw3?: Homework3Progress } = {};
 
   try {
     const hw1 = await getHomeworkFromCloud(studentUid, 'hw1');
     if (hw1) {
-      result.hw1 = hw1;
+      result.hw1 = hw1 as Homework1Progress;
+    }
+    const hw2 = await getHomeworkFromCloud(studentUid, 'hw2');
+    if (hw2) {
+      result.hw2 = hw2 as Homework2Progress;
+    }
+    const hw3 = await getHomeworkFromCloud(studentUid, 'hw3');
+    if (hw3) {
+      result.hw3 = hw3 as Homework3Progress;
     }
   } catch (error) {
     console.error('Error fetching student homework:', error);

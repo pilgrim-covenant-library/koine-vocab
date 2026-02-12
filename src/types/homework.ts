@@ -1,12 +1,23 @@
 // Homework Type Definitions
 
+import type { ParsedMorphology } from '@/lib/morphology';
+
+// Word-level annotation for clickable Greek text (used in Section 6 translation)
+export interface VerseWord {
+  surface: string;           // Word as displayed (with punctuation)
+  lemma: string;             // Dictionary form
+  strongs?: string;          // Strong's G-number (e.g., "G746")
+  gloss: string;             // English meaning
+  parsing: ParsedMorphology; // Full grammatical info
+}
+
 // HW1 Section IDs (5 sections)
 export type SectionId = 1 | 2 | 3 | 4 | 5;
 
 // HW2 Section IDs (5 sections)
 export type HW2SectionId = 1 | 2 | 3 | 4 | 5;
 
-export type QuestionType = 'transliteration' | 'verse' | 'mcq';
+export type QuestionType = 'transliteration' | 'verse' | 'mcq' | 'translation';
 
 // Base question interface
 export interface BaseQuestion {
@@ -44,8 +55,22 @@ export interface MCQQuestion extends BaseQuestion {
   category?: string;   // e.g., "noun", "nominative", "masculine"
 }
 
+// For Section 6 (HW4): Verse translation (Greek → freeform English)
+export interface TranslationQuestion extends BaseQuestion {
+  type: 'translation';
+  reference: string;      // e.g., "Mark 1:1"
+  greek: string;
+  transliteration: string;
+  referenceTranslation: string;
+  keyTerms: string[];
+  difficulty: 1 | 2 | 3;
+  notes?: string;         // Grammar/context hints
+  vocabHelp?: string;     // Vocabulary glosses for unfamiliar words
+  words?: VerseWord[];    // Per-word annotations for clickable Greek text
+}
+
 // Union type for all questions
-export type HomeworkQuestion = TransliterationQuestion | VerseQuestion | MCQQuestion;
+export type HomeworkQuestion = TransliterationQuestion | VerseQuestion | MCQQuestion | TranslationQuestion;
 
 // Answer tracking
 export interface QuestionAnswer {
@@ -281,6 +306,343 @@ export const HW2_SECTION_META: Record<HW2SectionId, HW2SectionMeta> = {
     helpPage: '/homework/help/prepositions',
   },
 };
+// =============================================================================
+// HOMEWORK 3 TYPES
+// =============================================================================
+
+// HW3 Section IDs (5 sections)
+export type HW3SectionId = 1 | 2 | 3 | 4 | 5;
+
+// HW3 Section progress
+export interface HW3SectionProgress {
+  sectionId: HW3SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 3 progress
+export interface Homework3Progress {
+  id: 'hw3';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW3SectionId, HW3SectionProgress>;
+  currentSection: HW3SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW3 Section metadata
+export interface HW3SectionMeta {
+  id: HW3SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW3 section state
+export const createInitialHW3SectionProgress = (
+  sectionId: HW3SectionId,
+  totalQuestions: number
+): HW3SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework3Progress = (): Homework3Progress => ({
+  id: 'hw3',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW3SectionProgress(1, 10),  // Present Active Indicative of λύω
+    2: createInitialHW3SectionProgress(2, 10),  // Imperfect Active Indicative of λύω
+    3: createInitialHW3SectionProgress(3, 10),  // Present Active Indicative of εἰμί
+    4: createInitialHW3SectionProgress(4, 10),  // Imperfect Active Indicative of εἰμί
+    5: createInitialHW3SectionProgress(5, 10),  // First Aorist Active Indicative of λύω
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 50,
+});
+
+// Section metadata for HW3
+export const HW3_SECTION_META: Record<HW3SectionId, HW3SectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Present Active Indicative (λύω)',
+    description: 'Parse present active indicative verb forms of λύω',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  2: {
+    id: 2,
+    title: 'Imperfect Active Indicative (λύω)',
+    description: 'Parse imperfect active indicative verb forms of λύω',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  3: {
+    id: 3,
+    title: 'Present Active Indicative (εἰμί)',
+    description: 'Parse present active indicative verb forms of εἰμί',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  4: {
+    id: 4,
+    title: 'Imperfect Active Indicative (εἰμί)',
+    description: 'Parse imperfect active indicative verb forms of εἰμί',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  5: {
+    id: 5,
+    title: 'First Aorist Active Indicative (λύω)',
+    description: 'Parse first aorist active indicative verb forms of λύω',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+};
+
+// =============================================================================
+// HOMEWORK 4 TYPES
+// =============================================================================
+
+// HW4 Section IDs (6 sections)
+export type HW4SectionId = 1 | 2 | 3 | 4 | 5 | 6;
+
+// HW4 Section progress
+export interface HW4SectionProgress {
+  sectionId: HW4SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 4 progress
+export interface Homework4Progress {
+  id: 'hw4';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW4SectionId, HW4SectionProgress>;
+  currentSection: HW4SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW4 Section metadata
+export interface HW4SectionMeta {
+  id: HW4SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW4 section state
+export const createInitialHW4SectionProgress = (
+  sectionId: HW4SectionId,
+  totalQuestions: number
+): HW4SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework4Progress = (): Homework4Progress => ({
+  id: 'hw4',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW4SectionProgress(1, 10),  // Future Active Indicative
+    2: createInitialHW4SectionProgress(2, 12),  // Present Active Masculine Participles
+    3: createInitialHW4SectionProgress(3, 12),  // 1st Aorist Active Masculine Participles
+    4: createInitialHW4SectionProgress(4, 18),  // 1st & 2nd Person Personal Pronouns
+    5: createInitialHW4SectionProgress(5, 10),  // Conjunctions
+    6: createInitialHW4SectionProgress(6, 10),  // Verse Translation (Mark 1–4)
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 72,
+});
+
+// Section metadata for HW4
+export const HW4_SECTION_META: Record<HW4SectionId, HW4SectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Future Active Indicative (λύω)',
+    description: 'Parse future active indicative verb forms of λύω',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  2: {
+    id: 2,
+    title: 'Present Active Participles (Masculine)',
+    description: 'Parse present active masculine participle forms of λύω',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  3: {
+    id: 3,
+    title: '1st Aorist Active Participles (Masculine)',
+    description: 'Parse first aorist active masculine participle forms of λύω',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  4: {
+    id: 4,
+    title: '1st & 2nd Person Pronouns',
+    description: 'Parse 1st and 2nd person personal pronoun forms',
+    questionCount: 18,
+    helpPage: '/homework/help/pronouns',
+  },
+  5: {
+    id: 5,
+    title: 'Conjunctions',
+    description: 'Learn Greek conjunctions: meanings, usage, and distinctions',
+    questionCount: 10,
+    helpPage: '/homework/help/grammar-terms',
+  },
+  6: {
+    id: 6,
+    title: 'Verse Translation',
+    description: 'Translate 10 verses from Mark 1–4 using grammar from HW1–4',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+};
+
+// =============================================================================
+// HOMEWORK 5 TYPES
+// =============================================================================
+
+// HW5 Section IDs (6 sections)
+export type HW5SectionId = 1 | 2 | 3 | 4 | 5 | 6;
+
+// HW5 Section progress
+export interface HW5SectionProgress {
+  sectionId: HW5SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 5 progress
+export interface Homework5Progress {
+  id: 'hw5';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW5SectionId, HW5SectionProgress>;
+  currentSection: HW5SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW5 Section metadata
+export interface HW5SectionMeta {
+  id: HW5SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW5 section state
+export const createInitialHW5SectionProgress = (
+  sectionId: HW5SectionId,
+  totalQuestions: number
+): HW5SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework5Progress = (): Homework5Progress => ({
+  id: 'hw5',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW5SectionProgress(1, 12),  // Imperative Mood
+    2: createInitialHW5SectionProgress(2, 16),  // Passive Voice
+    3: createInitialHW5SectionProgress(3, 14),  // Middle Voice
+    4: createInitialHW5SectionProgress(4, 16),  // ἔρχομαι
+    5: createInitialHW5SectionProgress(5, 22),  // Future Tense
+    6: createInitialHW5SectionProgress(6, 10),  // Verse Practice
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 90,
+});
+
+// Section metadata for HW5
+export const HW5_SECTION_META: Record<HW5SectionId, HW5SectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Imperative Mood (λύω)',
+    description: 'Parse present and aorist active imperative verb forms',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  2: {
+    id: 2,
+    title: 'Passive Voice (λύω)',
+    description: 'Parse present and imperfect passive indicative verb forms',
+    questionCount: 16,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  3: {
+    id: 3,
+    title: 'Middle Voice (λύω)',
+    description: 'Parse present middle/passive indicative and middle imperative forms',
+    questionCount: 14,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  4: {
+    id: 4,
+    title: 'ἔρχομαι',
+    description: 'Parse present and imperfect forms of the deponent verb ἔρχομαι',
+    questionCount: 16,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  5: {
+    id: 5,
+    title: 'Future Tense (λύω + εἰμί)',
+    description: 'Parse future middle, future passive, and future of εἰμί',
+    questionCount: 22,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  6: {
+    id: 6,
+    title: 'Verse Practice',
+    description: 'Translate 10 verses featuring imperative, passive, middle, and future forms',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+};
+
 // Homework submission for teacher dashboard
 export interface HomeworkSubmission {
   studentUid: string;

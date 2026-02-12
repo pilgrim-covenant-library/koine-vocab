@@ -1,15 +1,20 @@
 'use client';
 
-import { Check, Circle } from 'lucide-react';
+import { memo } from 'react';
+import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { SectionId } from '@/types/homework';
 import { SECTION_META } from '@/types/homework';
 
+// Static array outside component - prevents recreation on every render
+const SECTION_IDS: number[] = [1, 2, 3, 4, 5];
+
 interface HomeworkProgressProps {
-  currentSection: SectionId;
-  sectionStatuses: Record<SectionId, 'not_started' | 'in_progress' | 'completed'>;
-  onSectionClick?: (sectionId: SectionId) => void;
-  canAccess: (sectionId: SectionId) => boolean;
+  currentSection: number;
+  sectionStatuses: Record<number, 'not_started' | 'in_progress' | 'completed'>;
+  onSectionClick?: (sectionId: number) => void;
+  canAccess: (sectionId: number) => boolean;
+  sectionMeta?: Record<number, { title: string }>;
+  sectionIds?: number[];
 }
 
 export function HomeworkProgress({
@@ -17,18 +22,19 @@ export function HomeworkProgress({
   sectionStatuses,
   onSectionClick,
   canAccess,
+  sectionMeta = SECTION_META,
+  sectionIds = SECTION_IDS,
 }: HomeworkProgressProps) {
-  const sections: SectionId[] = [1, 2, 3, 4, 5];
 
   return (
     <div className="w-full">
       {/* Progress bar with steps */}
       <div className="flex items-center justify-between">
-        {sections.map((sectionId, index) => {
+        {sectionIds.map((sectionId, index) => {
           const status = sectionStatuses[sectionId];
           const isCurrent = sectionId === currentSection;
           const isAccessible = canAccess(sectionId);
-          const meta = SECTION_META[sectionId];
+          const meta = sectionMeta[sectionId];
 
           return (
             <div key={sectionId} className="flex items-center flex-1">
@@ -54,7 +60,7 @@ export function HomeworkProgress({
               </button>
 
               {/* Connector line (except for last) */}
-              {index < sections.length - 1 && (
+              {index < sectionIds.length - 1 && (
                 <div
                   className={cn(
                     'flex-1 h-0.5 mx-2',
@@ -71,8 +77,8 @@ export function HomeworkProgress({
 
       {/* Section labels */}
       <div className="flex items-start justify-between mt-2">
-        {sections.map((sectionId) => {
-          const meta = SECTION_META[sectionId];
+        {sectionIds.map((sectionId) => {
+          const meta = sectionMeta[sectionId];
           const isCurrent = sectionId === currentSection;
 
           return (
@@ -92,16 +98,16 @@ export function HomeworkProgress({
   );
 }
 
-// Compact version for use in section pages
-export function HomeworkProgressCompact({
+// Compact version for use in section pages - memoized for performance
+export const HomeworkProgressCompact = memo(function HomeworkProgressCompact({
   currentSection,
   sectionStatuses,
-}: Pick<HomeworkProgressProps, 'currentSection' | 'sectionStatuses'>) {
-  const sections: SectionId[] = [1, 2, 3, 4, 5];
-
+  sectionMeta = SECTION_META,
+  sectionIds = SECTION_IDS,
+}: Pick<HomeworkProgressProps, 'currentSection' | 'sectionStatuses' | 'sectionMeta' | 'sectionIds'>) {
   return (
     <div className="flex items-center gap-1.5">
-      {sections.map((sectionId) => {
+      {sectionIds.map((sectionId) => {
         const status = sectionStatuses[sectionId];
         const isCurrent = sectionId === currentSection;
 
@@ -115,10 +121,10 @@ export function HomeworkProgressCompact({
               status === 'not_started' && 'bg-muted-foreground/30',
               isCurrent && 'ring-2 ring-primary ring-offset-1 ring-offset-background'
             )}
-            title={SECTION_META[sectionId].title}
+            title={sectionMeta[sectionId].title}
           />
         );
       })}
     </div>
   );
-}
+});

@@ -9,49 +9,46 @@ import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
 import { useAuthStore } from '@/stores/authStore';
 import { HomeworkProgress } from '@/components/homework/HomeworkProgress';
-import { HW2_SECTION_META, type HW2SectionId } from '@/types/homework';
+import { HW5_SECTION_META, type HW5SectionId } from '@/types/homework';
 import { cn } from '@/lib/utils';
 
-function Homework2Content() {
+function Homework5Content() {
   const router = useRouter();
   const { user } = useAuthStore();
   const {
-    homework2,
-    startHomework2,
-    canAccessSection2,
-    getOverallProgress2,
-    loadFromCloud2,
-    syncToCloud2,
-    resetSection2,
+    homework5,
+    startHomework5,
+    canAccessSection5,
+    getOverallProgress5,
+    loadFromCloud5,
+    syncToCloud5,
+    resetSection5,
   } = useHomeworkStore();
 
   const [isLoading, setIsLoading] = useState(true);
-  const progress = getOverallProgress2();
-  const sections: HW2SectionId[] = [1, 2, 3, 4, 5];
+  const progress = getOverallProgress5();
+  const sections: HW5SectionId[] = [1, 2, 3, 4, 5, 6];
 
   // Load from cloud and start homework on mount
   useEffect(() => {
     const initializeHomework = async () => {
       if (user) {
-        // Try to load progress from cloud first
-        await loadFromCloud2(user.uid);
+        await loadFromCloud5(user.uid);
       }
 
-      // Start homework if not started
-      if (homework2.status === 'not_started') {
-        startHomework2();
+      if (homework5.status === 'not_started') {
+        startHomework5();
       }
 
-      // Sync initial state to cloud
       if (user) {
-        await syncToCloud2(user.uid);
+        await syncToCloud5(user.uid);
       }
 
       setIsLoading(false);
     };
 
     initializeHomework();
-  }, [user, homework2.status, startHomework2, loadFromCloud2, syncToCloud2]);
+  }, [user, homework5.status, startHomework5, loadFromCloud5, syncToCloud5]);
 
   if (isLoading) {
     return (
@@ -64,28 +61,26 @@ function Homework2Content() {
     );
   }
 
-  const handleSectionClick = (sectionId: HW2SectionId) => {
-    if (canAccessSection2(sectionId)) {
-      router.push(`/homework/hw2/section/${sectionId}`);
+  const handleSectionClick = (sectionId: HW5SectionId) => {
+    if (canAccessSection5(sectionId)) {
+      router.push(`/homework/hw5/section/${sectionId}`);
     }
   };
 
   const handleContinue = () => {
-    // Find the first incomplete section
     for (const sectionId of sections) {
-      const section = homework2.sections[sectionId];
+      const section = homework5.sections[sectionId];
       if (section.status !== 'completed') {
-        router.push(`/homework/hw2/section/${sectionId}`);
+        router.push(`/homework/hw5/section/${sectionId}`);
         return;
       }
     }
-    // All complete, go to completion page
-    router.push('/homework/hw2/complete');
+    router.push('/homework/hw5/complete');
   };
 
-  const handleRedoSection = (sectionId: HW2SectionId) => {
-    resetSection2(sectionId);
-    router.push(`/homework/hw2/section/${sectionId}`);
+  const handleRedoSection = (sectionId: HW5SectionId) => {
+    resetSection5(sectionId);
+    router.push(`/homework/hw5/section/${sectionId}`);
   };
 
   return (
@@ -101,7 +96,7 @@ function Homework2Content() {
             <span className="text-sm">Back to Homework</span>
           </Link>
           <Link
-            href="/homework/help/noun-paradigms"
+            href="/homework/help/verb-paradigms"
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <HelpCircle className="w-4 h-4" />
@@ -115,13 +110,13 @@ function Homework2Content() {
         <div className="space-y-8">
           {/* Title section */}
           <div className="text-center space-y-2">
-            <h1 className="text-3xl font-bold">Homework 2</h1>
+            <h1 className="text-3xl font-bold">Homework 5</h1>
             <p className="text-lg text-muted-foreground">
-              Noun Declensions, Pronouns & Prepositions
+              Imperative Mood, Passive & Middle Voice, ἔρχομαι & Future Tense
             </p>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-              This homework covers noun paradigms across all three declensions,
-              personal pronouns, and common Greek prepositions with their cases.
+              This homework covers the imperative mood, passive and middle voice forms,
+              the deponent verb ἔρχομαι, and the future tense (middle, passive, and εἰμί).
             </p>
           </div>
 
@@ -130,19 +125,21 @@ function Homework2Content() {
             <CardHeader className="pb-4">
               <CardTitle className="text-lg">Your Progress</CardTitle>
               <CardDescription>
-                {progress.completed === 5
+                {progress.completed === 6
                   ? 'All sections completed!'
-                  : `${progress.completed} of 5 sections completed`}
+                  : `${progress.completed} of 6 sections completed`}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <HomeworkProgress
-                currentSection={homework2.currentSection}
+                currentSection={homework5.currentSection}
                 sectionStatuses={Object.fromEntries(
-                  sections.map((id) => [id, homework2.sections[id].status])
-                ) as Record<HW2SectionId, 'not_started' | 'in_progress' | 'completed'>}
+                  sections.map((id) => [id, homework5.sections[id]?.status ?? 'not_started'])
+                ) as Record<HW5SectionId, 'not_started' | 'in_progress' | 'completed'>}
                 onSectionClick={handleSectionClick}
-                canAccess={canAccessSection2}
+                canAccess={canAccessSection5}
+                sectionMeta={HW5_SECTION_META}
+                sectionIds={[1, 2, 3, 4, 5, 6]}
               />
             </CardContent>
           </Card>
@@ -152,8 +149,14 @@ function Homework2Content() {
             <h2 className="text-xl font-semibold">Sections</h2>
             <div className="grid gap-4">
               {sections.map((sectionId) => {
-                const meta = HW2_SECTION_META[sectionId];
-                const section = homework2.sections[sectionId];
+                const meta = HW5_SECTION_META[sectionId];
+                const section = homework5.sections[sectionId] ?? {
+                  status: 'not_started' as const,
+                  currentIndex: 0,
+                  answers: [] as { questionId: string; userAnswer: string | number; isCorrect: boolean }[],
+                  score: 0,
+                  totalQuestions: 0,
+                };
 
                 return (
                   <Card
@@ -242,8 +245,8 @@ function Homework2Content() {
 
           {/* Action buttons */}
           <div className="flex justify-center gap-4">
-            {progress.completed === 5 ? (
-              <Link href="/homework/hw2/complete">
+            {progress.completed === 6 ? (
+              <Link href="/homework/hw5/complete">
                 <Button size="lg" className="gap-2">
                   <CheckCircle className="w-5 h-5" />
                   View Results
@@ -262,7 +265,6 @@ function Homework2Content() {
   );
 }
 
-// Allow anyone to access homework (cloud sync still works if logged in)
-export default function Homework2Page() {
-  return <Homework2Content />;
+export default function Homework5Page() {
+  return <Homework5Content />;
 }

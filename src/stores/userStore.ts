@@ -143,6 +143,9 @@ export interface UserState {
   setBlindMode: (enabled: boolean) => void;
   // Common NT Vocab progress
   getCommonVocabProgress: () => { learned: number; total: number; percentage: number };
+  // Common Vocab section scores
+  commonVocabSectionScores: Record<number, { score: number; total: number; lastAttempt: string }>;
+  recordCommonVocabSectionScore: (sectionId: number, score: number, total: number) => void;
 }
 
 // =============================================================================
@@ -210,6 +213,7 @@ export const useUserActions = () => useUserStore(
     isLeech: state.isLeech,
     setBlindMode: state.setBlindMode,
     getCommonVocabProgress: state.getCommonVocabProgress,
+    recordCommonVocabSectionScore: state.recordCommonVocabSectionScore,
   }))
 );
 
@@ -230,6 +234,7 @@ export const useUserStore = create<UserState>()(
       sessionHistory: [],
       srsMode: 'normal' as SRSMode,
       blindMode: false,
+      commonVocabSectionScores: {},
 
       initializeWord: (wordId: string) => {
         const { progress } = get();
@@ -547,6 +552,20 @@ export const useUserStore = create<UserState>()(
         const percentage = Math.round((learned / COMMON_VOCAB_COUNT) * 100);
         return { learned, total: COMMON_VOCAB_COUNT, percentage };
       },
+
+      recordCommonVocabSectionScore: (sectionId: number, score: number, total: number) => {
+        const { commonVocabSectionScores } = get();
+        set({
+          commonVocabSectionScores: {
+            ...commonVocabSectionScores,
+            [sectionId]: {
+              score,
+              total,
+              lastAttempt: new Date().toISOString(),
+            },
+          },
+        });
+      },
     }),
     {
       name: 'koine-user-store',
@@ -610,6 +629,11 @@ export const useUserStore = create<UserState>()(
               delete data.state.todayReviews;
               delete data.state.lastReviewDate;
               delete data.state.dailyGoalAwardedToday;
+
+              // Default new fields for backward compatibility
+              if (!data.state.commonVocabSectionScores) {
+                data.state.commonVocabSectionScores = {};
+              }
             }
 
             return data;

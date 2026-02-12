@@ -150,6 +150,47 @@ export default function Dashboard() {
           </section>
         )}
 
+        {/* Common NT Vocab Challenge */}
+        <section className="mb-8">
+          <Card className="overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-amber-400 to-amber-600" />
+            <CardContent className="py-6">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg">
+                  <Crown className="w-6 h-6" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold">Common NT Vocab</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Master the 300 most frequent words
+                  </p>
+                </div>
+                <ProgressRing progress={commonVocabProgress.percentage} size={60} strokeWidth={5}>
+                  <span className="text-sm font-bold">{commonVocabProgress.learned}</span>
+                </ProgressRing>
+              </div>
+              <div className="mt-4 space-y-2">
+                <div className="h-2 bg-muted/50 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all"
+                    style={{ width: `${commonVocabProgress.percentage}%` }}
+                  />
+                </div>
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>{commonVocabProgress.learned} / {commonVocabProgress.total} mastered</span>
+                  <span>{commonVocabProgress.percentage}% complete</span>
+                </div>
+              </div>
+              <Link href="/learn/common-vocab" className="block mt-4">
+                <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700">
+                  {commonVocabProgress.learned === 0 ? 'Start Challenge' : 'Continue'}
+                  <ChevronRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </section>
+
         {/* Learning Modes */}
         <section className="mb-8">
           <h2 className="text-lg font-semibold mb-4">Learning Modes</h2>
@@ -225,47 +266,6 @@ export default function Dashboard() {
               color="bg-rose-500"
             />
           </div>
-        </section>
-
-        {/* Common NT Vocab Challenge */}
-        <section className="mb-8">
-          <Card className="overflow-hidden">
-            <div className="h-1 bg-gradient-to-r from-amber-400 to-amber-600" />
-            <CardContent className="py-6">
-              <div className="flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg">
-                  <Crown className="w-6 h-6" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold">Common NT Vocab</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Master the 100 most frequent words
-                  </p>
-                </div>
-                <ProgressRing progress={commonVocabProgress.percentage} size={60} strokeWidth={5}>
-                  <span className="text-sm font-bold">{commonVocabProgress.learned}</span>
-                </ProgressRing>
-              </div>
-              <div className="mt-4 space-y-2">
-                <div className="h-2 bg-muted/50 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all"
-                    style={{ width: `${commonVocabProgress.percentage}%` }}
-                  />
-                </div>
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>{commonVocabProgress.learned} / {commonVocabProgress.total} mastered</span>
-                  <span>{commonVocabProgress.percentage}% complete</span>
-                </div>
-              </div>
-              <Link href="/learn/common-vocab" className="block mt-4">
-                <Button className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700">
-                  {commonVocabProgress.learned === 0 ? 'Start Challenge' : 'Continue'}
-                  <ChevronRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
         </section>
 
         {/* Vocabulary Progress */}

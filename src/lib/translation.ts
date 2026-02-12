@@ -5,8 +5,8 @@ import type { NTVerse, TranslationResult } from '@/types';
  *
  * Evaluates user translations against reference translations
  * Scoring is out of 10 based on:
- * - Key term coverage (40%)
- * - Semantic similarity (35%)
+ * - Key term coverage (60%)
+ * - Semantic similarity (15%)
  * - Completeness (25%)
  */
 
@@ -85,6 +85,18 @@ const SYNONYMS: Record<string, string[]> = {
   'preach': ['proclaim', 'announce'],
   'gospel': ['good news', 'good tidings'],
   'resurrection': ['raised', 'rise'],
+  'proclaiming': ['preaching', 'announcing', 'declaring'],
+  'wilderness': ['desert', 'wasteland'],
+  'fulfilled': ['completed', 'accomplished', 'come'],
+  'well': ['healthy', 'strong'],
+  'physician': ['doctor', 'healer'],
+  'sick': ['ill', 'unwell'],
+  'fishers': ['catchers'],
+  'mightier': ['stronger', 'more powerful', 'greater'],
+  'worthy': ['fit', 'sufficient', 'deserving'],
+  'follow': ['come after', 'come behind'],
+  'ears': ['ear'],
+  'man': ['humanity', 'mankind', 'people', 'humans'],
 };
 
 /**
@@ -269,13 +281,13 @@ function calculateCompletenessScore(
   // Penalize if too short or too long
   const ratio = userLen / refLen;
 
-  if (ratio < 0.5) {
+  if (ratio < 0.3) {
     // Too short
-    return ratio * 2; // 0-1 for 0-50% of reference length
-  } else if (ratio > 2) {
+    return ratio * (10 / 3); // 0-1 for 0-30% of reference length
+  } else if (ratio > 2.5) {
     // Too long
-    return Math.max(0, 1 - (ratio - 2) * 0.5);
-  } else if (ratio >= 0.7 && ratio <= 1.5) {
+    return Math.max(0, 1 - (ratio - 2.5) * 0.5);
+  } else if (ratio >= 0.5 && ratio <= 2.0) {
     // Good range
     return 1;
   } else {
@@ -288,16 +300,14 @@ function calculateCompletenessScore(
  * Generate feedback based on score
  */
 function generateFeedback(score: number, keyTermsMissed: string[]): string {
-  if (score >= 9) {
-    return 'Excellent translation! You captured the meaning accurately.';
-  } else if (score >= 7) {
-    return 'Good translation! Minor improvements possible.';
+  if (score >= 7) {
+    return 'Excellent! You captured the meaning well.';
   } else if (score >= 5) {
-    return 'Decent attempt. Review the key theological terms.';
-  } else if (score >= 3) {
-    return 'Needs improvement. Focus on the main concepts.';
+    return 'Good translation. You got the main ideas.';
+  } else if (score >= 4) {
+    return 'Decent attempt. Try to include more key terms.';
   } else {
-    return 'Keep practicing! Try to identify the key words first.';
+    return 'Keep practicing! Focus on the key concepts in the verse.';
   }
 }
 
@@ -355,10 +365,10 @@ export function scoreTranslation(
   const semanticScore = calculateSemanticScore(userTokens, referenceTokens);
   const completenessScore = calculateCompletenessScore(userTranslation, verse.referenceTranslation);
 
-  // Weighted combination (40% key terms, 35% semantic, 25% completeness)
+  // Weighted combination (60% key terms, 15% semantic, 25% completeness)
   const rawScore =
-    keyTermsResult.score * 0.4 +
-    semanticScore * 0.35 +
+    keyTermsResult.score * 0.6 +
+    semanticScore * 0.15 +
     completenessScore * 0.25;
 
   // Convert to 0-10 scale and round to 1 decimal

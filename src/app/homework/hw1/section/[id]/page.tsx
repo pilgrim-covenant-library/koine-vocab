@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, memo, useMemo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Check, X, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { useHomeworkStore } from '@/stores/homeworkStore';
+import { useShallow } from 'zustand/react/shallow';
 import { useAuthStore } from '@/stores/authStore';
 import { FloatingHelpButton } from '@/components/homework/HelpButton';
 import { HomeworkProgressCompact } from '@/components/homework/HomeworkProgress';
@@ -14,6 +15,64 @@ import { SectionNavigation, QuestionProgressBar } from '@/components/homework/Se
 import { getQuestionsForSection } from '@/data/homework/hw1-questions';
 import { SECTION_META, type SectionId, type TransliterationQuestion, type VerseQuestion, type MCQQuestion } from '@/types/homework';
 import { cn } from '@/lib/utils';
+
+// Static sections array - avoid recreating on every render
+const SECTION_IDS: SectionId[] = [1, 2, 3, 4, 5];
+
+// Memoized MCQ Option Button to prevent unnecessary re-renders
+interface MCQOptionProps {
+  option: string;
+  index: number;
+  isSelected: boolean;
+  showFeedback: boolean;
+  isCorrectOption: boolean;
+  onSelect: (index: number) => void;
+}
+
+const MCQOption = memo(function MCQOption({
+  option,
+  index,
+  isSelected,
+  showFeedback,
+  isCorrectOption,
+  onSelect,
+}: MCQOptionProps) {
+  return (
+    <button
+      onClick={() => onSelect(index)}
+      disabled={showFeedback}
+      className={cn(
+        'w-full flex items-center gap-3 p-4 rounded-lg border text-left transition-all',
+        'hover:border-primary hover:bg-primary/5',
+        'disabled:hover:border-border disabled:hover:bg-transparent',
+        isSelected && !showFeedback && 'border-primary bg-primary/10',
+        showFeedback && isCorrectOption && 'border-green-500 bg-green-100 dark:bg-green-900/30',
+        showFeedback && isSelected && !isCorrectOption && 'border-red-500 bg-red-100 dark:bg-red-900/30',
+        showFeedback && !isSelected && !isCorrectOption && 'opacity-50'
+      )}
+    >
+      <span
+        className={cn(
+          'w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-medium',
+          'border-2',
+          isSelected && !showFeedback && 'border-primary bg-primary text-primary-foreground',
+          !isSelected && !showFeedback && 'border-muted-foreground/30',
+          showFeedback && isCorrectOption && 'border-green-500 bg-green-500 text-white',
+          showFeedback && isSelected && !isCorrectOption && 'border-red-500 bg-red-500 text-white'
+        )}
+      >
+        {showFeedback && isCorrectOption ? (
+          <Check className="w-4 h-4" />
+        ) : showFeedback && isSelected && !isCorrectOption ? (
+          <X className="w-4 h-4" />
+        ) : (
+          index + 1
+        )}
+      </span>
+      <span className="flex-1">{option}</span>
+    </button>
+  );
+});
 
 export default function SectionPage() {
   const router = useRouter();
@@ -25,30 +84,28 @@ export default function SectionPage() {
   const sectionId = (isValidSectionId ? parsedId : 1) as SectionId;
 
   const { user } = useAuthStore();
-  const {
-    homework1,
-    startSection,
-    submitAnswer,
-    nextQuestion,
-    previousQuestion,
-    completeSection,
-    completeHomework,
-    getSectionProgress,
-    getAnswer,
-    syncToCloud,
-  } = useHomeworkStore();
 
-  // Immediate sync to cloud (no debounce) - more reliable for homework data
-  const syncImmediately = useCallback(async () => {
-    if (!user) return;
+  // Use targeted selectors to prevent over-subscription
+  // Only re-render when this specific section changes
+  const sectionProgress = useHomeworkStore(
+    useShallow((state) => state.homework1.sections[sectionId])
+  );
+  const sectionStatuses = useHomeworkStore(
+    useShallow((state) =>
+      Object.fromEntries(
+        SECTION_IDS.map((id) => [id, state.homework1.sections[id].status])
+      ) as Record<SectionId, 'not_started' | 'in_progress' | 'completed'>
+    )
+  );
 
-    try {
-      await syncToCloud(user.uid);
-    } catch (error) {
-      console.error('Failed to sync homework to cloud:', error);
-      // Note: Store still persists to localStorage even if cloud sync fails
-    }
-  }, [user, syncToCloud]);
+  // Actions don't cause re-renders - select individually
+  const startSection = useHomeworkStore((state) => state.startSection);
+  const submitAnswer = useHomeworkStore((state) => state.submitAnswer);
+  const nextQuestion = useHomeworkStore((state) => state.nextQuestion);
+  const previousQuestion = useHomeworkStore((state) => state.previousQuestion);
+  const completeSection = useHomeworkStore((state) => state.completeSection);
+  const completeHomework = useHomeworkStore((state) => state.completeHomework);
+  const syncToCloud = useHomeworkStore((state) => state.syncToCloud);
 
   const [userInput, setUserInput] = useState('');
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -56,14 +113,32 @@ export default function SectionPage() {
   const [isCorrect, setIsCorrect] = useState(false);
   const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const section = getSectionProgress(sectionId);
-  const questions = getQuestionsForSection(sectionId);
-  const currentQuestion = questions[section.currentIndex];
+  // Memoize questions to avoid recalculation
+  const questions = useMemo(() => getQuestionsForSection(sectionId), [sectionId]);
+  const currentQuestion = questions[sectionProgress.currentIndex];
   const meta = SECTION_META[sectionId];
 
-  const existingAnswer = currentQuestion
-    ? getAnswer(sectionId, currentQuestion.id)
-    : undefined;
+  // Memoize existing answer lookup
+  const existingAnswer = useMemo(() => {
+    if (!currentQuestion) return undefined;
+    return sectionProgress.answers.find(a => a.questionId === currentQuestion.id);
+  }, [sectionProgress.answers, currentQuestion]);
+
+  // Debounced sync to cloud - batches rapid answers (1 second delay)
+  const debouncedSync = useCallback(() => {
+    if (syncTimeoutRef.current) {
+      clearTimeout(syncTimeoutRef.current);
+    }
+    syncTimeoutRef.current = setTimeout(async () => {
+      if (user) {
+        try {
+          await syncToCloud(user.uid);
+        } catch (error) {
+          console.error('Failed to sync homework to cloud:', error);
+        }
+      }
+    }, 1000);
+  }, [user, syncToCloud]);
 
   // Validate section ID and start section
   useEffect(() => {
@@ -75,21 +150,27 @@ export default function SectionPage() {
     startSection(sectionId);
   }, [sectionId, isValidSectionId, params.id, startSection, router]);
 
-  // Sync immediately on tab close/navigation to prevent data loss
+  // Sync on tab close/navigation - flush any pending debounced sync
   useEffect(() => {
     const handleBeforeUnload = () => {
+      // Clear any pending debounced sync and do immediate sync
+      if (syncTimeoutRef.current) {
+        clearTimeout(syncTimeoutRef.current);
+      }
       if (user) {
-        // Clear any pending debounced sync
-        if (syncTimeoutRef.current) {
-          clearTimeout(syncTimeoutRef.current);
-        }
         // Attempt immediate sync (best effort - may not complete)
         syncToCloud(user.uid);
       }
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      // Cleanup: flush pending sync on unmount
+      if (syncTimeoutRef.current) {
+        clearTimeout(syncTimeoutRef.current);
+      }
+    };
   }, [user, syncToCloud]);
 
   // Reset input when question changes
@@ -110,7 +191,7 @@ export default function SectionPage() {
       setUserInput('');
       setSelectedOption(null);
     }
-  }, [section.currentIndex, existingAnswer, currentQuestion?.type]);
+  }, [sectionProgress.currentIndex, existingAnswer, currentQuestion?.type]);
 
   // Normalize transliteration for comparison
   const normalizeTransliteration = (text: string): string => {
@@ -160,9 +241,9 @@ export default function SectionPage() {
     setIsCorrect(correct);
     setShowFeedback(true);
 
-    // Sync to cloud immediately after answer (no debounce for homework data)
-    syncImmediately();
-  }, [currentQuestion, selectedOption, userInput, sectionId, submitAnswer, syncImmediately]);
+    // Debounced sync - batches rapid consecutive answers
+    debouncedSync();
+  }, [currentQuestion, selectedOption, userInput, sectionId, submitAnswer, debouncedSync]);
 
   // Handle next question
   const handleNext = () => {
@@ -193,7 +274,11 @@ export default function SectionPage() {
     }
   };
 
-  // Keyboard shortcuts for MCQ
+  // Use ref to store handleSubmit to avoid re-attaching listener on every render
+  const handleSubmitRef = useRef(handleSubmit);
+  handleSubmitRef.current = handleSubmit;
+
+  // Keyboard shortcuts for MCQ - stabilized with refs
   useEffect(() => {
     if (currentQuestion?.type !== 'mcq' || showFeedback) return;
 
@@ -202,19 +287,24 @@ export default function SectionPage() {
       if (['1', '2', '3', '4'].includes(key)) {
         setSelectedOption(parseInt(key, 10) - 1);
       } else if (key === 'Enter' && selectedOption !== null) {
-        handleSubmit();
+        handleSubmitRef.current(); // Use ref to avoid dependency
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentQuestion?.type, showFeedback, selectedOption, handleSubmit]);
+  }, [currentQuestion?.type, showFeedback, selectedOption]); // Removed handleSubmit dependency
+
+  // Memoized handler for MCQ option selection
+  const handleSelectOption = useCallback((index: number) => {
+    if (!showFeedback) setSelectedOption(index);
+  }, [showFeedback]);
 
   if (!currentQuestion) {
     return null;
   }
 
-  const isLastQuestion = section.currentIndex === questions.length - 1;
+  const isLastQuestion = sectionProgress.currentIndex === questions.length - 1;
   const isLastSection = sectionId === 5;
   const hasAnswered = showFeedback || existingAnswer !== undefined;
 
@@ -233,12 +323,7 @@ export default function SectionPage() {
           <div className="flex items-center gap-4">
             <HomeworkProgressCompact
               currentSection={sectionId}
-              sectionStatuses={Object.fromEntries(
-                ([1, 2, 3, 4, 5] as SectionId[]).map((id) => [
-                  id,
-                  homework1.sections[id].status,
-                ])
-              ) as Record<SectionId, 'not_started' | 'in_progress' | 'completed'>}
+              sectionStatuses={sectionStatuses}
             />
           </div>
         </div>
@@ -255,16 +340,16 @@ export default function SectionPage() {
 
           {/* Progress bar */}
           <QuestionProgressBar
-            current={section.currentIndex}
+            current={sectionProgress.currentIndex}
             total={questions.length}
-            answered={section.answers.length}
+            answered={sectionProgress.answers.length}
           />
 
           {/* Question card */}
           <Card>
             <CardHeader>
               <CardTitle className="text-lg">
-                Question {section.currentIndex + 1}
+                Question {sectionProgress.currentIndex + 1}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -387,51 +472,17 @@ export default function SectionPage() {
                   </div>
 
                   <div className="space-y-3">
-                    {(currentQuestion as MCQQuestion).options.map((option, index) => {
-                      const isSelected = selectedOption === index;
-                      const isCorrectOption = index === (currentQuestion as MCQQuestion).correctIndex;
-
-                      return (
-                        <button
-                          key={index}
-                          onClick={() => {
-                            if (!showFeedback) {
-                              setSelectedOption(index);
-                            }
-                          }}
-                          disabled={showFeedback}
-                          className={cn(
-                            'w-full flex items-center gap-3 p-4 rounded-lg border text-left transition-all',
-                            'hover:border-primary hover:bg-primary/5',
-                            'disabled:hover:border-border disabled:hover:bg-transparent',
-                            isSelected && !showFeedback && 'border-primary bg-primary/10',
-                            showFeedback && isCorrectOption && 'border-green-500 bg-green-100 dark:bg-green-900/30',
-                            showFeedback && isSelected && !isCorrectOption && 'border-red-500 bg-red-100 dark:bg-red-900/30',
-                            showFeedback && !isSelected && !isCorrectOption && 'opacity-50'
-                          )}
-                        >
-                          <span
-                            className={cn(
-                              'w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-medium',
-                              'border-2',
-                              isSelected && !showFeedback && 'border-primary bg-primary text-primary-foreground',
-                              !isSelected && !showFeedback && 'border-muted-foreground/30',
-                              showFeedback && isCorrectOption && 'border-green-500 bg-green-500 text-white',
-                              showFeedback && isSelected && !isCorrectOption && 'border-red-500 bg-red-500 text-white'
-                            )}
-                          >
-                            {showFeedback && isCorrectOption ? (
-                              <Check className="w-4 h-4" />
-                            ) : showFeedback && isSelected && !isCorrectOption ? (
-                              <X className="w-4 h-4" />
-                            ) : (
-                              index + 1
-                            )}
-                          </span>
-                          <span className="flex-1">{option}</span>
-                        </button>
-                      );
-                    })}
+                    {(currentQuestion as MCQQuestion).options.map((option, index) => (
+                      <MCQOption
+                        key={index}
+                        option={option}
+                        index={index}
+                        isSelected={selectedOption === index}
+                        showFeedback={showFeedback}
+                        isCorrectOption={index === (currentQuestion as MCQQuestion).correctIndex}
+                        onSelect={handleSelectOption}
+                      />
+                    ))}
                   </div>
 
                   {/* Keyboard hint */}
@@ -484,7 +535,7 @@ export default function SectionPage() {
 
           {/* Navigation */}
           <SectionNavigation
-            currentIndex={section.currentIndex}
+            currentIndex={sectionProgress.currentIndex}
             totalQuestions={questions.length}
             hasAnswered={hasAnswered}
             isLastQuestion={isLastQuestion}

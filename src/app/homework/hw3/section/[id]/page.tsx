@@ -12,12 +12,12 @@ import { useAuthStore } from '@/stores/authStore';
 import { FloatingHelpButton } from '@/components/homework/HelpButton';
 import { HomeworkProgressCompact } from '@/components/homework/HomeworkProgress';
 import { SectionNavigation, QuestionProgressBar } from '@/components/homework/SectionNavigation';
-import { getQuestionsForHW2Section } from '@/data/homework/hw2-questions';
-import { HW2_SECTION_META, type HW2SectionId, type MCQQuestion } from '@/types/homework';
+import { getQuestionsForHW3Section, type HW3SectionId } from '@/data/homework/hw3-questions';
+import { HW3_SECTION_META, type MCQQuestion } from '@/types/homework';
 import { cn } from '@/lib/utils';
 
 // Static sections array - avoid recreating on every render
-const SECTION_IDS: HW2SectionId[] = [1, 2, 3, 4, 5];
+const SECTION_IDS: HW3SectionId[] = [1, 2, 3, 4, 5];
 
 // Memoized MCQ Option Button to prevent unnecessary re-renders
 interface MCQOptionProps {
@@ -74,38 +74,38 @@ const MCQOption = memo(function MCQOption({
   );
 });
 
-export default function HW2SectionPage() {
+export default function HW3SectionPage() {
   const router = useRouter();
   const params = useParams();
   const parsedId = parseInt(params.id as string, 10);
 
   // Validate section ID is 1-5
   const isValidSectionId = !isNaN(parsedId) && parsedId >= 1 && parsedId <= 5;
-  const sectionId = (isValidSectionId ? parsedId : 1) as HW2SectionId;
+  const sectionId = (isValidSectionId ? parsedId : 1) as HW3SectionId;
 
   const { user } = useAuthStore();
 
   // Use targeted selectors to prevent over-subscription
   // Only re-render when this specific section changes
   const sectionProgress = useHomeworkStore(
-    useShallow((state) => state.homework2.sections[sectionId])
+    useShallow((state) => state.homework3.sections[sectionId])
   );
   const sectionStatuses = useHomeworkStore(
     useShallow((state) =>
       Object.fromEntries(
-        SECTION_IDS.map((id) => [id, state.homework2.sections[id].status])
-      ) as Record<HW2SectionId, 'not_started' | 'in_progress' | 'completed'>
+        SECTION_IDS.map((id) => [id, state.homework3.sections[id].status])
+      ) as Record<HW3SectionId, 'not_started' | 'in_progress' | 'completed'>
     )
   );
 
   // Actions don't cause re-renders - select individually
-  const startSection2 = useHomeworkStore((state) => state.startSection2);
-  const submitAnswer2 = useHomeworkStore((state) => state.submitAnswer2);
-  const nextQuestion2 = useHomeworkStore((state) => state.nextQuestion2);
-  const previousQuestion2 = useHomeworkStore((state) => state.previousQuestion2);
-  const completeSection2 = useHomeworkStore((state) => state.completeSection2);
-  const completeHomework2 = useHomeworkStore((state) => state.completeHomework2);
-  const syncToCloud2 = useHomeworkStore((state) => state.syncToCloud2);
+  const startSection3 = useHomeworkStore((state) => state.startSection3);
+  const submitAnswer3 = useHomeworkStore((state) => state.submitAnswer3);
+  const nextQuestion3 = useHomeworkStore((state) => state.nextQuestion3);
+  const previousQuestion3 = useHomeworkStore((state) => state.previousQuestion3);
+  const completeSection3 = useHomeworkStore((state) => state.completeSection3);
+  const completeHomework3 = useHomeworkStore((state) => state.completeHomework3);
+  const syncToCloud3 = useHomeworkStore((state) => state.syncToCloud3);
 
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -113,9 +113,9 @@ export default function HW2SectionPage() {
   const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Memoize questions to avoid recalculation
-  const questions = useMemo(() => getQuestionsForHW2Section(sectionId), [sectionId]);
+  const questions = useMemo(() => getQuestionsForHW3Section(sectionId), [sectionId]);
   const currentQuestion = questions[sectionProgress.currentIndex] as MCQQuestion | undefined;
-  const meta = HW2_SECTION_META[sectionId];
+  const meta = HW3_SECTION_META[sectionId];
 
   // Memoize existing answer lookup
   const existingAnswer = useMemo(() => {
@@ -131,23 +131,23 @@ export default function HW2SectionPage() {
     syncTimeoutRef.current = setTimeout(async () => {
       if (user) {
         try {
-          await syncToCloud2(user.uid);
+          await syncToCloud3(user.uid);
         } catch (error) {
           console.error('Failed to sync homework to cloud:', error);
         }
       }
     }, 1000);
-  }, [user, syncToCloud2]);
+  }, [user, syncToCloud3]);
 
   // Validate section ID and start section
   useEffect(() => {
     if (!isValidSectionId) {
       console.warn(`Invalid section ID: ${params.id}`);
-      router.replace('/homework/hw2');
+      router.replace('/homework/hw3');
       return;
     }
-    startSection2(sectionId);
-  }, [sectionId, isValidSectionId, params.id, startSection2, router]);
+    startSection3(sectionId);
+  }, [sectionId, isValidSectionId, params.id, startSection3, router]);
 
   // Sync on tab close/navigation - flush any pending debounced sync
   useEffect(() => {
@@ -158,7 +158,7 @@ export default function HW2SectionPage() {
       }
       if (user) {
         // Attempt immediate sync (best effort - may not complete)
-        syncToCloud2(user.uid);
+        syncToCloud3(user.uid);
       }
     };
 
@@ -170,7 +170,7 @@ export default function HW2SectionPage() {
         clearTimeout(syncTimeoutRef.current);
       }
     };
-  }, [user, syncToCloud2]);
+  }, [user, syncToCloud3]);
 
   // Reset input when question changes
   useEffect(() => {
@@ -190,41 +190,41 @@ export default function HW2SectionPage() {
     if (!currentQuestion || selectedOption === null) return;
 
     const correct = selectedOption === currentQuestion.correctIndex;
-    submitAnswer2(sectionId, currentQuestion.id, selectedOption, correct);
+    submitAnswer3(sectionId, currentQuestion.id, selectedOption, correct);
 
     setIsCorrect(correct);
     setShowFeedback(true);
 
     // Debounced sync - batches rapid consecutive answers
     debouncedSync();
-  }, [currentQuestion, selectedOption, sectionId, submitAnswer2, debouncedSync]);
+  }, [currentQuestion, selectedOption, sectionId, submitAnswer3, debouncedSync]);
 
   // Handle next question
   const handleNext = () => {
-    if (!nextQuestion2(sectionId)) {
+    if (!nextQuestion3(sectionId)) {
       // Last question - this shouldn't happen as we use onComplete for last
     }
   };
 
   // Handle previous question
   const handlePrevious = () => {
-    previousQuestion2(sectionId);
+    previousQuestion3(sectionId);
   };
 
   // Handle section completion
   const handleComplete = async () => {
-    completeSection2(sectionId);
+    completeSection3(sectionId);
 
     // Immediate sync on section complete
     if (user) {
-      await syncToCloud2(user.uid);
+      await syncToCloud3(user.uid);
     }
 
     if (sectionId === 5) {
-      completeHomework2();
-      router.push('/homework/hw2/complete');
+      completeHomework3();
+      router.push('/homework/hw3/complete');
     } else {
-      router.push(`/homework/hw2/section/${sectionId + 1}`);
+      router.push(`/homework/hw3/section/${sectionId + 1}`);
     }
   };
 
@@ -268,7 +268,7 @@ export default function HW2SectionPage() {
       <header className="sticky top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
         <div className="container mx-auto px-4 h-14 flex items-center justify-between">
           <Link
-            href="/homework/hw2"
+            href="/homework/hw3"
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -278,6 +278,7 @@ export default function HW2SectionPage() {
             <HomeworkProgressCompact
               currentSection={sectionId}
               sectionStatuses={sectionStatuses}
+              sectionMeta={HW3_SECTION_META}
             />
           </div>
         </div>
@@ -307,7 +308,7 @@ export default function HW2SectionPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* MCQ questions (all HW2 sections) */}
+              {/* MCQ questions (all HW3 sections) */}
               <div className="space-y-2">
                 {currentQuestion.greek && (
                   <p className="text-3xl greek-text font-serif tracking-wide text-center mb-4">
@@ -399,7 +400,7 @@ export default function HW2SectionPage() {
       </main>
 
       {/* Floating help button */}
-      <FloatingHelpButton currentSection={sectionId} homeworkId="hw2" />
+      <FloatingHelpButton currentSection={sectionId} homeworkId="hw3" />
     </div>
   );
 }
