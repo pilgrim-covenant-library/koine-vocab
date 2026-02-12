@@ -18,6 +18,19 @@ function shuffleArray<T>(array: T[]): T[] {
 // =============================================================================
 // UTILITY: Create verb parsing question with randomized options
 // =============================================================================
+
+// Helper: Get plausible alternative tenses for wrong answers
+const getTenseAlternatives = (tense: string, mood: string): string[] => {
+  if (mood === 'Imperative') {
+    // For imperatives: Present ↔ Aorist confusion
+    return tense === 'Present' ? ['Aorist'] : ['Present'];
+  }
+
+  // For indicative: all tenses are fair game
+  const allTenses = ['Present', 'Imperfect', 'Aorist', 'Future'];
+  return allTenses.filter(t => t !== tense);
+};
+
 const createVerbQuestion = (
   id: string,
   greek: string,
@@ -29,22 +42,35 @@ const createVerbQuestion = (
   lexicalForm: string,
   meaning: string
 ): MCQQuestion => {
-  const correctAnswer = `${person} Person ${number}`;
+  const correctAnswer = `${person} Person ${number}, ${tense} ${voice}`;
 
+  // Define pools for generating wrong options
   const persons = ['1st', '2nd', '3rd'];
   const numbers = ['Singular', 'Plural'];
+  const tenseAlternatives = getTenseAlternatives(tense, mood);
 
   const wrongOptions: string[] = [];
+
+  // Strategy: 50% tense confusion, 50% person/number errors
+
+  // Generate tense confusion options (correct person/number, wrong tense)
+  for (const wrongTense of tenseAlternatives) {
+    wrongOptions.push(`${person} Person ${number}, ${wrongTense} ${voice}`);
+  }
+
+  // Generate person/number error options (correct tense, wrong person/number)
   for (const p of persons) {
     for (const n of numbers) {
-      const option = `${p} Person ${n}`;
-      if (option !== correctAnswer) {
-        wrongOptions.push(option);
+      if (p !== person || n !== number) {
+        wrongOptions.push(`${p} Person ${n}, ${tense} ${voice}`);
       }
     }
   }
 
+  // Shuffle and take 3 wrong options
   const shuffled = shuffleArray(wrongOptions).slice(0, 3);
+
+  // Insert correct answer at random position
   const correctIndex = Math.floor(Math.random() * 4);
   const options = [...shuffled];
   options.splice(correctIndex, 0, correctAnswer);
@@ -52,7 +78,7 @@ const createVerbQuestion = (
   return {
     id,
     type: 'mcq',
-    question: `Parse this verb form:`,
+    question: `Identify the person, number, tense, and voice of this verb form:`,
     greek,
     options,
     correctIndex,
@@ -276,121 +302,14 @@ const section2QuestionsBase: MCQQuestion[] = [
 ];
 
 // =============================================================================
-// SECTION 3: Middle Voice (14 questions)
-// =============================================================================
-// 2 concept Qs, 6 present M/P indicative (middle meaning), 4 middle imperative, 2 biblical
-
-const section3QuestionsBase: MCQQuestion[] = [
-  // Q1: What is the middle voice?
-  {
-    id: 'h5s3-q1',
-    type: 'mcq',
-    question: 'What does the middle voice indicate in Greek?',
-    options: [
-      'The subject acts on itself or in its own interest',
-      'The subject receives the action from an outside agent',
-      'The action is performed by someone else',
-      'The verb has no subject',
-    ],
-    correctIndex: 0,
-    explanation: 'The middle voice indicates the subject participates in the action in a personal way — acting on itself, for its own benefit, or with self-involvement. E.g., λούομαι = "I wash myself."',
-    category: 'grammar-concept',
-  },
-
-  // Q2: Middle vs passive forms
-  {
-    id: 'h5s3-q2',
-    type: 'mcq',
-    question: 'In the present and imperfect tenses, how do middle and passive forms differ?',
-    options: [
-      'They share the same forms — context determines whether middle or passive is meant',
-      'Middle adds -μ- and passive adds -π- to the ending',
-      'Middle uses active endings while passive uses special endings',
-      'They have completely different conjugation patterns',
-    ],
-    correctIndex: 0,
-    explanation: 'In the present and imperfect tenses, middle and passive forms are identical (hence "middle/passive"). Only context determines the meaning. They diverge in the aorist and future tenses.',
-    category: 'grammar-concept',
-  },
-
-  // Present middle/passive indicative — middle meaning, JUMBLED
-  // Q3: 2pl — λύεσθε
-  createVerbQuestion('h5s3-q3', 'λύεσθε', '2nd', 'Plural', 'Present', 'Middle', 'Indicative', 'λύω', 'you (pl.) loose for yourselves'),
-
-  // Q4: 1sg — λύομαι
-  createVerbQuestion('h5s3-q4', 'λύομαι', '1st', 'Singular', 'Present', 'Middle', 'Indicative', 'λύω', 'I loose for myself'),
-
-  // Q5: 3sg — λύεται
-  createVerbQuestion('h5s3-q5', 'λύεται', '3rd', 'Singular', 'Present', 'Middle', 'Indicative', 'λύω', 'he/she looses for him/herself'),
-
-  // Q6: 3pl — λύονται
-  createVerbQuestion('h5s3-q6', 'λύονται', '3rd', 'Plural', 'Present', 'Middle', 'Indicative', 'λύω', 'they loose for themselves'),
-
-  // Q7: 1pl — λυόμεθα
-  createVerbQuestion('h5s3-q7', 'λυόμεθα', '1st', 'Plural', 'Present', 'Middle', 'Indicative', 'λύω', 'we loose for ourselves'),
-
-  // Q8: 2sg — λύῃ
-  createVerbQuestion('h5s3-q8', 'λύῃ', '2nd', 'Singular', 'Present', 'Middle', 'Indicative', 'λύω', 'you loose for yourself'),
-
-  // Middle imperative forms — JUMBLED
-  // Q9: 3sg — λυέσθω
-  createVerbQuestion('h5s3-q9', 'λυέσθω', '3rd', 'Singular', 'Present', 'Middle', 'Imperative', 'λύω', 'let him loose for himself'),
-
-  // Q10: 2sg — λύου
-  createVerbQuestion('h5s3-q10', 'λύου', '2nd', 'Singular', 'Present', 'Middle', 'Imperative', 'λύω', 'loose for yourself!'),
-
-  // Q11: 3pl — λυέσθωσαν
-  createVerbQuestion('h5s3-q11', 'λυέσθωσαν', '3rd', 'Plural', 'Present', 'Middle', 'Imperative', 'λύω', 'let them loose for themselves'),
-
-  // Q12: 2pl — λύεσθε
-  createVerbQuestion('h5s3-q12', 'λύεσθε', '2nd', 'Plural', 'Present', 'Middle', 'Imperative', 'λύω', 'loose for yourselves!'),
-
-  // Q13: Biblical verse — Luke 15:20 ἐγένετο (middle of γίνομαι)
-  {
-    id: 'h5s3-q13',
-    type: 'mcq',
-    question: 'In Luke 15:20, identify the person and number of the underlined middle verb:',
-    greek: 'καὶ ἀναστὰς ἦλθεν πρὸς τὸν πατέρα αὐτοῦ. ἔτι δὲ αὐτοῦ μακρὰν ἀπέχοντος **εἶδεν** αὐτὸν ὁ πατὴρ αὐτοῦ',
-    vocabHelp: 'ὁράω/εἶδον = I see; πατήρ = father; μακράν = far off',
-    options: [
-      '3rd Person Singular',
-      '3rd Person Plural',
-      '1st Person Singular',
-      '2nd Person Singular',
-    ],
-    correctIndex: 0,
-    explanation: 'εἶδεν is 3rd person singular aorist active indicative from ὁράω. "His father saw him." Many deponent and middle verbs appear in narrative contexts like the parable of the prodigal son.',
-    category: 'biblical-parsing',
-  },
-
-  // Q14: Biblical verse — Rom 6:11 λογίζεσθε
-  {
-    id: 'h5s3-q14',
-    type: 'mcq',
-    question: 'In Romans 6:11, identify the person and number of the underlined middle imperative:',
-    greek: 'οὕτως καὶ ὑμεῖς **λογίζεσθε** ἑαυτοὺς εἶναι νεκροὺς μὲν τῇ ἁμαρτίᾳ',
-    vocabHelp: 'λογίζομαι = I consider/reckon; νεκρός = dead; ἁμαρτία = sin',
-    options: [
-      '2nd Person Plural',
-      '3rd Person Plural',
-      '2nd Person Singular',
-      '1st Person Plural',
-    ],
-    correctIndex: 0,
-    explanation: 'λογίζεσθε is 2nd person plural present middle imperative from λογίζομαι. "So you also, consider yourselves to be dead to sin." The middle voice reflects personal involvement in the reckoning.',
-    category: 'biblical-parsing',
-  },
-];
-
-// =============================================================================
-// SECTION 4: ἔρχομαι (16 questions)
+// SECTION 3: ἔρχομαι (16 questions)
 // =============================================================================
 // 2 concept Qs, 6 present indicative, 6 imperfect indicative, 2 biblical
 
-const section4QuestionsBase: MCQQuestion[] = [
+const section3QuestionsBase: MCQQuestion[] = [
   // Q1: What is a deponent verb?
   {
-    id: 'h5s4-q1',
+    id: 'h5s3-q1',
     type: 'mcq',
     question: 'What is a deponent verb?',
     options: [
@@ -406,7 +325,7 @@ const section4QuestionsBase: MCQQuestion[] = [
 
   // Q2: Why does ἔρχομαι use middle forms?
   {
-    id: 'h5s4-q2',
+    id: 'h5s3-q2',
     type: 'mcq',
     question: 'Why does ἔρχομαι use middle/passive endings despite having active meaning?',
     options: [
@@ -422,45 +341,45 @@ const section4QuestionsBase: MCQQuestion[] = [
 
   // Present indicative of ἔρχομαι — JUMBLED
   // Q3: 3sg — ἔρχεται
-  createVerbQuestion('h5s4-q3', 'ἔρχεται', '3rd', 'Singular', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'he/she comes'),
+  createVerbQuestion('h5s3-q3', 'ἔρχεται', '3rd', 'Singular', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'he/she comes'),
 
   // Q4: 1pl — ἐρχόμεθα
-  createVerbQuestion('h5s4-q4', 'ἐρχόμεθα', '1st', 'Plural', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'we come'),
+  createVerbQuestion('h5s3-q4', 'ἐρχόμεθα', '1st', 'Plural', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'we come'),
 
   // Q5: 2sg — ἔρχῃ
-  createVerbQuestion('h5s4-q5', 'ἔρχῃ', '2nd', 'Singular', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'you come'),
+  createVerbQuestion('h5s3-q5', 'ἔρχῃ', '2nd', 'Singular', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'you come'),
 
   // Q6: 3pl — ἔρχονται
-  createVerbQuestion('h5s4-q6', 'ἔρχονται', '3rd', 'Plural', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'they come'),
+  createVerbQuestion('h5s3-q6', 'ἔρχονται', '3rd', 'Plural', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'they come'),
 
   // Q7: 1sg — ἔρχομαι
-  createVerbQuestion('h5s4-q7', 'ἔρχομαι', '1st', 'Singular', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'I come'),
+  createVerbQuestion('h5s3-q7', 'ἔρχομαι', '1st', 'Singular', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'I come'),
 
   // Q8: 2pl — ἔρχεσθε
-  createVerbQuestion('h5s4-q8', 'ἔρχεσθε', '2nd', 'Plural', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'you (pl.) come'),
+  createVerbQuestion('h5s3-q8', 'ἔρχεσθε', '2nd', 'Plural', 'Present', 'Middle', 'Indicative', 'ἔρχομαι', 'you (pl.) come'),
 
   // Imperfect indicative of ἔρχομαι — JUMBLED
   // Q9: 2pl — ἤρχεσθε
-  createVerbQuestion('h5s4-q9', 'ἤρχεσθε', '2nd', 'Plural', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'you (pl.) were coming'),
+  createVerbQuestion('h5s3-q9', 'ἤρχεσθε', '2nd', 'Plural', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'you (pl.) were coming'),
 
   // Q10: 3sg — ἤρχετο
-  createVerbQuestion('h5s4-q10', 'ἤρχετο', '3rd', 'Singular', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'he/she was coming'),
+  createVerbQuestion('h5s3-q10', 'ἤρχετο', '3rd', 'Singular', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'he/she was coming'),
 
   // Q11: 1sg — ἠρχόμην
-  createVerbQuestion('h5s4-q11', 'ἠρχόμην', '1st', 'Singular', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'I was coming'),
+  createVerbQuestion('h5s3-q11', 'ἠρχόμην', '1st', 'Singular', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'I was coming'),
 
   // Q12: 3pl — ἤρχοντο
-  createVerbQuestion('h5s4-q12', 'ἤρχοντο', '3rd', 'Plural', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'they were coming'),
+  createVerbQuestion('h5s3-q12', 'ἤρχοντο', '3rd', 'Plural', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'they were coming'),
 
   // Q13: 1pl — ἠρχόμεθα
-  createVerbQuestion('h5s4-q13', 'ἠρχόμεθα', '1st', 'Plural', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'we were coming'),
+  createVerbQuestion('h5s3-q13', 'ἠρχόμεθα', '1st', 'Plural', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'we were coming'),
 
   // Q14: 2sg — ἤρχου
-  createVerbQuestion('h5s4-q14', 'ἤρχου', '2nd', 'Singular', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'you were coming'),
+  createVerbQuestion('h5s3-q14', 'ἤρχου', '2nd', 'Singular', 'Imperfect', 'Middle', 'Indicative', 'ἔρχομαι', 'you were coming'),
 
   // Q15: Biblical verse — Mark 1:7 ἔρχεται
   {
-    id: 'h5s4-q15',
+    id: 'h5s3-q15',
     type: 'mcq',
     question: 'In Mark 1:7, identify the person and number of the underlined verb:',
     greek: '**ἔρχεται** ὁ ἰσχυρότερός μου ὀπίσω μου',
@@ -478,7 +397,7 @@ const section4QuestionsBase: MCQQuestion[] = [
 
   // Q16: Biblical verse — John 1:9 ἐρχόμενον
   {
-    id: 'h5s4-q16',
+    id: 'h5s3-q16',
     type: 'mcq',
     question: 'In John 1:9, what form is the underlined word ἐρχόμενον?',
     greek: 'τὸ φῶς τὸ ἀληθινὸν ὃ φωτίζει πάντα ἄνθρωπον **ἐρχόμενον** εἰς τὸν κόσμον',
@@ -496,14 +415,14 @@ const section4QuestionsBase: MCQQuestion[] = [
 ];
 
 // =============================================================================
-// SECTION 5: Future Tense — Middle, Passive, εἰμί (22 questions)
+// SECTION 4: Future Tense — Middle, Passive, εἰμί (22 questions)
 // =============================================================================
 // 2 concept Qs, 6 future middle of λύω, 6 future passive of λύω, 6 future of εἰμί, 2 biblical
 
-const section5QuestionsBase: MCQQuestion[] = [
+const section4QuestionsBase: MCQQuestion[] = [
   // Q1: Future middle vs future passive
   {
-    id: 'h5s5-q1',
+    id: 'h5s4-q1',
     type: 'mcq',
     question: 'How do the future middle and future passive differ in form?',
     options: [
@@ -519,7 +438,7 @@ const section5QuestionsBase: MCQQuestion[] = [
 
   // Q2: Future of εἰμί
   {
-    id: 'h5s5-q2',
+    id: 'h5s4-q2',
     type: 'mcq',
     question: 'How does the future of εἰμί ("I will be") compare to other future forms?',
     options: [
@@ -535,64 +454,64 @@ const section5QuestionsBase: MCQQuestion[] = [
 
   // Future middle of λύω — JUMBLED
   // Q3: 3pl — λύσονται
-  createVerbQuestion('h5s5-q3', 'λύσονται', '3rd', 'Plural', 'Future', 'Middle', 'Indicative', 'λύω', 'they will loose for themselves'),
+  createVerbQuestion('h5s4-q3', 'λύσονται', '3rd', 'Plural', 'Future', 'Middle', 'Indicative', 'λύω', 'they will loose for themselves'),
 
   // Q4: 2sg — λύσῃ
-  createVerbQuestion('h5s5-q4', 'λύσῃ', '2nd', 'Singular', 'Future', 'Middle', 'Indicative', 'λύω', 'you will loose for yourself'),
+  createVerbQuestion('h5s4-q4', 'λύσῃ', '2nd', 'Singular', 'Future', 'Middle', 'Indicative', 'λύω', 'you will loose for yourself'),
 
   // Q5: 1pl — λυσόμεθα
-  createVerbQuestion('h5s5-q5', 'λυσόμεθα', '1st', 'Plural', 'Future', 'Middle', 'Indicative', 'λύω', 'we will loose for ourselves'),
+  createVerbQuestion('h5s4-q5', 'λυσόμεθα', '1st', 'Plural', 'Future', 'Middle', 'Indicative', 'λύω', 'we will loose for ourselves'),
 
   // Q6: 1sg — λύσομαι
-  createVerbQuestion('h5s5-q6', 'λύσομαι', '1st', 'Singular', 'Future', 'Middle', 'Indicative', 'λύω', 'I will loose for myself'),
+  createVerbQuestion('h5s4-q6', 'λύσομαι', '1st', 'Singular', 'Future', 'Middle', 'Indicative', 'λύω', 'I will loose for myself'),
 
   // Q7: 3sg — λύσεται
-  createVerbQuestion('h5s5-q7', 'λύσεται', '3rd', 'Singular', 'Future', 'Middle', 'Indicative', 'λύω', 'he/she will loose for him/herself'),
+  createVerbQuestion('h5s4-q7', 'λύσεται', '3rd', 'Singular', 'Future', 'Middle', 'Indicative', 'λύω', 'he/she will loose for him/herself'),
 
   // Q8: 2pl — λύσεσθε
-  createVerbQuestion('h5s5-q8', 'λύσεσθε', '2nd', 'Plural', 'Future', 'Middle', 'Indicative', 'λύω', 'you (pl.) will loose for yourselves'),
+  createVerbQuestion('h5s4-q8', 'λύσεσθε', '2nd', 'Plural', 'Future', 'Middle', 'Indicative', 'λύω', 'you (pl.) will loose for yourselves'),
 
   // Future passive of λύω — JUMBLED
   // Q9: 2sg — λυθήσῃ
-  createVerbQuestion('h5s5-q9', 'λυθήσῃ', '2nd', 'Singular', 'Future', 'Passive', 'Indicative', 'λύω', 'you will be loosed'),
+  createVerbQuestion('h5s4-q9', 'λυθήσῃ', '2nd', 'Singular', 'Future', 'Passive', 'Indicative', 'λύω', 'you will be loosed'),
 
   // Q10: 1pl — λυθησόμεθα
-  createVerbQuestion('h5s5-q10', 'λυθησόμεθα', '1st', 'Plural', 'Future', 'Passive', 'Indicative', 'λύω', 'we will be loosed'),
+  createVerbQuestion('h5s4-q10', 'λυθησόμεθα', '1st', 'Plural', 'Future', 'Passive', 'Indicative', 'λύω', 'we will be loosed'),
 
   // Q11: 3sg — λυθήσεται
-  createVerbQuestion('h5s5-q11', 'λυθήσεται', '3rd', 'Singular', 'Future', 'Passive', 'Indicative', 'λύω', 'he/she/it will be loosed'),
+  createVerbQuestion('h5s4-q11', 'λυθήσεται', '3rd', 'Singular', 'Future', 'Passive', 'Indicative', 'λύω', 'he/she/it will be loosed'),
 
   // Q12: 3pl — λυθήσονται
-  createVerbQuestion('h5s5-q12', 'λυθήσονται', '3rd', 'Plural', 'Future', 'Passive', 'Indicative', 'λύω', 'they will be loosed'),
+  createVerbQuestion('h5s4-q12', 'λυθήσονται', '3rd', 'Plural', 'Future', 'Passive', 'Indicative', 'λύω', 'they will be loosed'),
 
   // Q13: 1sg — λυθήσομαι
-  createVerbQuestion('h5s5-q13', 'λυθήσομαι', '1st', 'Singular', 'Future', 'Passive', 'Indicative', 'λύω', 'I will be loosed'),
+  createVerbQuestion('h5s4-q13', 'λυθήσομαι', '1st', 'Singular', 'Future', 'Passive', 'Indicative', 'λύω', 'I will be loosed'),
 
   // Q14: 2pl — λυθήσεσθε
-  createVerbQuestion('h5s5-q14', 'λυθήσεσθε', '2nd', 'Plural', 'Future', 'Passive', 'Indicative', 'λύω', 'you (pl.) will be loosed'),
+  createVerbQuestion('h5s4-q14', 'λυθήσεσθε', '2nd', 'Plural', 'Future', 'Passive', 'Indicative', 'λύω', 'you (pl.) will be loosed'),
 
   // Future of εἰμί — JUMBLED
   // Q15: 3sg — ἔσται
-  createVerbQuestion('h5s5-q15', 'ἔσται', '3rd', 'Singular', 'Future', 'Middle', 'Indicative', 'εἰμί', 'he/she/it will be'),
+  createVerbQuestion('h5s4-q15', 'ἔσται', '3rd', 'Singular', 'Future', 'Middle', 'Indicative', 'εἰμί', 'he/she/it will be'),
 
   // Q16: 1sg — ἔσομαι
-  createVerbQuestion('h5s5-q16', 'ἔσομαι', '1st', 'Singular', 'Future', 'Middle', 'Indicative', 'εἰμί', 'I will be'),
+  createVerbQuestion('h5s4-q16', 'ἔσομαι', '1st', 'Singular', 'Future', 'Middle', 'Indicative', 'εἰμί', 'I will be'),
 
   // Q17: 2pl — ἔσεσθε
-  createVerbQuestion('h5s5-q17', 'ἔσεσθε', '2nd', 'Plural', 'Future', 'Middle', 'Indicative', 'εἰμί', 'you (pl.) will be'),
+  createVerbQuestion('h5s4-q17', 'ἔσεσθε', '2nd', 'Plural', 'Future', 'Middle', 'Indicative', 'εἰμί', 'you (pl.) will be'),
 
   // Q18: 3pl — ἔσονται
-  createVerbQuestion('h5s5-q18', 'ἔσονται', '3rd', 'Plural', 'Future', 'Middle', 'Indicative', 'εἰμί', 'they will be'),
+  createVerbQuestion('h5s4-q18', 'ἔσονται', '3rd', 'Plural', 'Future', 'Middle', 'Indicative', 'εἰμί', 'they will be'),
 
   // Q19: 1pl — ἐσόμεθα
-  createVerbQuestion('h5s5-q19', 'ἐσόμεθα', '1st', 'Plural', 'Future', 'Middle', 'Indicative', 'εἰμί', 'we will be'),
+  createVerbQuestion('h5s4-q19', 'ἐσόμεθα', '1st', 'Plural', 'Future', 'Middle', 'Indicative', 'εἰμί', 'we will be'),
 
   // Q20: 2sg — ἔσῃ
-  createVerbQuestion('h5s5-q20', 'ἔσῃ', '2nd', 'Singular', 'Future', 'Middle', 'Indicative', 'εἰμί', 'you will be'),
+  createVerbQuestion('h5s4-q20', 'ἔσῃ', '2nd', 'Singular', 'Future', 'Middle', 'Indicative', 'εἰμί', 'you will be'),
 
   // Q21: Biblical verse — Matt 5:48 ἔσεσθε
   {
-    id: 'h5s5-q21',
+    id: 'h5s4-q21',
     type: 'mcq',
     question: 'In Matthew 5:48, identify the person and number of the underlined verb:',
     greek: '**ἔσεσθε** οὖν ὑμεῖς τέλειοι ὡς ὁ πατὴρ ὑμῶν ὁ οὐράνιος τέλειός ἐστιν',
@@ -610,7 +529,7 @@ const section5QuestionsBase: MCQQuestion[] = [
 
   // Q22: Biblical verse — Matt 16:19 λυθήσεται
   {
-    id: 'h5s5-q22',
+    id: 'h5s4-q22',
     type: 'mcq',
     question: 'In Matthew 16:19, identify the person and number of the underlined verb:',
     greek: 'ὃ ἐὰν λύσῃς ἐπὶ τῆς γῆς ἔσται λελυμένον ἐν τοῖς οὐρανοῖς',
@@ -628,52 +547,210 @@ const section5QuestionsBase: MCQQuestion[] = [
 ];
 
 // =============================================================================
+// SECTION 5: Aorist Passive Indicative of λύω (14 questions)
+// =============================================================================
+// 2 concept Qs, 6 aorist passive parsing (jumbled), 6 biblical verses with aorist passive
+
+const section5QuestionsBase: MCQQuestion[] = [
+  // Q1: What is the aorist passive?
+  {
+    id: 'h5s5-q1',
+    type: 'mcq',
+    question: 'How is the aorist passive formed in Greek?',
+    options: [
+      'With the -θη- marker between stem and ending, plus secondary active endings',
+      'With the same endings as present passive',
+      'With the -σ- marker like aorist active',
+      'With middle/passive endings and no special marker',
+    ],
+    correctIndex: 0,
+    explanation: 'The aorist passive uses the distinctive -θη- (theta) marker between the stem and ending, with secondary active endings (not middle/passive). Example: ἐλύθην (I was loosed) = ἐ + λυ + θη + ν.',
+    category: 'grammar-concept',
+  },
+
+  // Q2: Aorist passive vs present/imperfect passive
+  {
+    id: 'h5s5-q2',
+    type: 'mcq',
+    question: 'How does the aorist passive differ from the present and imperfect passive?',
+    options: [
+      'Aorist passive uses -θη- and secondary active endings; present/imperfect use middle/passive endings',
+      'They use identical forms; only context differs',
+      'Aorist passive adds augment; present/imperfect do not',
+      'Aorist passive only exists in 3rd person forms',
+    ],
+    correctIndex: 0,
+    explanation: 'The aorist passive is formed differently than other passives: it uses the -θη- marker with secondary active endings (-ν, -ς, -, -μεν, -τε, -σαν) rather than middle/passive endings (-μαι, -σαι, -ται, etc.).',
+    category: 'grammar-concept',
+  },
+
+  // Aorist passive indicative — JUMBLED order
+  // Q3: 3sg — ἐλύθη
+  createVerbQuestion('h5s5-q3', 'ἐλύθη', '3rd', 'Singular', 'Aorist', 'Passive', 'Indicative', 'λύω', 'he/she/it was loosed'),
+
+  // Q4: 2pl — ἐλύθητε
+  createVerbQuestion('h5s5-q4', 'ἐλύθητε', '2nd', 'Plural', 'Aorist', 'Passive', 'Indicative', 'λύω', 'you (pl.) were loosed'),
+
+  // Q5: 1sg — ἐλύθην
+  createVerbQuestion('h5s5-q5', 'ἐλύθην', '1st', 'Singular', 'Aorist', 'Passive', 'Indicative', 'λύω', 'I was loosed'),
+
+  // Q6: 3pl — ἐλύθησαν
+  createVerbQuestion('h5s5-q6', 'ἐλύθησαν', '3rd', 'Plural', 'Aorist', 'Passive', 'Indicative', 'λύω', 'they were loosed'),
+
+  // Q7: 1pl — ἐλύθημεν
+  createVerbQuestion('h5s5-q7', 'ἐλύθημεν', '1st', 'Plural', 'Aorist', 'Passive', 'Indicative', 'λύω', 'we were loosed'),
+
+  // Q8: 2sg — ἐλύθης
+  createVerbQuestion('h5s5-q8', 'ἐλύθης', '2nd', 'Singular', 'Aorist', 'Passive', 'Indicative', 'λύω', 'you were loosed'),
+
+  // Q9: Biblical verse — Matthew 3:13 (Jesus was baptized)
+  {
+    id: 'h5s5-q9',
+    type: 'mcq',
+    question: 'In Matthew 3:13, identify the person and number of the underlined verb:',
+    greek: 'τότε παραγίνεται ὁ Ἰησοῦς... τοῦ **βαπτισθῆναι** ὑπ᾿ αὐτοῦ',
+    vocabHelp: 'παραγίνομαι = I come/arrive; βαπτίζω = I baptize; ὑπό = by',
+    options: [
+      'Aorist passive infinitive',
+      '3rd Person Singular, Aorist Passive',
+      '1st Person Singular, Aorist Passive',
+      'Present passive infinitive',
+    ],
+    correctIndex: 0,
+    explanation: 'βαπτισθῆναι is an aorist passive infinitive from βαπτίζω. "Jesus came... to be baptized by him." The -θη- marks the aorist passive, -ναι is the infinitive ending.',
+    category: 'biblical-parsing',
+  },
+
+  // Q10: Biblical verse — John 1:14 (became flesh)
+  {
+    id: 'h5s5-q10',
+    type: 'mcq',
+    question: 'In John 1:14, identify the person and number of the underlined verb:',
+    greek: 'καὶ ὁ λόγος σὰρξ **ἐγένετο**',
+    vocabHelp: 'λόγος = word; σάρξ = flesh; γίνομαι = I become',
+    options: [
+      '3rd Person Singular, Aorist Middle',
+      '3rd Person Singular, Aorist Passive',
+      '3rd Person Plural, Aorist Middle',
+      '1st Person Singular, Aorist Middle',
+    ],
+    correctIndex: 0,
+    explanation: 'ἐγένετο is 3rd person singular aorist middle indicative from γίνομαι. "And the Word became flesh." γίνομαι is deponent (middle form, active meaning) and does not have an aorist passive form.',
+    category: 'biblical-parsing',
+  },
+
+  // Q11: Biblical verse — Matthew 28:6 (he was raised)
+  {
+    id: 'h5s5-q11',
+    type: 'mcq',
+    question: 'In Matthew 28:6, identify the person and number of the underlined verb:',
+    greek: 'οὐκ ἔστιν ὧδε· **ἠγέρθη** γὰρ καθὼς εἶπεν',
+    vocabHelp: 'ὧδε = here; ἐγείρω = I raise; καθώς = just as',
+    options: [
+      '3rd Person Singular, Aorist Passive',
+      '3rd Person Singular, Aorist Active',
+      '3rd Person Plural, Aorist Passive',
+      '1st Person Singular, Aorist Passive',
+    ],
+    correctIndex: 0,
+    explanation: 'ἠγέρθη is 3rd person singular aorist passive indicative from ἐγείρω. "He is not here; for he was raised, just as he said." The augment ἠ- + γερ- + θη marker shows aorist passive.',
+    category: 'biblical-parsing',
+  },
+
+  // Q12: Biblical verse — John 1:6 (a man was sent)
+  {
+    id: 'h5s5-q12',
+    type: 'mcq',
+    question: 'In John 1:6, identify the person and number of the underlined verb:',
+    greek: 'ἐγένετο ἄνθρωπος **ἀπεσταλμένος** παρὰ θεοῦ',
+    vocabHelp: 'ἄνθρωπος = man; ἀποστέλλω = I send; παρά = from',
+    options: [
+      'Perfect passive participle (nominative singular masculine)',
+      '3rd Person Singular, Aorist Passive',
+      'Aorist passive participle (nominative singular masculine)',
+      'Present passive participle (nominative singular masculine)',
+    ],
+    correctIndex: 0,
+    explanation: 'ἀπεσταλμένος is a perfect passive participle (not aorist passive) from ἀποστέλλω. "There came a man sent from God." Perfect passive participles use -μεν- (not -θη-) and emphasize the completed state.',
+    category: 'biblical-parsing',
+  },
+
+  // Q13: Biblical verse — Luke 7:50 (your faith has saved you)
+  {
+    id: 'h5s5-q13',
+    type: 'mcq',
+    question: 'In Luke 7:50, identify the person and number of the underlined verb:',
+    greek: 'ἡ πίστις σου **σέσωκέν** σε',
+    vocabHelp: 'πίστις = faith; σῴζω = I save',
+    options: [
+      '3rd Person Singular, Perfect Active',
+      '3rd Person Singular, Aorist Passive',
+      '3rd Person Singular, Aorist Active',
+      '2nd Person Singular, Perfect Passive',
+    ],
+    correctIndex: 0,
+    explanation: 'σέσωκέν is 3rd person singular perfect active indicative from σῴζω. "Your faith has saved you." Perfect active, not aorist passive. The reduplication σε- + σωκ- marks the perfect tense.',
+    category: 'biblical-parsing',
+  },
+
+  // Q14: Biblical verse — Mark 2:5 revisited with aorist passive context
+  {
+    id: 'h5s5-q14',
+    type: 'mcq',
+    question: 'Compare: Present passive "ἀφίενταί σου αἱ ἁμαρτίαι" vs. Aorist passive "ἀφέθησάν σου αἱ ἁμαρτίαι". What is the difference?',
+    greek: 'ἀφίενται (present) vs. ἀφέθησαν (aorist)',
+    vocabHelp: 'ἀφίημι = I forgive/release',
+    options: [
+      'Present emphasizes ongoing state; aorist emphasizes completed action',
+      'They mean exactly the same thing',
+      'Present is always future; aorist is always past',
+      'Present uses -θη-; aorist does not',
+    ],
+    correctIndex: 0,
+    explanation: 'Present passive (ἀφίενται) = "are being forgiven" (ongoing). Aorist passive (ἀφέθησαν) = "were forgiven" (completed action). The aorist passive uses -θη- marker; present passive does not.',
+    category: 'grammar-concept',
+  },
+];
+
+// =============================================================================
 // SECTION 6: Verse Practice (10 translation questions)
 // =============================================================================
-// Covers imperative, passive, middle, ἔρχομαι, and future forms
+// Covers imperative, present/future/aorist passive, ἔρχομαι, and future forms (no perfect tense)
 
 const section6QuestionsBase: TranslationQuestion[] = [
-  // Q1: Mark 1:15 — Imperatives (μετανοεῖτε, πιστεύετε)
+  // Q1: Matt 7:7 — Imperatives (αἰτεῖτε, ζητεῖτε, κρούετε) + Future passives (δοθήσεται, ἀνοιγήσεται)
   {
     id: 'h5s6-q1',
     type: 'translation',
-    reference: 'Mark 1:15',
-    greek: 'πεπλήρωται ὁ καιρὸς καὶ ἤγγικεν ἡ βασιλεία τοῦ θεοῦ· μετανοεῖτε καὶ πιστεύετε ἐν τῷ εὐαγγελίῳ.',
-    transliteration: 'peplērōtai ho kairos kai ēngiken hē basileia tou theou; metanoeite kai pisteuete en tō euangeliō.',
-    referenceTranslation: 'The time is fulfilled, and the kingdom of God is at hand; repent and believe in the gospel.',
-    keyTerms: ['time', 'fulfilled', 'kingdom', 'God', 'repent', 'believe', 'gospel'],
+    reference: 'Matthew 7:7',
+    greek: 'αἰτεῖτε καὶ δοθήσεται ὑμῖν· ζητεῖτε καὶ εὑρήσετε· κρούετε καὶ ἀνοιγήσεται ὑμῖν.',
+    transliteration: 'aiteite kai dothēsetai hymin; zēteite kai heurēsete; krouete kai anoigēsetai hymin.',
+    referenceTranslation: 'Ask and it will be given to you; seek and you will find; knock and it will be opened to you.',
+    keyTerms: ['ask', 'given', 'seek', 'find', 'knock', 'opened'],
     difficulty: 2,
     words: [
-      { surface: 'πεπλήρωται', lemma: 'πληρόω', strongs: 'G4137', gloss: 'is fulfilled',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'πληρόω', tense: 'perfect', voice: 'passive', mood: 'indicative', person: '3rd', number: 'singular' } },
-      { surface: 'ὁ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'nominative', number: 'singular', gender: 'masculine' } },
-      { surface: 'καιρὸς', lemma: 'καιρός', strongs: 'G2540', gloss: 'time',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'καιρός', case: 'nominative', number: 'singular', gender: 'masculine' } },
+      { surface: 'αἰτεῖτε', lemma: 'αἰτέω', strongs: 'G154', gloss: 'ask!',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'αἰτέω', tense: 'present', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
       { surface: 'καὶ', lemma: 'καί', strongs: 'G2532', gloss: 'and',
         parsing: { partOfSpeech: 'conjunction', lexicalForm: 'καί' } },
-      { surface: 'ἤγγικεν', lemma: 'ἐγγίζω', strongs: 'G1448', gloss: 'is at hand',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'ἐγγίζω', tense: 'perfect', voice: 'active', mood: 'indicative', person: '3rd', number: 'singular' } },
-      { surface: 'ἡ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'nominative', number: 'singular', gender: 'feminine' } },
-      { surface: 'βασιλεία', lemma: 'βασιλεία', strongs: 'G932', gloss: 'kingdom',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'βασιλεία', case: 'nominative', number: 'singular', gender: 'feminine' } },
-      { surface: 'τοῦ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'genitive', number: 'singular', gender: 'masculine' } },
-      { surface: 'θεοῦ·', lemma: 'θεός', strongs: 'G2316', gloss: 'God',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'θεός', case: 'genitive', number: 'singular', gender: 'masculine' } },
-      { surface: 'μετανοεῖτε', lemma: 'μετανοέω', strongs: 'G3340', gloss: 'repent!',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'μετανοέω', tense: 'present', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
+      { surface: 'δοθήσεται', lemma: 'δίδωμι', strongs: 'G1325', gloss: 'it will be given',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'δίδωμι', tense: 'future', voice: 'passive', mood: 'indicative', person: '3rd', number: 'singular' } },
+      { surface: 'ὑμῖν·', lemma: 'σύ', strongs: 'G4771', gloss: 'to you',
+        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'σύ', case: 'dative', number: 'plural', type: 'personal' } },
+      { surface: 'ζητεῖτε', lemma: 'ζητέω', strongs: 'G2212', gloss: 'seek!',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'ζητέω', tense: 'present', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
       { surface: 'καὶ', lemma: 'καί', strongs: 'G2532', gloss: 'and',
         parsing: { partOfSpeech: 'conjunction', lexicalForm: 'καί' } },
-      { surface: 'πιστεύετε', lemma: 'πιστεύω', strongs: 'G4100', gloss: 'believe!',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'πιστεύω', tense: 'present', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
-      { surface: 'ἐν', lemma: 'ἐν', strongs: 'G1722', gloss: 'in',
-        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ἐν' } },
-      { surface: 'τῷ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'dative', number: 'singular', gender: 'neuter' } },
-      { surface: 'εὐαγγελίῳ.', lemma: 'εὐαγγέλιον', strongs: 'G2098', gloss: 'gospel',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'εὐαγγέλιον', case: 'dative', number: 'singular', gender: 'neuter' } },
+      { surface: 'εὑρήσετε·', lemma: 'εὑρίσκω', strongs: 'G2147', gloss: 'you will find',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'εὑρίσκω', tense: 'future', voice: 'active', mood: 'indicative', person: '2nd', number: 'plural' } },
+      { surface: 'κρούετε', lemma: 'κρούω', strongs: 'G2925', gloss: 'knock!',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'κρούω', tense: 'present', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
+      { surface: 'καὶ', lemma: 'καί', strongs: 'G2532', gloss: 'and',
+        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'καί' } },
+      { surface: 'ἀνοιγήσεται', lemma: 'ἀνοίγω', strongs: 'G455', gloss: 'it will be opened',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'ἀνοίγω', tense: 'future', voice: 'passive', mood: 'indicative', person: '3rd', number: 'singular' } },
+      { surface: 'ὑμῖν.', lemma: 'σύ', strongs: 'G4771', gloss: 'to you',
+        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'σύ', case: 'dative', number: 'plural', type: 'personal' } },
     ],
   },
 
@@ -843,45 +920,43 @@ const section6QuestionsBase: TranslationQuestion[] = [
     ],
   },
 
-  // Q7: Rom 6:11 — Middle imperative (λογίζεσθε)
+  // Q7: Matthew 28:6 — Aorist passive (ἠγέρθη) + imperatives
   {
     id: 'h5s6-q7',
     type: 'translation',
-    reference: 'Romans 6:11',
-    greek: 'λογίζεσθε ἑαυτοὺς εἶναι νεκροὺς μὲν τῇ ἁμαρτίᾳ ζῶντας δὲ τῷ θεῷ ἐν Χριστῷ Ἰησοῦ.',
-    transliteration: 'logizesthe heautous einai nekrous men tē hamartia zōntas de tō theō en Christō Iēsou.',
-    referenceTranslation: 'Consider yourselves dead to sin and alive to God in Christ Jesus.',
-    keyTerms: ['consider', 'dead', 'sin', 'alive', 'God', 'Christ'],
+    reference: 'Matthew 28:6',
+    greek: 'οὐκ ἔστιν ὧδε· ἠγέρθη γὰρ καθὼς εἶπεν. δεῦτε ἴδετε τὸν τόπον ὅπου ἔκειτο.',
+    transliteration: 'ouk estin hōde; ēgerthē gar kathōs eipen. deute idete ton topon hopou ekeito.',
+    referenceTranslation: 'He is not here, for he was raised just as he said. Come, see the place where he lay.',
+    keyTerms: ['raised', 'come', 'see', 'place', 'lay'],
     difficulty: 2,
     words: [
-      { surface: 'λογίζεσθε', lemma: 'λογίζομαι', strongs: 'G3049', gloss: 'consider!',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'λογίζομαι', tense: 'present', voice: 'middle', mood: 'imperative', person: '2nd', number: 'plural' } },
-      { surface: 'ἑαυτοὺς', lemma: 'ἑαυτοῦ', strongs: 'G1438', gloss: 'yourselves',
-        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'ἑαυτοῦ', case: 'accusative', number: 'plural', gender: 'masculine', type: 'reflexive' } },
-      { surface: 'εἶναι', lemma: 'εἰμί', strongs: 'G1510', gloss: 'to be',
-        parsing: { partOfSpeech: 'infinitive', lexicalForm: 'εἰμί', tense: 'present', voice: 'active' } },
-      { surface: 'νεκροὺς', lemma: 'νεκρός', strongs: 'G3498', gloss: 'dead',
-        parsing: { partOfSpeech: 'adjective', lexicalForm: 'νεκρός', case: 'accusative', number: 'plural', gender: 'masculine' } },
-      { surface: 'μὲν', lemma: 'μέν', strongs: 'G3303', gloss: 'indeed/on one hand',
-        parsing: { partOfSpeech: 'particle', lexicalForm: 'μέν' } },
-      { surface: 'τῇ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'dative', number: 'singular', gender: 'feminine' } },
-      { surface: 'ἁμαρτίᾳ', lemma: 'ἁμαρτία', strongs: 'G266', gloss: 'sin',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'ἁμαρτία', case: 'dative', number: 'singular', gender: 'feminine' } },
-      { surface: 'ζῶντας', lemma: 'ζάω', strongs: 'G2198', gloss: 'living/alive',
-        parsing: { partOfSpeech: 'participle', lexicalForm: 'ζάω', tense: 'present', voice: 'active', case: 'accusative', number: 'plural', gender: 'masculine' } },
-      { surface: 'δὲ', lemma: 'δέ', strongs: 'G1161', gloss: 'but/and',
-        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'δέ' } },
-      { surface: 'τῷ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'dative', number: 'singular', gender: 'masculine' } },
-      { surface: 'θεῷ', lemma: 'θεός', strongs: 'G2316', gloss: 'God',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'θεός', case: 'dative', number: 'singular', gender: 'masculine' } },
-      { surface: 'ἐν', lemma: 'ἐν', strongs: 'G1722', gloss: 'in',
-        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ἐν' } },
-      { surface: 'Χριστῷ', lemma: 'Χριστός', strongs: 'G5547', gloss: 'Christ',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'Χριστός', case: 'dative', number: 'singular', gender: 'masculine' } },
-      { surface: 'Ἰησοῦ.', lemma: 'Ἰησοῦς', strongs: 'G2424', gloss: 'Jesus',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'Ἰησοῦς', case: 'dative', number: 'singular', gender: 'masculine' } },
+      { surface: 'οὐκ', lemma: 'οὐ', strongs: 'G3756', gloss: 'not',
+        parsing: { partOfSpeech: 'particle', lexicalForm: 'οὐ' } },
+      { surface: 'ἔστιν', lemma: 'εἰμί', strongs: 'G1510', gloss: 'is',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'εἰμί', tense: 'present', voice: 'active', mood: 'indicative', person: '3rd', number: 'singular' } },
+      { surface: 'ὧδε·', lemma: 'ὧδε', strongs: 'G5602', gloss: 'here',
+        parsing: { partOfSpeech: 'adverb', lexicalForm: 'ὧδε' } },
+      { surface: 'ἠγέρθη', lemma: 'ἐγείρω', strongs: 'G1453', gloss: 'was raised',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'ἐγείρω', tense: 'aorist', voice: 'passive', mood: 'indicative', person: '3rd', number: 'singular' } },
+      { surface: 'γὰρ', lemma: 'γάρ', strongs: 'G1063', gloss: 'for',
+        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'γάρ' } },
+      { surface: 'καθὼς', lemma: 'καθώς', strongs: 'G2531', gloss: 'just as',
+        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'καθώς' } },
+      { surface: 'εἶπεν.', lemma: 'λέγω', strongs: 'G3004', gloss: 'he said',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'λέγω', tense: 'aorist', voice: 'active', mood: 'indicative', person: '3rd', number: 'singular' } },
+      { surface: 'δεῦτε', lemma: 'δεῦτε', strongs: 'G1205', gloss: 'come!',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'δεῦτε', tense: 'present', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
+      { surface: 'ἴδετε', lemma: 'ὁράω', strongs: 'G3708', gloss: 'see!',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'ὁράω', tense: 'aorist', voice: 'active', mood: 'imperative', person: '2nd', number: 'plural' } },
+      { surface: 'τὸν', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
+        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'accusative', number: 'singular', gender: 'masculine' } },
+      { surface: 'τόπον', lemma: 'τόπος', strongs: 'G5117', gloss: 'place',
+        parsing: { partOfSpeech: 'noun', lexicalForm: 'τόπος', case: 'accusative', number: 'singular', gender: 'masculine' } },
+      { surface: 'ὅπου', lemma: 'ὅπου', strongs: 'G3699', gloss: 'where',
+        parsing: { partOfSpeech: 'adverb', lexicalForm: 'ὅπου' } },
+      { surface: 'ἔκειτο.', lemma: 'κεῖμαι', strongs: 'G2749', gloss: 'he lay',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'κεῖμαι', tense: 'imperfect', voice: 'middle', mood: 'indicative', person: '3rd', number: 'singular' } },
     ],
   },
 
@@ -949,63 +1024,49 @@ const section6QuestionsBase: TranslationQuestion[] = [
     ],
   },
 
-  // Q10: Matt 16:19 — Future passive + future εἰμί
+  // Q10: Matt 10:22 — Future middle εἰμί (ἔσεσθε) + future passive (σωθήσεται) + present passive participle
   {
     id: 'h5s6-q10',
     type: 'translation',
-    reference: 'Matthew 16:19',
-    greek: 'ὃ ἐὰν δήσῃς ἐπὶ τῆς γῆς ἔσται δεδεμένον ἐν τοῖς οὐρανοῖς, καὶ ὃ ἐὰν λύσῃς ἐπὶ τῆς γῆς ἔσται λελυμένον ἐν τοῖς οὐρανοῖς.',
-    transliteration: 'ho ean dēsēs epi tēs gēs estai dedemenon en tois ouranois, kai ho ean lysēs epi tēs gēs estai lelymenon en tois ouranois.',
-    referenceTranslation: 'Whatever you bind on earth shall be bound in heaven, and whatever you loose on earth shall be loosed in heaven.',
-    keyTerms: ['bind', 'earth', 'bound', 'heaven', 'loose', 'loosed'],
+    reference: 'Matthew 10:22',
+    greek: 'καὶ ἔσεσθε μισούμενοι ὑπὸ πάντων διὰ τὸ ὄνομά μου· ὁ δὲ ὑπομείνας εἰς τέλος οὗτος σωθήσεται.',
+    transliteration: 'kai esesthe misoumenoi hypo pantōn dia to onoma mou; ho de hypomeinas eis telos houtos sōthēsetai.',
+    referenceTranslation: 'And you will be hated by all on account of my name, but the one who endures to the end will be saved.',
+    keyTerms: ['hated', 'all', 'name', 'endures', 'end', 'saved'],
     difficulty: 3,
     words: [
-      { surface: 'ὃ', lemma: 'ὅς', strongs: 'G3739', gloss: 'whatever',
-        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'ὅς', case: 'accusative', number: 'singular', gender: 'neuter', type: 'relative' } },
-      { surface: 'ἐὰν', lemma: 'ἐάν', strongs: 'G1437', gloss: 'if/whatever',
-        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'ἐάν' } },
-      { surface: 'δήσῃς', lemma: 'δέω', strongs: 'G1210', gloss: 'you bind',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'δέω', tense: 'aorist', voice: 'active', mood: 'subjunctive', person: '2nd', number: 'singular' } },
-      { surface: 'ἐπὶ', lemma: 'ἐπί', strongs: 'G1909', gloss: 'on/upon',
-        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ἐπί' } },
-      { surface: 'τῆς', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'genitive', number: 'singular', gender: 'feminine' } },
-      { surface: 'γῆς', lemma: 'γῆ', strongs: 'G1093', gloss: 'earth',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'γῆ', case: 'genitive', number: 'singular', gender: 'feminine' } },
-      { surface: 'ἔσται', lemma: 'εἰμί', strongs: 'G1510', gloss: 'will be',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'εἰμί', tense: 'future', voice: 'middle', mood: 'indicative', person: '3rd', number: 'singular' } },
-      { surface: 'δεδεμένον', lemma: 'δέω', strongs: 'G1210', gloss: 'bound',
-        parsing: { partOfSpeech: 'participle', lexicalForm: 'δέω', tense: 'perfect', voice: 'passive', case: 'nominative', number: 'singular', gender: 'neuter' } },
-      { surface: 'ἐν', lemma: 'ἐν', strongs: 'G1722', gloss: 'in',
-        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ἐν' } },
-      { surface: 'τοῖς', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'dative', number: 'plural', gender: 'masculine' } },
-      { surface: 'οὐρανοῖς,', lemma: 'οὐρανός', strongs: 'G3772', gloss: 'heavens',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'οὐρανός', case: 'dative', number: 'plural', gender: 'masculine' } },
       { surface: 'καὶ', lemma: 'καί', strongs: 'G2532', gloss: 'and',
         parsing: { partOfSpeech: 'conjunction', lexicalForm: 'καί' } },
-      { surface: 'ὃ', lemma: 'ὅς', strongs: 'G3739', gloss: 'whatever',
-        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'ὅς', case: 'accusative', number: 'singular', gender: 'neuter', type: 'relative' } },
-      { surface: 'ἐὰν', lemma: 'ἐάν', strongs: 'G1437', gloss: 'if/whatever',
-        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'ἐάν' } },
-      { surface: 'λύσῃς', lemma: 'λύω', strongs: 'G3089', gloss: 'you loose',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'λύω', tense: 'aorist', voice: 'active', mood: 'subjunctive', person: '2nd', number: 'singular' } },
-      { surface: 'ἐπὶ', lemma: 'ἐπί', strongs: 'G1909', gloss: 'on/upon',
-        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ἐπί' } },
-      { surface: 'τῆς', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'genitive', number: 'singular', gender: 'feminine' } },
-      { surface: 'γῆς', lemma: 'γῆ', strongs: 'G1093', gloss: 'earth',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'γῆ', case: 'genitive', number: 'singular', gender: 'feminine' } },
-      { surface: 'ἔσται', lemma: 'εἰμί', strongs: 'G1510', gloss: 'will be',
-        parsing: { partOfSpeech: 'verb', lexicalForm: 'εἰμί', tense: 'future', voice: 'middle', mood: 'indicative', person: '3rd', number: 'singular' } },
-      { surface: 'λελυμένον', lemma: 'λύω', strongs: 'G3089', gloss: 'loosed',
-        parsing: { partOfSpeech: 'participle', lexicalForm: 'λύω', tense: 'perfect', voice: 'passive', case: 'nominative', number: 'singular', gender: 'neuter' } },
-      { surface: 'ἐν', lemma: 'ἐν', strongs: 'G1722', gloss: 'in',
-        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ἐν' } },
-      { surface: 'τοῖς', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
-        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'dative', number: 'plural', gender: 'masculine' } },
-      { surface: 'οὐρανοῖς.', lemma: 'οὐρανός', strongs: 'G3772', gloss: 'heavens',
-        parsing: { partOfSpeech: 'noun', lexicalForm: 'οὐρανός', case: 'dative', number: 'plural', gender: 'masculine' } },
+      { surface: 'ἔσεσθε', lemma: 'εἰμί', strongs: 'G1510', gloss: 'you will be',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'εἰμί', tense: 'future', voice: 'middle', mood: 'indicative', person: '2nd', number: 'plural' } },
+      { surface: 'μισούμενοι', lemma: 'μισέω', strongs: 'G3404', gloss: 'hated',
+        parsing: { partOfSpeech: 'participle', lexicalForm: 'μισέω', tense: 'present', voice: 'passive', case: 'nominative', number: 'plural', gender: 'masculine' } },
+      { surface: 'ὑπὸ', lemma: 'ὑπό', strongs: 'G5259', gloss: 'by',
+        parsing: { partOfSpeech: 'preposition', lexicalForm: 'ὑπό' } },
+      { surface: 'πάντων', lemma: 'πᾶς', strongs: 'G3956', gloss: 'all',
+        parsing: { partOfSpeech: 'adjective', lexicalForm: 'πᾶς', case: 'genitive', number: 'plural', gender: 'masculine' } },
+      { surface: 'διὰ', lemma: 'διά', strongs: 'G1223', gloss: 'on account of',
+        parsing: { partOfSpeech: 'preposition', lexicalForm: 'διά' } },
+      { surface: 'τὸ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the',
+        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'accusative', number: 'singular', gender: 'neuter' } },
+      { surface: 'ὄνομά', lemma: 'ὄνομα', strongs: 'G3686', gloss: 'name',
+        parsing: { partOfSpeech: 'noun', lexicalForm: 'ὄνομα', case: 'accusative', number: 'singular', gender: 'neuter' } },
+      { surface: 'μου·', lemma: 'ἐγώ', strongs: 'G1473', gloss: 'my',
+        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'ἐγώ', case: 'genitive', number: 'singular', type: 'personal' } },
+      { surface: 'ὁ', lemma: 'ὁ', strongs: 'G3588', gloss: 'the (one)',
+        parsing: { partOfSpeech: 'article', lexicalForm: 'ὁ', case: 'nominative', number: 'singular', gender: 'masculine' } },
+      { surface: 'δὲ', lemma: 'δέ', strongs: 'G1161', gloss: 'but',
+        parsing: { partOfSpeech: 'conjunction', lexicalForm: 'δέ' } },
+      { surface: 'ὑπομείνας', lemma: 'ὑπομένω', strongs: 'G5278', gloss: 'having endured',
+        parsing: { partOfSpeech: 'participle', lexicalForm: 'ὑπομένω', tense: 'aorist', voice: 'active', case: 'nominative', number: 'singular', gender: 'masculine' } },
+      { surface: 'εἰς', lemma: 'εἰς', strongs: 'G1519', gloss: 'to/until',
+        parsing: { partOfSpeech: 'preposition', lexicalForm: 'εἰς' } },
+      { surface: 'τέλος', lemma: 'τέλος', strongs: 'G5056', gloss: 'end',
+        parsing: { partOfSpeech: 'noun', lexicalForm: 'τέλος', case: 'accusative', number: 'singular', gender: 'neuter' } },
+      { surface: 'οὗτος', lemma: 'οὗτος', strongs: 'G3778', gloss: 'this one',
+        parsing: { partOfSpeech: 'pronoun', lexicalForm: 'οὗτος', case: 'nominative', number: 'singular', gender: 'masculine', type: 'demonstrative' } },
+      { surface: 'σωθήσεται.', lemma: 'σῴζω', strongs: 'G4982', gloss: 'will be saved',
+        parsing: { partOfSpeech: 'verb', lexicalForm: 'σῴζω', tense: 'future', voice: 'passive', mood: 'indicative', person: '3rd', number: 'singular' } },
     ],
   },
 ];
@@ -1013,12 +1074,12 @@ const section6QuestionsBase: TranslationQuestion[] = [
 // =============================================================================
 // Export questions in stable order (no shuffling to avoid SSR/hydration mismatches)
 // =============================================================================
-export const hw5Section1Questions: MCQQuestion[] = section1QuestionsBase;
-export const hw5Section2Questions: MCQQuestion[] = section2QuestionsBase;
-export const hw5Section3Questions: MCQQuestion[] = section3QuestionsBase;
-export const hw5Section4Questions: MCQQuestion[] = section4QuestionsBase;
-export const hw5Section5Questions: MCQQuestion[] = section5QuestionsBase;
-export const hw5Section6Questions: TranslationQuestion[] = section6QuestionsBase;
+export const hw5Section1Questions: MCQQuestion[] = section1QuestionsBase; // Imperatives
+export const hw5Section2Questions: MCQQuestion[] = section2QuestionsBase; // Passive Voice
+export const hw5Section3Questions: MCQQuestion[] = section3QuestionsBase; // ἔρχομαι (was Section 4)
+export const hw5Section4Questions: MCQQuestion[] = section4QuestionsBase; // Future Tense (was Section 5)
+export const hw5Section5Questions: MCQQuestion[] = section5QuestionsBase; // Aorist Passive (NEW)
+export const hw5Section6Questions: TranslationQuestion[] = section6QuestionsBase; // Verse Practice
 
 // =============================================================================
 // HELPER: Get questions for a section
