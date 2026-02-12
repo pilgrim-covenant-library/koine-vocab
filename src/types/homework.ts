@@ -587,9 +587,9 @@ export const createInitialHomework5Progress = (): Homework5Progress => ({
   sections: {
     1: createInitialHW5SectionProgress(1, 12),  // Imperative Mood
     2: createInitialHW5SectionProgress(2, 16),  // Passive Voice
-    3: createInitialHW5SectionProgress(3, 14),  // Middle Voice
-    4: createInitialHW5SectionProgress(4, 16),  // ἔρχομαι
-    5: createInitialHW5SectionProgress(5, 22),  // Future Tense
+    3: createInitialHW5SectionProgress(3, 16),  // ἔρχομαι (was Section 4)
+    4: createInitialHW5SectionProgress(4, 22),  // Future Tense (was Section 5)
+    5: createInitialHW5SectionProgress(5, 14),  // Aorist Passive (NEW)
     6: createInitialHW5SectionProgress(6, 10),  // Verse Practice
   },
   currentSection: 1,
@@ -615,29 +615,29 @@ export const HW5_SECTION_META: Record<HW5SectionId, HW5SectionMeta> = {
   },
   3: {
     id: 3,
-    title: 'Middle Voice (λύω)',
-    description: 'Parse present middle/passive indicative and middle imperative forms',
-    questionCount: 14,
-    helpPage: '/homework/help/verb-paradigms',
-  },
-  4: {
-    id: 4,
     title: 'ἔρχομαι',
     description: 'Parse present and imperfect forms of the deponent verb ἔρχομαι',
     questionCount: 16,
     helpPage: '/homework/help/verb-paradigms',
   },
-  5: {
-    id: 5,
+  4: {
+    id: 4,
     title: 'Future Tense (λύω + εἰμί)',
     description: 'Parse future middle, future passive, and future of εἰμί',
     questionCount: 22,
     helpPage: '/homework/help/verb-paradigms',
   },
+  5: {
+    id: 5,
+    title: 'Aorist Passive Indicative (λύω)',
+    description: 'Parse aorist passive indicative forms with -θη- marker',
+    questionCount: 14,
+    helpPage: '/homework/help/verb-paradigms',
+  },
   6: {
     id: 6,
     title: 'Verse Practice',
-    description: 'Translate 10 verses featuring imperative, passive, middle, and future forms',
+    description: 'Translate 10 verses featuring imperative, passive, aorist passive, and future forms',
     questionCount: 10,
     helpPage: '/homework/help/verb-paradigms',
   },

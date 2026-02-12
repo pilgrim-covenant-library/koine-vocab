@@ -18,6 +18,19 @@ function shuffleArray<T>(array: T[]): T[] {
 // =============================================================================
 // UTILITY: Create verb parsing question with randomized options
 // =============================================================================
+
+// Helper: Get plausible alternative tenses for wrong answers
+const getTenseAlternatives = (tense: string, mood: string): string[] => {
+  if (mood === 'Imperative') {
+    // For imperatives: Present ↔ Aorist confusion
+    return tense === 'Present' ? ['Aorist'] : ['Present'];
+  }
+
+  // For indicative: all tenses are fair game
+  const allTenses = ['Present', 'Imperfect', 'Aorist', 'Future'];
+  return allTenses.filter(t => t !== tense);
+};
+
 const createVerbQuestion = (
   id: string,
   greek: string,
@@ -29,22 +42,35 @@ const createVerbQuestion = (
   lexicalForm: string,
   meaning: string
 ): MCQQuestion => {
-  const correctAnswer = `${person} Person ${number}`;
+  const correctAnswer = `${person} Person ${number}, ${tense} ${voice}`;
 
+  // Define pools for generating wrong options
   const persons = ['1st', '2nd', '3rd'];
   const numbers = ['Singular', 'Plural'];
+  const tenseAlternatives = getTenseAlternatives(tense, mood);
 
   const wrongOptions: string[] = [];
+
+  // Strategy: 50% tense confusion, 50% person/number errors
+
+  // Generate tense confusion options (correct person/number, wrong tense)
+  for (const wrongTense of tenseAlternatives) {
+    wrongOptions.push(`${person} Person ${number}, ${wrongTense} ${voice}`);
+  }
+
+  // Generate person/number error options (correct tense, wrong person/number)
   for (const p of persons) {
     for (const n of numbers) {
-      const option = `${p} Person ${n}`;
-      if (option !== correctAnswer) {
-        wrongOptions.push(option);
+      if (p !== person || n !== number) {
+        wrongOptions.push(`${p} Person ${n}, ${tense} ${voice}`);
       }
     }
   }
 
+  // Shuffle and take 3 wrong options
   const shuffled = shuffleArray(wrongOptions).slice(0, 3);
+
+  // Insert correct answer at random position
   const correctIndex = Math.floor(Math.random() * 4);
   const options = [...shuffled];
   options.splice(correctIndex, 0, correctAnswer);
@@ -52,7 +78,7 @@ const createVerbQuestion = (
   return {
     id,
     type: 'mcq',
-    question: `Parse this verb form:`,
+    question: `Identify the person, number, tense, and voice of this verb form:`,
     greek,
     options,
     correctIndex,

@@ -112,11 +112,11 @@ function Homework5Content() {
           <div className="text-center space-y-2">
             <h1 className="text-3xl font-bold">Homework 5</h1>
             <p className="text-lg text-muted-foreground">
-              Imperative Mood, Passive & Middle Voice, ἔρχομαι & Future Tense
+              Imperative Mood, Passive Voice, ἔρχομαι, Future Tense & Aorist Passive
             </p>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-              This homework covers the imperative mood, passive and middle voice forms,
-              the deponent verb ἔρχομαι, and the future tense (middle, passive, and εἰμί).
+              This homework covers the imperative mood, passive voice (present and imperfect),
+              the deponent verb ἔρχομαι, the future tense (middle, passive, and εἰμί), and aorist passive forms.
             </p>
           </div>
 
