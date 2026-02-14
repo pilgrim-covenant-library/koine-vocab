@@ -18,6 +18,7 @@ import { HW5_SECTION_META, type MCQQuestion, type TranslationQuestion } from '@/
 import { scoreTranslation } from '@/lib/translation';
 import type { TranslationResult } from '@/types';
 import { cn } from '@/lib/utils';
+import { renderGreekWithBold } from '@/lib/renderGreekText';
 
 // Static sections array - avoid recreating on every render
 const SECTION_IDS: HW5SectionId[] = [1, 2, 3, 4, 5, 6];
@@ -183,14 +184,22 @@ export default function HW5SectionPage() {
   }, [user, syncToCloud5]);
 
   // Reset input when question changes
+  // CRITICAL: Only depend on currentIndex to prevent race condition where
+  // Zustand store updates trigger this effect at the wrong time (e.g., after
+  // submission but before navigation). We look up the answer directly from
+  // the store to ensure we're always reading the latest state.
   useEffect(() => {
-    if (existingAnswer) {
+    const currentAnswer = sectionProgress.answers.find(
+      a => a.questionId === currentQuestion?.id
+    );
+
+    if (currentAnswer) {
       setShowFeedback(true);
-      setIsCorrect(existingAnswer.isCorrect);
+      setIsCorrect(currentAnswer.isCorrect);
       if (currentQuestion?.type === 'translation') {
-        setTranslationInput(existingAnswer.userAnswer as string);
+        setTranslationInput(currentAnswer.userAnswer as string);
       } else {
-        setSelectedOption(existingAnswer.userAnswer as number);
+        setSelectedOption(currentAnswer.userAnswer as number);
       }
     } else {
       setShowFeedback(false);
@@ -200,7 +209,7 @@ export default function HW5SectionPage() {
       setTranslationResult(null);
       setShowReference(false);
     }
-  }, [sectionProgress.currentIndex, existingAnswer, currentQuestion?.type]);
+  }, [sectionProgress.currentIndex, currentQuestion?.id, currentQuestion?.type, sectionProgress.answers]);
 
   // Handle answer submission (MCQ)
   const handleSubmit = useCallback(() => {
@@ -234,12 +243,13 @@ export default function HW5SectionPage() {
     };
 
     const result = scoreTranslation(verseObj, translationInput);
-    setTranslationResult(result);
-
     const correct = result.score >= 4;
+
     submitAnswer5(sectionId, currentQuestion.id, translationInput, correct);
 
+    // Set all state together to avoid intermediate renders
     setIsCorrect(correct);
+    setTranslationResult(result);
     setShowFeedback(true);
 
     debouncedSync();
@@ -522,7 +532,7 @@ export default function HW5SectionPage() {
                   <div className="space-y-2">
                     {(currentQuestion as MCQQuestion).greek && (
                       <p className="text-3xl greek-text font-serif tracking-wide text-center mb-4">
-                        {(currentQuestion as MCQQuestion).greek}
+                        {renderGreekWithBold((currentQuestion as MCQQuestion).greek || '')}
                       </p>
                     )}
                     {(currentQuestion as MCQQuestion).vocabHelp && (

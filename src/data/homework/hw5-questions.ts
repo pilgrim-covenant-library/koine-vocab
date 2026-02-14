@@ -532,7 +532,7 @@ const section4QuestionsBase: MCQQuestion[] = [
     id: 'h5s4-q22',
     type: 'mcq',
     question: 'In Matthew 16:19, identify the person and number of the underlined verb:',
-    greek: 'ὃ ἐὰν λύσῃς ἐπὶ τῆς γῆς ἔσται λελυμένον ἐν τοῖς οὐρανοῖς',
+    greek: 'ὃ ἐὰν λύσῃς ἐπὶ τῆς γῆς **ἔσται** λελυμένον ἐν τοῖς οὐρανοῖς',
     vocabHelp: 'λύω = I loose/bind; γῆ = earth; οὐρανός = heaven',
     options: [
       '3rd Person Singular',
