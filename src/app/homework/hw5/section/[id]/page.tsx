@@ -184,10 +184,10 @@ export default function HW5SectionPage() {
   }, [user, syncToCloud5]);
 
   // Reset input when question changes
-  // CRITICAL: Only depend on currentIndex to prevent race condition where
-  // Zustand store updates trigger this effect at the wrong time (e.g., after
-  // submission but before navigation). We look up the answer directly from
-  // the store to ensure we're always reading the latest state.
+  // CRITICAL: Only run when currentIndex changes (true navigation).
+  // DO NOT include sectionProgress.answers in deps - that triggers the effect
+  // when answers are ADDED to the current question, causing a race condition
+  // where showFeedback gets reset to false after submission.
   useEffect(() => {
     const currentAnswer = sectionProgress.answers.find(
       a => a.questionId === currentQuestion?.id
@@ -209,7 +209,7 @@ export default function HW5SectionPage() {
       setTranslationResult(null);
       setShowReference(false);
     }
-  }, [sectionProgress.currentIndex, currentQuestion?.id, currentQuestion?.type, sectionProgress.answers]);
+  }, [sectionProgress.currentIndex, currentQuestion?.id, currentQuestion?.type]);
 
   // Handle answer submission (MCQ)
   const handleSubmit = useCallback(() => {
