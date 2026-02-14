@@ -310,7 +310,8 @@ export default function HW5SectionPage() {
 
   const isLastQuestion = sectionProgress.currentIndex === questions.length - 1;
   const isLastSection = sectionId === 6;
-  const hasAnswered = showFeedback || existingAnswer !== undefined;
+  // Use showFeedback alone to avoid race condition with Zustand store updates
+  const hasAnswered = showFeedback;
 
   return (
     <div className="min-h-screen bg-background">
