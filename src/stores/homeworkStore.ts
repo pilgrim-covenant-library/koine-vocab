@@ -1787,7 +1787,7 @@ export const useHomeworkStore = create<HomeworkState>()(
     }),
     {
       name: 'koine-homework-store',
-      version: 9, // Bump version for HW5
+      version: 10, // Bump version for HW5 totalQuestions fix
       migrate: (persistedState: unknown, version: number) => {
         const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress };
 
@@ -1841,6 +1841,20 @@ export const useHomeworkStore = create<HomeworkState>()(
         // Add homework5 if missing (for users upgrading from version < 9)
         if (version < 9 && !state.homework5) {
           (state as { homework5: Homework5Progress }).homework5 = createInitialHomework5Progress();
+        }
+
+        // Fix HW5 section totalQuestions for users with stale persisted counts (version < 10)
+        if (version < 10 && state.homework5) {
+          const hw5Counts: Record<number, number> = {
+            1: 12, 2: 16, 3: 16, 4: 22, 5: 14, 6: 10
+          };
+          for (const [id, count] of Object.entries(hw5Counts)) {
+            const sectionId = Number(id) as HW5SectionId;
+            if (state.homework5.sections[sectionId]) {
+              state.homework5.sections[sectionId].totalQuestions = count;
+            }
+          }
+          state.homework5.totalPossible = 90;
         }
 
         return state as HomeworkState;
