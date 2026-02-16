@@ -482,12 +482,9 @@ export default function CommonVocabSectionPage() {
                 showAudio
                 className="mb-2"
               />
-              <div className="flex justify-center gap-2 mt-2">
+              <div className="flex justify-center mt-2">
                 <span className="px-2 py-1 rounded-full text-xs font-medium bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300">
                   {currentQuestion.word.frequency.toLocaleString()}x in NT
-                </span>
-                <span className="text-xs text-muted-foreground py-1">
-                  {currentQuestion.word.partOfSpeech}
                 </span>
               </div>
             </CardContent>

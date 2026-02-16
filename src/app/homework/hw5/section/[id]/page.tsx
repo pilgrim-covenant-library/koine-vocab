@@ -137,6 +137,12 @@ export default function HW5SectionPage() {
     return sectionProgress.answers.find(a => a.questionId === currentQuestion.id);
   }, [sectionProgress.answers, currentQuestion]);
 
+  // Track showFeedback with a ref to avoid triggering keyboard effect re-runs
+  const showFeedbackRef = useRef(showFeedback);
+  useEffect(() => {
+    showFeedbackRef.current = showFeedback;
+  }, [showFeedback]);
+
   // Debounced sync to cloud
   const debouncedSync = useCallback(() => {
     if (syncTimeoutRef.current) {
@@ -285,9 +291,12 @@ export default function HW5SectionPage() {
 
   // Keyboard shortcuts for MCQ
   useEffect(() => {
-    if (!currentQuestion || showFeedback || currentQuestion.type === 'translation') return;
+    if (!currentQuestion || currentQuestion.type === 'translation') return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Use ref to check showFeedback without triggering re-render
+      if (showFeedbackRef.current) return;
+
       const key = e.key;
       if (['1', '2', '3', '4'].includes(key)) {
         setSelectedOption(parseInt(key, 10) - 1);
@@ -298,7 +307,7 @@ export default function HW5SectionPage() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentQuestion, showFeedback, selectedOption]);
+  }, [currentQuestion, selectedOption]);
 
   const handleSelectOption = useCallback((index: number) => {
     if (!showFeedback) setSelectedOption(index);
