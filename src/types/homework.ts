@@ -643,6 +643,121 @@ export const HW5_SECTION_META: Record<HW5SectionId, HW5SectionMeta> = {
   },
 };
 
+// =============================================================================
+// HOMEWORK 6 TYPES
+// =============================================================================
+
+// HW6 Section IDs (6 sections)
+export type HW6SectionId = 1 | 2 | 3 | 4 | 5 | 6;
+
+// HW6 Section progress
+export interface HW6SectionProgress {
+  sectionId: HW6SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 6 progress
+export interface Homework6Progress {
+  id: 'hw6';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW6SectionId, HW6SectionProgress>;
+  currentSection: HW6SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW6 Section metadata
+export interface HW6SectionMeta {
+  id: HW6SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW6 section state
+export const createInitialHW6SectionProgress = (
+  sectionId: HW6SectionId,
+  totalQuestions: number
+): HW6SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework6Progress = (): Homework6Progress => ({
+  id: 'hw6',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW6SectionProgress(1, 12),  // Present Active Fem & Neut Participles
+    2: createInitialHW6SectionProgress(2, 12),  // εἰμί Participles
+    3: createInitialHW6SectionProgress(3, 12),  // Aorist Active Fem & Neut Participles
+    4: createInitialHW6SectionProgress(4, 20),  // Demonstrative Pronouns
+    5: createInitialHW6SectionProgress(5, 14),  // Reflexive & Relative Pronouns
+    6: createInitialHW6SectionProgress(6, 10),  // Verse Practice
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 80,
+});
+
+// Section metadata for HW6
+export const HW6_SECTION_META: Record<HW6SectionId, HW6SectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Present Active Participles (Fem & Neut)',
+    description: 'Parse present active feminine (λύουσα) and neuter (λῦον) participle forms',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  2: {
+    id: 2,
+    title: 'εἰμί Participles (ὤν/οὖσα/ὄν)',
+    description: 'Parse present participle forms of εἰμί across all genders',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  3: {
+    id: 3,
+    title: 'Aorist Active Participles (Fem & Neut)',
+    description: 'Parse 1st aorist active feminine (λύσασα) and neuter (λῦσαν) participle forms',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  4: {
+    id: 4,
+    title: 'Demonstrative Pronouns',
+    description: 'Parse forms of οὗτος (this) and ἐκεῖνος (that)',
+    questionCount: 20,
+    helpPage: '/homework/help/pronouns',
+  },
+  5: {
+    id: 5,
+    title: 'Reflexive & Relative Pronouns',
+    description: 'Parse reflexive (ἐμαυτοῦ, σεαυτοῦ, ἑαυτοῦ) and relative (ὅς, ἥ, ὅ) pronoun forms',
+    questionCount: 14,
+    helpPage: '/homework/help/pronouns',
+  },
+  6: {
+    id: 6,
+    title: 'Verse Practice',
+    description: 'Translate 10 verses featuring participles, demonstratives, and pronouns',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+};
+
 // Homework submission for teacher dashboard
 export interface HomeworkSubmission {
   studentUid: string;

@@ -17,6 +17,9 @@ import type {
   HW5SectionId,
   Homework5Progress,
   HW5SectionProgress,
+  HW6SectionId,
+  Homework6Progress,
+  HW6SectionProgress,
 } from '@/types/homework';
 import {
   createInitialHomework1Progress,
@@ -29,6 +32,8 @@ import {
   createInitialHW4SectionProgress,
   createInitialHomework5Progress,
   createInitialHW5SectionProgress,
+  createInitialHomework6Progress,
+  createInitialHW6SectionProgress,
 } from '@/types/homework';
 import {
   syncHomeworkToCloud,
@@ -52,6 +57,9 @@ interface HomeworkState {
 
   // Homework 5 progress
   homework5: Homework5Progress;
+
+  // Homework 6 progress
+  homework6: Homework6Progress;
 
   // Sync state
   isSyncing: boolean;
@@ -137,6 +145,22 @@ interface HomeworkState {
   resetHomework5: () => void;
   resetSection5: (sectionId: HW5SectionId) => void;
 
+  // HW6 Actions
+  startHomework6: () => void;
+  startSection6: (sectionId: HW6SectionId) => void;
+  submitAnswer6: (
+    sectionId: HW6SectionId,
+    questionId: string,
+    userAnswer: string | number,
+    isCorrect: boolean
+  ) => void;
+  nextQuestion6: (sectionId: HW6SectionId) => boolean;
+  previousQuestion6: (sectionId: HW6SectionId) => boolean;
+  completeSection6: (sectionId: HW6SectionId) => void;
+  completeHomework6: () => void;
+  resetHomework6: () => void;
+  resetSection6: (sectionId: HW6SectionId) => void;
+
   // Cloud sync actions
   syncToCloud: (uid: string) => Promise<void>;
   loadFromCloud: (uid: string) => Promise<boolean>; // returns true if cloud data was loaded
@@ -161,6 +185,11 @@ interface HomeworkState {
   syncToCloud5: (uid: string) => Promise<void>;
   loadFromCloud5: (uid: string) => Promise<boolean>;
   submitResult5: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
+
+  // HW6 Cloud sync actions
+  syncToCloud6: (uid: string) => Promise<void>;
+  loadFromCloud6: (uid: string) => Promise<boolean>;
+  submitResult6: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
 
   // HW1 Getters
   getCurrentSection: () => SectionProgress;
@@ -201,6 +230,14 @@ interface HomeworkState {
   canAccessSection5: (sectionId: HW5SectionId) => boolean;
   isHomework5Complete: () => boolean;
   getAnswer5: (sectionId: HW5SectionId, questionId: string) => QuestionAnswer | undefined;
+
+  // HW6 Getters
+  getCurrentSection6: () => HW6SectionProgress;
+  getSectionProgress6: (sectionId: HW6SectionId) => HW6SectionProgress;
+  getOverallProgress6: () => { completed: number; total: number; percentage: number };
+  canAccessSection6: (sectionId: HW6SectionId) => boolean;
+  isHomework6Complete: () => boolean;
+  getAnswer6: (sectionId: HW6SectionId, questionId: string) => QuestionAnswer | undefined;
 }
 
 export const useHomeworkStore = create<HomeworkState>()(
@@ -211,6 +248,7 @@ export const useHomeworkStore = create<HomeworkState>()(
       homework3: createInitialHomework3Progress(),
       homework4: createInitialHomework4Progress(),
       homework5: createInitialHomework5Progress(),
+      homework6: createInitialHomework6Progress(),
       isSyncing: false,
       lastSyncedAt: null,
 
@@ -1784,12 +1822,319 @@ export const useHomeworkStore = create<HomeworkState>()(
         const { homework5 } = get();
         return homework5.sections[sectionId].answers.find(a => a.questionId === questionId);
       },
+
+      // =============================================================================
+      // HW6 ACTIONS
+      // =============================================================================
+
+      startHomework6: () => {
+        const { homework6 } = get();
+        if (homework6.status === 'not_started') {
+          set({
+            homework6: {
+              ...homework6,
+              status: 'in_progress',
+              startedAt: Date.now(),
+            },
+          });
+        }
+      },
+
+      startSection6: (sectionId: HW6SectionId) => {
+        const { homework6, canAccessSection6 } = get();
+        if (!canAccessSection6(sectionId)) return;
+
+        const section = homework6.sections[sectionId];
+        if (section.status === 'not_started') {
+          set({
+            homework6: {
+              ...homework6,
+              currentSection: sectionId,
+              sections: {
+                ...homework6.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'in_progress',
+                  startedAt: Date.now(),
+                },
+              },
+            },
+          });
+        } else {
+          set({
+            homework6: {
+              ...homework6,
+              currentSection: sectionId,
+            },
+          });
+        }
+      },
+
+      submitAnswer6: (
+        sectionId: HW6SectionId,
+        questionId: string,
+        userAnswer: string | number,
+        isCorrect: boolean
+      ) => {
+        const { homework6 } = get();
+        const section = homework6.sections[sectionId];
+
+        const existingIndex = section.answers.findIndex(a => a.questionId === questionId);
+
+        const newAnswer: QuestionAnswer = {
+          questionId,
+          userAnswer,
+          isCorrect,
+          timestamp: Date.now(),
+        };
+
+        let newAnswers: QuestionAnswer[];
+        let scoreDiff = 0;
+
+        if (existingIndex >= 0) {
+          const oldAnswer = section.answers[existingIndex];
+          if (oldAnswer.isCorrect && !isCorrect) scoreDiff = -1;
+          else if (!oldAnswer.isCorrect && isCorrect) scoreDiff = 1;
+
+          newAnswers = [...section.answers];
+          newAnswers[existingIndex] = newAnswer;
+        } else {
+          newAnswers = [...section.answers, newAnswer];
+          if (isCorrect) scoreDiff = 1;
+        }
+
+        set({
+          homework6: {
+            ...homework6,
+            totalScore: homework6.totalScore + scoreDiff,
+            sections: {
+              ...homework6.sections,
+              [sectionId]: {
+                ...section,
+                answers: newAnswers,
+                score: section.score + scoreDiff,
+              },
+            },
+          },
+        });
+      },
+
+      nextQuestion6: (sectionId: HW6SectionId) => {
+        const { homework6 } = get();
+        const section = homework6.sections[sectionId];
+
+        if (section.currentIndex < section.totalQuestions - 1) {
+          set({
+            homework6: {
+              ...homework6,
+              sections: {
+                ...homework6.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex + 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      previousQuestion6: (sectionId: HW6SectionId) => {
+        const { homework6 } = get();
+        const section = homework6.sections[sectionId];
+
+        if (section.currentIndex > 0) {
+          set({
+            homework6: {
+              ...homework6,
+              sections: {
+                ...homework6.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex - 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      completeSection6: (sectionId: HW6SectionId) => {
+        const { homework6 } = get();
+        const section = homework6.sections[sectionId];
+
+        const nextSectionId = sectionId < 6 ? (sectionId + 1) as HW6SectionId : null;
+
+        set({
+          homework6: {
+            ...homework6,
+            currentSection: nextSectionId ?? sectionId,
+            sections: {
+              ...homework6.sections,
+              [sectionId]: {
+                ...section,
+                status: 'completed',
+                completedAt: Date.now(),
+              },
+            },
+          },
+        });
+      },
+
+      completeHomework6: () => {
+        const { homework6 } = get();
+        set({
+          homework6: {
+            ...homework6,
+            status: 'completed',
+            completedAt: Date.now(),
+          },
+        });
+      },
+
+      resetHomework6: () => {
+        set({
+          homework6: createInitialHomework6Progress(),
+        });
+      },
+
+      resetSection6: (sectionId: HW6SectionId) => {
+        const { homework6 } = get();
+        const section = homework6.sections[sectionId];
+        const scoreDiff = section.score;
+
+        set({
+          homework6: {
+            ...homework6,
+            totalScore: homework6.totalScore - scoreDiff,
+            sections: {
+              ...homework6.sections,
+              [sectionId]: createInitialHW6SectionProgress(sectionId, section.totalQuestions),
+            },
+          },
+        });
+      },
+
+      // HW6 Cloud sync actions
+      syncToCloud6: async (uid: string) => {
+        if (!isFirebaseAvailable()) return;
+
+        const { homework6, isSyncing } = get();
+        if (isSyncing) return;
+
+        set({ isSyncing: true });
+
+        try {
+          await syncHomeworkToCloud(uid, 'hw6', homework6);
+          set({ lastSyncedAt: Date.now(), isSyncing: false });
+        } catch (error) {
+          console.error('Failed to sync homework6 to cloud:', error);
+          set({ isSyncing: false });
+        }
+      },
+
+      loadFromCloud6: async (uid: string) => {
+        if (!isFirebaseAvailable()) return false;
+
+        try {
+          const cloudData = await getHomeworkFromCloud(uid, 'hw6');
+          if (cloudData) {
+            const { homework6 } = get();
+
+            const shouldUseCloudData =
+              cloudData.status === 'completed' ||
+              (cloudData.status === 'in_progress' && homework6.status === 'not_started') ||
+              cloudData.totalScore > homework6.totalScore;
+
+            if (shouldUseCloudData) {
+              set({
+                homework6: cloudData as Homework6Progress,
+                lastSyncedAt: Date.now(),
+              });
+              return true;
+            }
+          }
+          return false;
+        } catch (error) {
+          console.error('Failed to load homework6 from cloud:', error);
+          return false;
+        }
+      },
+
+      submitResult6: async (uid: string, userInfo: { displayName: string | null; email: string | null }) => {
+        if (!isFirebaseAvailable()) return;
+
+        const { homework6 } = get();
+        if (homework6.status !== 'completed') return;
+
+        try {
+          const sections: Record<string, { score: number; totalQuestions: number; status: string }> = {};
+          for (const [key, section] of Object.entries(homework6.sections)) {
+            sections[key] = {
+              score: section.score,
+              totalQuestions: section.totalQuestions,
+              status: section.status,
+            };
+          }
+
+          await submitHomeworkResult(
+            uid,
+            'hw6',
+            userInfo,
+            homework6.totalScore,
+            homework6.totalPossible,
+            sections
+          );
+        } catch (error) {
+          console.error('Failed to submit homework6 result:', error);
+        }
+      },
+
+      // HW6 Getters
+      getCurrentSection6: () => {
+        const { homework6 } = get();
+        return homework6.sections[homework6.currentSection];
+      },
+
+      getSectionProgress6: (sectionId: HW6SectionId) => {
+        const { homework6 } = get();
+        return homework6.sections[sectionId];
+      },
+
+      getOverallProgress6: () => {
+        const { homework6 } = get();
+        const sections = Object.values(homework6.sections);
+        const completed = sections.filter(s => s.status === 'completed').length;
+        return {
+          completed,
+          total: 6,
+          percentage: Math.round((completed / 6) * 100),
+        };
+      },
+
+      canAccessSection6: (_sectionId: HW6SectionId) => {
+        return true;
+      },
+
+      isHomework6Complete: () => {
+        const { homework6 } = get();
+        return homework6.status === 'completed';
+      },
+
+      getAnswer6: (sectionId: HW6SectionId, questionId: string) => {
+        const { homework6 } = get();
+        return homework6.sections[sectionId].answers.find(a => a.questionId === questionId);
+      },
     }),
     {
       name: 'koine-homework-store',
-      version: 10, // Bump version for HW5 totalQuestions fix
+      version: 11, // Bump version for HW6
       migrate: (persistedState: unknown, version: number) => {
-        const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress };
+        const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress; homework6?: Homework6Progress };
 
         if (version < 4 && state.homework2) {
           // Fix all section totalQuestions to match actual question counts
@@ -1857,6 +2202,11 @@ export const useHomeworkStore = create<HomeworkState>()(
           state.homework5.totalPossible = 90;
         }
 
+        // Add homework6 if missing (for users upgrading from version < 11)
+        if (version < 11 && !state.homework6) {
+          (state as { homework6: Homework6Progress }).homework6 = createInitialHomework6Progress();
+        }
+
         return state as HomeworkState;
       },
       partialize: (state) => ({
@@ -1865,6 +2215,7 @@ export const useHomeworkStore = create<HomeworkState>()(
         homework3: state.homework3,
         homework4: state.homework4,
         homework5: state.homework5,
+        homework6: state.homework6,
         lastSyncedAt: state.lastSyncedAt,
         // Exclude isSyncing - always starts as false
       }),
@@ -1888,6 +2239,7 @@ if (typeof window !== 'undefined') {
         useHomeworkStore.getState().resetHomework3();
         useHomeworkStore.getState().resetHomework4();
         useHomeworkStore.getState().resetHomework5();
+        useHomeworkStore.getState().resetHomework6();
       }
       previousUser = currentUser;
     });
