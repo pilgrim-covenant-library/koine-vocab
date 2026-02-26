@@ -20,6 +20,9 @@ import type {
   HW6SectionId,
   Homework6Progress,
   HW6SectionProgress,
+  HW7SectionId,
+  Homework7Progress,
+  HW7SectionProgress,
 } from '@/types/homework';
 import {
   createInitialHomework1Progress,
@@ -34,6 +37,8 @@ import {
   createInitialHW5SectionProgress,
   createInitialHomework6Progress,
   createInitialHW6SectionProgress,
+  createInitialHomework7Progress,
+  createInitialHW7SectionProgress,
 } from '@/types/homework';
 import {
   syncHomeworkToCloud,
@@ -60,6 +65,9 @@ interface HomeworkState {
 
   // Homework 6 progress
   homework6: Homework6Progress;
+
+  // Homework 7 progress
+  homework7: Homework7Progress;
 
   // Sync state
   isSyncing: boolean;
@@ -161,6 +169,22 @@ interface HomeworkState {
   resetHomework6: () => void;
   resetSection6: (sectionId: HW6SectionId) => void;
 
+  // HW7 Actions
+  startHomework7: () => void;
+  startSection7: (sectionId: HW7SectionId) => void;
+  submitAnswer7: (
+    sectionId: HW7SectionId,
+    questionId: string,
+    userAnswer: string | number,
+    isCorrect: boolean
+  ) => void;
+  nextQuestion7: (sectionId: HW7SectionId) => boolean;
+  previousQuestion7: (sectionId: HW7SectionId) => boolean;
+  completeSection7: (sectionId: HW7SectionId) => void;
+  completeHomework7: () => void;
+  resetHomework7: () => void;
+  resetSection7: (sectionId: HW7SectionId) => void;
+
   // Cloud sync actions
   syncToCloud: (uid: string) => Promise<void>;
   loadFromCloud: (uid: string) => Promise<boolean>; // returns true if cloud data was loaded
@@ -190,6 +214,11 @@ interface HomeworkState {
   syncToCloud6: (uid: string) => Promise<void>;
   loadFromCloud6: (uid: string) => Promise<boolean>;
   submitResult6: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
+
+  // HW7 Cloud sync actions
+  syncToCloud7: (uid: string) => Promise<void>;
+  loadFromCloud7: (uid: string) => Promise<boolean>;
+  submitResult7: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
 
   // HW1 Getters
   getCurrentSection: () => SectionProgress;
@@ -238,6 +267,14 @@ interface HomeworkState {
   canAccessSection6: (sectionId: HW6SectionId) => boolean;
   isHomework6Complete: () => boolean;
   getAnswer6: (sectionId: HW6SectionId, questionId: string) => QuestionAnswer | undefined;
+
+  // HW7 Getters
+  getCurrentSection7: () => HW7SectionProgress;
+  getSectionProgress7: (sectionId: HW7SectionId) => HW7SectionProgress;
+  getOverallProgress7: () => { completed: number; total: number; percentage: number };
+  canAccessSection7: (sectionId: HW7SectionId) => boolean;
+  isHomework7Complete: () => boolean;
+  getAnswer7: (sectionId: HW7SectionId, questionId: string) => QuestionAnswer | undefined;
 }
 
 export const useHomeworkStore = create<HomeworkState>()(
@@ -249,6 +286,7 @@ export const useHomeworkStore = create<HomeworkState>()(
       homework4: createInitialHomework4Progress(),
       homework5: createInitialHomework5Progress(),
       homework6: createInitialHomework6Progress(),
+      homework7: createInitialHomework7Progress(),
       isSyncing: false,
       lastSyncedAt: null,
 
@@ -2129,12 +2167,301 @@ export const useHomeworkStore = create<HomeworkState>()(
         const { homework6 } = get();
         return homework6.sections[sectionId].answers.find(a => a.questionId === questionId);
       },
+
+      // =============================================================================
+      // HOMEWORK 7: Middle/Passive Participles, Perfect Tense, Pluperfect, Subjunctive
+      // =============================================================================
+
+      startHomework7: () => {
+        const { homework7 } = get();
+        if (homework7.status === 'not_started') {
+          set({
+            homework7: {
+              ...homework7,
+              status: 'in_progress',
+              startedAt: Date.now(),
+            },
+          });
+        }
+      },
+
+      startSection7: (sectionId: HW7SectionId) => {
+        const { homework7, canAccessSection7 } = get();
+        if (!canAccessSection7(sectionId)) return;
+
+        const section = homework7.sections[sectionId];
+        if (section.status === 'not_started') {
+          set({
+            homework7: {
+              ...homework7,
+              currentSection: sectionId,
+              sections: {
+                ...homework7.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'in_progress',
+                  startedAt: Date.now(),
+                },
+              },
+            },
+          });
+        } else {
+          set({
+            homework7: {
+              ...homework7,
+              currentSection: sectionId,
+            },
+          });
+        }
+      },
+
+      submitAnswer7: (
+        sectionId: HW7SectionId,
+        questionId: string,
+        userAnswer: string | number,
+        isCorrect: boolean
+      ) => {
+        const { homework7 } = get();
+        const section = homework7.sections[sectionId];
+
+        const existingAnswerIndex = section.answers.findIndex(a => a.questionId === questionId);
+        let scoreDiff = isCorrect ? 1 : 0;
+
+        const updatedAnswers = [...section.answers];
+        if (existingAnswerIndex >= 0) {
+          const oldAnswer = updatedAnswers[existingAnswerIndex];
+          scoreDiff = (isCorrect ? 1 : 0) - (oldAnswer.isCorrect ? 1 : 0);
+          updatedAnswers[existingAnswerIndex] = {
+            questionId,
+            userAnswer,
+            isCorrect,
+            answeredAt: Date.now(),
+          };
+        } else {
+          updatedAnswers.push({
+            questionId,
+            userAnswer,
+            isCorrect,
+            answeredAt: Date.now(),
+          });
+        }
+
+        set({
+          homework7: {
+            ...homework7,
+            totalScore: homework7.totalScore + scoreDiff,
+            sections: {
+              ...homework7.sections,
+              [sectionId]: {
+                ...section,
+                answers: updatedAnswers,
+                score: section.score + scoreDiff,
+              },
+            },
+          },
+        });
+      },
+
+      nextQuestion7: (sectionId: HW7SectionId) => {
+        const { homework7 } = get();
+        const section = homework7.sections[sectionId];
+        if (section.currentIndex < section.totalQuestions - 1) {
+          set({
+            homework7: {
+              ...homework7,
+              sections: {
+                ...homework7.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex + 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      previousQuestion7: (sectionId: HW7SectionId) => {
+        const { homework7 } = get();
+        const section = homework7.sections[sectionId];
+        if (section.currentIndex > 0) {
+          set({
+            homework7: {
+              ...homework7,
+              sections: {
+                ...homework7.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex - 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      completeSection7: (sectionId: HW7SectionId) => {
+        const { homework7 } = get();
+        const section = homework7.sections[sectionId];
+        if (section.status === 'in_progress') {
+          set({
+            homework7: {
+              ...homework7,
+              currentSection: sectionId,
+              sections: {
+                ...homework7.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'completed',
+                  completedAt: Date.now(),
+                },
+              },
+            },
+          });
+        }
+      },
+
+      completeHomework7: () => {
+        const { homework7 } = get();
+        set({
+          homework7: {
+            ...homework7,
+            status: 'completed',
+            completedAt: Date.now(),
+          },
+        });
+      },
+
+      resetHomework7: () => {
+        set({
+          homework7: createInitialHomework7Progress(),
+        });
+      },
+
+      resetSection7: (sectionId: HW7SectionId) => {
+        const { homework7 } = get();
+        const section = homework7.sections[sectionId];
+        const scoreDiff = section.score;
+        set({
+          homework7: {
+            ...homework7,
+            totalScore: homework7.totalScore - scoreDiff,
+            sections: {
+              ...homework7.sections,
+              [sectionId]: createInitialHW7SectionProgress(sectionId, section.totalQuestions),
+            },
+          },
+        });
+      },
+
+      // HW7 Cloud sync
+      syncToCloud7: async (uid: string) => {
+        if (!isFirebaseAvailable()) return;
+        try {
+          const { homework7, isSyncing } = get();
+          if (isSyncing) return;
+          set({ isSyncing: true });
+          await syncHomeworkToCloud(uid, 'hw7', homework7);
+        } catch (error) {
+          console.error('Failed to sync homework7 to cloud:', error);
+        } finally {
+          set({ isSyncing: false, lastSyncedAt: Date.now() });
+        }
+      },
+
+      loadFromCloud7: async (uid: string) => {
+        if (!isFirebaseAvailable()) return false;
+        try {
+          const cloudData = await getHomeworkFromCloud(uid, 'hw7');
+          if (cloudData) {
+            const { homework7 } = get();
+            const shouldLoad =
+              cloudData.status === 'completed' ||
+              (cloudData.status === 'in_progress' && homework7.status === 'not_started') ||
+              cloudData.totalScore > homework7.totalScore;
+
+            if (shouldLoad) {
+              set({
+                homework7: cloudData as Homework7Progress,
+              });
+              return true;
+            }
+          }
+          return false;
+        } catch (error) {
+          console.error('Failed to load homework7 from cloud:', error);
+          return false;
+        }
+      },
+
+      submitResult7: async (uid: string, userInfo: { displayName: string | null; email: string | null }) => {
+        if (!isFirebaseAvailable()) return;
+        try {
+          const { homework7 } = get();
+          if (homework7.status !== 'completed') return;
+
+          const sectionScores: Record<string, { score: number; total: number }> = {};
+          for (const [key, section] of Object.entries(homework7.sections)) {
+            sectionScores[`section${key}`] = {
+              score: section.score,
+              total: section.totalQuestions,
+            };
+          }
+
+          await submitHomeworkResult(uid, 'hw7', userInfo, sectionScores,
+            homework7.totalScore,
+            homework7.totalPossible,
+          );
+        } catch (error) {
+          console.error('Failed to submit homework7 result:', error);
+        }
+      },
+
+      // HW7 Getters
+      getCurrentSection7: () => {
+        const { homework7 } = get();
+        return homework7.sections[homework7.currentSection];
+      },
+
+      getSectionProgress7: (sectionId: HW7SectionId) => {
+        const { homework7 } = get();
+        return homework7.sections[sectionId];
+      },
+
+      getOverallProgress7: () => {
+        const { homework7 } = get();
+        const sections = Object.values(homework7.sections);
+        const completed = sections.filter(s => s.status === 'completed').length;
+        return {
+          completed,
+          total: 6,
+          percentage: Math.round((completed / 6) * 100),
+        };
+      },
+
+      canAccessSection7: (_sectionId: HW7SectionId) => {
+        return true;
+      },
+
+      isHomework7Complete: () => {
+        const { homework7 } = get();
+        return homework7.status === 'completed';
+      },
+
+      getAnswer7: (sectionId: HW7SectionId, questionId: string) => {
+        const { homework7 } = get();
+        return homework7.sections[sectionId].answers.find(a => a.questionId === questionId);
+      },
     }),
     {
       name: 'koine-homework-store',
-      version: 11, // Bump version for HW6
+      version: 12, // Bump version for HW7
       migrate: (persistedState: unknown, version: number) => {
-        const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress; homework6?: Homework6Progress };
+        const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress; homework6?: Homework6Progress; homework7?: Homework7Progress };
 
         if (version < 4 && state.homework2) {
           // Fix all section totalQuestions to match actual question counts
@@ -2207,6 +2534,11 @@ export const useHomeworkStore = create<HomeworkState>()(
           (state as { homework6: Homework6Progress }).homework6 = createInitialHomework6Progress();
         }
 
+        // Add homework7 if missing (for users upgrading from version < 12)
+        if (version < 12 && !state.homework7) {
+          (state as { homework7: Homework7Progress }).homework7 = createInitialHomework7Progress();
+        }
+
         return state as HomeworkState;
       },
       partialize: (state) => ({
@@ -2216,6 +2548,7 @@ export const useHomeworkStore = create<HomeworkState>()(
         homework4: state.homework4,
         homework5: state.homework5,
         homework6: state.homework6,
+        homework7: state.homework7,
         lastSyncedAt: state.lastSyncedAt,
         // Exclude isSyncing - always starts as false
       }),
@@ -2240,6 +2573,7 @@ if (typeof window !== 'undefined') {
         useHomeworkStore.getState().resetHomework4();
         useHomeworkStore.getState().resetHomework5();
         useHomeworkStore.getState().resetHomework6();
+        useHomeworkStore.getState().resetHomework7();
       }
       previousUser = currentUser;
     });

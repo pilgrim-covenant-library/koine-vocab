@@ -758,6 +758,117 @@ export const HW6_SECTION_META: Record<HW6SectionId, HW6SectionMeta> = {
   },
 };
 
+// HW7 Section IDs (6 sections)
+export type HW7SectionId = 1 | 2 | 3 | 4 | 5 | 6;
+
+// HW7 Section progress
+export interface HW7SectionProgress {
+  sectionId: HW7SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 7 progress
+export interface Homework7Progress {
+  id: 'hw7';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW7SectionId, HW7SectionProgress>;
+  currentSection: HW7SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW7 Section metadata
+export interface HW7SectionMeta {
+  id: HW7SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW7 section state
+export const createInitialHW7SectionProgress = (
+  sectionId: HW7SectionId,
+  totalQuestions: number
+): HW7SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework7Progress = (): Homework7Progress => ({
+  id: 'hw7',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW7SectionProgress(1, 12),  // Middle/Passive Participles
+    2: createInitialHW7SectionProgress(2, 12),  // Perfect Tense Indicative
+    3: createInitialHW7SectionProgress(3, 12),  // Perfect Participles
+    4: createInitialHW7SectionProgress(4, 12),  // Pluperfect Tense
+    5: createInitialHW7SectionProgress(5, 12),  // Subjunctive Mood
+    6: createInitialHW7SectionProgress(6, 10),  // Verse Practice
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 70,
+});
+
+// Section metadata for HW7
+export const HW7_SECTION_META: Record<HW7SectionId, HW7SectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Middle/Passive Participles',
+    description: 'Parse middle/passive participle forms (present, aorist middle, aorist passive)',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  2: {
+    id: 2,
+    title: 'Perfect Tense Indicative',
+    description: 'Parse perfect active and middle/passive indicative forms with reduplication',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  3: {
+    id: 3,
+    title: 'Perfect Participles',
+    description: 'Parse perfect active (3-1-3) and middle/passive (2-1-2) participle forms',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  4: {
+    id: 4,
+    title: 'Pluperfect Tense',
+    description: 'Parse pluperfect active and middle/passive forms with augment and reduplication',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  5: {
+    id: 5,
+    title: 'Subjunctive Mood',
+    description: 'Parse present and aorist subjunctive forms with lengthened connecting vowels',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  6: {
+    id: 6,
+    title: 'Verse Practice',
+    description: 'Translate 10 verses featuring perfect tense, subjunctive, and advanced verb forms',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+};
+
 // Homework submission for teacher dashboard
 export interface HomeworkSubmission {
   studentUid: string;

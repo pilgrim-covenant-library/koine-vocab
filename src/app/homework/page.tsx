@@ -8,13 +8,14 @@ import { useHomeworkStore } from '@/stores/homeworkStore';
 import { cn } from '@/lib/utils';
 
 export default function HomeworkPage() {
-  const { homework1, homework2, homework3, homework4, homework5, homework6, getOverallProgress, getOverallProgress2, getOverallProgress3, getOverallProgress4, getOverallProgress5, getOverallProgress6 } = useHomeworkStore();
+  const { homework1, homework2, homework3, homework4, homework5, homework6, homework7, getOverallProgress, getOverallProgress2, getOverallProgress3, getOverallProgress4, getOverallProgress5, getOverallProgress6, getOverallProgress7 } = useHomeworkStore();
   const progress = getOverallProgress();
   const progress2 = getOverallProgress2();
   const progress3 = getOverallProgress3();
   const progress4 = getOverallProgress4();
   const progress5 = getOverallProgress5();
   const progress6 = getOverallProgress6();
+  const progress7 = getOverallProgress7();
 
   const getStatusIcon = () => {
     switch (homework1.status) {
@@ -935,6 +936,157 @@ export default function HomeworkPage() {
                   </Link>
                 ) : (
                   <Link href="/homework/hw6">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Start
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Homework 7 Card */}
+          <Card className="overflow-hidden">
+            <div
+              className={cn(
+                'h-2',
+                homework7.status === 'completed'
+                  ? 'bg-green-500'
+                  : homework7.status === 'in_progress'
+                  ? 'bg-primary'
+                  : 'bg-muted'
+              )}
+              style={{
+                width:
+                  homework7.status === 'completed'
+                    ? '100%'
+                    : `${progress7.percentage}%`,
+              }}
+            />
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-3">
+                  {homework7.status === 'completed' ? (
+                    <CheckCircle className="w-6 h-6 text-green-500" />
+                  ) : homework7.status === 'in_progress' ? (
+                    <Clock className="w-6 h-6 text-primary" />
+                  ) : (
+                    <BookOpen className="w-6 h-6 text-muted-foreground" />
+                  )}
+                  <div>
+                    <CardTitle className="text-xl">Homework 7</CardTitle>
+                    <CardDescription>
+                      Perfect Tense & Subjunctive
+                    </CardDescription>
+                  </div>
+                </div>
+                <span
+                  className={cn(
+                    'px-2.5 py-0.5 rounded-full text-xs font-medium',
+                    homework7.status === 'completed' &&
+                      'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+                    homework7.status === 'in_progress' &&
+                      'bg-primary/10 text-primary',
+                    homework7.status === 'not_started' &&
+                      'bg-muted text-muted-foreground'
+                  )}
+                >
+                  {homework7.status === 'completed'
+                    ? 'Completed'
+                    : homework7.status === 'in_progress'
+                    ? 'In Progress'
+                    : 'Not Started'}
+                </span>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                For students learning the perfect tense system and subjunctive mood. This homework covers:
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    1
+                  </span>
+                  Middle/Passive Participles
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    2
+                  </span>
+                  Perfect Tense Indicative
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    3
+                  </span>
+                  Perfect Participles
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    4
+                  </span>
+                  Pluperfect Tense
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    5
+                  </span>
+                  Subjunctive Mood
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs flex items-center justify-center font-medium">
+                    6
+                  </span>
+                  Verse Practice
+                </li>
+              </ul>
+
+              {/* Progress indicator */}
+              {homework7.status !== 'not_started' && (
+                <div className="pt-2 border-t">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">
+                      Sections completed
+                    </span>
+                    <span className="font-medium">
+                      {progress7.completed}/6
+                    </span>
+                  </div>
+                  {homework7.status === 'completed' && (
+                    <div className="flex items-center justify-between text-sm mt-1">
+                      <span className="text-muted-foreground">Score</span>
+                      <span className="font-medium">
+                        {homework7.totalScore}/{homework7.totalPossible} (
+                        {Math.round(
+                          (homework7.totalScore / homework7.totalPossible) * 100
+                        )}
+                        %)
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Action button */}
+              <div className="pt-2">
+                {homework7.status === 'completed' ? (
+                  <Link href="/homework/hw7/complete">
+                    <Button className="gap-2">
+                      <CheckCircle className="w-4 h-4" />
+                      View Results
+                    </Button>
+                  </Link>
+                ) : homework7.status === 'in_progress' ? (
+                  <Link href="/homework/hw7">
+                    <Button className="gap-2">
+                      <PlayCircle className="w-4 h-4" />
+                      Continue
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/homework/hw7">
                     <Button className="gap-2">
                       <PlayCircle className="w-4 h-4" />
                       Start

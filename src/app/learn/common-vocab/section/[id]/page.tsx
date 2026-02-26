@@ -477,7 +477,7 @@ export default function CommonVocabSectionPage() {
               </p>
               <GreekWord
                 greek={currentQuestion.word.greek}
-                transliteration={currentQuestion.word.transliteration}
+                showTransliteration={false}
                 size="lg"
                 showAudio
                 className="mb-2"
