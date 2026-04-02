@@ -23,6 +23,12 @@ import type {
   HW7SectionId,
   Homework7Progress,
   HW7SectionProgress,
+  HW8SectionId,
+  Homework8Progress,
+  HW8SectionProgress,
+  FinalExamSectionId,
+  FinalExamProgress,
+  FinalExamSectionProgress,
 } from '@/types/homework';
 import {
   createInitialHomework1Progress,
@@ -39,6 +45,10 @@ import {
   createInitialHW6SectionProgress,
   createInitialHomework7Progress,
   createInitialHW7SectionProgress,
+  createInitialHomework8Progress,
+  createInitialHW8SectionProgress,
+  createInitialFinalExamProgress,
+  createInitialFinalExamSectionProgress,
 } from '@/types/homework';
 import {
   syncHomeworkToCloud,
@@ -46,6 +56,10 @@ import {
   submitHomeworkResult,
   isFirebaseAvailable,
 } from '@/lib/firebase';
+import { scoreTranslation } from '@/lib/translation';
+import { getQuestionsForFinalExamSection } from '@/data/homework/final-exam-questions';
+import type { MCQQuestion, TranslationQuestion } from '@/types/homework';
+import type { NTVerse } from '@/types';
 
 interface HomeworkState {
   // Homework 1 progress
@@ -68,6 +82,12 @@ interface HomeworkState {
 
   // Homework 7 progress
   homework7: Homework7Progress;
+
+  // Homework 8 progress
+  homework8: Homework8Progress;
+
+  // Final Exam progress
+  finalExam: FinalExamProgress;
 
   // Sync state
   isSyncing: boolean;
@@ -185,6 +205,49 @@ interface HomeworkState {
   resetHomework7: () => void;
   resetSection7: (sectionId: HW7SectionId) => void;
 
+  // HW8 Actions
+  startHomework8: () => void;
+  startSection8: (sectionId: HW8SectionId) => void;
+  submitAnswer8: (
+    sectionId: HW8SectionId,
+    questionId: string,
+    userAnswer: string | number,
+    isCorrect: boolean
+  ) => void;
+  nextQuestion8: (sectionId: HW8SectionId) => boolean;
+  previousQuestion8: (sectionId: HW8SectionId) => boolean;
+  completeSection8: (sectionId: HW8SectionId) => void;
+  completeHomework8: () => void;
+  resetHomework8: () => void;
+  resetSection8: (sectionId: HW8SectionId) => void;
+
+  // Final Exam Actions
+  unlockFinalExam: () => void;
+  setStudentNameFE: (name: string) => void;
+  startFinalExam: () => void;
+  startSectionFE: (sectionId: FinalExamSectionId) => void;
+  submitAnswerFE: (
+    sectionId: FinalExamSectionId,
+    questionId: string,
+    userAnswer: string | number,
+    isCorrect: boolean
+  ) => void;
+  saveAnswerFE: (
+    sectionId: FinalExamSectionId,
+    questionId: string,
+    userAnswer: string | number
+  ) => void;
+  goToQuestionFE: (sectionId: FinalExamSectionId, questionIndex: number) => void;
+  toggleFlagFE: (sectionId: FinalExamSectionId, questionId: string) => void;
+  startTimerFE: () => void;
+  submitExamFE: () => void;
+  nextQuestionFE: (sectionId: FinalExamSectionId) => boolean;
+  previousQuestionFE: (sectionId: FinalExamSectionId) => boolean;
+  completeSectionFE: (sectionId: FinalExamSectionId) => void;
+  completeFinalExam: () => void;
+  resetFinalExam: () => void;
+  resetSectionFE: (sectionId: FinalExamSectionId) => void;
+
   // Cloud sync actions
   syncToCloud: (uid: string) => Promise<void>;
   loadFromCloud: (uid: string) => Promise<boolean>; // returns true if cloud data was loaded
@@ -219,6 +282,16 @@ interface HomeworkState {
   syncToCloud7: (uid: string) => Promise<void>;
   loadFromCloud7: (uid: string) => Promise<boolean>;
   submitResult7: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
+
+  // HW8 Cloud sync actions
+  syncToCloud8: (uid: string) => Promise<void>;
+  loadFromCloud8: (uid: string) => Promise<boolean>;
+  submitResult8: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
+
+  // Final Exam Cloud sync actions
+  syncToCloudFE: (uid: string) => Promise<void>;
+  loadFromCloudFE: (uid: string) => Promise<boolean>;
+  submitResultFE: (uid: string, userInfo: { displayName: string | null; email: string | null }) => Promise<void>;
 
   // HW1 Getters
   getCurrentSection: () => SectionProgress;
@@ -275,6 +348,22 @@ interface HomeworkState {
   canAccessSection7: (sectionId: HW7SectionId) => boolean;
   isHomework7Complete: () => boolean;
   getAnswer7: (sectionId: HW7SectionId, questionId: string) => QuestionAnswer | undefined;
+
+  // HW8 Getters
+  getCurrentSection8: () => HW8SectionProgress;
+  getSectionProgress8: (sectionId: HW8SectionId) => HW8SectionProgress;
+  getOverallProgress8: () => { completed: number; total: number; percentage: number };
+  canAccessSection8: (sectionId: HW8SectionId) => boolean;
+  isHomework8Complete: () => boolean;
+  getAnswer8: (sectionId: HW8SectionId, questionId: string) => QuestionAnswer | undefined;
+
+  // Final Exam Getters
+  getCurrentSectionFE: () => FinalExamSectionProgress;
+  getSectionProgressFE: (sectionId: FinalExamSectionId) => FinalExamSectionProgress;
+  getOverallProgressFE: () => { completed: number; total: number; percentage: number };
+  canAccessSectionFE: (sectionId: FinalExamSectionId) => boolean;
+  isFinalExamComplete: () => boolean;
+  getAnswerFE: (sectionId: FinalExamSectionId, questionId: string) => QuestionAnswer | undefined;
 }
 
 export const useHomeworkStore = create<HomeworkState>()(
@@ -287,6 +376,8 @@ export const useHomeworkStore = create<HomeworkState>()(
       homework5: createInitialHomework5Progress(),
       homework6: createInitialHomework6Progress(),
       homework7: createInitialHomework7Progress(),
+      homework8: createInitialHomework8Progress(),
+      finalExam: createInitialFinalExamProgress(),
       isSyncing: false,
       lastSyncedAt: null,
 
@@ -2456,12 +2547,767 @@ export const useHomeworkStore = create<HomeworkState>()(
         const { homework7 } = get();
         return homework7.sections[sectionId].answers.find(a => a.questionId === questionId);
       },
+
+      // =============================================================================
+      // HOMEWORK 8: 3rd Declension, Adjectives, Infinitives
+      // =============================================================================
+
+      startHomework8: () => {
+        const { homework8 } = get();
+        if (homework8.status === 'not_started') {
+          set({
+            homework8: {
+              ...homework8,
+              status: 'in_progress',
+              startedAt: Date.now(),
+            },
+          });
+        }
+      },
+
+      startSection8: (sectionId: HW8SectionId) => {
+        const { homework8, canAccessSection8 } = get();
+        if (!canAccessSection8(sectionId)) return;
+
+        const section = homework8.sections[sectionId];
+        if (section.status === 'not_started') {
+          set({
+            homework8: {
+              ...homework8,
+              currentSection: sectionId,
+              sections: {
+                ...homework8.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'in_progress',
+                  startedAt: Date.now(),
+                },
+              },
+            },
+          });
+        } else {
+          set({
+            homework8: {
+              ...homework8,
+              currentSection: sectionId,
+            },
+          });
+        }
+      },
+
+      submitAnswer8: (
+        sectionId: HW8SectionId,
+        questionId: string,
+        userAnswer: string | number,
+        isCorrect: boolean
+      ) => {
+        const { homework8 } = get();
+        const section = homework8.sections[sectionId];
+
+        const existingAnswerIndex = section.answers.findIndex(a => a.questionId === questionId);
+        let scoreDiff = isCorrect ? 1 : 0;
+
+        const updatedAnswers = [...section.answers];
+        if (existingAnswerIndex >= 0) {
+          const oldAnswer = updatedAnswers[existingAnswerIndex];
+          scoreDiff = (isCorrect ? 1 : 0) - (oldAnswer.isCorrect ? 1 : 0);
+          updatedAnswers[existingAnswerIndex] = {
+            questionId,
+            userAnswer,
+            isCorrect,
+            answeredAt: Date.now(),
+          };
+        } else {
+          updatedAnswers.push({
+            questionId,
+            userAnswer,
+            isCorrect,
+            answeredAt: Date.now(),
+          });
+        }
+
+        set({
+          homework8: {
+            ...homework8,
+            totalScore: homework8.totalScore + scoreDiff,
+            sections: {
+              ...homework8.sections,
+              [sectionId]: {
+                ...section,
+                answers: updatedAnswers,
+                score: section.score + scoreDiff,
+              },
+            },
+          },
+        });
+      },
+
+      nextQuestion8: (sectionId: HW8SectionId) => {
+        const { homework8 } = get();
+        const section = homework8.sections[sectionId];
+        if (section.currentIndex < section.totalQuestions - 1) {
+          set({
+            homework8: {
+              ...homework8,
+              sections: {
+                ...homework8.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex + 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      previousQuestion8: (sectionId: HW8SectionId) => {
+        const { homework8 } = get();
+        const section = homework8.sections[sectionId];
+        if (section.currentIndex > 0) {
+          set({
+            homework8: {
+              ...homework8,
+              sections: {
+                ...homework8.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex - 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      completeSection8: (sectionId: HW8SectionId) => {
+        const { homework8 } = get();
+        const section = homework8.sections[sectionId];
+        if (section.status === 'in_progress') {
+          set({
+            homework8: {
+              ...homework8,
+              currentSection: sectionId,
+              sections: {
+                ...homework8.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'completed',
+                  completedAt: Date.now(),
+                },
+              },
+            },
+          });
+        }
+      },
+
+      completeHomework8: () => {
+        const { homework8 } = get();
+        set({
+          homework8: {
+            ...homework8,
+            status: 'completed',
+            completedAt: Date.now(),
+          },
+        });
+      },
+
+      resetHomework8: () => {
+        set({
+          homework8: createInitialHomework8Progress(),
+        });
+      },
+
+      resetSection8: (sectionId: HW8SectionId) => {
+        const { homework8 } = get();
+        const section = homework8.sections[sectionId];
+        const scoreDiff = section.score;
+        set({
+          homework8: {
+            ...homework8,
+            totalScore: homework8.totalScore - scoreDiff,
+            sections: {
+              ...homework8.sections,
+              [sectionId]: createInitialHW8SectionProgress(sectionId, section.totalQuestions),
+            },
+          },
+        });
+      },
+
+      // HW8 Cloud sync
+      syncToCloud8: async (uid: string) => {
+        if (!isFirebaseAvailable()) return;
+        try {
+          const { homework8, isSyncing } = get();
+          if (isSyncing) return;
+          set({ isSyncing: true });
+          await syncHomeworkToCloud(uid, 'hw8', homework8);
+        } catch (error) {
+          console.error('Failed to sync homework8 to cloud:', error);
+        } finally {
+          set({ isSyncing: false, lastSyncedAt: Date.now() });
+        }
+      },
+
+      loadFromCloud8: async (uid: string) => {
+        if (!isFirebaseAvailable()) return false;
+        try {
+          const cloudData = await getHomeworkFromCloud(uid, 'hw8');
+          if (cloudData) {
+            const { homework8 } = get();
+            const shouldLoad =
+              cloudData.status === 'completed' ||
+              (cloudData.status === 'in_progress' && homework8.status === 'not_started') ||
+              cloudData.totalScore > homework8.totalScore;
+
+            if (shouldLoad) {
+              set({
+                homework8: cloudData as Homework8Progress,
+              });
+              return true;
+            }
+          }
+          return false;
+        } catch (error) {
+          console.error('Failed to load homework8 from cloud:', error);
+          return false;
+        }
+      },
+
+      submitResult8: async (uid: string, userInfo: { displayName: string | null; email: string | null }) => {
+        if (!isFirebaseAvailable()) return;
+        try {
+          const { homework8 } = get();
+          if (homework8.status !== 'completed') return;
+
+          const sectionScores: Record<string, { score: number; total: number }> = {};
+          for (const [key, section] of Object.entries(homework8.sections)) {
+            sectionScores[`section${key}`] = {
+              score: section.score,
+              total: section.totalQuestions,
+            };
+          }
+
+          await submitHomeworkResult(uid, 'hw8', userInfo, sectionScores,
+            homework8.totalScore,
+            homework8.totalPossible,
+          );
+        } catch (error) {
+          console.error('Failed to submit homework8 result:', error);
+        }
+      },
+
+      // HW8 Getters
+      getCurrentSection8: () => {
+        const { homework8 } = get();
+        return homework8.sections[homework8.currentSection];
+      },
+
+      getSectionProgress8: (sectionId: HW8SectionId) => {
+        const { homework8 } = get();
+        return homework8.sections[sectionId];
+      },
+
+      getOverallProgress8: () => {
+        const { homework8 } = get();
+        const sections = Object.values(homework8.sections);
+        const completed = sections.filter(s => s.status === 'completed').length;
+        return {
+          completed,
+          total: 6,
+          percentage: Math.round((completed / 6) * 100),
+        };
+      },
+
+      canAccessSection8: (_sectionId: HW8SectionId) => {
+        return true;
+      },
+
+      isHomework8Complete: () => {
+        const { homework8 } = get();
+        return homework8.status === 'completed';
+      },
+
+      getAnswer8: (sectionId: HW8SectionId, questionId: string) => {
+        const { homework8 } = get();
+        return homework8.sections[sectionId].answers.find(a => a.questionId === questionId);
+      },
+
+      // =============================================================================
+      // FINAL EXAM ACTIONS
+      // =============================================================================
+
+      unlockFinalExam: () => {
+        const { finalExam } = get();
+        set({
+          finalExam: {
+            ...finalExam,
+            unlocked: true,
+          },
+        });
+      },
+
+      setStudentNameFE: (name: string) => {
+        const { finalExam } = get();
+        set({
+          finalExam: {
+            ...finalExam,
+            studentName: name,
+          },
+        });
+      },
+
+      startFinalExam: () => {
+        const { finalExam } = get();
+        if (finalExam.status === 'not_started') {
+          set({
+            finalExam: {
+              ...finalExam,
+              status: 'in_progress',
+              startedAt: Date.now(),
+            },
+          });
+        }
+      },
+
+      startSectionFE: (sectionId: FinalExamSectionId) => {
+        const { finalExam, canAccessSectionFE } = get();
+        if (!canAccessSectionFE(sectionId)) return;
+
+        const section = finalExam.sections[sectionId];
+        if (section.status === 'not_started') {
+          set({
+            finalExam: {
+              ...finalExam,
+              currentSection: sectionId,
+              sections: {
+                ...finalExam.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'in_progress',
+                  startedAt: Date.now(),
+                },
+              },
+            },
+          });
+        } else {
+          set({
+            finalExam: {
+              ...finalExam,
+              currentSection: sectionId,
+            },
+          });
+        }
+      },
+
+      submitAnswerFE: (
+        sectionId: FinalExamSectionId,
+        questionId: string,
+        userAnswer: string | number,
+        isCorrect: boolean
+      ) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+
+        const existingAnswerIndex = section.answers.findIndex(a => a.questionId === questionId);
+        let scoreDiff = isCorrect ? 1 : 0;
+
+        const updatedAnswers = [...section.answers];
+        if (existingAnswerIndex >= 0) {
+          const oldAnswer = updatedAnswers[existingAnswerIndex];
+          scoreDiff = (isCorrect ? 1 : 0) - (oldAnswer.isCorrect ? 1 : 0);
+          updatedAnswers[existingAnswerIndex] = {
+            questionId,
+            userAnswer,
+            isCorrect,
+            answeredAt: Date.now(),
+          };
+        } else {
+          updatedAnswers.push({
+            questionId,
+            userAnswer,
+            isCorrect,
+            answeredAt: Date.now(),
+          });
+        }
+
+        set({
+          finalExam: {
+            ...finalExam,
+            totalScore: finalExam.totalScore + scoreDiff,
+            sections: {
+              ...finalExam.sections,
+              [sectionId]: {
+                ...section,
+                answers: updatedAnswers,
+                score: section.score + scoreDiff,
+              },
+            },
+          },
+        });
+      },
+
+      saveAnswerFE: (
+        sectionId: FinalExamSectionId,
+        questionId: string,
+        userAnswer: string | number
+      ) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        const existingIndex = section.answers.findIndex(a => a.questionId === questionId);
+        const updatedAnswers = [...section.answers];
+        const answer: QuestionAnswer = {
+          questionId,
+          userAnswer,
+          isCorrect: false, // placeholder — scored at submission
+          answeredAt: Date.now(),
+        };
+        if (existingIndex >= 0) {
+          updatedAnswers[existingIndex] = answer;
+        } else {
+          updatedAnswers.push(answer);
+        }
+        set({
+          finalExam: {
+            ...finalExam,
+            sections: {
+              ...finalExam.sections,
+              [sectionId]: { ...section, answers: updatedAnswers },
+            },
+          },
+        });
+      },
+
+      goToQuestionFE: (sectionId: FinalExamSectionId, questionIndex: number) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        if (questionIndex >= 0 && questionIndex < section.totalQuestions) {
+          set({
+            finalExam: {
+              ...finalExam,
+              currentSection: sectionId,
+              sections: {
+                ...finalExam.sections,
+                [sectionId]: { ...section, currentIndex: questionIndex },
+              },
+            },
+          });
+        }
+      },
+
+      toggleFlagFE: (sectionId: FinalExamSectionId, questionId: string) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        const flagged = section.flagged || [];
+        const newFlagged = flagged.includes(questionId)
+          ? flagged.filter(id => id !== questionId)
+          : [...flagged, questionId];
+        set({
+          finalExam: {
+            ...finalExam,
+            sections: {
+              ...finalExam.sections,
+              [sectionId]: { ...section, flagged: newFlagged },
+            },
+          },
+        });
+      },
+
+      startTimerFE: () => {
+        const { finalExam } = get();
+        if (!finalExam.timerStartedAt) {
+          set({
+            finalExam: {
+              ...finalExam,
+              timerStartedAt: Date.now(),
+              status: 'in_progress',
+              startedAt: finalExam.startedAt || Date.now(),
+            },
+          });
+        }
+      },
+
+      submitExamFE: () => {
+        const { finalExam } = get();
+        if (finalExam.submittedAt) return; // already submitted
+
+        const updatedSections = { ...finalExam.sections };
+        let totalScore = 0;
+
+        // Score sections 1 and 2 (MCQ) with negative marking
+        // Correct = +1, Wrong = -0.5, "I don't know" (userAnswer === -1) = 0
+        for (const sectionId of [1, 2] as FinalExamSectionId[]) {
+          const section = updatedSections[sectionId];
+          const questions = getQuestionsForFinalExamSection(sectionId) as MCQQuestion[];
+          let sectionScore = 0;
+          const scoredAnswers = section.answers.map(a => {
+            const isIdk = a.userAnswer === -1;
+            const q = questions.find(q => q.id === a.questionId);
+            const isCorrect = q ? a.userAnswer === q.correctIndex : false;
+            if (isCorrect) {
+              sectionScore += 1;
+            } else if (!isIdk) {
+              sectionScore -= 0.5;
+            }
+            // isIdk: 0 marks (no change)
+            return { ...a, isCorrect };
+          });
+          // Floor at 0 — negative section scores don't carry over
+          const finalSectionScore = Math.max(0, sectionScore);
+          updatedSections[sectionId] = {
+            ...section,
+            answers: scoredAnswers,
+            score: finalSectionScore,
+            status: 'completed',
+            completedAt: Date.now(),
+          };
+          totalScore += finalSectionScore;
+        }
+
+        // Score section 3 (translations)
+        const section3 = updatedSections[3];
+        const translationQuestions = getQuestionsForFinalExamSection(3) as TranslationQuestion[];
+        let section3Score = 0;
+        const scoredTranslations = section3.answers.map(a => {
+          const tq = translationQuestions.find(q => q.id === a.questionId);
+          if (!tq) return { ...a, isCorrect: false };
+          const verse: NTVerse = {
+            id: tq.id, book: '', chapter: 0, verse: 0,
+            reference: tq.reference, greek: tq.greek,
+            transliteration: tq.transliteration,
+            referenceTranslation: tq.referenceTranslation,
+            keyTerms: tq.keyTerms, difficulty: tq.difficulty,
+          };
+          const result = scoreTranslation(verse, a.userAnswer as string);
+          const isCorrect = result.score >= 5;
+          if (isCorrect) section3Score++;
+          return { ...a, isCorrect };
+        });
+        updatedSections[3] = {
+          ...section3,
+          answers: scoredTranslations,
+          score: section3Score,
+          status: 'completed',
+          completedAt: Date.now(),
+        };
+        totalScore += section3Score;
+
+        set({
+          finalExam: {
+            ...finalExam,
+            sections: updatedSections,
+            totalScore,
+            status: 'completed',
+            completedAt: Date.now(),
+            submittedAt: Date.now(),
+          },
+        });
+      },
+
+      nextQuestionFE: (sectionId: FinalExamSectionId) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        if (section.currentIndex < section.totalQuestions - 1) {
+          set({
+            finalExam: {
+              ...finalExam,
+              sections: {
+                ...finalExam.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex + 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      previousQuestionFE: (sectionId: FinalExamSectionId) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        if (section.currentIndex > 0) {
+          set({
+            finalExam: {
+              ...finalExam,
+              sections: {
+                ...finalExam.sections,
+                [sectionId]: {
+                  ...section,
+                  currentIndex: section.currentIndex - 1,
+                },
+              },
+            },
+          });
+          return true;
+        }
+        return false;
+      },
+
+      completeSectionFE: (sectionId: FinalExamSectionId) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        if (section.status === 'in_progress') {
+          set({
+            finalExam: {
+              ...finalExam,
+              currentSection: sectionId,
+              sections: {
+                ...finalExam.sections,
+                [sectionId]: {
+                  ...section,
+                  status: 'completed',
+                  completedAt: Date.now(),
+                },
+              },
+            },
+          });
+        }
+      },
+
+      completeFinalExam: () => {
+        const { finalExam } = get();
+        set({
+          finalExam: {
+            ...finalExam,
+            status: 'completed',
+            completedAt: Date.now(),
+          },
+        });
+      },
+
+      resetFinalExam: () => {
+        set({
+          finalExam: createInitialFinalExamProgress(),
+        });
+      },
+
+      resetSectionFE: (sectionId: FinalExamSectionId) => {
+        const { finalExam } = get();
+        const section = finalExam.sections[sectionId];
+        const scoreDiff = section.score;
+        set({
+          finalExam: {
+            ...finalExam,
+            totalScore: finalExam.totalScore - scoreDiff,
+            sections: {
+              ...finalExam.sections,
+              [sectionId]: createInitialFinalExamSectionProgress(sectionId, section.totalQuestions),
+            },
+          },
+        });
+      },
+
+      // Final Exam Cloud sync
+      syncToCloudFE: async (uid: string) => {
+        if (!isFirebaseAvailable()) return;
+        try {
+          const { finalExam, isSyncing } = get();
+          if (isSyncing) return;
+          set({ isSyncing: true });
+          await syncHomeworkToCloud(uid, 'final-exam', finalExam);
+        } catch (error) {
+          console.error('Failed to sync final exam to cloud:', error);
+        } finally {
+          set({ isSyncing: false, lastSyncedAt: Date.now() });
+        }
+      },
+
+      loadFromCloudFE: async (uid: string) => {
+        if (!isFirebaseAvailable()) return false;
+        try {
+          const cloudData = await getHomeworkFromCloud(uid, 'final-exam');
+          if (cloudData) {
+            const { finalExam } = get();
+            const shouldLoad =
+              cloudData.status === 'completed' ||
+              (cloudData.status === 'in_progress' && finalExam.status === 'not_started') ||
+              cloudData.totalScore > finalExam.totalScore;
+
+            if (shouldLoad) {
+              set({
+                finalExam: cloudData as FinalExamProgress,
+              });
+              return true;
+            }
+          }
+          return false;
+        } catch (error) {
+          console.error('Failed to load final exam from cloud:', error);
+          return false;
+        }
+      },
+
+      submitResultFE: async (uid: string, userInfo: { displayName: string | null; email: string | null }) => {
+        if (!isFirebaseAvailable()) return;
+        try {
+          const { finalExam } = get();
+          if (finalExam.status !== 'completed') return;
+
+          const sectionScores: Record<string, { score: number; total: number }> = {};
+          for (const [key, section] of Object.entries(finalExam.sections)) {
+            sectionScores[`section${key}`] = {
+              score: section.score,
+              total: section.totalQuestions,
+            };
+          }
+
+          await submitHomeworkResult(uid, 'final-exam', userInfo, sectionScores,
+            finalExam.totalScore,
+            finalExam.totalPossible,
+          );
+        } catch (error) {
+          console.error('Failed to submit final exam result:', error);
+        }
+      },
+
+      // Final Exam Getters
+      getCurrentSectionFE: () => {
+        const { finalExam } = get();
+        return finalExam.sections[finalExam.currentSection];
+      },
+
+      getSectionProgressFE: (sectionId: FinalExamSectionId) => {
+        const { finalExam } = get();
+        return finalExam.sections[sectionId];
+      },
+
+      getOverallProgressFE: () => {
+        const { finalExam } = get();
+        const sections = Object.values(finalExam.sections);
+        const completed = sections.filter(s => s.status === 'completed').length;
+        return {
+          completed,
+          total: 3,
+          percentage: Math.round((completed / 3) * 100),
+        };
+      },
+
+      canAccessSectionFE: (_sectionId: FinalExamSectionId) => {
+        return true;
+      },
+
+      isFinalExamComplete: () => {
+        const { finalExam } = get();
+        return finalExam.status === 'completed';
+      },
+
+      getAnswerFE: (sectionId: FinalExamSectionId, questionId: string) => {
+        const { finalExam } = get();
+        return finalExam.sections[sectionId].answers.find(a => a.questionId === questionId);
+      },
     }),
     {
       name: 'koine-homework-store',
-      version: 12, // Bump version for HW7
+      version: 15, // Bump version for exam-style format
       migrate: (persistedState: unknown, version: number) => {
-        const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress; homework6?: Homework6Progress; homework7?: Homework7Progress };
+        const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress; homework6?: Homework6Progress; homework7?: Homework7Progress; homework8?: Homework8Progress };
 
         if (version < 4 && state.homework2) {
           // Fix all section totalQuestions to match actual question counts
@@ -2539,6 +3385,31 @@ export const useHomeworkStore = create<HomeworkState>()(
           (state as { homework7: Homework7Progress }).homework7 = createInitialHomework7Progress();
         }
 
+        // Add homework8 if missing (for users upgrading from version < 13)
+        if (version < 13 && !state.homework8) {
+          (state as { homework8: Homework8Progress }).homework8 = createInitialHomework8Progress();
+        }
+
+        // Add final exam if missing (for users upgrading from version < 14)
+        if (version < 14 && !(state as { finalExam?: FinalExamProgress }).finalExam) {
+          (state as { finalExam: FinalExamProgress }).finalExam = createInitialFinalExamProgress();
+        }
+
+        // Add exam-mode fields to existing final exam data (version < 15)
+        if (version < 15) {
+          const feState = state as { finalExam?: FinalExamProgress };
+          if (feState.finalExam) {
+            if (!('timerDuration' in feState.finalExam)) {
+              feState.finalExam.timerDuration = 60 * 60 * 1000;
+            }
+            for (const section of Object.values(feState.finalExam.sections)) {
+              if (!('flagged' in section)) {
+                (section as FinalExamSectionProgress).flagged = [];
+              }
+            }
+          }
+        }
+
         return state as HomeworkState;
       },
       partialize: (state) => ({
@@ -2549,6 +3420,8 @@ export const useHomeworkStore = create<HomeworkState>()(
         homework5: state.homework5,
         homework6: state.homework6,
         homework7: state.homework7,
+        homework8: state.homework8,
+        finalExam: state.finalExam,
         lastSyncedAt: state.lastSyncedAt,
         // Exclude isSyncing - always starts as false
       }),
@@ -2574,6 +3447,8 @@ if (typeof window !== 'undefined') {
         useHomeworkStore.getState().resetHomework5();
         useHomeworkStore.getState().resetHomework6();
         useHomeworkStore.getState().resetHomework7();
+        useHomeworkStore.getState().resetHomework8();
+        useHomeworkStore.getState().resetFinalExam();
       }
       previousUser = currentUser;
     });

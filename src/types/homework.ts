@@ -869,6 +869,222 @@ export const HW7_SECTION_META: Record<HW7SectionId, HW7SectionMeta> = {
   },
 };
 
+// =============================================================================
+// HOMEWORK 8 TYPES
+// =============================================================================
+
+// HW8 Section IDs (6 sections)
+export type HW8SectionId = 1 | 2 | 3 | 4 | 5 | 6;
+
+// HW8 Section progress
+export interface HW8SectionProgress {
+  sectionId: HW8SectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Overall homework 8 progress
+export interface Homework8Progress {
+  id: 'hw8';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<HW8SectionId, HW8SectionProgress>;
+  currentSection: HW8SectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+}
+
+// HW8 Section metadata
+export interface HW8SectionMeta {
+  id: HW8SectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+  helpPage: string;
+}
+
+// Helper type for creating initial HW8 section state
+export const createInitialHW8SectionProgress = (
+  sectionId: HW8SectionId,
+  totalQuestions: number
+): HW8SectionProgress => ({
+  sectionId,
+  status: 'not_started',
+  currentIndex: 0,
+  answers: [],
+  score: 0,
+  totalQuestions,
+});
+
+export const createInitialHomework8Progress = (): Homework8Progress => ({
+  id: 'hw8',
+  status: 'not_started',
+  sections: {
+    1: createInitialHW8SectionProgress(1, 12),  // 3rd Declension Nouns
+    2: createInitialHW8SectionProgress(2, 12),  // 3rd Declension Pronouns
+    3: createInitialHW8SectionProgress(3, 12),  // Adjectives (πᾶς, εἷς)
+    4: createInitialHW8SectionProgress(4, 12),  // πολύς and μέγας
+    5: createInitialHW8SectionProgress(5, 12),  // Infinitive
+    6: createInitialHW8SectionProgress(6, 10),  // Verse Practice
+  },
+  currentSection: 1,
+  totalScore: 0,
+  totalPossible: 70,
+});
+
+// Section metadata for HW8
+export const HW8_SECTION_META: Record<HW8SectionId, HW8SectionMeta> = {
+  1: {
+    id: 1,
+    title: '3rd Declension Nouns',
+    description: 'Parse 3rd declension masculine, feminine, and neuter noun forms',
+    questionCount: 12,
+    helpPage: '/homework/help/noun-paradigms',
+  },
+  2: {
+    id: 2,
+    title: '3rd Declension Pronouns',
+    description: 'Parse interrogative (τίς) and indefinite (τις) pronoun forms',
+    questionCount: 12,
+    helpPage: '/homework/help/pronouns',
+  },
+  3: {
+    id: 3,
+    title: 'Adjectives: πᾶς & εἷς',
+    description: 'Parse 3-1-3 adjective forms including πᾶς (all) and εἷς (one)',
+    questionCount: 12,
+    helpPage: '/homework/help/noun-paradigms',
+  },
+  4: {
+    id: 4,
+    title: 'πολύς & μέγας',
+    description: 'Parse the irregular two-stem adjectives πολύς (much) and μέγας (great)',
+    questionCount: 12,
+    helpPage: '/homework/help/noun-paradigms',
+  },
+  5: {
+    id: 5,
+    title: 'Infinitive',
+    description: 'Identify present, 1st aorist, and perfect infinitive forms by tense and voice',
+    questionCount: 12,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+  6: {
+    id: 6,
+    title: 'Verse Practice',
+    description: 'Translate 10 verses featuring 3rd declension nouns, adjectives, and infinitives',
+    questionCount: 10,
+    helpPage: '/homework/help/verb-paradigms',
+  },
+};
+
+// =============================================================================
+// Final Exam Types
+// =============================================================================
+
+// Final Exam Section IDs (3 sections)
+export type FinalExamSectionId = 1 | 2 | 3;
+
+// Final Exam Section Progress
+export interface FinalExamSectionProgress {
+  sectionId: FinalExamSectionId;
+  status: 'not_started' | 'in_progress' | 'completed';
+  currentIndex: number;
+  answers: QuestionAnswer[];
+  score: number;
+  flagged: string[];
+  totalQuestions: number;
+  startedAt?: number;
+  completedAt?: number;
+}
+
+// Final Exam Overall Progress
+export interface FinalExamProgress {
+  id: 'final-exam';
+  status: 'not_started' | 'in_progress' | 'completed';
+  sections: Record<FinalExamSectionId, FinalExamSectionProgress>;
+  currentSection: FinalExamSectionId;
+  startedAt?: number;
+  completedAt?: number;
+  totalScore: number;
+  totalPossible: number;
+  unlocked: boolean; // password gate
+  studentName?: string; // collected after access code
+  timerStartedAt?: number;
+  timerDuration: number; // milliseconds
+  submittedAt?: number;
+}
+
+// Final Exam Section Meta
+export interface FinalExamSectionMeta {
+  id: FinalExamSectionId;
+  title: string;
+  description: string;
+  questionCount: number;
+}
+
+// Factory: create initial section progress
+export function createInitialFinalExamSectionProgress(
+  sectionId: FinalExamSectionId,
+  totalQuestions: number
+): FinalExamSectionProgress {
+  return {
+    sectionId,
+    status: 'not_started',
+    currentIndex: 0,
+    answers: [],
+    score: 0,
+    totalQuestions,
+    flagged: [],
+  };
+}
+
+// Factory: create initial final exam progress
+export function createInitialFinalExamProgress(): FinalExamProgress {
+  return {
+    id: 'final-exam',
+    status: 'not_started',
+    sections: {
+      1: createInitialFinalExamSectionProgress(1, 50),
+      2: createInitialFinalExamSectionProgress(2, 30),
+      3: createInitialFinalExamSectionProgress(3, 5),
+    },
+    currentSection: 1,
+    totalScore: 0,
+    totalPossible: 85,
+    unlocked: false,
+    timerDuration: 60 * 60 * 1000, // 60 minutes
+  };
+}
+
+// Final Exam Section Metadata
+export const FINAL_EXAM_SECTION_META: Record<FinalExamSectionId, FinalExamSectionMeta> = {
+  1: {
+    id: 1,
+    title: 'Grammar Understanding',
+    description: '50 MCQ questions covering all grammar concepts from HW1 through HW8',
+    questionCount: 50,
+  },
+  2: {
+    id: 2,
+    title: 'Vocabulary',
+    description: '30 MCQ questions testing key New Testament vocabulary',
+    questionCount: 30,
+  },
+  3: {
+    id: 3,
+    title: 'Verse Translation',
+    description: '5 practical verse translation questions from key NT passages',
+    questionCount: 5,
+  },
+};
+
 // Homework submission for teacher dashboard
 export interface HomeworkSubmission {
   studentUid: string;
