@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, Search, Table2, Dumbbell, BookOpen, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Search, Table2, Dumbbell, BookOpen, ChevronRight, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
@@ -98,6 +98,14 @@ export default function GrammarPage() {
             icon={Dumbbell}
             href="/grammar/practice"
             color="emerald"
+          />
+
+          <GrammarModeCard
+            title="Review Weeks 13–15"
+            description="Mastery practice covering all homework topics (HW 1–8) with in-class practice and homework"
+            icon={GraduationCap}
+            href="/grammar/review"
+            color="amber"
           />
         </div>
 
