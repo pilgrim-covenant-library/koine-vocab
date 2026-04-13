@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -17,12 +17,14 @@ export function ExamTimer({ startedAt, duration, onExpire }: ExamTimerProps) {
   );
 
   const [remaining, setRemaining] = useState(calcRemaining);
+  const expiredRef = useRef(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const r = calcRemaining();
       setRemaining(r);
-      if (r <= 0) {
+      if (r <= 0 && !expiredRef.current) {
+        expiredRef.current = true;
         clearInterval(interval);
         onExpire();
       }

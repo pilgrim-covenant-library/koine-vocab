@@ -222,8 +222,8 @@ function FinalExamContent() {
                   <div className="flex items-start gap-3">
                     <Brain className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-medium">85 questions across 3 sections</p>
-                      <p className="text-sm text-muted-foreground">50 Grammar MCQ + 30 Vocabulary MCQ + 5 Verse Translations</p>
+                      <p className="font-medium">85 questions across 3 sections (100 points)</p>
+                      <p className="text-sm text-muted-foreground">50 Grammar MCQ (50 pts) + 30 Vocabulary MCQ (30 pts) + 5 Verse Analysis (20 pts: matching + translation)</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -273,12 +273,12 @@ function FinalExamContent() {
                       </div>
                       {isSubmitted && (
                         <p className="text-sm font-medium text-green-600 dark:text-green-400">
-                          {section.score}/{section.totalQuestions}
+                          {Number.isInteger(section.score) ? section.score : section.score.toFixed(1)}/{sectionId === 3 ? 20 : section.totalQuestions}
                         </p>
                       )}
                       {timerRunning && (
                         <p className="text-xs text-muted-foreground">
-                          {answered}/{section.totalQuestions} answered
+                          {answered}/{meta.questionCount} answered
                         </p>
                       )}
                     </div>

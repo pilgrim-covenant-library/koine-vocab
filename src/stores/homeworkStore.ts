@@ -58,7 +58,7 @@ import {
 } from '@/lib/firebase';
 import { scoreTranslation } from '@/lib/translation';
 import { getQuestionsForFinalExamSection } from '@/data/homework/final-exam-questions';
-import type { MCQQuestion, TranslationQuestion } from '@/types/homework';
+import type { MCQQuestion, TranslationQuestion, VerseAnalysisQuestion } from '@/types/homework';
 import type { NTVerse } from '@/types';
 
 interface HomeworkState {
@@ -3068,13 +3068,38 @@ export const useHomeworkStore = create<HomeworkState>()(
           totalScore += finalSectionScore;
         }
 
-        // Score section 3 (translations)
+        // Score section 3 (verse analysis) — each question: 2pts matching + 2pts translation = 4pts
+        // 5 questions × 4 pts = 20 pts max (20% of 100-point exam)
         const section3 = updatedSections[3];
-        const translationQuestions = getQuestionsForFinalExamSection(3) as TranslationQuestion[];
+        const section3Questions = getQuestionsForFinalExamSection(3) as VerseAnalysisQuestion[];
         let section3Score = 0;
         const scoredTranslations = section3.answers.map(a => {
-          const tq = translationQuestions.find(q => q.id === a.questionId);
+          const tq = section3Questions.find(q => q.id === a.questionId);
           if (!tq) return { ...a, isCorrect: false };
+
+          // Parse composite answer: { matching: Record<string,string>, translation: string }
+          let matching: Record<string, string> = {};
+          let translationText = '';
+          try {
+            const parsed = JSON.parse(a.userAnswer as string);
+            matching = parsed.matching || {};
+            translationText = parsed.translation || '';
+          } catch {
+            // Fallback: treat as plain translation string (backward compat)
+            translationText = (a.userAnswer as string) || '';
+          }
+
+          // Score matching (2 pts): proportional to correct matches
+          const totalPairs = tq.matchingPairs.length;
+          let correctMatches = 0;
+          for (const pair of tq.matchingPairs) {
+            if (matching[pair.greek] === pair.category) correctMatches++;
+          }
+          const matchingScore = totalPairs > 0
+            ? Math.round((correctMatches / totalPairs) * 2 * 10) / 10
+            : 0;
+
+          // Score translation (2 pts): score 0-10 mapped to 0-2
           const verse: NTVerse = {
             id: tq.id, book: '', chapter: 0, verse: 0,
             reference: tq.reference, greek: tq.greek,
@@ -3082,25 +3107,30 @@ export const useHomeworkStore = create<HomeworkState>()(
             referenceTranslation: tq.referenceTranslation,
             keyTerms: tq.keyTerms, difficulty: tq.difficulty,
           };
-          const result = scoreTranslation(verse, a.userAnswer as string);
-          const isCorrect = result.score >= 5;
-          if (isCorrect) section3Score++;
+          const result = scoreTranslation(verse, translationText);
+          const translationScore = Math.round(result.score * 0.2 * 10) / 10;
+
+          const questionPoints = matchingScore + translationScore;
+          section3Score += questionPoints;
+          const isCorrect = questionPoints >= 3; // 75%+ of 4pts
           return { ...a, isCorrect };
         });
+        // Round to 1 decimal to avoid floating point drift
+        const finalSection3Score = Math.round(section3Score * 10) / 10;
         updatedSections[3] = {
           ...section3,
           answers: scoredTranslations,
-          score: section3Score,
+          score: finalSection3Score,
           status: 'completed',
           completedAt: Date.now(),
         };
-        totalScore += section3Score;
+        totalScore += finalSection3Score;
 
         set({
           finalExam: {
             ...finalExam,
             sections: updatedSections,
-            totalScore,
+            totalScore: Math.round(totalScore * 10) / 10,
             status: 'completed',
             completedAt: Date.now(),
             submittedAt: Date.now(),
@@ -3305,7 +3335,7 @@ export const useHomeworkStore = create<HomeworkState>()(
     }),
     {
       name: 'koine-homework-store',
-      version: 15, // Bump version for exam-style format
+      version: 16, // Bump version for translation weighted scoring
       migrate: (persistedState: unknown, version: number) => {
         const state = persistedState as { homework2?: Homework2Progress; homework3?: Homework3Progress; homework4?: Homework4Progress; homework5?: Homework5Progress; homework6?: Homework6Progress; homework7?: Homework7Progress; homework8?: Homework8Progress };
 
@@ -3407,6 +3437,14 @@ export const useHomeworkStore = create<HomeworkState>()(
                 (section as FinalExamSectionProgress).flagged = [];
               }
             }
+          }
+        }
+
+        // Update totalPossible from 85 to 100 for weighted translation scoring (version < 16)
+        if (version < 16) {
+          const feState = state as { finalExam?: FinalExamProgress };
+          if (feState.finalExam) {
+            feState.finalExam.totalPossible = 100;
           }
         }
 

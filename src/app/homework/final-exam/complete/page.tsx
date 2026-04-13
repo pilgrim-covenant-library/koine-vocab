@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Trophy, CheckCircle, RotateCcw, Home, ArrowRight, Loader2, CloudCheck, GraduationCap } from 'lucide-react';
@@ -10,7 +10,7 @@ import { useHomeworkStore } from '@/stores/homeworkStore';
 import { useAuthStore } from '@/stores/authStore';
 import { FINAL_EXAM_SECTION_META, type FinalExamSectionId } from '@/types/homework';
 import { getQuestionsForFinalExamSection } from '@/data/homework/final-exam-questions';
-import type { TranslationQuestion, MCQQuestion } from '@/types/homework';
+import type { TranslationQuestion, MCQQuestion, VerseAnalysisQuestion } from '@/types/homework';
 import { cn } from '@/lib/utils';
 
 export default function FinalExamCompletePage() {
@@ -28,8 +28,16 @@ export default function FinalExamCompletePage() {
 
   const [hasSynced, setHasSynced] = useState(false);
   const [emailStatus, setEmailStatus] = useState<'pending' | 'sending' | 'sent' | 'failed'>('pending');
+  const emailSentRef = useRef(false);
   const progress = getOverallProgressFE();
   const sections: FinalExamSectionId[] = [1, 2, 3];
+
+  // Guard: redirect if exam hasn't been submitted yet
+  useEffect(() => {
+    if (!finalExam.submittedAt && finalExam.status !== 'completed') {
+      router.replace('/homework/final-exam');
+    }
+  }, [finalExam.submittedAt, finalExam.status, router]);
 
   useEffect(() => {
     const finalize = async () => {
@@ -48,7 +56,8 @@ export default function FinalExamCompletePage() {
       }
 
       // Email results to instructor (works with or without Firebase auth)
-      if (emailStatus === 'pending') {
+      if (emailStatus === 'pending' && !emailSentRef.current) {
+        emailSentRef.current = true;
         setEmailStatus('sending');
         try {
           // Build MCQ answer details for sections 1 & 2
@@ -72,17 +81,33 @@ export default function FinalExamCompletePage() {
             });
           }
 
-          // Build translation answer details for section 3
-          const section3Questions = getQuestionsForFinalExamSection(3) as TranslationQuestion[];
+          // Build verse analysis answer details for section 3
+          const section3Questions = getQuestionsForFinalExamSection(3) as VerseAnalysisQuestion[];
           const section3Answers = finalExam.sections[3]?.answers || [];
           const translationAnswers = section3Questions.map((q) => {
             const answer = section3Answers.find((a) => a.questionId === q.id);
+            let matching: Record<string, string> = {};
+            let studentTranslation = '';
+            if (answer) {
+              try {
+                const parsed = JSON.parse(answer.userAnswer as string);
+                matching = parsed.matching || {};
+                studentTranslation = parsed.translation || '';
+              } catch {
+                studentTranslation = (answer.userAnswer as string) || '';
+              }
+            }
             return {
               questionId: q.id,
               reference: q.reference,
               greek: q.greek,
               referenceTranslation: q.referenceTranslation,
-              studentTranslation: (answer?.userAnswer as string) || '',
+              studentTranslation,
+              matchingPairs: q.matchingPairs.map(p => ({
+                greek: p.greek,
+                correctCategory: p.category,
+                studentCategory: matching[p.greek] || '',
+              })),
             };
           });
 
@@ -95,11 +120,11 @@ export default function FinalExamCompletePage() {
               studentName: displayName,
               studentEmail: user?.email || '',
               grammarScore: finalExam.sections[1]?.score || 0,
-              grammarTotal: finalExam.sections[1]?.totalQuestions || 50,
+              grammarTotal: 50,
               vocabScore: finalExam.sections[2]?.score || 0,
-              vocabTotal: finalExam.sections[2]?.totalQuestions || 30,
+              vocabTotal: 30,
               translationScore: finalExam.sections[3]?.score || 0,
-              translationTotal: finalExam.sections[3]?.totalQuestions || 5,
+              translationTotal: 20,
               translationAnswers,
               mcqAnswers: mcqAnswerDetails,
               completedAt: new Date().toLocaleString(),
@@ -116,10 +141,12 @@ export default function FinalExamCompletePage() {
     finalize();
   }, [finalExam.status, finalExam.sections, finalExam.studentName, progress.completed, completeFinalExam, user, syncToCloudFE, submitResultFE, hasSynced, emailStatus]);
 
+  // Section max scores: S1=50, S2=30, S3=20 (each translation 0-4 pts × 5 = 20)
+  const SECTION_MAX = { 1: 50, 2: 30, 3: 20 } as const;
   const totalScore = (finalExam.sections[1]?.score || 0) + (finalExam.sections[2]?.score || 0) + (finalExam.sections[3]?.score || 0);
-  const totalQuestions = (finalExam.sections[1]?.totalQuestions || 50) + (finalExam.sections[2]?.totalQuestions || 30) + (finalExam.sections[3]?.totalQuestions || 5);
-  const percentage = totalQuestions > 0
-    ? Math.round((totalScore / totalQuestions) * 100)
+  const totalMax = SECTION_MAX[1] + SECTION_MAX[2] + SECTION_MAX[3]; // 100
+  const percentage = totalMax > 0
+    ? Math.round((totalScore / totalMax) * 100)
     : 0;
   const getGrade = () => {
     if (percentage >= 90) return { letter: 'A', color: 'text-green-500' };
@@ -154,8 +181,8 @@ export default function FinalExamCompletePage() {
                 ? `Congratulations, ${finalExam.studentName}, on completing the Koine Greek Final Exam`
                 : 'Congratulations on completing the Koine Greek Final Exam'}
             </p>
-            {user && (
-              <div className="space-y-1">
+            <div className="space-y-1">
+              {user && (
                 <div className="flex items-center justify-center gap-2 text-sm">
                   {isSyncing ? (
                     <>
@@ -169,25 +196,25 @@ export default function FinalExamCompletePage() {
                     </>
                   ) : null}
                 </div>
-                <div className="flex items-center justify-center gap-2 text-sm">
-                  {emailStatus === 'sending' && (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                      <span className="text-muted-foreground">Sending results to instructor...</span>
-                    </>
-                  )}
-                  {emailStatus === 'sent' && (
-                    <>
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                      <span className="text-muted-foreground">Results emailed to instructor</span>
-                    </>
-                  )}
-                  {emailStatus === 'failed' && (
-                    <span className="text-red-500">Failed to email results — your answers are saved in the cloud</span>
-                  )}
-                </div>
+              )}
+              <div className="flex items-center justify-center gap-2 text-sm">
+                {emailStatus === 'sending' && (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-primary" />
+                    <span className="text-muted-foreground">Sending results to instructor...</span>
+                  </>
+                )}
+                {emailStatus === 'sent' && (
+                  <>
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-muted-foreground">Results emailed to instructor</span>
+                  </>
+                )}
+                {emailStatus === 'failed' && (
+                  <span className="text-red-500">Failed to email results — your answers are saved in the cloud</span>
+                )}
               </div>
-            )}
+            </div>
           </div>
 
           <Card className="overflow-hidden">
@@ -210,7 +237,7 @@ export default function FinalExamCompletePage() {
                   </div>
                   <div className="text-3xl text-muted-foreground">/</div>
                   <div>
-                    <p className="text-3xl font-bold">{totalQuestions}</p>
+                    <p className="text-3xl font-bold">{totalMax}</p>
                     <p className="text-sm text-muted-foreground">Total</p>
                   </div>
                   <div className="text-3xl text-muted-foreground">=</div>
@@ -239,8 +266,9 @@ export default function FinalExamCompletePage() {
                     totalQuestions: 0,
                   };
                   const meta = FINAL_EXAM_SECTION_META[sectionId];
-                  const sectionPercentage = section.totalQuestions > 0
-                    ? Math.round((section.score / section.totalQuestions) * 100)
+                  const maxScore = SECTION_MAX[sectionId];
+                  const sectionPercentage = maxScore > 0
+                    ? Math.round((section.score / maxScore) * 100)
                     : 0;
 
                   return (
@@ -252,7 +280,7 @@ export default function FinalExamCompletePage() {
                         </div>
                         <div className="flex items-center gap-2 shrink-0">
                           <span className="text-sm">
-                            {`${Number.isInteger(section.score) ? section.score : section.score.toFixed(1)}/${section.totalQuestions} (${sectionPercentage}%)`}
+                            {`${Number.isInteger(section.score) ? section.score : section.score.toFixed(1)}/${maxScore} (${sectionPercentage}%)`}
                           </span>
                           <Link href={`/homework/final-exam/section/${sectionId}`}>
                             <Button

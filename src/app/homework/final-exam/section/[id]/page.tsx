@@ -15,7 +15,7 @@ import { ExamNavigation } from '@/components/homework/ExamNavigation';
 import { QuestionProgressBar } from '@/components/homework/SectionNavigation';
 import { getQuestionsForFinalExamSection } from '@/data/homework/final-exam-questions';
 import type { FinalExamSectionId } from '@/data/homework/final-exam-questions';
-import { FINAL_EXAM_SECTION_META, type MCQQuestion, type TranslationQuestion } from '@/types/homework';
+import { FINAL_EXAM_SECTION_META, type MCQQuestion, type TranslationQuestion, type VerseAnalysisQuestion } from '@/types/homework';
 import { scoreTranslation } from '@/lib/translation';
 import type { NTVerse, TranslationResult } from '@/types';
 import { cn } from '@/lib/utils';
@@ -102,6 +102,7 @@ export default function FinalExamSectionPage() {
 
   const [draftSelections, setDraftSelections] = useState<Record<string, number>>({});
   const [draftTranslations, setDraftTranslations] = useState<Record<string, string>>({});
+  const [draftAnalysis, setDraftAnalysis] = useState<Record<string, { matching: Record<string, string>; translation: string }>>({});
   const [translationResults, setTranslationResults] = useState<Record<string, TranslationResult>>({});
   const syncTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -135,6 +136,20 @@ export default function FinalExamSectionPage() {
           : existingAnswer.userAnswer as string)
       : draftTranslations[currentQuestion.id] ?? ''
     : '';
+
+  // Verse analysis draft state
+  const currentAnalysisDraft = useMemo(() => {
+    if (!currentQuestion || currentQuestion.type !== 'verse-analysis') return { matching: {}, translation: '' };
+    const qId = currentQuestion.id;
+    if (draftAnalysis[qId]) return draftAnalysis[qId];
+    if (existingAnswer) {
+      try {
+        const parsed = JSON.parse(existingAnswer.userAnswer as string);
+        return { matching: parsed.matching || {}, translation: parsed.translation || '' };
+      } catch { /* ignore */ }
+    }
+    return { matching: {} as Record<string, string>, translation: '' };
+  }, [currentQuestion, draftAnalysis, existingAnswer]);
 
   // Global question number
   const globalOffset = SECTION_IDS.filter(id => id < sectionId)
@@ -199,6 +214,26 @@ export default function FinalExamSectionPage() {
     }
   }, [currentQuestion, draftTranslations, sectionId, saveAnswerFE, debouncedSync, isSubmitted]);
 
+  // Save verse-analysis answer (called on any matching change or translation blur)
+  const saveAnalysisAnswer = useCallback((questionId: string, data: { matching: Record<string, string>; translation: string }) => {
+    if (isSubmitted) return;
+    const json = JSON.stringify(data);
+    saveAnswerFE(sectionId, questionId, json);
+    debouncedSync();
+  }, [sectionId, saveAnswerFE, debouncedSync, isSubmitted]);
+
+  // Save any in-progress answer before navigating away
+  const saveCurrentAnswer = useCallback(() => {
+    if (!currentQuestion || isSubmitted) return;
+    if (currentQuestion.type === 'translation') {
+      const text = draftTranslations[currentQuestion.id];
+      if (text?.trim()) saveAnswerFE(sectionId, currentQuestion.id, text);
+    } else if (currentQuestion.type === 'verse-analysis') {
+      const draft = draftAnalysis[currentQuestion.id];
+      if (draft) saveAnalysisAnswer(currentQuestion.id, draft);
+    }
+  }, [currentQuestion, isSubmitted, draftTranslations, draftAnalysis, sectionId, saveAnswerFE, saveAnalysisAnswer]);
+
   // Keyboard shortcuts for MCQ (exam mode)
   useEffect(() => {
     if (!currentQuestion || currentQuestion.type !== 'mcq' || isSubmitted) return;
@@ -214,11 +249,7 @@ export default function FinalExamSectionPage() {
   }, [currentQuestion, handleSelectOption, isSubmitted]);
 
   const handleNext = () => {
-    // Save translation before navigating
-    if (currentQuestion?.type === 'translation' && !isSubmitted) {
-      const text = draftTranslations[currentQuestion.id];
-      if (text?.trim()) saveAnswerFE(sectionId, currentQuestion.id, text);
-    }
+    saveCurrentAnswer();
     if (!nextQuestionFE(sectionId)) {
       // End of section: go to next section
       const nextSection = sectionId + 1;
@@ -229,6 +260,7 @@ export default function FinalExamSectionPage() {
   };
 
   const handlePrevious = () => {
+    saveCurrentAnswer();
     if (sectionProgress.currentIndex > 0) {
       previousQuestionFE(sectionId);
     } else if (sectionId > 1) {
@@ -241,6 +273,7 @@ export default function FinalExamSectionPage() {
   };
 
   const handleNavigate = (targetSection: FinalExamSectionId, questionIndex: number) => {
+    saveCurrentAnswer();
     if (targetSection === sectionId) {
       goToQuestionFE(sectionId, questionIndex);
     } else {
@@ -250,22 +283,14 @@ export default function FinalExamSectionPage() {
   };
 
   const handleTimerExpire = useCallback(() => {
-    // Auto-save current translation
-    if (currentQuestion?.type === 'translation') {
-      const text = draftTranslations[currentQuestion.id];
-      if (text?.trim()) saveAnswerFE(sectionId, currentQuestion.id, text);
-    }
+    saveCurrentAnswer();
     submitExamFE();
     if (user) syncToCloudFE(user.uid);
     router.push('/homework/final-exam/complete');
-  }, [currentQuestion, draftTranslations, sectionId, saveAnswerFE, submitExamFE, user, syncToCloudFE, router]);
+  }, [saveCurrentAnswer, submitExamFE, user, syncToCloudFE, router]);
 
   const handleReview = () => {
-    // Save current translation before going to review
-    if (currentQuestion?.type === 'translation' && !isSubmitted) {
-      const text = draftTranslations[currentQuestion.id];
-      if (text?.trim()) saveAnswerFE(sectionId, currentQuestion.id, text);
-    }
+    saveCurrentAnswer();
     router.push('/homework/final-exam/review');
   };
 
@@ -334,7 +359,35 @@ export default function FinalExamSectionPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              {currentQuestion.type === 'translation' ? (
+              {currentQuestion.type === 'verse-analysis' ? (
+                <VerseAnalysisSection
+                  question={currentQuestion as VerseAnalysisQuestion}
+                  draft={currentAnalysisDraft}
+                  isSubmitted={isSubmitted}
+                  existingAnswer={existingAnswer}
+                  translationResults={translationResults}
+                  setTranslationResults={setTranslationResults}
+                  onMatchingChange={(greek, category) => {
+                    const qId = currentQuestion.id;
+                    const current = draftAnalysis[qId] || currentAnalysisDraft;
+                    const updated = { ...current, matching: { ...current.matching, [greek]: category } };
+                    setDraftAnalysis(prev => ({ ...prev, [qId]: updated }));
+                    saveAnalysisAnswer(qId, updated);
+                  }}
+                  onTranslationChange={(val) => {
+                    const qId = currentQuestion.id;
+                    const current = draftAnalysis[qId] || currentAnalysisDraft;
+                    setDraftAnalysis(prev => ({ ...prev, [qId]: { ...current, translation: val } }));
+                  }}
+                  onTranslationBlur={() => {
+                    const qId = currentQuestion.id;
+                    const draft = draftAnalysis[qId] || currentAnalysisDraft;
+                    if (draft.translation?.trim() || Object.keys(draft.matching).length > 0) {
+                      saveAnalysisAnswer(qId, draft);
+                    }
+                  }}
+                />
+              ) : currentQuestion.type === 'translation' ? (
                 <TranslationSection
                   question={currentQuestion as TranslationQuestion}
                   translationInput={translationInput}
@@ -576,6 +629,199 @@ function TranslationSection({
           )}
         </div>
       )}
+    </>
+  );
+}
+
+// --- Verse Analysis Section (matching + translation) ---
+function VerseAnalysisSection({
+  question, draft, isSubmitted, existingAnswer, translationResults,
+  setTranslationResults, onMatchingChange, onTranslationChange, onTranslationBlur,
+}: {
+  question: VerseAnalysisQuestion;
+  draft: { matching: Record<string, string>; translation: string };
+  isSubmitted: boolean;
+  existingAnswer: { isCorrect: boolean; userAnswer: string | number } | undefined;
+  translationResults: Record<string, TranslationResult>;
+  setTranslationResults: React.Dispatch<React.SetStateAction<Record<string, TranslationResult>>>;
+  onMatchingChange: (greek: string, category: string) => void;
+  onTranslationChange: (val: string) => void;
+  onTranslationBlur: () => void;
+}) {
+  // Build shuffled category options (correct + distractors)
+  const categoryOptions = useMemo(() => {
+    const correct = question.matchingPairs.map(p => p.category);
+    const all = [...correct, ...question.distractorCategories];
+    // Deduplicate and sort for stable display
+    return [...new Set(all)].sort();
+  }, [question]);
+
+  // Parse saved answer for review mode
+  const savedData = useMemo(() => {
+    if (!existingAnswer) return { matching: {}, translation: '' };
+    try {
+      const parsed = JSON.parse(existingAnswer.userAnswer as string);
+      return { matching: parsed.matching || {}, translation: parsed.translation || '' };
+    } catch {
+      return { matching: {}, translation: (existingAnswer.userAnswer as string) || '' };
+    }
+  }, [existingAnswer]);
+
+  const currentMatching = isSubmitted ? savedData.matching : draft.matching;
+  const currentTranslation = isSubmitted ? savedData.translation : draft.translation;
+
+  // Compute translation score for review mode
+  useEffect(() => {
+    if (isSubmitted && existingAnswer && !translationResults[question.id]) {
+      const verse: NTVerse = {
+        id: question.id, book: '', chapter: 0, verse: 0,
+        reference: question.reference, greek: question.greek,
+        transliteration: question.transliteration,
+        referenceTranslation: question.referenceTranslation,
+        keyTerms: question.keyTerms, difficulty: question.difficulty,
+      };
+      const result = scoreTranslation(verse, savedData.translation);
+      setTranslationResults(prev => ({ ...prev, [question.id]: result }));
+    }
+  }, [isSubmitted, existingAnswer, question, savedData.translation, translationResults, setTranslationResults]);
+
+  const translationResult = translationResults[question.id];
+
+  // Count matching results for review
+  const matchingResults = useMemo(() => {
+    if (!isSubmitted) return null;
+    let correct = 0;
+    const details = question.matchingPairs.map(pair => {
+      const studentAnswer = currentMatching[pair.greek] || '';
+      const isCorrect = studentAnswer === pair.category;
+      if (isCorrect) correct++;
+      return { greek: pair.greek, correctCategory: pair.category, studentCategory: studentAnswer, isCorrect };
+    });
+    return { correct, total: question.matchingPairs.length, details };
+  }, [isSubmitted, question.matchingPairs, currentMatching]);
+
+  return (
+    <>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <BookOpen className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm font-medium text-muted-foreground">{question.reference}</span>
+        </div>
+        {!isSubmitted && (
+          <span className="text-xs text-muted-foreground">2 pts matching + 2 pts translation</span>
+        )}
+      </div>
+
+      <p className="text-2xl greek-text font-serif tracking-wide text-center leading-relaxed">
+        {question.greek}
+      </p>
+
+      {/* Part A: Matching */}
+      <div className="space-y-3">
+        <p className="text-sm font-semibold text-foreground">
+          Part A: Match each Greek word to its grammatical category
+        </p>
+        <div className="space-y-2">
+          {question.matchingPairs.map((pair) => {
+            const studentChoice = currentMatching[pair.greek] || '';
+            const isCorrectMatch = isSubmitted && studentChoice === pair.category;
+            const isWrongMatch = isSubmitted && studentChoice && studentChoice !== pair.category;
+
+            return (
+              <div key={pair.greek} className={cn(
+                'flex flex-col sm:flex-row sm:items-center gap-2 p-3 rounded-lg border',
+                isCorrectMatch && 'bg-green-50 dark:bg-green-900/20 border-green-300',
+                isWrongMatch && 'bg-red-50 dark:bg-red-900/20 border-red-300',
+              )}>
+                <span className="greek-text font-serif text-lg shrink-0 min-w-[120px] font-medium">
+                  {pair.greek}
+                </span>
+                <span className="text-muted-foreground shrink-0">&rarr;</span>
+                {!isSubmitted ? (
+                  <select
+                    value={studentChoice}
+                    onChange={(e) => onMatchingChange(pair.greek, e.target.value)}
+                    className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <option value="">Select category...</option>
+                    {categoryOptions.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <div className="flex-1 text-sm">
+                    {isCorrectMatch ? (
+                      <span className="flex items-center gap-1 text-green-700 dark:text-green-300">
+                        <Check className="w-4 h-4" /> {pair.category}
+                      </span>
+                    ) : (
+                      <div>
+                        {studentChoice ? (
+                          <span className="flex items-center gap-1 text-red-600 dark:text-red-400">
+                            <X className="w-4 h-4" /> {studentChoice}
+                          </span>
+                        ) : (
+                          <span className="text-muted-foreground italic">(no answer)</span>
+                        )}
+                        <span className="text-green-600 dark:text-green-400 text-xs block mt-0.5">
+                          Correct: {pair.category}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        {isSubmitted && matchingResults && (
+          <p className="text-sm font-medium text-muted-foreground">
+            Matching: {matchingResults.correct}/{matchingResults.total} correct
+          </p>
+        )}
+      </div>
+
+      {/* Part B: Translation */}
+      <div className="space-y-3 pt-2 border-t">
+        <p className="text-sm font-semibold text-foreground">
+          Part B: Translate the verse into English
+        </p>
+        {!isSubmitted ? (
+          <textarea
+            value={currentTranslation}
+            onChange={(e) => onTranslationChange(e.target.value)}
+            onBlur={onTranslationBlur}
+            placeholder="Write your English translation..."
+            rows={3}
+            className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 resize-none"
+          />
+        ) : (
+          <div className="space-y-3">
+            {translationResult && (
+              <div className={cn(
+                'flex items-start gap-3 p-3 rounded-lg text-sm',
+                translationResult.score >= 7 ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200'
+                  : translationResult.score >= 5 ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200'
+                  : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200'
+              )}>
+                {translationResult.score >= 5 ? <Check className="w-4 h-4 shrink-0 mt-0.5" /> : <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />}
+                <div>
+                  <p className="font-medium">Translation score: {translationResult.score}/10</p>
+                  <p className="text-xs mt-1">{translationResult.feedback}</p>
+                </div>
+              </div>
+            )}
+            <div className="text-sm">
+              <p className="font-medium mb-1">Your translation:</p>
+              <p className="text-muted-foreground italic">{currentTranslation || '(no answer)'}</p>
+            </div>
+            <div className="text-sm">
+              <p className="font-medium mb-1">Reference translation:</p>
+              <p className="text-muted-foreground">{question.referenceTranslation}</p>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

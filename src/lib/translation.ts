@@ -111,12 +111,22 @@ function normalizeText(text: string): string {
 }
 
 /**
- * Tokenize text into meaningful words
+ * Tokenize text into meaningful words (filters stop words)
  */
 function tokenize(text: string): string[] {
   return normalizeText(text)
     .split(' ')
     .filter(word => word.length > 1 && !STOP_WORDS.has(word));
+}
+
+/**
+ * Tokenize text preserving stop words.
+ * Used for key term matching where curated terms like "who", "all" must be matchable.
+ */
+function tokenizeWithStopWords(text: string): string[] {
+  return normalizeText(text)
+    .split(' ')
+    .filter(word => word.length >= 1);
 }
 
 /**
@@ -195,17 +205,19 @@ function wordsMatch(word1: string, word2: string): boolean {
 }
 
 /**
- * Calculate key terms coverage score
+ * Calculate key terms coverage score.
+ * Uses tokenizeWithStopWords so curated key terms like "who", "all" are matchable.
  */
 function calculateKeyTermsScore(
-  userTokens: string[],
+  userText: string,
   keyTerms: string[]
 ): { score: number; found: string[]; missed: string[] } {
+  const userTokens = tokenizeWithStopWords(userText);
   const found: string[] = [];
   const missed: string[] = [];
 
   for (const term of keyTerms) {
-    const termTokens = tokenize(term);
+    const termTokens = tokenizeWithStopWords(term);
     let termFound = false;
 
     for (const termToken of termTokens) {
@@ -361,7 +373,7 @@ export function scoreTranslation(
   }
 
   // Calculate component scores
-  const keyTermsResult = calculateKeyTermsScore(userTokens, keyTerms);
+  const keyTermsResult = calculateKeyTermsScore(userTranslation, keyTerms);
   const semanticScore = calculateSemanticScore(userTokens, referenceTokens);
   const completenessScore = calculateCompletenessScore(userTranslation, verse.referenceTranslation);
 

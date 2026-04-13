@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { GreekWord } from '@/components/GreekWord';
 import { cn, shuffle } from '@/lib/utils';
-import { REVIEW_WEEKS, type ReviewQuestion } from '@/data/reviewWeeks';
+import { REVIEW_WEEKS, type ReviewQuestion } from '@/data/review';
 
 type ReviewMode = 'practice' | 'homework';
 

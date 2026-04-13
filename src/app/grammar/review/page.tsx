@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, ChevronRight, GraduationCap, CheckCircle, Dumbbell, ClipboardList } from 'lucide-react';
+import { ArrowLeft, BookOpen, ChevronRight, GraduationCap, CheckCircle, Dumbbell, ClipboardList, FileText } from 'lucide-react';
+import { Fragment } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
-import { REVIEW_WEEKS } from '@/data/reviewWeeks';
+import { REVIEW_WEEKS } from '@/data/review';
 
 const weekColors = [
   'bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20',
@@ -79,7 +80,8 @@ export default function ReviewHubPage() {
 
         <div className="space-y-6">
           {REVIEW_WEEKS.map((rw, idx) => (
-            <Card key={rw.week}>
+            <Fragment key={rw.week}>
+            <Card>
               <CardContent className="p-5">
                 <div className="flex items-start gap-4 mb-4">
                   <div
@@ -145,6 +147,34 @@ export default function ReviewHubPage() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Practice Paper between Week 13 and Week 14 */}
+            {idx === 0 && (
+              <Link href="/grammar/review/practice-paper">
+                <Card className="hover:bg-muted/50 transition-colors cursor-pointer group border-violet-500/30 border-dashed">
+                  <CardContent className="p-5">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-xl border border-violet-500/20 bg-violet-500/10 shrink-0">
+                        <FileText className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h3 className="font-semibold text-lg">Practice Paper</h3>
+                            <p className="text-xs font-medium text-violet-600 dark:text-violet-400">Mark 1 — Final Exam Format</p>
+                          </div>
+                          <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          50 grammar MCQ + 30 vocab MCQ + 5 verse analysis with translation. Tests everything from Mark 1.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            )}
+            </Fragment>
           ))}
         </div>
 

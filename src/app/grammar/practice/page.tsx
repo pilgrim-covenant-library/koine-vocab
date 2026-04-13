@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, RotateCcw, Trophy, ThumbsUp, Zap, ChevronRight, Info } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -10,72 +10,22 @@ import { cn, shuffle } from '@/lib/utils';
 import {
   CASE_LABELS,
   TENSE_LABELS,
-  VOICE_LABELS,
   MOOD_LABELS,
-  getCaseDescription,
-  getTenseDescription,
-  getVoiceDescription,
-  getMoodDescription,
-  type GrammaticalCase,
-  type Tense,
-  type Voice,
-  type Mood,
 } from '@/lib/morphology';
+import {
+  CASE_QUESTIONS,
+  TENSE_QUESTIONS,
+  VOICE_QUESTIONS,
+  MOOD_QUESTIONS,
+  type PracticeQuestionData,
+} from '@/data/practiceQuestions';
 
 type QuestionType = 'case' | 'tense' | 'voice' | 'mood';
 
-interface PracticeQuestion {
-  word: string;
-  lexicalForm: string;
-  gloss: string;
-  questionType: QuestionType;
-  correctAnswer: string;
+interface PracticeQuestion extends PracticeQuestionData {
   options: string[];
-  explanation: string;
 }
 
-// Sample questions for practice
-const CASE_QUESTIONS: Omit<PracticeQuestion, 'options'>[] = [
-  { word: 'λόγου', lexicalForm: 'λόγος', gloss: 'word', questionType: 'case', correctAnswer: 'Genitive', explanation: getCaseDescription('genitive') },
-  { word: 'ἀδελφῷ', lexicalForm: 'ἀδελφός', gloss: 'brother', questionType: 'case', correctAnswer: 'Dative', explanation: getCaseDescription('dative') },
-  { word: 'θεόν', lexicalForm: 'θεός', gloss: 'God', questionType: 'case', correctAnswer: 'Accusative', explanation: getCaseDescription('accusative') },
-  { word: 'κύριος', lexicalForm: 'κύριος', gloss: 'Lord', questionType: 'case', correctAnswer: 'Nominative', explanation: getCaseDescription('nominative') },
-  { word: 'ἀγάπην', lexicalForm: 'ἀγάπη', gloss: 'love', questionType: 'case', correctAnswer: 'Accusative', explanation: getCaseDescription('accusative') },
-  { word: 'πνεύματος', lexicalForm: 'πνεῦμα', gloss: 'spirit', questionType: 'case', correctAnswer: 'Genitive', explanation: getCaseDescription('genitive') },
-  { word: 'ἀνθρώπῳ', lexicalForm: 'ἄνθρωπος', gloss: 'man', questionType: 'case', correctAnswer: 'Dative', explanation: getCaseDescription('dative') },
-  { word: 'υἱοί', lexicalForm: 'υἱός', gloss: 'son', questionType: 'case', correctAnswer: 'Nominative', explanation: getCaseDescription('nominative') },
-];
-
-const TENSE_QUESTIONS: Omit<PracticeQuestion, 'options'>[] = [
-  { word: 'λύω', lexicalForm: 'λύω', gloss: 'I loose', questionType: 'tense', correctAnswer: 'Present', explanation: getTenseDescription('present') },
-  { word: 'ἔλυσα', lexicalForm: 'λύω', gloss: 'I loosed', questionType: 'tense', correctAnswer: 'Aorist', explanation: getTenseDescription('aorist') },
-  { word: 'λέλυκα', lexicalForm: 'λύω', gloss: 'I have loosed', questionType: 'tense', correctAnswer: 'Perfect', explanation: getTenseDescription('perfect') },
-  { word: 'ἔλυον', lexicalForm: 'λύω', gloss: 'I was loosing', questionType: 'tense', correctAnswer: 'Imperfect', explanation: getTenseDescription('imperfect') },
-  { word: 'λύσω', lexicalForm: 'λύω', gloss: 'I will loose', questionType: 'tense', correctAnswer: 'Future', explanation: getTenseDescription('future') },
-  { word: 'ἐπίστευσα', lexicalForm: 'πιστεύω', gloss: 'I believed', questionType: 'tense', correctAnswer: 'Aorist', explanation: getTenseDescription('aorist') },
-  { word: 'πιστεύω', lexicalForm: 'πιστεύω', gloss: 'I believe', questionType: 'tense', correctAnswer: 'Present', explanation: getTenseDescription('present') },
-  { word: 'ἐλελύκειν', lexicalForm: 'λύω', gloss: 'I had loosed', questionType: 'tense', correctAnswer: 'Pluperfect', explanation: getTenseDescription('pluperfect') },
-];
-
-const VOICE_QUESTIONS: Omit<PracticeQuestion, 'options'>[] = [
-  { word: 'λύω', lexicalForm: 'λύω', gloss: 'I loose', questionType: 'voice', correctAnswer: 'Active', explanation: getVoiceDescription('active') },
-  { word: 'λύομαι', lexicalForm: 'λύω', gloss: 'I am loosed', questionType: 'voice', correctAnswer: 'Middle/Passive', explanation: getVoiceDescription('middle/passive') },
-  { word: 'ἐλύθην', lexicalForm: 'λύω', gloss: 'I was loosed', questionType: 'voice', correctAnswer: 'Passive', explanation: getVoiceDescription('passive') },
-  { word: 'ἐλυσάμην', lexicalForm: 'λύω', gloss: 'I loosed for myself', questionType: 'voice', correctAnswer: 'Middle', explanation: getVoiceDescription('middle') },
-  { word: 'γράφω', lexicalForm: 'γράφω', gloss: 'I write', questionType: 'voice', correctAnswer: 'Active', explanation: getVoiceDescription('active') },
-  { word: 'γράφομαι', lexicalForm: 'γράφω', gloss: 'I am written', questionType: 'voice', correctAnswer: 'Middle/Passive', explanation: getVoiceDescription('middle/passive') },
-];
-
-const MOOD_QUESTIONS: Omit<PracticeQuestion, 'options'>[] = [
-  { word: 'λύω', lexicalForm: 'λύω', gloss: 'I loose', questionType: 'mood', correctAnswer: 'Indicative', explanation: getMoodDescription('indicative') },
-  { word: 'λύσωμεν', lexicalForm: 'λύω', gloss: 'let us loose', questionType: 'mood', correctAnswer: 'Subjunctive', explanation: getMoodDescription('subjunctive') },
-  { word: 'λῦε', lexicalForm: 'λύω', gloss: 'loose!', questionType: 'mood', correctAnswer: 'Imperative', explanation: getMoodDescription('imperative') },
-  { word: 'λύσαι', lexicalForm: 'λύω', gloss: 'to loose', questionType: 'mood', correctAnswer: 'Infinitive', explanation: getMoodDescription('infinitive') },
-  { word: 'πιστεύωμεν', lexicalForm: 'πιστεύω', gloss: 'let us believe', questionType: 'mood', correctAnswer: 'Subjunctive', explanation: getMoodDescription('subjunctive') },
-  { word: 'πίστευε', lexicalForm: 'πιστεύω', gloss: 'believe!', questionType: 'mood', correctAnswer: 'Imperative', explanation: getMoodDescription('imperative') },
-];
-
-// Fisher-Yates shuffle for unbiased randomization
 function shuffleArray<T>(array: T[]): T[] {
   const result = [...array];
   for (let i = result.length - 1; i > 0; i--) {
@@ -98,8 +48,7 @@ function generateOptions(correctAnswer: string, allOptions: string[]): string[] 
 }
 
 function generateQuestions(type: QuestionType | 'all', count: number = 10): PracticeQuestion[] {
-  let pool: Omit<PracticeQuestion, 'options'>[] = [];
-  let allOptions: string[] = [];
+  let pool: PracticeQuestionData[] = [];
 
   if (type === 'case' || type === 'all') {
     pool = [...pool, ...CASE_QUESTIONS];
@@ -205,7 +154,6 @@ export default function PracticePage() {
     return null;
   }
 
-  // Setup screen
   if (!started) {
     return (
       <div className="min-h-screen">
@@ -269,7 +217,6 @@ export default function PracticePage() {
     );
   }
 
-  // Session complete
   if (sessionComplete) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
@@ -309,7 +256,6 @@ export default function PracticePage() {
     );
   }
 
-  // Active practice
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-lg border-b">
@@ -338,7 +284,6 @@ export default function PracticePage() {
       <main className="flex-1 flex flex-col items-center justify-start p-4">
         {currentQuestion && (
           <>
-            {/* Question card */}
             <Card className="w-full max-w-md mb-6">
               <CardContent className="py-6 text-center">
                 <p className="text-sm text-muted-foreground mb-4">
@@ -355,7 +300,6 @@ export default function PracticePage() {
               </CardContent>
             </Card>
 
-            {/* Options */}
             <div className="w-full max-w-md space-y-2 mb-6">
               {currentQuestion.options.map((option) => {
                 const isSelected = selectedAnswer === option;
@@ -389,7 +333,6 @@ export default function PracticePage() {
               })}
             </div>
 
-            {/* Feedback */}
             {showResult && (
               <div
                 className={cn(
@@ -414,7 +357,6 @@ export default function PracticePage() {
               </div>
             )}
 
-            {/* Action button */}
             <div className="w-full max-w-md">
               {!showResult ? (
                 <Button

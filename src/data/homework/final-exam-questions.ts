@@ -1,4 +1,4 @@
-import type { MCQQuestion, TranslationQuestion, HomeworkQuestion } from '@/types/homework';
+import type { MCQQuestion, TranslationQuestion, VerseAnalysisQuestion, HomeworkQuestion } from '@/types/homework';
 
 // Final Exam Section ID type
 export type FinalExamSectionId = 1 | 2 | 3;
@@ -1012,61 +1012,120 @@ const finalExamSection2Questions: MCQQuestion[] = [
 // Curated as the 5 easiest single NT verses (shortest + simplest syntax)
 // =============================================================================
 
-const finalExamSection3Questions: TranslationQuestion[] = [
+const finalExamSection3Questions: VerseAnalysisQuestion[] = [
  {
   id: 'fe-s3-q1',
-  type: 'translation',
+  type: 'verse-analysis',
   reference: '1 Thessalonians 5:17',
   greek: 'ἀδιαλείπτως προσεύχεσθε',
   transliteration: 'adialeiptōs proseuchesthe',
   referenceTranslation: 'Pray without ceasing.',
-  keyTerms: ['ἀδιαλείπτως = without ceasing', 'προσεύχεσθε = pray'],
+  keyTerms: ['without ceasing', 'pray'],
   difficulty: 1,
   notes: 'A two-word command with an adverb plus a present imperative.',
+  matchingPairs: [
+   { greek: 'ἀδιαλείπτως', category: 'Adverb' },
+   { greek: 'προσεύχεσθε', category: 'Present Middle/Passive Imperative verb' },
+  ],
+  distractorCategories: [
+   'Aorist Active Indicative verb',
+   'Nominative singular noun',
+   'Genitive singular article',
+   'Accusative plural adjective',
+   'Present Active Participle',
+   'Dative singular pronoun',
+  ],
  },
  {
   id: 'fe-s3-q2',
-  type: 'translation',
+  type: 'verse-analysis',
   reference: 'Romans 3:23',
   greek: 'πάντες γὰρ ἥμαρτον καὶ ὑστεροῦνται τῆς δόξης τοῦ θεοῦ,',
   transliteration: 'pantes gar hēmarton kai hysterountai tēs doxēs tou theou',
   referenceTranslation: 'For all have sinned and fall short of the glory of God.',
-  keyTerms: ['πάντες = all', 'ἥμαρτον = sinned', 'ὑστεροῦνται = fall short', 'δόξης τοῦ θεοῦ = glory of God'],
+  keyTerms: ['all', 'sinned', 'fall short', 'glory of God'],
   difficulty: 2,
-  notes: 'Two finite verbs joined by καί; requires recognizing an aorist (ἥμαρτον) and a present middle/passive (ὑστεροῦνται) plus a genitive of separation.',
+  notes: 'Two finite verbs joined by καί; requires recognizing an aorist and a present middle/passive plus a genitive of separation.',
+  matchingPairs: [
+   { greek: 'πάντες', category: 'Nominative plural adjective (substantival)' },
+   { greek: 'γάρ', category: 'Postpositive conjunction' },
+   { greek: 'ἥμαρτον', category: 'Aorist Active Indicative verb' },
+   { greek: 'ὑστεροῦνται', category: 'Present Middle/Passive Indicative verb' },
+   { greek: 'τῆς δόξης', category: 'Genitive singular feminine noun with article' },
+   { greek: 'τοῦ θεοῦ', category: 'Genitive singular masculine noun with article' },
+  ],
+  distractorCategories: [
+   'Dative plural noun',
+   'Accusative singular pronoun',
+  ],
  },
  {
   id: 'fe-s3-q3',
-  type: 'translation',
+  type: 'verse-analysis',
   reference: 'John 10:30',
   greek: 'ἐγὼ καὶ ὁ πατὴρ ἕν ἐσμεν',
   transliteration: 'egō kai ho patēr hen esmen',
   referenceTranslation: 'I and the Father are one.',
-  keyTerms: ['ἐγώ = I', 'πατήρ = Father', 'ἕν = one', 'ἐσμεν = we are'],
+  keyTerms: ['I', 'Father', 'one', 'we are'],
   difficulty: 1,
   notes: 'A short equational statement with the verb εἰμί.',
+  matchingPairs: [
+   { greek: 'ἐγώ', category: '1st person personal pronoun' },
+   { greek: 'ὁ πατήρ', category: 'Nominative singular masculine noun with article' },
+   { greek: 'ἕν', category: 'Nominative singular neuter adjective' },
+   { greek: 'ἐσμεν', category: 'Present Active Indicative verb (1st pl.)' },
+  ],
+  distractorCategories: [
+   'Aorist Passive Indicative verb',
+   'Genitive plural feminine noun',
+   'Adverb',
+  ],
  },
  {
   id: 'fe-s3-q4',
-  type: 'translation',
+  type: 'verse-analysis',
   reference: 'Revelation 22:21',
   greek: 'Ἡ χάρις τοῦ κυρίου Ἰησοῦ μετὰ πάντων',
   transliteration: 'hē charis tou kyriou Iēsou meta pantōn',
   referenceTranslation: 'The grace of the Lord Jesus be with all.',
-  keyTerms: ['χάρις = grace', 'κυρίου = of the Lord', 'Ἰησοῦ = of Jesus', 'μετά + gen = with'],
+  keyTerms: ['grace', 'of the Lord', 'of Jesus', 'with all'],
   difficulty: 1,
   notes: 'A short benediction with an implied verb ("be").',
+  matchingPairs: [
+   { greek: 'Ἡ χάρις', category: 'Nominative singular feminine noun with article' },
+   { greek: 'τοῦ κυρίου', category: 'Genitive singular masculine noun with article' },
+   { greek: 'Ἰησοῦ', category: 'Genitive singular proper noun' },
+   { greek: 'μετά', category: 'Preposition (+ genitive)' },
+   { greek: 'πάντων', category: 'Genitive plural adjective (substantival)' },
+  ],
+  distractorCategories: [
+   'Dative singular feminine noun',
+   'Accusative plural neuter adjective',
+   'Present Active Participle',
+  ],
  },
  {
   id: 'fe-s3-q5',
-  type: 'translation',
+  type: 'verse-analysis',
   reference: '2 Corinthians 5:7',
   greek: 'διὰ πίστεως γὰρ περιπατοῦμεν οὐ διὰ εἴδους',
   transliteration: 'dia pisteōs gar peripatoumen ou dia eidous',
   referenceTranslation: 'For we walk by faith, not by sight.',
-  keyTerms: ['διὰ πίστεως = by faith', 'περιπατοῦμεν = we walk', 'οὐ = not', 'εἴδους = sight'],
+  keyTerms: ['by faith', 'we walk', 'not', 'sight'],
   difficulty: 1,
   notes: 'The repeated διὰ phrase makes the contrast easy to follow.',
+  matchingPairs: [
+   { greek: 'διά', category: 'Preposition (+ genitive)' },
+   { greek: 'πίστεως', category: 'Genitive singular feminine noun' },
+   { greek: 'γάρ', category: 'Postpositive conjunction' },
+   { greek: 'περιπατοῦμεν', category: 'Present Active Indicative verb (1st pl.)' },
+   { greek: 'οὐ', category: 'Negative particle' },
+   { greek: 'εἴδους', category: 'Genitive singular neuter noun' },
+  ],
+  distractorCategories: [
+   'Accusative singular masculine noun',
+   'Aorist Active Imperative verb',
+  ],
  },
 ];
 
@@ -1082,7 +1141,11 @@ export function getQuestionsForFinalExamSection(sectionId: FinalExamSectionId): 
   case 2:
    return shuffleArray(finalExamSection2Questions);
   case 3:
-   return shuffleArray(finalExamSection3Questions);
+   return finalExamSection3Questions.map(q => ({
+    ...q,
+    // Shuffle the order of matching pairs so the correct answer position varies
+    matchingPairs: shuffleArray(q.matchingPairs),
+   }));
   default:
    return [];
  }

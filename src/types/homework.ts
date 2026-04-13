@@ -17,7 +17,7 @@ export type SectionId = 1 | 2 | 3 | 4 | 5;
 // HW2 Section IDs (5 sections)
 export type HW2SectionId = 1 | 2 | 3 | 4 | 5;
 
-export type QuestionType = 'transliteration' | 'verse' | 'mcq' | 'translation';
+export type QuestionType = 'transliteration' | 'verse' | 'mcq' | 'translation' | 'verse-analysis';
 
 // Base question interface
 export interface BaseQuestion {
@@ -69,15 +69,35 @@ export interface TranslationQuestion extends BaseQuestion {
   words?: VerseWord[];    // Per-word annotations for clickable Greek text
 }
 
+// For Final Exam Section 3: Verse analysis (matching + translation)
+export interface MatchingPair {
+  greek: string;            // The Greek word/phrase to match
+  category: string;         // The correct grammatical category
+}
+
+export interface VerseAnalysisQuestion extends BaseQuestion {
+  type: 'verse-analysis';
+  reference: string;
+  greek: string;
+  transliteration: string;
+  referenceTranslation: string;
+  keyTerms: string[];
+  difficulty: 1 | 2 | 3;
+  notes?: string;
+  matchingPairs: MatchingPair[];       // Greek word → grammatical category
+  distractorCategories: string[];      // Extra wrong categories to pad the options
+}
+
 // Union type for all questions
-export type HomeworkQuestion = TransliterationQuestion | VerseQuestion | MCQQuestion | TranslationQuestion;
+export type HomeworkQuestion = TransliterationQuestion | VerseQuestion | MCQQuestion | TranslationQuestion | VerseAnalysisQuestion;
 
 // Answer tracking
 export interface QuestionAnswer {
   questionId: string;
   userAnswer: string | number;
   isCorrect: boolean;
-  timestamp: number;
+  timestamp?: number;
+  answeredAt?: number;
 }
 
 // Section progress
@@ -1057,7 +1077,7 @@ export function createInitialFinalExamProgress(): FinalExamProgress {
     },
     currentSection: 1,
     totalScore: 0,
-    totalPossible: 85,
+    totalPossible: 100,
     unlocked: false,
     timerDuration: 60 * 60 * 1000, // 60 minutes
   };
@@ -1079,8 +1099,8 @@ export const FINAL_EXAM_SECTION_META: Record<FinalExamSectionId, FinalExamSectio
   },
   3: {
     id: 3,
-    title: 'Verse Translation',
-    description: '5 practical verse translation questions from key NT passages',
+    title: 'Verse Analysis',
+    description: '5 verse analysis questions: match Greek words to grammar categories, then translate',
     questionCount: 5,
   },
 };
